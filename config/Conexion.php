@@ -4,7 +4,6 @@ require_once"global.php";
 $conexion = new mysqli(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME); 
 mysqli_query( $conexion, 'SET NAMES "'.DB_ENCODE.'"');
 
-//si tenemos un posible error en la cadena de conexion lo mostramos
 if (mysqli_connect_errno()) 
 {
 	printf("Falló la conexión a la Base de Datos: %s\n",mysqli_connect_errno());

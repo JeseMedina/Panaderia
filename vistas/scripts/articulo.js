@@ -16,7 +16,6 @@ function init(){
                 $('#idcategoria').selectpicker('refresh');
  
     });
-    $("#imagenmuestra").hide();
 }
  
 //Función limpiar
@@ -24,10 +23,9 @@ function limpiar()
 {
     $("#codigo").val("");
     $("#nombre").val("");
-    $("#descripcion").val("");
+    $("#uMedida").val("");
     $("#stock").val("");
-    $("#imagenmuestra").attr("src","");
-    $("#imagenactual").val("");
+    $("#precioCosto").val("");
     $("#print").hide();
     $("#idarticulo").val("");
 }
@@ -124,10 +122,8 @@ function mostrar(idarticulo)
         $("#codigo").val(data.codigo);
         $("#nombre").val(data.nombre);
         $("#stock").val(data.stock);
-        $("#descripcion").val(data.descripcion);
-        $("#imagenmuestra").show();
-        $("#imagenmuestra").attr("src","../files/articulos/"+data.imagen);
-        $("#imagenactual").val(data.imagen);
+        $("#uMedida").val(data.uMedida);
+        $("#precioCosto").val(data.precioCosto);
         $("#idarticulo").val(data.idarticulo);
         generarbarcode();
  
