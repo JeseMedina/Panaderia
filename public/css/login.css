@@ -1,0 +1,41 @@
+body{
+    background-color: #1E1E24;
+}
+.login-logo a, .register-logo a {
+    color: #E54B4B;
+}
+.login-box-body, .register-box-body {
+    background: #444140;
+}
+.login-box-msg, .register-box-msg {
+    color: #F7EBE8;
+}
+/* .has-feedback {
+    background-color: #1E1E24;
+} */
+
+.has-feedback .form-control {
+    color: #E54B4B;
+    background-color: #1E1E24;
+    border-color: #F7EBE8;
+}
+.has-feedback .form-control:hover {
+    border-color: #E54B4B;
+}
+.btn-primary {
+    background-color: #1E1E24;
+    border-color: #1E1E24;
+    font-size: 0.9em;
+}
+.btn-primary:hover {
+    color: #1E1E24;
+    background-color: #E54B4B;
+    border-color: #E54B4B;
+    font-weight: bold;
+}
+a {
+    color: #F7EBE8;
+}
+a:hover {
+    color: #E54B4B;
+}
