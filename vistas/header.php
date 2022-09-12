@@ -46,8 +46,8 @@ if (strlen(session_id()) < 1)
         <header class="main-header">
             <a href="escritorio.php"
                 class="logo">
-                <span class="logo-mini"><b>Eben</b> Ezer</span>
-                <span class="logo-lg"><b>Panadería Eben Ezer</b></span>
+                <span class="logo-mini"><b>ARMECA</b></span>
+                <span class="logo-lg"><b>ARMECA</b></span>
             </a>
 
             <nav class="navbar navbar-static-top"
@@ -64,16 +64,16 @@ if (strlen(session_id()) < 1)
                             <a href="#"
                                 class="dropdown-toggle"
                                 data-toggle="dropdown">
-                                <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>"
+<!--                                 <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>"
                                     class="user-image"
                                     alt="User Image">
-                                <span class="hidden-xs"><?php echo $_SESSION['nombre']; ?></span>
+                                <span class="hidden-xs"><?php echo $_SESSION['nombre']; ?></span> -->
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-header">
-                                    <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>"
+                                    <!-- <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>"
                                         class="img-circle"
-                                        alt="User Image">
+                                        alt="User Image"> -->
                                     <p>
                                         Nombre de usuario
                                         <small>tipo</small>
@@ -206,7 +206,7 @@ if (strlen(session_id()) < 1)
                     <li>
                         <a href="#">
                             <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
-                            <small class="label pull-right bg-yellow">IT - UNCAus</small>
+                            <small class="label pull-right bg-yellow">IT - Mantovani</small>
                         </a>
                     </li>
 
