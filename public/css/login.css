@@ -10,10 +10,9 @@ body{
 .login-box-msg, .register-box-msg {
     color: #F7EBE8;
 }
-/* .has-feedback {
+.has-feedback {
     background-color: #1E1E24;
-} */
-
+}
 .has-feedback .form-control {
     color: #E54B4B;
     background-color: #1E1E24;
@@ -21,6 +20,7 @@ body{
 }
 .has-feedback .form-control:hover {
     border-color: #E54B4B;
+    background-color: #1E1E24;
 }
 .btn-primary {
     background-color: #1E1E24;
@@ -32,6 +32,22 @@ body{
     background-color: #E54B4B;
     border-color: #E54B4B;
     font-weight: bold;
+}
+.btn-primary:hover, .btn-primary:active{
+    background-color: #E54B4B !important;
+    border-color: 0px !important;
+    border-radius: 0px !important;
+    color: #1E1E24 !important;
+    font-weight: bold !important;
+}
+.btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary {
+    color: #1E1E24;
+    background-color: #E54B4B;
+    border-color: #E54B4B;
+    font-weight: bold;
+}
+.btn.btn-flat {
+    border-width: 0px;
 }
 a {
     color: #F7EBE8;
