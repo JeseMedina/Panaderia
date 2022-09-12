@@ -1137,7 +1137,7 @@ a:focus {
 }
 @media (max-width: 991px) {
   .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default:hover {
-    background-color: #f9f9f9;
+    background-color: #E54B4B;
   }
 }
 .navbar-nav > .user-menu .user-image {
@@ -3179,11 +3179,11 @@ table.text-center th {
 }
 .login-logo a,
 .register-logo a {
-  color: #444;
+  color: #E54B4B;
 }
 .login-page,
 .register-page {
-  background: #d2d6de;
+  background: #1E1E24;
 }
 .login-box,
 .register-box {
@@ -3199,7 +3199,7 @@ table.text-center th {
 }
 .login-box-body,
 .register-box-body {
-  background: #fff;
+  background: #444140;
   padding: 20px;
   border-top: 0;
   color: #666;
@@ -3213,6 +3213,7 @@ table.text-center th {
   margin: 0;
   text-align: center;
   padding: 0 20px 20px 20px;
+  color: #E54B4B;
 }
 .social-auth-links {
   margin: 10px 0;
