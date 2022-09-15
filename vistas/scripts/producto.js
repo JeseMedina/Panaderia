@@ -10,10 +10,10 @@ function init(){
         guardaryeditar(e);  
     })
  
-    //Cargamos los items al select categoria
-    $.post("../ajax/articulo.php?op=selectCategoria", function(r){
-                $("#idcategoria").html(r);
-                $('#idcategoria').selectpicker('refresh');
+    //Cargamos los items al select rubro
+    $.post("../ajax/producto.php?op=selectrubro", function(r){
+                $("#idrubro").html(r);
+                $('#idrubro').selectpicker('refresh');
  
     });
 }
@@ -27,7 +27,7 @@ function limpiar()
     $("#stock").val("");
     $("#precioCosto").val("");
     $("#print").hide();
-    $("#idarticulo").val("");
+    $("#idproducto").val("");
 }
  
 //Función mostrar formulario
@@ -64,15 +64,14 @@ function listar()
         "aProcessing": true,//Activamos el procesamiento del datatables
         "aServerSide": true,//Paginación y filtrado realizados por el servidor
         dom: 'Bfrtip',//Definimos los elementos del control de tabla
-        buttons: [                
-                    'copyHtml5',
+        buttons: [            
                     'excelHtml5',
                     'csvHtml5',
                     'pdf'
                 ],
         "ajax":
                 {
-                    url: '../ajax/articulo.php?op=listar',
+                    url: '../ajax/producto.php?op=listar',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){
@@ -93,7 +92,7 @@ function guardaryeditar(e)
     var formData = new FormData($("#formulario")[0]);
  
     $.ajax({
-        url: "../ajax/articulo.php?op=guardaryeditar",
+        url: "../ajax/producto.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -110,33 +109,33 @@ function guardaryeditar(e)
     limpiar();
 }
  
-function mostrar(idarticulo)
+function mostrar(idproducto)
 {
-    $.post("../ajax/articulo.php?op=mostrar",{idarticulo : idarticulo}, function(data, status)
+    $.post("../ajax/producto.php?op=mostrar",{idproducto : idproducto}, function(data, status)
     {
         data = JSON.parse(data);        
         mostrarform(true);
  
-        $("#idcategoria").val(data.idcategoria);
-        $('#idcategoria').selectpicker('refresh');
+        $("#idrubro").val(data.idrubro);
+        $('#idrubro').selectpicker('refresh');
         $("#codigo").val(data.codigo);
         $("#nombre").val(data.nombre);
         $("#stock").val(data.stock);
         $("#uMedida").val(data.uMedida);
         $("#precioCosto").val(data.precioCosto);
-        $("#idarticulo").val(data.idarticulo);
+        $("#idproducto").val(data.idproducto);
         generarbarcode();
  
     })
 }
  
 //Función para desactivar registros
-function desactivar(idarticulo)
+function desactivar(idproducto)
 {
     bootbox.confirm("¿Está Seguro de desactivar el artículo?", function(result){
         if(result)
         {
-            $.post("../ajax/articulo.php?op=desactivar", {idarticulo : idarticulo}, function(e){
+            $.post("../ajax/producto.php?op=desactivar", {idproducto : idproducto}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 
@@ -145,12 +144,12 @@ function desactivar(idarticulo)
 }
  
 //Función para activar registros
-function activar(idarticulo)
+function activar(idproducto)
 {
     bootbox.confirm("¿Está Seguro de activar el Artículo?", function(result){
         if(result)
         {
-            $.post("../ajax/articulo.php?op=activar", {idarticulo : idarticulo}, function(e){
+            $.post("../ajax/producto.php?op=activar", {idproducto : idproducto}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 

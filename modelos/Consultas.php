@@ -13,7 +13,7 @@ Class Consultas
 	//Implementar un método para listar los registros
 	public function comprasfecha($fecha_inicio,$fecha_fin)
 	{
-		$sql="SELECT DATE(i.fecha_hora) AS fecha,u.nombre AS usuario,p.nombre AS proveedor,i.tipo_comprobante,i.serie_comprobante,i.num_comprobante,i.total_compra,i.impuesto,i.estado FROM ingreso i INNER JOIN persona p ON i.idproveedor=p.idpersona INNER JOIN usuario u ON i.idusuario=u.idusuario WHERE DATE(i.fecha_hora)>='$fecha_inicio' AND date(i.fecha_hora)<='$fecha_fin'";
+		$sql="SELECT DATE(i.fecha_hora) AS fecha,u.nombre AS usuario,p.nombre AS proveedor,i.tipo_comprobante,i.serie_comprobante,i.num_comprobante,i.total_compra,i.impuesto,i.estado FROM compra i INNER JOIN persona p ON i.idproveedor=p.idpersona INNER JOIN usuario u ON i.idusuario=u.idusuario WHERE DATE(i.fecha_hora)>='$fecha_inicio' AND date(i.fecha_hora)<='$fecha_fin'";
 		return ejecutarConsulta($sql);		
 	}
 
@@ -25,7 +25,7 @@ Class Consultas
 	}
 	public function totalcomprahoy()
 	{
-		$sql="SELECT IFNULL(SUM(total_compra),0) AS total_compra FROM ingreso WHERE DATE(fecha_hora)=curdate()";
+		$sql="SELECT IFNULL(SUM(total_compra),0) AS total_compra FROM compra WHERE DATE(fecha_hora)=curdate()";
 		return ejecutarConsulta($sql);
 	}
 	public function totalventahoy()
@@ -35,7 +35,7 @@ Class Consultas
 	}
 	public function comprasultimos_10dias()
     {
-        $sql="SELECT CONCAT(DAY(fecha_hora),'-',MONTH(fecha_hora)) as fecha,SUM(total_compra) as total FROM ingreso GROUP by fecha_hora ORDER BY fecha_hora DESC limit 0,10";
+        $sql="SELECT CONCAT(DAY(fecha_hora),'-',MONTH(fecha_hora)) as fecha,SUM(total_compra) as total FROM compra GROUP by fecha_hora ORDER BY fecha_hora DESC limit 0,10";
         return ejecutarConsulta($sql);
     }
  

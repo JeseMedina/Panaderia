@@ -1,54 +1,54 @@
 <?php 
-require_once "../modelos/Categoria.php";
+require_once "../modelos/rubro.php";
 
-$categoria=new Categoria();
+$rubro=new Rubro();
 
-$idcategoria=isset($_POST["idcategoria"])? limpiarCadena($_POST["idcategoria"]):"";
+$idrubro=isset($_POST["idrubro"])? limpiarCadena($_POST["idrubro"]):"";
 $nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
 $descripcion=isset($_POST["descripcion"])? limpiarCadena($_POST["descripcion"]):"";
 
 switch ($_GET["op"]){
 	case 'guardaryeditar':
-		if (empty($idcategoria)){
-			$rspta=$categoria->insertar($nombre,$descripcion);
+		if (empty($idrubro)){
+			$rspta=$rubro->insertar($nombre,$descripcion);
 			echo $rspta ? "Categoría registrada" : "Categoría no se pudo registrar";
 		}
 		else {
-			$rspta=$categoria->editar($idcategoria,$nombre,$descripcion);
+			$rspta=$rubro->editar($idrubro,$nombre,$descripcion);
 			echo $rspta ? "Categoría actualizada" : "Categoría no se pudo actualizar";
 		}
 	break;
 
 	case 'desactivar':
-		$rspta=$categoria->desactivar($idcategoria);
+		$rspta=$rubro->desactivar($idrubro);
  		echo $rspta ? "Categoría Desactivada" : "Categoría no se puede desactivar";
  		
 	break;
 
 	case 'activar':
-		$rspta=$categoria->activar($idcategoria);
+		$rspta=$rubro->activar($idrubro);
  		echo $rspta ? "Categoría activada" : "Categoría no se puede activar";
  		
 	break;
 
 	case 'mostrar':
-		$rspta=$categoria->mostrar($idcategoria);
+		$rspta=$rubro->mostrar($idrubro);
  		//Codificar el resultado utilizando json
  		echo json_encode($rspta);
  		
 	break;
 
 	case 'listar':
-		$rspta=$categoria->listar();
+		$rspta=$rubro->listar();
  		//Vamos a declarar un array
  		$data= Array();
 
  		while ($reg=$rspta->fetch_object()){
  			$data[]=array(
- 				"0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>'.
- 					' <button class="btn btn-danger" onclick="desactivar('.$reg->idcategoria.')"><i class="fa fa-close"></i></button>':
- 					'<button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>'.
- 					' <button class="btn btn-primary" onclick="activar('.$reg->idcategoria.')"><i class="fa fa-check"></i></button>',
+ 				"0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idrubro.')"><i class="fa fa-pencil"></i></button>'.
+ 					' <button class="btn btn-danger" onclick="desactivar('.$reg->idrubro.')"><i class="fa fa-close"></i></button>':
+ 					'<button class="btn btn-warning" onclick="mostrar('.$reg->idrubro.')"><i class="fa fa-pencil"></i></button>'.
+ 					' <button class="btn btn-primary" onclick="activar('.$reg->idrubro.')"><i class="fa fa-check"></i></button>',
  				"1"=>$reg->nombre,
  				"2"=>$reg->descripcion,
  				"3"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':

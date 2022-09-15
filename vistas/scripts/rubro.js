@@ -14,7 +14,7 @@ function init(){
 //Función limpiar
 function limpiar()
 {
-    $("#idcategoria").val("");
+    $("#idrubro").val("");
     $("#nombre").val("");
     $("#descripcion").val("");
 }
@@ -54,14 +54,13 @@ function listar()
         "aServerSide": true,//Paginación y filtrado realizados por el servidor
         dom: 'Bfrtip',//Definimos los elementos del control de tabla
         buttons: [                
-                    'copyHtml5',
                     'excelHtml5',
                     'csvHtml5',
                     'pdf'
                 ],
         "ajax":
                 {
-                    url: '../ajax/categoria.php?op=listar',
+                    url: '../ajax/rubro.php?op=listar',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){
@@ -82,7 +81,7 @@ function guardaryeditar(e)
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../ajax/categoria.php?op=guardaryeditar",
+        url: "../ajax/rubro.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -99,27 +98,27 @@ function guardaryeditar(e)
     limpiar();
 }
 
-function mostrar(idcategoria)
+function mostrar(idrubro)
 {
-    $.post("../ajax/categoria.php?op=mostrar",{idcategoria : idcategoria}, function(data, status)
+    $.post("../ajax/rubro.php?op=mostrar",{idrubro : idrubro}, function(data, status)
     {
         data = JSON.parse(data);        
         mostrarform(true);
 
         $("#nombre").val(data.nombre);
         $("#descripcion").val(data.descripcion);
-        $("#idcategoria").val(data.idcategoria);
+        $("#idrubro").val(data.idrubro);
 
     })
 }
 
 //Función para desactivar registros
-function desactivar(idcategoria)
+function desactivar(idrubro)
 {
     bootbox.confirm("¿Está Seguro de desactivar la Categoría?", function(result){
         if(result)
         {
-            $.post("../ajax/categoria.php?op=desactivar", {idcategoria : idcategoria}, function(e){
+            $.post("../ajax/rubro.php?op=desactivar", {idrubro : idrubro}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 
@@ -128,12 +127,12 @@ function desactivar(idcategoria)
 }
 
 //Función para activar registros
-function activar(idcategoria)
+function activar(idrubro)
 {
     bootbox.confirm("¿Está Seguro de activar la Categoría?", function(result){
         if(result)
         {
-            $.post("../ajax/categoria.php?op=activar", {idcategoria : idcategoria}, function(e){
+            $.post("../ajax/rubro.php?op=activar", {idrubro : idrubro}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 

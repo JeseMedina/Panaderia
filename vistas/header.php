@@ -115,8 +115,8 @@ if (strlen(session_id()) < 1)
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="articulo.php"><i class="fa fa-circle-o"></i> Artículos</a></li>
-                <li><a href="categoria.php"><i class="fa fa-circle-o"></i> Categorías</a></li>
+                <li><a href="producto.php"><i class="fa fa-circle-o"></i> Productos</a></li>
+                <li><a href="rubro.php"><i class="fa fa-circle-o"></i> Rubros</a></li>
               </ul>
             </li>';
             }  

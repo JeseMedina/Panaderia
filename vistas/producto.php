@@ -18,11 +18,11 @@ if ($_SESSION['almacen']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Artículo <button class="btn btn-success"
+                        <h1 class="box-title">Productos <button class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
                                 Agregar</button> <a target="_blank"
-                                href="../reportes/rptarticulos.php"><button
+                                href="../reportes/rptproductos.php"><button
                                     class="btn btn-info">Reporte</button></a> </h1>
                         <div class="box-tools pull-right">
                         </div>
@@ -63,8 +63,8 @@ if ($_SESSION['almacen']==1)
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Nombre(*):</label>
                                 <input type="hidden"
-                                    name="idarticulo"
-                                    id="idarticulo">
+                                    name="idproducto"
+                                    id="idproducto">
                                 <input type="text"
                                     class="form-control"
                                     name="nombre"
@@ -75,8 +75,8 @@ if ($_SESSION['almacen']==1)
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Categoría(*):</label>
-                                <select id="idcategoria"
-                                    name="idcategoria"
+                                <select id="idrubro"
+                                    name="idrubro"
                                     class="form-control selectpicker"
                                     data-live-search="true"
                                     required></select>
@@ -155,7 +155,7 @@ require 'footer.php';
 <script type="text/javascript"
     src="../public/js/jquery.PrintArea.js"></script>
 <script type="text/javascript"
-    src="scripts/articulo.js"></script>
+    src="scripts/producto.js"></script>
 <?php 
 }
 ob_end_flush();

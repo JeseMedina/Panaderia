@@ -18,7 +18,7 @@ if ($_SESSION['almacen']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Categoría <button class="btn btn-success"
+                        <h1 class="box-title">Rubros <button class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
                                 Agregar</button></h1>
@@ -54,8 +54,8 @@ if ($_SESSION['almacen']==1)
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Nombre:</label>
                                 <input type="hidden"
-                                    name="idcategoria"
-                                    id="idcategoria">
+                                    name="idrubro"
+                                    id="idrubro">
                                 <input type="text"
                                     class="form-control"
                                     name="nombre"
@@ -99,7 +99,7 @@ else
 require 'footer.php';
 ?>
 <script type="text/javascript"
-    src="scripts/categoria.js"></script>
+    src="scripts/rubro.js"></script>
 <?php 
 }
 ob_end_flush();
