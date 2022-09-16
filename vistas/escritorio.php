@@ -15,20 +15,32 @@ if ($_SESSION['escritorio']==1)
   require_once "../modelos/Consultas.php";
   $consulta=new Consultas();
 
+
   $rsptac = $consulta->totalcomprahoy();
-  $regc = $rsptac->fetch_object();
-  $totalc = $regc->total_compra;
+  if ($rsptac){
+    $regc = $rsptac->fetch_object();
+    $totalc = $regc->total_compra;  
+  } else{
+    $totalc = 0;
+  }
 
   $rsptav = $consulta->totalventahoy();
-  $regv = $rsptav->fetch_object();
-  $totalv = $regv->total_venta;
+
+  if ($rsptac){
+    $regv = $rsptav->fetch_object();
+    $totalv = $regv->total_venta;
+  } else{
+    $totalv = 0;
+  }
   //Datos para mostrar el gráfico de barras de las compras
   $compras10 = $consulta->comprasultimos_10dias();
   $fechasc='';
   $totalesc='';
-  while ($regfechac= $compras10->fetch_object()) {
-    $fechasc=$fechasc.'"'.$regfechac->fecha .'",';
-    $totalesc=$totalesc.$regfechac->total .','; 
+  if ($compras10){
+    while ($regfechac= $compras10->fetch_object()) {
+      $fechasc=$fechasc.'"'.$regfechac->fecha .'",';
+      $totalesc=$totalesc.$regfechac->total .','; 
+    }
   }
   //Quitamos la última coma
   $fechasc=substr($fechasc, 0, -1);
@@ -38,9 +50,11 @@ if ($_SESSION['escritorio']==1)
   $ventas12 = $consulta->ventasultimos_12meses();
   $fechasv='';
   $totalesv='';
-  while ($regfechav= $ventas12->fetch_object()) {
-    $fechasv=$fechasv.'"'.$regfechav->fecha .'",';
-    $totalesv=$totalesv.$regfechav->total .','; 
+  if ($ventas12){
+    while ($regfechav= $ventas12->fetch_object()) {
+      $fechasv=$fechasv.'"'.$regfechav->fecha .'",';
+      $totalesv=$totalesv.$regfechav->total .','; 
+    }
   }
   //Quitamos la última coma
   $fechasv=substr($fechasv, 0, -1);
