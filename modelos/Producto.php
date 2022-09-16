@@ -63,7 +63,7 @@ Class Producto
     //Implementar un método para listar los registros activos, su último precio y el stock (vamos a unir con el último registro de la tabla detalle_ingreso)
     public function listarActivosVenta()
     {
-        $sql="SELECT a.idproducto,a.idrubro,c.nombre as rubro,a.codigo,a.nombre,a.stock,(SELECT precio_venta FROM detalle_ingreso WHERE idproducto=a.idproducto order by iddetalle_ingreso desc limit 0,1) as precio_venta,a.uMedida,a.precioCosto,a.condicion FROM producto a INNER JOIN rubro c ON a.idrubro=c.idrubro WHERE a.condicion='1'";
+        $sql="SELECT a.idproducto,a.idrubro,c.nombre as rubro,a.codigo,a.nombre,a.stock,(SELECT precio_venta FROM detalle_compra WHERE idproducto=a.idproducto order by iddetalle_compra desc limit 0,1) as precio_venta,a.uMedida,a.precioCosto,a.condicion FROM producto a INNER JOIN rubro c ON a.idrubro=c.idrubro WHERE a.condicion='1'";
         return ejecutarConsulta($sql);      
     }
 }

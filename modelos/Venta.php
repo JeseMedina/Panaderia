@@ -11,7 +11,7 @@ Class Venta
     }
  
     //Implementamos un método para insertar registros
-    public function insertar($idcliente,$idusuario,$tipo_comprobante,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_venta,$idarticulo,$cantidad,$precio_venta,$descuento)
+    public function insertar($idcliente,$idusuario,$tipo_comprobante,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_venta,$idproducto,$cantidad,$precio_venta,$descuento)
     {
         $sql="INSERT INTO venta (idcliente,idusuario,tipo_comprobante,serie_comprobante,num_comprobante,fecha_hora,impuesto,total_venta,estado)
         VALUES ('$idcliente','$idusuario','$tipo_comprobante','$serie_comprobante','$num_comprobante','$fecha_hora','$impuesto','$total_venta','Aceptado')";
@@ -19,11 +19,10 @@ Class Venta
         $idventanew=ejecutarConsulta_retornarID($sql);
  
         $num_elementos=0;
-        $sw=true;
- 
-        while ($num_elementos < count($idarticulo))
+        $sw=True; 
+        while ($num_elementos < count($idproducto))
         {
-            $sql_detalle = "INSERT INTO detalle_venta(idventa, idarticulo,cantidad,precio_venta,descuento) VALUES ('$idventanew', '$idarticulo[$num_elementos]','$cantidad[$num_elementos]','$precio_venta[$num_elementos]','$descuento[$num_elementos]')";
+            $sql_detalle = "INSERT INTO detalle_venta(idventa, idproducto,cantidad,precio_venta,descuento) VALUES ('$idventanew', '$idproducto[$num_elementos]','$cantidad[$num_elementos]','$precio_venta[$num_elementos]','$descuento[$num_elementos]')";
             ejecutarConsulta($sql_detalle) or $sw = false;
             $num_elementos=$num_elementos + 1;
         }
@@ -49,7 +48,7 @@ Class Venta
  
     public function listarDetalle($idventa)
     {
-        $sql="SELECT dv.idventa,dv.idarticulo,a.nombre,dv.cantidad,dv.precio_venta,dv.descuento,(dv.cantidad*dv.precio_venta-dv.descuento) as subtotal FROM detalle_venta dv inner join articulo a on dv.idarticulo=a.idarticulo where dv.idventa='$idventa'";
+        $sql="SELECT dv.idventa,dv.idproducto,a.nombre,dv.cantidad,dv.precio_venta,dv.descuento,(dv.cantidad*dv.precio_venta-dv.descuento) as subtotal FROM detalle_venta dv inner join producto a on dv.idproducto=a.idproducto where dv.idventa='$idventa'";
         return ejecutarConsulta($sql);
     }
  
@@ -67,7 +66,7 @@ Class Venta
     }
     public function ventadetalle($idventa)
     {
-        $sql="SELECT a.nombre as articulo,a.codigo,d.cantidad,d.precio_venta,d.descuento,(d.cantidad*d.precio_venta-d.descuento) as subtotal FROM detalle_venta d INNER JOIN articulo a on d.idarticulo=a.idarticulo WHERE d.idventa='$idventa'";
+        $sql="SELECT a.nombre as producto,a.codigo,d.cantidad,d.precio_venta,d.descuento,(d.cantidad*d.precio_venta-d.descuento) as subtotal FROM detalle_venta d INNER JOIN producto a on d.idproducto=a.idproducto WHERE d.idventa='$idventa'";
         return ejecutarConsulta($sql);
     }
     

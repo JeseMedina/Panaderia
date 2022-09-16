@@ -81,8 +81,7 @@ function listar()
         "aProcessing": true,//Activamos el procesamiento del datatables
         "aServerSide": true,//Paginación y filtrado realizados por el servidor
         dom: 'Bfrtip',//Definimos los elementos del control de tabla
-        buttons: [                
-                    'copyHtml5',
+        buttons: [               
                     'excelHtml5',
                     'csvHtml5',
                     'pdf'
@@ -116,7 +115,7 @@ function listarArticulos()
                 ],
         "ajax":
                 {
-                    url: '../ajax/venta.php?op=listarArticulosVenta',
+                    url: '../ajax/venta.php?op=listarProductosVenta',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){

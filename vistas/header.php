@@ -64,19 +64,19 @@ if (strlen(session_id()) < 1)
                             <a href="#"
                                 class="dropdown-toggle"
                                 data-toggle="dropdown">
-<!--                                 <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>"
+                                <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>"
                                     class="user-image"
                                     alt="User Image">
-                                <span class="hidden-xs"><?php echo $_SESSION['nombre']; ?></span> -->
+                                <span class="hidden-xs"><?php echo $_SESSION['nombre']; ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-header">
-                                    <!-- <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>"
+                                    <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>"
                                         class="img-circle"
-                                        alt="User Image"> -->
+                                        alt="User Image">
                                     <p>
-                                        Nombre de usuario
-                                        <small>tipo</small>
+                                        <?php echo $_SESSION['nombre']; ?>
+                                        <!-- <?php echo $_SESSION['cargo']; ?> -->
                                     </p>
                                 </li>
                                 <li class="user-footer">

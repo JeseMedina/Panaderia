@@ -19,7 +19,7 @@ $total_venta=isset($_POST["total_venta"])? limpiarCadena($_POST["total_venta"]):
 switch ($_GET["op"]){
     case 'guardaryeditar':
         if (empty($idventa)){
-            $rspta=$venta->insertar($idcliente,$idusuario,$tipo_comprobante,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_venta,$_POST["idarticulo"],$_POST["cantidad"],$_POST["precio_venta"],$_POST["descuento"]);
+            $rspta=$venta->insertar($idcliente,$idusuario,$tipo_comprobante,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_venta,$_POST["idproducto"],$_POST["cantidad"],$_POST["precio_venta"],$_POST["descuento"]);
             echo $rspta ? "Venta registrada" : "No se pudieron registrar todos los datos de la venta";
         }
         else {
@@ -117,23 +117,24 @@ switch ($_GET["op"]){
                 }
     break;
  
-    case 'listarArticulosVenta':
-        require_once "../modelos/Articulo.php";
-        $articulo=new Articulo();
+    case 'listarProductosVenta':
+        require_once "../modelos/Producto.php";
+        $producto=new Producto();
  
-        $rspta=$articulo->listarActivosVenta();
+        $rspta=$producto->listarActivosVenta();
         //Vamos a declarar un array
         $data= Array();
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idarticulo.',\''.$reg->nombre.'\',\''.$reg->precio_venta.'\')"><span class="fa fa-plus"></span></button>',
+                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precio_venta.'\')"><span class="fa fa-plus"></span></button>',
                 "1"=>$reg->nombre,
-                "2"=>$reg->categoria,
+                "2"=>$reg->rubro,
                 "3"=>$reg->codigo,
                 "4"=>$reg->stock,
                 "5"=>$reg->precio_venta,
-                "6"=>"<img src='../files/articulos/".$reg->imagen."' height='50px' width='50px' >"
+                "6"=>$reg->uMedida,
+                "7"=>$reg->precioCosto
                 );
         }
         $results = array(
