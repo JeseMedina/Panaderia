@@ -14,12 +14,12 @@ function init(){
 //Función limpiar
 function limpiar()
 {
+    $("#idpersona").val("");
     $("#nombre").val("");
     $("#num_documento").val("");
     $("#direccion").val("");
     $("#telefono").val("");
     $("#email").val("");
-    $("#idpersona").val("");
 }
  
 //Función mostrar formulario
@@ -107,7 +107,8 @@ function mostrar(idpersona)
     {
         data = JSON.parse(data);        
         mostrarform(true);
- 
+
+        $("#idpersona").val(data.idpersona);
         $("#nombre").val(data.nombre);
         $("#tipo_documento").val(data.tipo_documento);
         $("#tipo_documento").selectpicker('refresh');
@@ -115,13 +116,38 @@ function mostrar(idpersona)
         $("#direccion").val(data.direccion);
         $("#telefono").val(data.telefono);
         $("#email").val(data.email);
-        $("#idpersona").val(data.idpersona);
-         
- 
+    })
+}
+
+//Función para activar registros
+function activar(idpersona)
+{
+    bootbox.confirm("¿Está Seguro de activar al cliente?", function(result){
+        if(result)
+        {
+            $.post("../ajax/persona.php?op=activar", {idpersona : idpersona}, function(e){
+                bootbox.alert(e);
+                tabla.ajax.reload();
+            }); 
+        }
     })
 }
  
-//Función para eliminar registros
+//Función para desactivar registros
+function desactivar(idpersona)
+{
+    bootbox.confirm("¿Está seguro de desactivar al cliente?", function(result){
+        if(result)
+        {
+            $.post("../ajax/persona.php?op=desactivar", {idpersona : idpersona}, function(e){
+                bootbox.alert(e);
+                tabla.ajax.reload();
+            }); 
+        }
+    })
+}
+
+/* //Función para eliminar registros
 function eliminar(idpersona)
 {
     bootbox.confirm("¿Está Seguro de eliminar el cliente?", function(result){
@@ -133,6 +159,6 @@ function eliminar(idpersona)
             }); 
         }
     })
-}
- 
+} */
+
 init();

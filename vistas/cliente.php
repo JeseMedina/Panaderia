@@ -26,6 +26,7 @@ require 'header.php';
                             <th>Número</th>
                             <th>Teléfono</th>
                             <th>Email</th>
+                            <th>Estado</th>
                           </thead>
                           <tbody>                            
                           </tbody>
@@ -36,6 +37,7 @@ require 'header.php';
                             <th>Número</th>
                             <th>Teléfono</th>
                             <th>Email</th>
+                            <th>Estado</th>
                           </tfoot>
                         </table>
                     </div>
