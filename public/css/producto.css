@@ -91,8 +91,20 @@
     border-color: var(--salmon);
 }
 
+.btn-success:hover {
+    color: var(--salmon);
+    background-color: var(--dark-gray);
+    border-color: var(--salmon);
+}
+
 .btn-info {
     background-color: var(--peach);
+    border-color: var(--peach);
+}
+
+.btn-info:hover {
+    color: var(--peach);
+    background-color: var(--dark-gray);
     border-color: var(--peach);
 }
 
@@ -148,15 +160,25 @@ table.dataTable thead th, table.dataTable thead td {
     border-color: var(--light-gray);
 }
 
+.btn-primary:hover {
+    color: #fff;
+    background-color: var(--dark-gray);
+    border-color: var(--dark-gray);
+}
+
 /*Color de las filas */
 .table-striped>tbody>tr:nth-of-type(odd) {
     background-color: var(--dark-gray);
 }
 
 /* Color para las filas desactivadas */
-table.dataTable tbody tr {
+/* table.dataTable tbody tr {
     background-color: var(--dark-gray);
-}
+} */
+
+/* .table-hover>tbody>tr:hover {
+    background-color: var(--salmon);
+} */
 
 /* Letras de las filas */
 table.dataTable tbody th, table.dataTable tbody td {
