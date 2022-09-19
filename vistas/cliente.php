@@ -2,7 +2,11 @@
 //Activamos el almacenamiento en el buffer
 require 'header.php';
 ?>
-<!--Contenido-->
+<head>
+  <link rel="stylesheet"
+          type="text/css"
+          href="../public/css/producto.css">
+</head>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">        
         <!-- Main content -->

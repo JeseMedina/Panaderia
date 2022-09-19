@@ -12,6 +12,12 @@ require 'header.php';
 if ($_SESSION['almacen']==1)
 {
 ?>
+<!--Contenido-->
+<head>
+  <link rel="stylesheet"
+          type="text/css"
+          href="../public/css/producto.css">
+</head>
 <div class="content-wrapper">
     <section class="content">
         <div class="row">

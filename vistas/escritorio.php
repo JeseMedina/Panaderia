@@ -61,6 +61,11 @@ if ($_SESSION['escritorio']==1)
   $totalesv=substr($totalesv, 0, -1);
 ?>
 <!--Contenido-->
+<head>
+  <link rel="stylesheet"
+          type="text/css"
+          href="../public/css/escritorio.css">
+</head>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">        
         <!-- Main content -->
