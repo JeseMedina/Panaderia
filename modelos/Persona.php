@@ -25,10 +25,24 @@ Class Persona
         return ejecutarConsulta($sql);
     }
  
-    //Implementamos un método para eliminar categorías
+    /* //Implementamos un método para eliminar categorías
     public function eliminar($idpersona)
     {
         $sql="DELETE FROM persona WHERE idpersona='$idpersona'";
+        return ejecutarConsulta($sql);
+    } */
+
+    //Implementamos un método para desactivar registros
+    public function desactivar($idpersona)
+    {
+        $sql="UPDATE persona SET condicion='0' WHERE idpersona='$idpersona'";
+        return ejecutarConsulta($sql);
+    }
+
+    //Implementamos un método para activar registros
+    public function activar($idpersona)
+    {
+        $sql="UPDATE persona SET condicion='1' WHERE idpersona='$idpersona'";
         return ejecutarConsulta($sql);
     }
  
@@ -39,19 +53,20 @@ Class Persona
         return ejecutarConsultaSimpleFila($sql);
     }
  
-    //Implementar un método para listar los registros
+    //Implementar un método para listar los registros de persona
     public function listarp()
     {
         $sql="SELECT * FROM persona WHERE tipo_persona='Proveedor'";
         return ejecutarConsulta($sql);      
     }
  
-    //Implementar un método para listar los registros 
+    //Implementar un método para listar los registros de clientes 
     public function listarc()
     {
         $sql="SELECT * FROM persona WHERE tipo_persona='Cliente'";
         return ejecutarConsulta($sql);      
     }
+
 }
  
 ?>
