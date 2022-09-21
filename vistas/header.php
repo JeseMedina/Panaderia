@@ -39,6 +39,9 @@ if (strlen(session_id()) < 1)
     <link rel="stylesheet"
         type="text/css"
         href="../public/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+        type="text/css"
+        href="../public/css/header.css">
 </head>
 
 <body class="hold-transition skin-blue-light sidebar-mini">

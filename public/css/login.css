@@ -14,13 +14,22 @@ body{
     background-color: #1E1E24;
 }
 .has-feedback .form-control {
-    color: #E54B4B;
+    -webkit-text-fill-color: #E54B4B;
+    color: #E54B4B !important;
+    font-weight: bold;
     background-color: #1E1E24;
     border-color: #F7EBE8;
 }
+/* lo del webkit fiero */
+input:-internal-autofill-selected {
+    background-color: #1E1E24 !important;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 17px rgb(6, 3, 3) inset !important;
+}
+/* acá termina la poronga */
 .has-feedback .form-control:hover {
     border-color: #E54B4B;
-    background-color: #1E1E24;
 }
 .btn-primary {
     background-color: #1E1E24;

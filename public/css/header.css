@@ -1,0 +1,37 @@
+:root{
+    --dark-gray: #1e1e24;
+    --light-gray: #444140;
+    --salmon: #e54b4b;
+    --peach: #ffa987;
+    --cream: #f7ebe8;
+}
+
+body{
+    background-color: var(--dark-gray);
+}
+
+.skin-blue-light .main-header .logo{
+    background-color: var(--dark-gray);
+    color: var(--salmon);
+}
+
+.skin-blue-light .main-header .logo:hover{
+    background-color: var(--dark-gray);
+    color: var(--salmon);
+}
+
+.skin-blue-light .main-header .navbar{
+    background-color: var(--dark-gray);
+}
+
+.skin-blue-light .main-header .navbar{
+    background-color: var(--dark-gray);
+}
+
+.skin-blue-light .main-header .navbar .sidebar-toggle{
+    color: var(--peach);
+}
+
+.skin-blue-light .main-header .navbar .nav>li>a {
+    color: var(--peach);
+}

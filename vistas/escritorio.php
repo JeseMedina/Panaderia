@@ -25,7 +25,11 @@ if ($_SESSION['escritorio']==1)
   }
 
   $rsptav = $consulta->totalventahoy();
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 3a9d5b77e9e0a288024cddc7bd02d67dbc6b150d
   if ($rsptac){
     $regv = $rsptav->fetch_object();
     $totalv = $regv->total_venta;
@@ -40,7 +44,11 @@ if ($_SESSION['escritorio']==1)
     while ($regfechac= $compras10->fetch_object()) {
       $fechasc=$fechasc.'"'.$regfechac->fecha .'",';
       $totalesc=$totalesc.$regfechac->total .','; 
+<<<<<<< HEAD
     } 
+=======
+    }
+>>>>>>> 3a9d5b77e9e0a288024cddc7bd02d67dbc6b150d
   }
   //Quitamos la última coma
   $fechasc=substr($fechasc, 0, -1);
@@ -54,13 +62,18 @@ if ($_SESSION['escritorio']==1)
     while ($regfechav= $ventas12->fetch_object()) {
       $fechasv=$fechasv.'"'.$regfechav->fecha .'",';
       $totalesv=$totalesv.$regfechav->total .','; 
+<<<<<<< HEAD
     } 
+=======
+    }
+>>>>>>> 3a9d5b77e9e0a288024cddc7bd02d67dbc6b150d
   }
   //Quitamos la última coma
   $fechasv=substr($fechasv, 0, -1);
   $totalesv=substr($totalesv, 0, -1);
 ?>
 <!--Contenido-->
+<<<<<<< HEAD
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Main content -->
@@ -68,6 +81,20 @@ if ($_SESSION['escritorio']==1)
         <div class="row">
             <div class="col-md-12">
                 <div class="box">
+=======
+<head>
+  <link rel="stylesheet"
+          type="text/css"
+          href="../public/css/escritorio.css">
+</head>
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">        
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+              <div class="col-md-12">
+                  <div class="box">
+>>>>>>> 3a9d5b77e9e0a288024cddc7bd02d67dbc6b150d
                     <div class="box-header with-border">
                         <h1 class="box-title">Escritorio</h1>
                         <div class="box-tools pull-right">

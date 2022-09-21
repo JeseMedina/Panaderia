@@ -2,7 +2,11 @@
 //Activamos el almacenamiento en el buffer
 require 'header.php';
 ?>
-<!--Contenido-->
+<head>
+  <link rel="stylesheet"
+          type="text/css"
+          href="../public/css/producto.css">
+</head>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">        
         <!-- Main content -->
@@ -26,6 +30,7 @@ require 'header.php';
                             <th>Número</th>
                             <th>Teléfono</th>
                             <th>Email</th>
+                            <th>Estado</th>
                           </thead>
                           <tbody>                            
                           </tbody>
@@ -36,6 +41,7 @@ require 'header.php';
                             <th>Número</th>
                             <th>Teléfono</th>
                             <th>Email</th>
+                            <th>Estado</th>
                           </tfoot>
                         </table>
                     </div>

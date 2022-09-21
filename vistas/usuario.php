@@ -1,6 +1,6 @@
 <?php
 //Activamos el almacenamiento en el buffer
-ob_start();
+/* ob_start();
 session_start();
 
 if (!isset($_SESSION["nombre"])) 
@@ -8,12 +8,16 @@ if (!isset($_SESSION["nombre"]))
   header("Location: login.html");
 }
 else
-{
+{ */
 require 'header.php';
-if ($_SESSION['acceso']==1) 
-{
+/* if ($_SESSION['acceso']==1) 
+{ */
 ?>
-<!--Contenido-->
+<head>
+  <link rel="stylesheet"
+          type="text/css"
+          href="../public/css/producto.css">
+</head>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">        
         <!-- Main content -->
@@ -33,10 +37,11 @@ if ($_SESSION['acceso']==1)
                           <thead>
                             <th>Opciones</th>
                             <th>Nombre</th>
-                            <th>Documento</th>
-                            <th>Número</th>
+                            <th>DNI</th>
+                            <th>Dirección</th>
                             <th>Teléfono</th>
                             <th>Email</th>
+                            <th>Cargo</th>
                             <th>Login</th>
                             <th>Foto</th>
                             <th>Estado</th>
@@ -46,10 +51,11 @@ if ($_SESSION['acceso']==1)
                           <tfoot>
                             <th>Opciones</th>
                             <th>Nombre</th>
-                            <th>Documento</th>
-                            <th>Número</th>
+                            <th>DNI</th>
+                            <th>Dirección</th>
                             <th>Teléfono</th>
                             <th>Email</th>
+                            <th>Cargo</th>
                             <th>Login</th>
                             <th>Foto</th>
                             <th>Estado</th>
@@ -64,16 +70,8 @@ if ($_SESSION['acceso']==1)
                             <input type="text" class="form-control" name="nombre" id="nombre" maxlength="100" placeholder="Nombre" required>
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <label>Tipo Documento(*):</label>
-                            <select id="tipo_documento" name="tipo_documento" class="form-control selectpicker" data-live-search="true" required>
-                              <option value="DNI">DNI</option>
-                              <option value="LC">LC</option>
-                              <option value="CEDULA">CEDULA</option>
-                            </select>
-                          </div>
-                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <label>Número(*):</label>
-                            <input type="text" class="form-control" name="num_documento" id="num_documento" maxlength="20" placeholder="Documento" required>
+                            <label>DNI(*):</label>
+                            <input type="text" class="form-control" name="dni" id="dni" maxlength="20" placeholder="DNI" required>
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Dirección:</label>
@@ -128,15 +126,16 @@ if ($_SESSION['acceso']==1)
     </div><!-- /.content-wrapper -->
   <!--Fin-Contenido-->
 <?php
-}
+/* }
 else
 {
   require 'noacceso.php';
-}
+} */
 require 'footer.php';
 ?>
-<script type="text/javascript" src="scripts/usuario.js"></script>
-<?php 
-}
-ob_end_flush();
-?>
+<!-- <script type="text/javascript"
+    src="../public/js/JsBarcode.all.min.js"></script>
+<script type="text/javascript"
+    src="../public/js/jquery.PrintArea.js"></script> -->
+<script type="text/javascript"
+    src="scripts/usuario.js"></script>

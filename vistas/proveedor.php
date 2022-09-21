@@ -1,6 +1,6 @@
 <?php
 //Activamos el almacenamiento en el buffer
-ob_start();
+/* ob_start();
 session_start();
  
 if (!isset($_SESSION["nombre"]))
@@ -8,12 +8,16 @@ if (!isset($_SESSION["nombre"]))
   header("Location: login.html");
 }
 else
-{
+{ */
 require 'header.php';
-if ($_SESSION['compras']==1)
-{
+/* if ($_SESSION['compras']==1)
+{ */
 ?>
-<!--Contenido-->
+<head>
+  <link rel="stylesheet"
+          type="text/css"
+          href="../public/css/producto.css">
+</head>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">        
         <!-- Main content -->
@@ -37,6 +41,7 @@ if ($_SESSION['compras']==1)
                             <th>Número</th>
                             <th>Teléfono</th>
                             <th>Email</th>
+                            <th>Estado</th>
                           </thead>
                           <tbody>                            
                           </tbody>
@@ -47,6 +52,7 @@ if ($_SESSION['compras']==1)
                             <th>Número</th>
                             <th>Teléfono</th>
                             <th>Email</th>
+                            <th>Estado</th>
                           </tfoot>
                         </table>
                     </div>
@@ -99,15 +105,11 @@ if ($_SESSION['compras']==1)
     </div><!-- /.content-wrapper -->
   <!--Fin-Contenido-->
 <?php
-}
+/* }
 else
 {
   require 'noacceso.php';
-}
+} */
 require 'footer.php';
 ?>
 <script type="text/javascript" src="scripts/proveedor.js"></script>
-<?php 
-}
-ob_end_flush();
-?>
