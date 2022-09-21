@@ -63,7 +63,7 @@ function listar()
                 ],
         "ajax":
                 {
-                    url: '../ajax/persona.php?op=listarc',
+                    url: '../controlador/persona.php?op=listarc',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){
@@ -84,7 +84,7 @@ function guardaryeditar(e)
     var formData = new FormData($("#formulario")[0]);
  
     $.ajax({
-        url: "../ajax/persona.php?op=guardaryeditar",
+        url: "../controlador/persona.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -103,7 +103,7 @@ function guardaryeditar(e)
  
 function mostrar(idpersona)
 {
-    $.post("../ajax/persona.php?op=mostrar",{idpersona : idpersona}, function(data, status)
+    $.post("../controlador/persona.php?op=mostrar",{idpersona : idpersona}, function(data, status)
     {
         data = JSON.parse(data);        
         mostrarform(true);
@@ -153,7 +153,7 @@ function eliminar(idpersona)
     bootbox.confirm("¿Está Seguro de eliminar el cliente?", function(result){
         if(result)
         {
-            $.post("../ajax/persona.php?op=eliminar", {idpersona : idpersona}, function(e){
+            $.post("../controlador/persona.php?op=eliminar", {idpersona : idpersona}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 

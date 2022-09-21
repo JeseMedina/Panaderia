@@ -11,7 +11,7 @@ function init(){
     })
  
     //Cargamos los items al select rubro
-    $.post("../ajax/producto.php?op=selectrubro", function(r){
+    $.post("../controlador/producto.php?op=selectrubro", function(r){
                 $("#idrubro").html(r);
                 $('#idrubro').selectpicker('refresh');
  
@@ -71,7 +71,7 @@ function listar()
                 ],
         "ajax":
                 {
-                    url: '../ajax/producto.php?op=listar',
+                    url: '../controlador/producto.php?op=listar',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){
@@ -92,7 +92,7 @@ function guardaryeditar(e)
     var formData = new FormData($("#formulario")[0]);
  
     $.ajax({
-        url: "../ajax/producto.php?op=guardaryeditar",
+        url: "../controlador/producto.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -111,7 +111,7 @@ function guardaryeditar(e)
  
 function mostrar(idproducto)
 {
-    $.post("../ajax/producto.php?op=mostrar",{idproducto : idproducto}, function(data, status)
+    $.post("../controlador/producto.php?op=mostrar",{idproducto : idproducto}, function(data, status)
     {
         data = JSON.parse(data);        
         mostrarform(true);
@@ -135,7 +135,7 @@ function desactivar(idproducto)
     bootbox.confirm("¿Está Seguro de desactivar el artículo?", function(result){
         if(result)
         {
-            $.post("../ajax/producto.php?op=desactivar", {idproducto : idproducto}, function(e){
+            $.post("../controlador/producto.php?op=desactivar", {idproducto : idproducto}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 
@@ -149,7 +149,7 @@ function activar(idproducto)
     bootbox.confirm("¿Está Seguro de activar el Artículo?", function(result){
         if(result)
         {
-            $.post("../ajax/producto.php?op=activar", {idproducto : idproducto}, function(e){
+            $.post("../controlador/producto.php?op=activar", {idproducto : idproducto}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 
