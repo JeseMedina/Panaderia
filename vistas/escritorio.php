@@ -15,20 +15,32 @@ if ($_SESSION['escritorio']==1)
   require_once "../modelos/Consultas.php";
   $consulta=new Consultas();
 
+
   $rsptac = $consulta->totalcomprahoy();
-  $regc = $rsptac->fetch_object();
-  $totalc = $regc->total_compra;
+  if ($rsptac){
+    $regc = $rsptac->fetch_object();
+    $totalc = $regc->total_compra;  
+  } else{
+    $totalc = 0;
+  }
 
   $rsptav = $consulta->totalventahoy();
-  $regv = $rsptav->fetch_object();
-  $totalv = $regv->total_venta;
+  
+  if ($rsptac){
+    $regv = $rsptav->fetch_object();
+    $totalv = $regv->total_venta;
+  } else{
+    $totalv = 0;
+  }
   //Datos para mostrar el gráfico de barras de las compras
   $compras10 = $consulta->comprasultimos_10dias();
   $fechasc='';
   $totalesc='';
-  while ($regfechac= $compras10->fetch_object()) {
-    $fechasc=$fechasc.'"'.$regfechac->fecha .'",';
-    $totalesc=$totalesc.$regfechac->total .','; 
+  if ($compras10){
+    while ($regfechac= $compras10->fetch_object()) {
+      $fechasc=$fechasc.'"'.$regfechac->fecha .'",';
+      $totalesc=$totalesc.$regfechac->total .','; 
+    } 
   }
   //Quitamos la última coma
   $fechasc=substr($fechasc, 0, -1);
@@ -38,95 +50,105 @@ if ($_SESSION['escritorio']==1)
   $ventas12 = $consulta->ventasultimos_12meses();
   $fechasv='';
   $totalesv='';
-  while ($regfechav= $ventas12->fetch_object()) {
-    $fechasv=$fechasv.'"'.$regfechav->fecha .'",';
-    $totalesv=$totalesv.$regfechav->total .','; 
+  if ($ventas12){
+    while ($regfechav= $ventas12->fetch_object()) {
+      $fechasv=$fechasv.'"'.$regfechav->fecha .'",';
+      $totalesv=$totalesv.$regfechav->total .','; 
+    } 
   }
   //Quitamos la última coma
   $fechasv=substr($fechasv, 0, -1);
   $totalesv=substr($totalesv, 0, -1);
 ?>
 <!--Contenido-->
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">        
-        <!-- Main content -->
-        <section class="content">
-            <div class="row">
-              <div class="col-md-12">
-                  <div class="box">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
                     <div class="box-header with-border">
-                          <h1 class="box-title">Escritorio</h1>
+                        <h1 class="box-title">Escritorio</h1>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
                     <!-- /.box-header -->
                     <!-- centro -->
                     <div class="panel-body">
-                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <div class="small-box bg-aqua">
-                          <div class="inner">
-                            <h4 stille="font-size:17px;">
-                              <strong>
-                                $/ <?php echo $totalc; ?>
-                              </strong>
-                            </h4>
-                            <p>Compras</p>
-                          </div>
-                          <div class="icon">
-                            <i class="icn icn-bag"></i>
-                          </div>
-                          <a href="ingreso.php" class="small-box-footer">Compras <i class="fa fa-arrow-circle-right"></i></a>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="small-box bg-aqua">
+                                <div class="inner">
+                                    <h4 stille="font-size:17px;">
+                                        <strong>
+                                            $/ <?php echo $totalc; ?>
+                                        </strong>
+                                    </h4>
+                                    <p>Compras</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="icn icn-bag"></i>
+                                </div>
+                                <a href="ingreso.php"
+                                    class="small-box-footer">Compras <i
+                                        class="fa fa-arrow-circle-right"></i></a>
+                            </div>
                         </div>
-                      </div>
 
-                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <div class="small-box bg-green">
-                          <div class="inner">
-                            <h4 stille="font-size:17px;">
-                              <strong>
-                                 $/ <?php echo $totalv; ?>
-                              </strong>
-                            </h4>
-                            <p>Ventas</p>
-                          </div>
-                          <div class="icon">
-                            <i class="icn icn-bag"></i>
-                          </div>
-                          <a href="venta.php" class="small-box-footer">Ventas <i class="fa fa-arrow-circle-right"></i>                      
-                          </a>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="small-box bg-green">
+                                <div class="inner">
+                                    <h4 stille="font-size:17px;">
+                                        <strong>
+                                            $/ <?php echo $totalv; ?>
+                                        </strong>
+                                    </h4>
+                                    <p>Ventas</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="icn icn-bag"></i>
+                                </div>
+                                <a href="venta.php"
+                                    class="small-box-footer">Ventas <i
+                                        class="fa fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
                         </div>
-                      </div>
                     </div>
                     <div class="panel-body">
-                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                          <div class="box box-primary">
-                            <div class="box-header with-border">
-                                Compras de los últimos 10 días
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="box box-primary">
+                                <div class="box-header with-border">
+                                    Compras de los últimos 10 días
+                                </div>
+                                <div class="box-body">
+                                    <canvas id="compras"
+                                        width="400"
+                                        height="300"></canvas>
+                                </div>
                             </div>
-                            <div class="box-body">
-                              <canvas id="compras" width="400" height="300"></canvas>
-                            </div>
-                          </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                          <div class="box box-primary">
-                            <div class="box-header with-border">
-                                Ventas de los últimos 12 meses
+                            <div class="box box-primary">
+                                <div class="box-header with-border">
+                                    Ventas de los últimos 12 meses
+                                </div>
+                                <div class="box-body">
+                                    <canvas id="ventas"
+                                        width="400"
+                                        height="300"></canvas>
+                                </div>
                             </div>
-                            <div class="box-body">
-                              <canvas id="ventas" width="400" height="300"></canvas>
-                            </div>
-                          </div>
                         </div>
                     </div>
                     <!--Fin centro -->
-                  </div><!-- /.box -->
-              </div><!-- /.col -->
-          </div><!-- /.row -->
-      </section><!-- /.content -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </section><!-- /.content -->
 
-    </div><!-- /.content-wrapper -->
-  <!--Fin-Contenido-->
+</div><!-- /.content-wrapper -->
+<!--Fin-Contenido-->
 <?php
 }
 else
@@ -178,15 +200,15 @@ var compras = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero: true
                 }
             }]
         }
     }
 });
- 
- 
- 
+
+
+
 var ctx = document.getElementById("ventas").getContext('2d');
 var ventas = new Chart(ctx, {
     type: 'bar',
@@ -230,7 +252,7 @@ var ventas = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero: true
                 }
             }]
         }

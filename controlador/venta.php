@@ -45,7 +45,7 @@ switch ($_GET["op"]){
         $total=0;
         echo '<thead style="background-color:#A9D0F5">
                                     <th>Opciones</th>
-                                    <th>Artículo</th>
+                                    <th>Producto</th>
                                     <th>Cantidad</th>
                                     <th>Precio Venta</th>
                                     <th>Descuento</th>

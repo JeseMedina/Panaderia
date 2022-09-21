@@ -13,7 +13,7 @@ function init(){
     $("#imagenmuestra").hide();
 
     //mostramos los permisos
-    $.post("../ajax/usuario.php?op=permisos&id=",function(r){
+    $.post("../controlador/usuario.php?op=permisos&id=",function(r){
         $("#permisos").html(r);
     });
 }
@@ -76,7 +76,7 @@ function listar()
                 ],
         "ajax":
                 {
-                    url: '../ajax/usuario.php?op=listar',
+                    url: '../controlador/usuario.php?op=listar',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){
@@ -97,7 +97,7 @@ function guardaryeditar(e)
     var formData = new FormData($("#formulario")[0]);
  
     $.ajax({
-        url: "../ajax/usuario.php?op=guardaryeditar",
+        url: "../controlador/usuario.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -116,7 +116,7 @@ function guardaryeditar(e)
  
 function mostrar(idusuario)
 {
-    $.post("../ajax/usuario.php?op=mostrar",{idusuario : idusuario}, function(data, status)
+    $.post("../controlador/usuario.php?op=mostrar",{idusuario : idusuario}, function(data, status)
     {
         data = JSON.parse(data);        
         mostrarform(true);
@@ -136,7 +136,7 @@ function mostrar(idusuario)
         $("#imagenactual").val(data.imagen);
         $("#idusuario").val(data.idusuario);
     });
-     $.post("../ajax/usuario.php?op=permisos&id="+idusuario,function(r){
+     $.post("../controlador/usuario.php?op=permisos&id="+idusuario,function(r){
         $("#permisos").html(r);
     });
 }  
@@ -147,7 +147,7 @@ function desactivar(idusuario)
     bootbox.confirm("¿Está Seguro de desactivar el Usuario?", function(result){
         if(result)
         {
-            $.post("../ajax/usuario.php?op=desactivar", {idusuario : idusuario}, function(e){
+            $.post("../controlador/usuario.php?op=desactivar", {idusuario : idusuario}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 
@@ -161,7 +161,7 @@ function activar(idusuario)
     bootbox.confirm("¿Está Seguro de activar el Usuario?", function(result){
         if(result)
         {
-            $.post("../ajax/usuario.php?op=activar", {idusuario : idusuario}, function(e){
+            $.post("../controlador/usuario.php?op=activar", {idusuario : idusuario}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 

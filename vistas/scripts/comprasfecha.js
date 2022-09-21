@@ -26,7 +26,7 @@ function listar()
                 ],
         "ajax":
                 {
-                    url: '../ajax/consultas.php?op=comprasfecha',
+                    url: '../controlador/consultas.php?op=comprasfecha',
                     data:{fecha_inicio: fecha_inicio,fecha_fin: fecha_fin},
                     type : "get",
                     dataType : "json",                      

@@ -4,7 +4,7 @@ var tabla;
 function init(){
     listar();
      //Cargamos los items al select cliente
-    $.post("../ajax/venta.php?op=selectCliente", function(r){
+    $.post("../controlador/venta.php?op=selectCliente", function(r){
                 $("#idcliente").html(r);
                 $('#idcliente').selectpicker('refresh');
     }); 
@@ -30,7 +30,7 @@ function listar()
                 ],
         "ajax":
                 {
-                    url: '../ajax/consultas.php?op=ventasfechacliente',
+                    url: '../controlador/consultas.php?op=ventasfechacliente',
                     data:{fecha_inicio: fecha_inicio,fecha_fin: fecha_fin,idcliente: idcliente},
                     type : "get",
                     dataType : "json",                      

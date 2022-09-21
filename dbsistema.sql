@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-09-2022 a las 01:52:11
+-- Tiempo de generación: 16-09-2022 a las 02:50:52
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -164,7 +164,7 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`idpersona`, `tipo_persona`, `nombre`, `tipo_documento`, `num_documento`, `direccion`, `telefono`, `email`) VALUES
-(13, 'Cliente', 'Doña Pocha', 'DNI', '4364313', 'San Lorenzo 534', '3644000000', 'pocha@hotmail.com');
+(14, 'Cliente', 'Consumidor Final', 'DNI', '0', '0', '0', '0@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -325,6 +325,13 @@ CREATE TABLE `venta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Volcado de datos para la tabla `venta`
+--
+
+INSERT INTO `venta` (`idventa`, `idcliente`, `idusuario`, `tipo_comprobante`, `serie_comprobante`, `num_comprobante`, `fecha_hora`, `impuesto`, `total_venta`, `estado`) VALUES
+(20, 14, 1, 'Boleta', '6546', '45654', '2022-09-15 00:00:00', '21.00', '47.00', 'Aceptado');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -433,8 +440,8 @@ ALTER TABLE `usuario_permiso`
 --
 ALTER TABLE `venta`
   ADD PRIMARY KEY (`idventa`),
-  ADD KEY `fk_venta_persona_idx` (`idcliente`),
-  ADD KEY `fk_venta_usuario_idx` (`idusuario`);
+  ADD KEY `fk_venta_persona` (`idcliente`) USING BTREE,
+  ADD KEY `fk_venta_usuario` (`idusuario`) USING BTREE;
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -480,7 +487,7 @@ ALTER TABLE `permiso`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `produccion`
@@ -522,7 +529,7 @@ ALTER TABLE `usuario_permiso`
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `idventa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idventa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restricciones para tablas volcadas
@@ -596,8 +603,8 @@ ALTER TABLE `usuario_permiso`
 -- Filtros para la tabla `venta`
 --
 ALTER TABLE `venta`
-  ADD CONSTRAINT `fk_venta_persona` FOREIGN KEY (`idcliente`) REFERENCES `persona` (`idpersona`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_venta_usuario` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_venta_usuario` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`idcliente`) REFERENCES `persona` (`idpersona`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -10,7 +10,7 @@ function init(){
         guardaryeditar(e);  
     });
     //Cargamos los items al select proveedor
-    $.post("../ajax/venta.php?op=selectCliente", function(r){
+    $.post("../controlador/venta.php?op=selectCliente", function(r){
                 $("#idcliente").html(r);
                 $('#idcliente').selectpicker('refresh');
     }); 
@@ -88,7 +88,7 @@ function listar()
                 ],
         "ajax":
                 {
-                    url: '../ajax/venta.php?op=listar',
+                    url: '../controlador/venta.php?op=listar',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){
@@ -115,7 +115,7 @@ function listarArticulos()
                 ],
         "ajax":
                 {
-                    url: '../ajax/venta.php?op=listarProductosVenta',
+                    url: '../controlador/venta.php?op=listarProductosVenta',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){
@@ -136,7 +136,7 @@ function guardaryeditar(e)
     var formData = new FormData($("#formulario")[0]);
  
     $.ajax({
-        url: "../ajax/venta.php?op=guardaryeditar",
+        url: "../controlador/venta.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -155,7 +155,7 @@ function guardaryeditar(e)
  
 function mostrar(idventa)
 {
-    $.post("../ajax/venta.php?op=mostrar",{idventa : idventa}, function(data, status)
+    $.post("../controlador/venta.php?op=mostrar",{idventa : idventa}, function(data, status)
     {
         data = JSON.parse(data);        
         mostrarform(true);
@@ -176,7 +176,7 @@ function mostrar(idventa)
         $("#btnAgregarArt").hide();
     });
  
-    $.post("../ajax/venta.php?op=listarDetalle&id="+idventa,function(r){
+    $.post("../controlador/venta.php?op=listarDetalle&id="+idventa,function(r){
             $("#detalles").html(r);
     }); 
 }
@@ -187,7 +187,7 @@ function anular(idventa)
     bootbox.confirm("¿Está Seguro de anular la venta?", function(result){
         if(result)
         {
-            $.post("../ajax/venta.php?op=anular", {idventa : idventa}, function(e){
+            $.post("../controlador/venta.php?op=anular", {idventa : idventa}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 

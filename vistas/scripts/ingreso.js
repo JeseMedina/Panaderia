@@ -10,7 +10,7 @@ function init(){
         guardaryeditar(e);  
     });
     //Cargamos los items al select proveedor
-    $.post("../ajax/ingreso.php?op=selectProveedor", function(r){
+    $.post("../controlador/ingreso.php?op=selectProveedor", function(r){
                 $("#idproveedor").html(r);
                 $('#idproveedor').selectpicker('refresh');
     });
@@ -91,7 +91,7 @@ function listar()
                 ],
         "ajax":
                 {
-                    url: '../ajax/ingreso.php?op=listar',
+                    url: '../controlador/ingreso.php?op=listar',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){
@@ -118,7 +118,7 @@ function listarArticulos()
                 ],
         "ajax":
                 {
-                    url: '../ajax/ingreso.php?op=listarArticulos',
+                    url: '../controlador/ingreso.php?op=listarArticulos',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){
@@ -139,7 +139,7 @@ function guardaryeditar(e)
     var formData = new FormData($("#formulario")[0]);
  
     $.ajax({
-        url: "../ajax/ingreso.php?op=guardaryeditar",
+        url: "../controlador/ingreso.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -158,7 +158,7 @@ function guardaryeditar(e)
  
 function mostrar(idingreso)
 {
-    $.post("../ajax/ingreso.php?op=mostrar",{idingreso : idingreso}, function(data, status)
+    $.post("../controlador/ingreso.php?op=mostrar",{idingreso : idingreso}, function(data, status)
     {
         data = JSON.parse(data);        
         mostrarform(true);
@@ -179,7 +179,7 @@ function mostrar(idingreso)
         $("#btnAgregarArt").hide();
     });
  
-    $.post("../ajax/ingreso.php?op=listarDetalle&id="+idingreso,function(r){
+    $.post("../controlador/ingreso.php?op=listarDetalle&id="+idingreso,function(r){
             $("#detalles").html(r);
     });
 }
@@ -190,7 +190,7 @@ function anular(idingreso)
     bootbox.confirm("¿Está Seguro de anular el ingreso?", function(result){
         if(result)
         {
-            $.post("../ajax/ingreso.php?op=anular", {idingreso : idingreso}, function(e){
+            $.post("../controlador/ingreso.php?op=anular", {idingreso : idingreso}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 

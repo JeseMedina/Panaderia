@@ -131,7 +131,7 @@ if ($_SESSION['ventas']==1)
                                     <button id="btnAgregarArt"
                                         type="button"
                                         class="btn btn-primary"> <span class="fa fa-plus"></span>
-                                        Agregar Artículos</button>
+                                        Agregar Productos</button>
                                 </a>
                             </div>
 
@@ -140,7 +140,7 @@ if ($_SESSION['ventas']==1)
                                     class="table table-striped table-bordered table-condensed table-hover">
                                     <thead style="background-color:#A9D0F5">
                                         <th>Opciones</th>
-                                        <th>Artículo</th>
+                                        <th>Producto</th>
                                         <th>Cantidad</th>
                                         <th>Precio Venta</th>
                                         <th>Descuento</th>
@@ -201,7 +201,7 @@ if ($_SESSION['ventas']==1)
                     class="close"
                     data-dismiss="modal"
                     aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Seleccione un Artículo</h4>
+                <h4 class="modal-title">Seleccione un Producto</h4>
             </div>
             <div class="modal-body">
                 <table id="tblarticulos"

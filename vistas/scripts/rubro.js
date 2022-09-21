@@ -60,7 +60,7 @@ function listar()
                 ],
         "ajax":
                 {
-                    url: '../ajax/rubro.php?op=listar',
+                    url: '../controlador/rubro.php?op=listar',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){
@@ -81,7 +81,7 @@ function guardaryeditar(e)
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../ajax/rubro.php?op=guardaryeditar",
+        url: "../controlador/rubro.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -100,7 +100,7 @@ function guardaryeditar(e)
 
 function mostrar(idrubro)
 {
-    $.post("../ajax/rubro.php?op=mostrar",{idrubro : idrubro}, function(data, status)
+    $.post("../controlador/rubro.php?op=mostrar",{idrubro : idrubro}, function(data, status)
     {
         data = JSON.parse(data);        
         mostrarform(true);
@@ -118,7 +118,7 @@ function desactivar(idrubro)
     bootbox.confirm("¿Está Seguro de desactivar la Categoría?", function(result){
         if(result)
         {
-            $.post("../ajax/rubro.php?op=desactivar", {idrubro : idrubro}, function(e){
+            $.post("../controlador/rubro.php?op=desactivar", {idrubro : idrubro}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 
@@ -132,7 +132,7 @@ function activar(idrubro)
     bootbox.confirm("¿Está Seguro de activar la Categoría?", function(result){
         if(result)
         {
-            $.post("../ajax/rubro.php?op=activar", {idrubro : idrubro}, function(e){
+            $.post("../controlador/rubro.php?op=activar", {idrubro : idrubro}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 
