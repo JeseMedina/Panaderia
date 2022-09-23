@@ -21,13 +21,13 @@ function init(){
 //Función limpiar
 function limpiar()
 {
+    $("#idproducto").val("");
     $("#codigo").val("");
     $("#nombre").val("");
     $("#uMedida").val("");
     $("#stock").val("");
     $("#precioCosto").val("");
     $("#print").hide();
-    $("#idproducto").val("");
 }
  
 //Función mostrar formulario

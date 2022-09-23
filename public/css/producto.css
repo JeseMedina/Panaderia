@@ -6,6 +6,9 @@
     --cream: #f7ebe8;
 }
 
+body{
+    background-color: #ecf0f5;
+}
 /* Menu y body */
 .skin-blue-light .wrapper, 
 .skin-blue-light .main-sidebar, 
@@ -109,26 +112,35 @@
 }
 
 button.dt-button, div.dt-button, a.dt-button{
-    border: 1px solid var(--salmon);
+    font-weight: 700;
+    border: 1px solid var(--light);
     color: var(--cream);
-    background-image: -webkit-linear-gradient(top, var(--salmon) 0%, var(--dark-gray) 117%);
+    background-image: linear-gradient(to bottom, var(--dark-gray) 11%, #e0e0e0 136%);
     background-color: var(--cream);
 }
 
 button.dt-button:hover:not(.disabled), 
 div.dt-button:hover:not(.disabled), 
 a.dt-button:hover:not(.disabled){
-    border: 1px solid var(--light);
+    border: 1px solid var(--salmon);
     color: var(--cream);
+    background-image: -webkit-linear-gradient(top, var(--salmon) 0%, var(--dark-gray) 117%);
     background-color: var(--dark-gray);
-    background-image: linear-gradient(to bottom, var(--dark-gray) 11%, #e0e0e0 136%);
+   
 }
 
 label {
     color: var(--cream);
 }
+.content {
+    background: var(--crem);
+}
+/* colores de la tabla */
+.panel-body {
+    background: var(--cream);
+}
 
-/* Columna de titulos */
+/* Columna de titulos head */
 
 .table>caption+thead>tr:first-child>td, 
 .table>caption+thead>tr:first-child>th, 
@@ -136,16 +148,17 @@ label {
 .table>colgroup+thead>tr:first-child>th, 
 .table>thead:first-child>tr:first-child>td, 
 .table>thead:first-child>tr:first-child>th{
-    color: var(--cream);
+    color: var(--dark-gray);
+    background-color: var(--cream);
 }
 
 /* Lineas de la tabla */
 .table-bordered {
-    border: 1px solid var(--salmon);
+    border: 1px solid var(--dark-gray);
 }
 
 table.dataTable thead th, table.dataTable thead td {
-    border: 1px solid var(--salmon);
+    border: 1px solid var(--dark-gray);
 }
 
 /* Boton editar*/
@@ -182,17 +195,18 @@ table.dataTable thead th, table.dataTable thead td {
 
 /* Letras de las filas */
 table.dataTable tbody th, table.dataTable tbody td {
-    color: var(--cream);
+    color: var(--dark-gray);
 }
 
-/* Color de las lineas */
+/* Color de las lineas  FOOTER y background*/
 .table-bordered>thead>tr>th, 
 .table-bordered>tbody>tr>th, 
 .table-bordered>tfoot>tr>th, 
 .table-bordered>thead>tr>td, 
 .table-bordered>tbody>tr>td, 
 .table-bordered>tfoot>tr>td {
-    border: 1px solid var(--salmon);
+    border: 1px solid var(--dark-gray);
+    background-color: var(--cream);
 }
 
 /* Color boton de desactivado */
@@ -204,9 +218,9 @@ table.dataTable tbody th, table.dataTable tbody td {
     background-color: var(--light-gray) !important;
 }
 
-/* Footer*/
+/* Footer columna titulos*/
 tfoot{
-    color: var(--cream);
+    color: var(--dark-gray);
 }
 
 .dataTables_wrapper .dataTables_length, 

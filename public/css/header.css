@@ -29,9 +29,9 @@ body{
 }
 
 .skin-blue-light .main-header .navbar .sidebar-toggle{
-    color: var(--peach);
+    color: var(--cream);
 }
 
 .skin-blue-light .main-header .navbar .nav>li>a {
-    color: var(--peach);
+    color: var(--cream);
 }
