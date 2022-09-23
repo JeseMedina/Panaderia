@@ -72,8 +72,9 @@ switch ($_GET["op"]){
                 "1"=>$reg->nombre,
                 "2"=>$reg->tipo_documento,
                 "3"=>$reg->num_documento,
-                "4"=>$reg->telefono,
-                "5"=>$reg->email
+                "4"=>$reg->direccion,
+                "5"=>$reg->telefono,
+                "6"=>$reg->email
                 );
         }
         $results = array(

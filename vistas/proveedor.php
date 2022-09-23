@@ -108,8 +108,8 @@ require 'header.php';
 /* }
 else
 {
-  require 'noacceso.php';
+  require 'noacceso.html';
 } */
-require 'footer.php';
+require 'footer.html';
 ?>
 <script type="text/javascript" src="scripts/proveedor.js"></script>

@@ -208,7 +208,7 @@ if ($_SESSION['ventas']==1)
                 <h4 class="modal-title">Seleccione un Producto</h4>
             </div>
             <div class="modal-body">
-                <table id="tblarticulos"
+                <table id="tblproductos"
                     class="table table-striped table-bordered table-condensed table-hover">
                     <thead>
                         <th>Opciones</th>
@@ -248,10 +248,10 @@ if ($_SESSION['ventas']==1)
 }
 else
 {
-  require 'noacceso.php';
+  require 'noacceso.html';
 }
  
-require 'footer.php';
+require 'footer.html';
 ?>
 <script type="text/javascript"
     src="scripts/venta.js"></script>

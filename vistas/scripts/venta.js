@@ -51,7 +51,7 @@ function mostrarform(flag)
         $("#formularioregistros").show();
         //$("#btnGuardar").prop("disabled",false);
         $("#btnagregar").hide();
-        listarArticulos();
+        listarProductos();
  
         $("#btnGuardar").hide();
         $("#btnCancelar").show();
@@ -102,10 +102,10 @@ function listar()
 }
  
  
-//Función ListarArticulos
-function listarArticulos()
+//Función ListarProductos
+function listarProductos()
 {
-    tabla=$('#tblarticulos').dataTable(
+    tabla=$('#tblproductos').dataTable(
     {
         "aProcessing": true,//Activamos el procesamiento del datatables
         "aServerSide": true,//Paginación y filtrado realizados por el servidor
@@ -123,7 +123,7 @@ function listarArticulos()
                     }
                 },
         "bDestroy": true,
-        "iDisplayLength": 5,//Paginación
+        "iDisplayLength": 15,//Paginación
         "order": [[ 0, "desc" ]]//Ordenar (columna,orden)
     }).DataTable();
 }
@@ -217,17 +217,17 @@ function marcarImpuesto()
     }
   }
  
-function agregarDetalle(idarticulo,articulo,precio_venta)
+function agregarDetalle(idproducto,producto,precio_venta)
   {
     var cantidad=1;
     var descuento=0;
  
-    if (idarticulo!="")
+    if (id!="")
     {
         var subtotal=cantidad*precio_venta;
         var fila='<tr class="filas" id="fila'+cont+'">'+
         '<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle('+cont+')">X</button></td>'+
-        '<td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td>'+
+        '<td><input type="hidden" name="idproducto[]" value="'+idproducto+'">'+producto+'</td>'+
         '<td><input type="number" name="cantidad[]" id="cantidad[]" value="'+cantidad+'"></td>'+
         '<td><input type="number" name="precio_venta[]" id="precio_venta[]" value="'+precio_venta+'"></td>'+
         '<td><input type="number" name="descuento[]" value="'+descuento+'"></td>'+
@@ -241,7 +241,7 @@ function agregarDetalle(idarticulo,articulo,precio_venta)
     }
     else
     {
-        alert("Error al ingresar el detalle, revisar los datos del artículo");
+        alert("Error al ingresar el detalle, revisar los datos del producto");
     }
   }
  

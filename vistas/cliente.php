@@ -28,9 +28,9 @@ require 'header.php';
                             <th>Nombre</th>
                             <th>Documento</th>
                             <th>Número</th>
+                            <th>Direccion</th>
                             <th>Teléfono</th>
                             <th>Email</th>
-                            <th>Estado</th>
                           </thead>
                           <tbody>                            
                           </tbody>
@@ -39,9 +39,9 @@ require 'header.php';
                             <th>Nombre</th>
                             <th>Documento</th>
                             <th>Número</th>
+                            <th>Direccion</th>
                             <th>Teléfono</th>
                             <th>Email</th>
-                            <th>Estado</th>
                           </tfoot>
                         </table>
                     </div>
@@ -94,6 +94,6 @@ require 'header.php';
     </div><!-- /.content-wrapper -->
   <!--Fin-Contenido-->
 <?php
-require 'footer.php';
+require 'footer.html';
 ?> 
 <script type="text/javascript" src="scripts/cliente.js"></script>

@@ -86,9 +86,9 @@ if ($_SESSION['consultav']==1)
 }
 else
 {
-  require 'noacceso.php';
+  require 'noacceso.html';
 }
-require 'footer.php';
+require 'footer.html';
 ?>
 <script type="text/javascript" src="scripts/ventasfechacliente.js"></script>
 <?php 

@@ -60,8 +60,8 @@ CREATE TABLE `detalle_compra` (
 --
 DELIMITER $$
 CREATE TRIGGER `tr_updStockIngreso` AFTER INSERT ON `detalle_compra` FOR EACH ROW BEGIN
- UPDATE articulo SET stock = stock + NEW.cantidad 
- WHERE articulo.idarticulo = NEW.idarticulo;
+ UPDATE producto SET stock = stock + NEW.cantidad 
+ WHERE producto.idproducto = NEW.idproducto;
 END
 $$
 DELIMITER ;
@@ -112,8 +112,8 @@ CREATE TABLE `detalle_venta` (
 --
 DELIMITER $$
 CREATE TRIGGER `tr_updStockVenta` AFTER INSERT ON `detalle_venta` FOR EACH ROW BEGIN
- UPDATE articulo SET stock = stock - NEW.cantidad 
- WHERE articulo.idarticulo = NEW.idarticulo;
+ UPDATE producto SET stock = stock - NEW.cantidad 
+ WHERE producto.idproducto = NEW.idproducto;
 END
 $$
 DELIMITER ;
@@ -349,7 +349,7 @@ ALTER TABLE `compra`
 ALTER TABLE `detalle_compra`
   ADD PRIMARY KEY (`iddetalle_compra`),
   ADD KEY `fk_detalle_ingreso_ingreso_idx` (`idcompra`),
-  ADD KEY `fk_detalle_ingreso_articulo_idx` (`idproducto`);
+  ADD KEY `fk_detalle_ingreso_producto_idx` (`idproducto`);
 
 --
 -- Indices de la tabla `detalle_produccion`
@@ -373,7 +373,7 @@ ALTER TABLE `detalle_reparto`
 ALTER TABLE `detalle_venta`
   ADD PRIMARY KEY (`iddetalle_venta`),
   ADD KEY `fk_detalle_venta_venta_idx` (`idventa`),
-  ADD KEY `fk_detalle_venta_articulo_idx` (`idproducto`);
+  ADD KEY `fk_detalle_venta_producto_idx` (`idproducto`);
 
 --
 -- Indices de la tabla `permiso`
@@ -402,7 +402,7 @@ ALTER TABLE `produccion`
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`idproducto`),
   ADD UNIQUE KEY `nombre_UNIQUE` (`nombre`),
-  ADD KEY `fk_articulo_categoria_idx` (`idrubro`);
+  ADD KEY `fk_producto_categoria_idx` (`idrubro`);
 
 --
 -- Indices de la tabla `reparto`
@@ -546,7 +546,7 @@ ALTER TABLE `compra`
 -- Filtros para la tabla `detalle_compra`
 --
 ALTER TABLE `detalle_compra`
-  ADD CONSTRAINT `fk_detalle_ingreso_articulo` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_detalle_ingreso_producto` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_detalle_ingreso_ingreso` FOREIGN KEY (`idcompra`) REFERENCES `compra` (`idcompra`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
@@ -567,7 +567,7 @@ ALTER TABLE `detalle_reparto`
 -- Filtros para la tabla `detalle_venta`
 --
 ALTER TABLE `detalle_venta`
-  ADD CONSTRAINT `fk_detalle_venta_articulo` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_detalle_venta_producto` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_detalle_venta_venta` FOREIGN KEY (`idventa`) REFERENCES `venta` (`idventa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
