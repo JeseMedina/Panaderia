@@ -86,8 +86,8 @@ switch ($_GET["op"]){
                     '<button class="btn btn-primary" title="Editar persona disabled"><i class="fa fa-pencil"></i></button>'.
                     ' <button class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
-                "2"=>$reg->tipo_documento,
-                "3"=>$reg->num_documento,
+                "2"=>$reg->num_documento,
+                "3"=>$reg->direccion,
                 "4"=>$reg->telefono,
                 "5"=>$reg->email,
                 "6"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':

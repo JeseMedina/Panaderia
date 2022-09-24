@@ -11,17 +11,17 @@ Class Producto
     }
  
     //Implementamos un método para insertar registros
-    public function insertar($idrubro,$codigo,$nombre,$stock,$uMedida,$precioCosto)
+    public function insertar($idrubro,$codigo,$nombre,$stock,$uMedida,$precioCosto,$precioVenta)
     {
-        $sql="INSERT INTO producto (idrubro,codigo,nombre,stock,uMedida,precioCosto,condicion)
-        VALUES ('$idrubro','$codigo','$nombre','$stock','$uMedida','$precioCosto','1')";
+        $sql="INSERT INTO producto (idrubro,codigo,nombre,stock,uMedida,precioCosto,precioVenta,condicion)
+        VALUES ('$idrubro','$codigo','$nombre','$stock','$uMedida','$precioCosto','$precioVenta,'1')";
         return ejecutarConsulta($sql);
     }
  
     //Implementamos un método para editar registros
-    public function editar($idproducto,$idrubro,$codigo,$nombre,$stock,$uMedida,$precioCosto)
+    public function editar($idproducto,$idrubro,$codigo,$nombre,$stock,$uMedida,$precioCosto,$precioVenta)
     {
-        $sql="UPDATE producto SET idrubro='$idrubro',codigo='$codigo',nombre='$nombre',stock='$stock',uMedida='$uMedida',precioCosto='$precioCosto' WHERE idproducto='$idproducto'";
+        $sql="UPDATE producto SET idrubro='$idrubro',codigo='$codigo',nombre='$nombre',stock='$stock',uMedida='$uMedida',precioCosto='$precioCosto', precioVenta='$precioVenta WHERE idproducto='$idproducto'";
         return ejecutarConsulta($sql);
     }
  
@@ -49,21 +49,21 @@ Class Producto
     //Implementar un método para listar los registros
     public function listar()
     {
-        $sql="SELECT a.idproducto,a.idrubro,c.nombre as rubro,a.codigo,a.nombre,a.stock,a.uMedida,a.precioCosto,a.condicion FROM producto a INNER JOIN rubro c ON a.idrubro=c.idrubro";
+        $sql="SELECT a.idproducto,a.idrubro,c.nombre as rubro,a.codigo,a.nombre,a.stock,a.uMedida,a.precioCosto,a.precioVenta,a.condicion FROM producto a INNER JOIN rubro c ON a.idrubro=c.idrubro";
         return ejecutarConsulta($sql);      
     }
  
     //Implementar un método para listar los registros activos
     public function listarActivos()
     {
-        $sql="SELECT a.idproducto,a.idrubro,c.nombre as rubro,a.codigo,a.nombre,a.stock,a.uMedida,a.precioCosto,a.condicion FROM producto a INNER JOIN rubro c ON a.idrubro=c.idrubro WHERE a.condicion='1'";
+        $sql="SELECT a.idproducto,a.idrubro,c.nombre as rubro,a.codigo,a.nombre,a.stock,a.uMedida,a.precioCosto,a.precioVenta,a.condicion FROM producto a INNER JOIN rubro c ON a.idrubro=c.idrubro WHERE a.condicion='1'";
         return ejecutarConsulta($sql);      
     }
  
     //Implementar un método para listar los registros activos, su último precio y el stock (vamos a unir con el último registro de la tabla detalle_ingreso)
     public function listarActivosVenta()
     {
-        $sql="SELECT a.idproducto,a.idrubro,c.nombre as rubro,a.codigo,a.nombre,a.stock,(SELECT precio_venta FROM detalle_compra WHERE idproducto=a.idproducto order by iddetalle_compra desc limit 0,1) as precio_venta,a.uMedida,a.precioCosto,a.condicion FROM producto a INNER JOIN rubro c ON a.idrubro=c.idrubro WHERE a.condicion='1'";
+        $sql="SELECT a.idproducto,a.idrubro,c.nombre as rubro,a.codigo,a.nombre,a.stock,(SELECT precioVenta FROM detalle_compra WHERE idproducto=a.idproducto order by iddetalle_compra desc limit 0,1) as precioVenta,a.uMedida,a.precioCosto,a.precioVenta,a.condicion FROM producto a INNER JOIN rubro c ON a.idrubro=c.idrubro WHERE a.condicion='1'";
         return ejecutarConsulta($sql);      
     }
 }

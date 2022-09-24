@@ -160,7 +160,7 @@ else
 {
   require 'noacceso.php';
 }
-require 'footer.php';
+require 'footer.html';
 ?>
 <!--<script type="text/javascript" src="scripts/categoria.js"></script>-->
 <script src="../public/js/chart.min.js"></script>

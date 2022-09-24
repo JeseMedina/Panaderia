@@ -216,9 +216,9 @@ if ($_SESSION['ventas']==1)
                         <th>Rubro</th>
                         <th>Código</th>
                         <th>Stock</th>
-                        <th>Precio Venta</th>
                         <th>U. Medida</th>
                         <th>Precio Costo</th>
+                        <th>Precio Venta</th>
                     </thead>
                     <tbody>
 
@@ -229,9 +229,9 @@ if ($_SESSION['ventas']==1)
                         <th>Rubro</th>
                         <th>Código</th>
                         <th>Stock</th>
-                        <th>Precio Venta</th>
                         <th>U. Medida</th>
                         <th>Precio Costo</th>
+                        <th>Precio Venta</th>
                     </tfoot>
                 </table>
             </div>

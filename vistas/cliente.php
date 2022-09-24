@@ -27,10 +27,10 @@ require 'header.php';
                             <th>Opciones</th>
                             <th>Nombre</th>
                             <th>Documento</th>
-                            <th>Número</th>
                             <th>Direccion</th>
                             <th>Teléfono</th>
                             <th>Email</th>
+                            <th>Condicion</th>
                           </thead>
                           <tbody>                            
                           </tbody>
@@ -38,10 +38,10 @@ require 'header.php';
                             <th>Opciones</th>
                             <th>Nombre</th>
                             <th>Documento</th>
-                            <th>Número</th>
                             <th>Direccion</th>
                             <th>Teléfono</th>
                             <th>Email</th>
+                            <th>Condicion</th>
                           </tfoot>
                         </table>
                     </div>

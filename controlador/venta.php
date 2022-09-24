@@ -19,7 +19,7 @@ $total_venta=isset($_POST["total_venta"])? limpiarCadena($_POST["total_venta"]):
 switch ($_GET["op"]){
     case 'guardaryeditar':
         if (empty($idventa)){
-            $rspta=$venta->insertar($idcliente,$idusuario,$tipo_comprobante,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_venta,$_POST["idproducto"],$_POST["cantidad"],$_POST["precio_venta"],$_POST["descuento"]);
+            $rspta=$venta->insertar($idcliente,$idusuario,$tipo_comprobante,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_venta,$_POST["idproducto"],$_POST["cantidad"],$_POST["precioVenta"],$_POST["descuento"]);
             echo $rspta ? "Venta registrada" : "No se pudieron registrar todos los datos de la venta";
         }
         else {
@@ -54,8 +54,8 @@ switch ($_GET["op"]){
  
         while ($reg = $rspta->fetch_object())
                 {
-                    echo '<tr class="filas"><td></td><td>'.$reg->nombre.'</td><td>'.$reg->cantidad.'</td><td>'.$reg->precio_venta.'</td><td>'.$reg->descuento.'</td><td>'.$reg->subtotal.'</td></tr>';
-                    $total=$total+($reg->precio_venta*$reg->cantidad-$reg->descuento);
+                    echo '<tr class="filas"><td></td><td>'.$reg->nombre.'</td><td>'.$reg->cantidad.'</td><td>'.$reg->precioVenta.'</td><td>'.$reg->descuento.'</td><td>'.$reg->subtotal.'</td></tr>';
+                    $total=$total+($reg->precioVenta*$reg->cantidad-$reg->descuento);
                 }
         echo '<tfoot>
                                     <th>TOTAL</th>
@@ -127,14 +127,14 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precio_venta.'\')"><span class="fa fa-plus"></span></button>',
+                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precioVenta.'\')"><span class="fa fa-plus"></span></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->rubro,
                 "3"=>$reg->codigo,
-                "4"=>$reg->stock,
-                "5"=>$reg->precio_venta,
-                "6"=>$reg->uMedida,
-                "7"=>$reg->precioCosto
+                "4"=>$reg->uMedida,
+                "5"=>$reg->stock,
+                "6"=>$reg->precioCosto,
+                "7"=>$reg->precioVenta
                 );
         }
         $results = array(

@@ -27,6 +27,7 @@ function limpiar()
     $("#uMedida").val("");
     $("#stock").val("");
     $("#precioCosto").val("");
+    $("#precioVenta").val("");
     $("#print").hide();
 }
  
@@ -123,6 +124,7 @@ function mostrar(idproducto)
         $("#stock").val(data.stock);
         $("#uMedida").val(data.uMedida);
         $("#precioCosto").val(data.precioCosto);
+        $("#precioVenta").val(data.precioVenta);
         $("#idproducto").val(data.idproducto);
         generarbarcode();
  

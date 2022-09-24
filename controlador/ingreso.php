@@ -19,7 +19,7 @@ $total_compra=isset($_POST["total_compra"])? limpiarCadena($_POST["total_compra"
 switch ($_GET["op"]){
     case 'guardaryeditar':
         if (empty($idingreso)){
-            $rspta=$ingreso->insertar($idproveedor,$idusuario,$tipo_comprobante,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_compra,$_POST["idarticulo"],$_POST["cantidad"],$_POST["precio_compra"],$_POST["precio_venta"]);
+            $rspta=$ingreso->insertar($idproveedor,$idusuario,$tipo_comprobante,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_compra,$_POST["idarticulo"],$_POST["cantidad"],$_POST["precio_compra"],$_POST["precioVenta"]);
             echo $rspta ? "Ingreso registrado" : "No se pudieron registrar todos los datos del ingreso";
         }
         else {
@@ -54,7 +54,7 @@ switch ($_GET["op"]){
  
         while ($reg = $rspta->fetch_object())
                 {
-                    echo '<tr class="filas"><td></td><td>'.$reg->nombre.'</td><td>'.$reg->cantidad.'</td><td>'.$reg->precio_compra.'</td><td>'.$reg->precio_venta.'</td><td>'.$reg->precio_compra*$reg->cantidad.'</td></tr>';
+                    echo '<tr class="filas"><td></td><td>'.$reg->nombre.'</td><td>'.$reg->cantidad.'</td><td>'.$reg->precio_compra.'</td><td>'.$reg->precioVenta.'</td><td>'.$reg->precio_compra*$reg->cantidad.'</td></tr>';
                     $total=$total+($reg->precio_compra*$reg->cantidad);
                 }
         echo '<tfoot>

@@ -40,11 +40,12 @@ if ($_SESSION['almacen']==1)
                             <thead>
                                 <th>Opciones</th>
                                 <th>Nombre</th>
-                                <th>Categoría</th>
+                                <th>Rubro</th>
                                 <th>Código</th>
                                 <th>Stock</th>
-                                <th>Unidad de Medida</th>
-                                <th>Precio de Costo</th>
+                                <th>U. Medida</th>
+                                <th>Precio Costo</th>
+                                <th>Precio Venta</th>
                                 <th>Estado</th>
                             </thead>
                             <tbody>
@@ -52,11 +53,12 @@ if ($_SESSION['almacen']==1)
                             <tfoot>
                                 <th>Opciones</th>
                                 <th>Nombre</th>
-                                <th>Categoría</th>
+                                <th>Rubro</th>
                                 <th>Código</th>
                                 <th>Stock</th>
-                                <th>Unidad de Medida</th>
-                                <th>Precio de Costo</th>
+                                <th>U. Medida</th>
+                                <th>Precio Costo</th>
+                                <th>Precio Venta</th>
                                 <th>Estado</th>
                             </tfoot>
                         </table>
@@ -114,6 +116,13 @@ if ($_SESSION['almacen']==1)
                                     class="form-control"
                                     name="precioCosto"
                                     id="precioCosto">
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label>Precio de Venta:</label>
+                                <input type="text"
+                                    class="form-control"
+                                    name="precioVenta"
+                                    id="precioVenta">
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Código:</label>

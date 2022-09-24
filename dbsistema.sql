@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-09-2022 a las 02:50:52
+-- Tiempo de generación: 24-09-2022 a las 15:51:05
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -140,7 +140,9 @@ INSERT INTO `permiso` (`idpermiso`, `nombre`) VALUES
 (4, 'Ventas'),
 (5, 'Acceso'),
 (6, 'Consulta Compras'),
-(7, 'Consulta Ventas');
+(7, 'Consulta Ventas'),
+(8, 'Produccion'),
+(9, 'Reparto');
 
 -- --------------------------------------------------------
 
@@ -156,15 +158,17 @@ CREATE TABLE `persona` (
   `num_documento` varchar(20) DEFAULT NULL,
   `direccion` varchar(70) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL
+  `email` varchar(50) DEFAULT NULL,
+  `condicion` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `persona`
 --
 
-INSERT INTO `persona` (`idpersona`, `tipo_persona`, `nombre`, `tipo_documento`, `num_documento`, `direccion`, `telefono`, `email`) VALUES
-(14, 'Cliente', 'Consumidor Final', 'DNI', '0', '0', '0', '0@gmail.com');
+INSERT INTO `persona` (`idpersona`, `tipo_persona`, `nombre`, `tipo_documento`, `num_documento`, `direccion`, `telefono`, `email`, `condicion`) VALUES
+(14, 'Cliente', 'Consumidor Final', 'DNI', '0', '0', '0', '0@gmail.com', 1),
+(16, 'Proveedor', 'Distribuidora del Norte', 'DNI', '3245231412', 'San Lorenzo 999', '53463425', 'omg@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -195,6 +199,7 @@ CREATE TABLE `producto` (
   `stock` int(11) NOT NULL,
   `uMedida` varchar(20) NOT NULL,
   `precioCosto` decimal(10,0) NOT NULL,
+  `precioVenta` decimal(10,0) NOT NULL,
   `condicion` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -202,10 +207,10 @@ CREATE TABLE `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`idproducto`, `idrubro`, `codigo`, `nombre`, `stock`, `uMedida`, `precioCosto`, `condicion`) VALUES
-(11, 33, '', 'Pan Comu', 200, 'Kilogramo', '40', 1),
-(12, 33, '', 'Pan de leche', 50, 'Docena', '40', 0),
-(13, 34, '', 'Levadura', 70, 'Gramo', '80', 1);
+INSERT INTO `producto` (`idproducto`, `idrubro`, `codigo`, `nombre`, `stock`, `uMedida`, `precioCosto`, `precioVenta`, `condicion`) VALUES
+(11, 33, '', 'Pan Comu', 200, 'Kilogramo', '40', '0', 1),
+(12, 33, '', 'Pan de leche', 50, 'Docena', '40', '0', 1),
+(13, 34, '', 'Levadura', 70, 'Gramo', '80', '0', 1);
 
 -- --------------------------------------------------------
 
@@ -271,7 +276,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`idusuario`, `nombre`, `tipo_documento`, `num_documento`, `direccion`, `telefono`, `email`, `cargo`, `login`, `clave`, `imagen`, `condicion`) VALUES
 (1, 'La dueña', 'DNI', '00000000', 'San Martín 666', '3644000000', 'ladueña@yahoo.com.ar', 'Admin', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', '1547756796.jpg', 1),
-(14, 'Jese Medina', 'DNI', '4364313', 'jrt', '3644222222', 'skajese@gmail.com', 'panadero', 'jese', 'b1d37f3bce871087cd8008e8415734616851ecf517c63da11c21e493df2278f9', '', 1);
+(14, 'Jese Medina', '', '', 'jrt', '3644222222', 'skajese@gmail.com', 'panadero', 'jese', '8b8b9fc58e7bd145267721e97fb869a259d6769bd093dfd15ca657ab7ee2a6e8', '', 1);
 
 -- --------------------------------------------------------
 
@@ -290,20 +295,24 @@ CREATE TABLE `usuario_permiso` (
 --
 
 INSERT INTO `usuario_permiso` (`idusuario_permiso`, `idusuario`, `idpermiso`) VALUES
-(98, 14, 1),
-(99, 14, 2),
-(100, 14, 3),
-(101, 14, 4),
-(102, 14, 5),
-(103, 14, 6),
-(104, 14, 7),
 (105, 1, 1),
 (106, 1, 2),
 (107, 1, 3),
 (108, 1, 4),
 (109, 1, 5),
 (110, 1, 6),
-(111, 1, 7);
+(111, 1, 7),
+(112, 1, 8),
+(113, 1, 9),
+(114, 14, 1),
+(115, 14, 2),
+(116, 14, 3),
+(117, 14, 4),
+(118, 14, 5),
+(119, 14, 6),
+(120, 14, 7),
+(121, 14, 8),
+(122, 14, 9);
 
 -- --------------------------------------------------------
 
@@ -329,7 +338,7 @@ CREATE TABLE `venta` (
 --
 
 INSERT INTO `venta` (`idventa`, `idcliente`, `idusuario`, `tipo_comprobante`, `serie_comprobante`, `num_comprobante`, `fecha_hora`, `impuesto`, `total_venta`, `estado`) VALUES
-(20, 14, 1, 'Boleta', '6546', '45654', '2022-09-15 00:00:00', '21.00', '47.00', 'Aceptado');
+(20, 14, 1, 'Boleta', '6546', '45654', '2022-09-15 00:00:00', '21.00', '47.00', 'Anulado');
 
 --
 -- Índices para tablas volcadas
@@ -481,13 +490,13 @@ ALTER TABLE `detalle_venta`
 -- AUTO_INCREMENT de la tabla `permiso`
 --
 ALTER TABLE `permiso`
-  MODIFY `idpermiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idpermiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `produccion`
@@ -523,7 +532,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `usuario_permiso`
 --
 ALTER TABLE `usuario_permiso`
-  MODIFY `idusuario_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `idusuario_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
@@ -546,8 +555,8 @@ ALTER TABLE `compra`
 -- Filtros para la tabla `detalle_compra`
 --
 ALTER TABLE `detalle_compra`
-  ADD CONSTRAINT `fk_detalle_ingreso_producto` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_detalle_ingreso_ingreso` FOREIGN KEY (`idcompra`) REFERENCES `compra` (`idcompra`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_detalle_ingreso_ingreso` FOREIGN KEY (`idcompra`) REFERENCES `compra` (`idcompra`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_detalle_ingreso_producto` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `detalle_produccion`

@@ -125,7 +125,7 @@ function activar(idpersona)
     bootbox.confirm("¿Está Seguro de activar al cliente?", function(result){
         if(result)
         {
-            $.post("../ajax/persona.php?op=activar", {idpersona : idpersona}, function(e){
+            $.post("../controlador/persona.php?op=activar", {idpersona : idpersona}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 
@@ -139,7 +139,7 @@ function desactivar(idpersona)
     bootbox.confirm("¿Está seguro de desactivar al cliente?", function(result){
         if(result)
         {
-            $.post("../ajax/persona.php?op=desactivar", {idpersona : idpersona}, function(e){
+            $.post("../controlador/persona.php?op=desactivar", {idpersona : idpersona}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 

@@ -217,19 +217,19 @@ function marcarImpuesto()
     }
   }
  
-function agregarDetalle(idproducto,producto,precio_venta)
+function agregarDetalle(idproducto,producto,precioVenta)
   {
     var cantidad=1;
     var descuento=0;
  
-    if (id!="")
+    if (idproducto!="")
     {
-        var subtotal=cantidad*precio_venta;
+        var subtotal=cantidad*precioVenta;
         var fila='<tr class="filas" id="fila'+cont+'">'+
         '<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle('+cont+')">X</button></td>'+
         '<td><input type="hidden" name="idproducto[]" value="'+idproducto+'">'+producto+'</td>'+
         '<td><input type="number" name="cantidad[]" id="cantidad[]" value="'+cantidad+'"></td>'+
-        '<td><input type="number" name="precio_venta[]" id="precio_venta[]" value="'+precio_venta+'"></td>'+
+        '<td><input type="number" name="precioVenta[]" id="precioVenta[]" value="'+precioVenta+'"></td>'+
         '<td><input type="number" name="descuento[]" value="'+descuento+'"></td>'+
         '<td><span name="subtotal" id="subtotal'+cont+'">'+subtotal+'</span></td>'+
         '<td><button type="button" onclick="modificarSubototales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>'+
@@ -248,7 +248,7 @@ function agregarDetalle(idproducto,producto,precio_venta)
   function modificarSubototales()
   {
     var cant = document.getElementsByName("cantidad[]");
-    var prec = document.getElementsByName("precio_venta[]");
+    var prec = document.getElementsByName("precioVenta[]");
     var desc = document.getElementsByName("descuento[]");
     var sub = document.getElementsByName("subtotal");
  
