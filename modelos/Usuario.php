@@ -53,6 +53,13 @@ Class Usuario
 		return $sw;
 	}
 
+	//Implementamos un método para desactivar usuarios
+	public function desactivar($idusuario)
+	{
+		$sql="UPDATE usuario SET condicion='0' WHERE idusuario='$idusuario'";
+		return ejecutarConsulta($sql);
+	}
+
 	//Implementamos un método para activar categorías
 	public function activar($idusuario)
 	{
