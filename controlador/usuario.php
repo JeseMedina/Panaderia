@@ -74,16 +74,18 @@ switch ($_GET["op"]){
             $data[]=array(
                 "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"></i></button>'.
                     ' <button class="btn btn-danger" onclick="desactivar('.$reg->idusuario.')"><i class="fa fa-close"></i></button>':
-                    '<button class="btn btn-primary" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"></i></button>'.
+                    '<button class="btn btn-primary" title="Editar usuario disabled"><i class="fa fa-pencil"></i></button>'.
                     ' <button class="btn btn-primary" onclick="activar('.$reg->idusuario.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->tipo_documento,
                 "3"=>$reg->num_documento,
-                "4"=>$reg->telefono,
-                "5"=>$reg->email,
-                "6"=>$reg->login,
-                "7"=>"<img src='../files/usuarios/".$reg->imagen."' height='50px' width='50px' >",
-                "8"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                "4"=>$reg->direccion,
+                "5"=>$reg->telefono,
+                "6"=>$reg->email,
+                "7"=>$reg->cargo,
+                "8"=>$reg->login,
+                "9"=>"<img src='../files/usuarios/".$reg->imagen."' height='50px' width='50px' >",
+                "10"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'
                 );
         }

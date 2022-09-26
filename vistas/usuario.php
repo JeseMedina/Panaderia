@@ -37,7 +37,8 @@ require 'header.php';
                           <thead>
                             <th>Opciones</th>
                             <th>Nombre</th>
-                            <th>DNI</th>
+                            <th>Tipo de documento</th>
+                            <th>Número</th>
                             <th>Dirección</th>
                             <th>Teléfono</th>
                             <th>Email</th>
@@ -51,7 +52,8 @@ require 'header.php';
                           <tfoot>
                             <th>Opciones</th>
                             <th>Nombre</th>
-                            <th>DNI</th>
+                            <th>Tipo de documento</th>
+                            <th>Número</th>
                             <th>Dirección</th>
                             <th>Teléfono</th>
                             <th>Email</th>
@@ -70,8 +72,16 @@ require 'header.php';
                             <input type="text" class="form-control" name="nombre" id="nombre" maxlength="100" placeholder="Nombre" required>
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <label>DNI(*):</label>
-                            <input type="text" class="form-control" name="dni" id="dni" maxlength="20" placeholder="DNI" required>
+                            <label>Tipo Documento:</label>
+                            <select class="form-control select-picker" name="tipo_documento" id="tipo_documento" required>
+                              <option value="DNI">DNI</option>
+                              <option value="LIBRETA">LIBRETA</option>
+                              <option value="CEDULA">CEDULA</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label>Número(*):</label>
+                            <input type="text" class="form-control" name="num_documento" id="num_documento" maxlength="20" placeholder="Número del DNI" required>
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Dirección:</label>

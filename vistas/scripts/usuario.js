@@ -21,7 +21,9 @@ function init(){
 //Función limpiar
 function limpiar()
 {
+    $("#idusuario").val("");
     $("#nombre").val("");
+    $("#tipo_documento").val("");
     $("#num_documento").val("");
     $("#direccion").val("");
     $("#telefono").val("");
@@ -31,7 +33,6 @@ function limpiar()
     $("#clave").val("");
     $("#imagenmuestra").attr("src","");
     $("#imagenactual").val("");
-    $("#idusuario").val("");
 }
  
 //Función mostrar formulario
@@ -69,7 +70,6 @@ function listar()
         "aServerSide": true,//Paginación y filtrado realizados por el servidor
         dom: 'Bfrtip',//Definimos los elementos del control de tabla
         buttons: [                
-                    'copyHtml5',
                     'excelHtml5',
                     'csvHtml5',
                     'pdf'
@@ -120,7 +120,8 @@ function mostrar(idusuario)
     {
         data = JSON.parse(data);        
         mostrarform(true);
- 
+        
+        $("#idusuario").val(data.idusuario);
         $("#nombre").val(data.nombre);
         $("#tipo_documento").val(data.tipo_documento);
         $('#tipo_documento').selectpicker('refresh');
@@ -134,7 +135,6 @@ function mostrar(idusuario)
         $("#imagenmuestra").show();
         $("#imagenmuestra").attr("src","../files/usuarios/"+data.imagen);
         $("#imagenactual").val(data.imagen);
-        $("#idusuario").val(data.idusuario);
     });
      $.post("../controlador/usuario.php?op=permisos&id="+idusuario,function(r){
         $("#permisos").html(r);
