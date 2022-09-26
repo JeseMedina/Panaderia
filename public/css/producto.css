@@ -1,9 +1,9 @@
 :root{
-    --dark-gray: #1e1e24;
-    --light-gray: #444140;
-    --salmon: #e54b4b;
-    --peach: #ffa987;
-    --cream: #f7ebe8;
+    --dark-gray: #063940;
+    --light-gray: #8ebdb6;
+    --salmon: #3e838c;
+    --peach: #195e63;
+    --cream: #f8f1e9;
 }
 
 body{
@@ -115,22 +115,20 @@ button.dt-button, div.dt-button, a.dt-button{
     font-weight: 700;
     border: 1px solid var(--light);
     color: var(--cream);
-    background-image: linear-gradient(to bottom, var(--dark-gray) 11%, #e0e0e0 136%);
-    background-color: var(--cream);
+    background: var(--dark-gray);
 }
 
 button.dt-button:hover:not(.disabled), 
 div.dt-button:hover:not(.disabled), 
 a.dt-button:hover:not(.disabled){
     border: 1px solid var(--salmon);
-    color: var(--cream);
-    background-image: -webkit-linear-gradient(top, var(--salmon) 0%, var(--dark-gray) 117%);
-    background-color: var(--dark-gray);
-   
+    color: var(--dark-gray);
+    background: var(--cream); 
 }
 
 label {
-    color: var(--cream);
+    color: var(--dark-gray);
+
 }
 .content {
     background: var(--crem);
@@ -239,8 +237,20 @@ tfoot{
 }
 
 /* Para el número del índice */
-.dataTables_wrapper .dataTables_paginate .paginate_button.current, 
-.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+.dataTables_wrapper .dataTables_paginate .paginate_button.current{
     color: var(--cream) !important;
-    background: linear-gradient(to bottom, var(--dark-gray) 14%, #dcdcdc 158%);
+    background: var(--dark-gray) !important;
+} 
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border: 2px solid var(--salmon)!important ;
+    color: var(--dark-gray) !important;
+    background: var(--cream) !important; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+/* btn editar */
+.btn-warning:hover {
+    border: 2px solid var(--salmon)!important ;
+    color: var(--dark-gray) !important;
+    background: var(--cream) !important; 
 }
