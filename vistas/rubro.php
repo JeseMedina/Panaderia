@@ -16,7 +16,7 @@ if ($_SESSION['almacen']==1)
 <head>
   <link rel="stylesheet"
           type="text/css"
-          href="../public/css/producto.css">
+          href="../public/css/general.css">
 </head>
 <div class="content-wrapper">
     <section class="content">

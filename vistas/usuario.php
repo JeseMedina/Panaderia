@@ -16,7 +16,7 @@ require 'header.php';
 <head>
   <link rel="stylesheet"
           type="text/css"
-          href="../public/css/producto.css">
+          href="../public/css/general.css">
 </head>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">        
