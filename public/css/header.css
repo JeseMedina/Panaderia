@@ -12,7 +12,7 @@ body{
 
 .skin-blue-light .main-header .logo{
     background-color: var(--dark-green);
-    color: var(--moss);
+    color: var(--cream);
 }
 
 .skin-blue-light .main-header .logo:hover{

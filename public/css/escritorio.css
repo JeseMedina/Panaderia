@@ -52,23 +52,24 @@
 
 .small-box>.small-box-footer{
     color: var(--cream);
-    background: var(light-green);
+    background: var(--dark-moss);
 }
 
 .box {
-    background: var(--dark-green);
-    border-top: #fff 0px;
     background: var(--cream);
+    border-top: 0px solid var(--moss);
+    border-color: var(--grey);
 }
 
 .box-body{
     padding: 0px;
 }
 
-.bg-aqua, .callout.callout-info, 
-.alert-info, 
-.label-info, 
-.modal-info .modal-body {
+.bg-red, .bg-aqua, .callout.callout-danger, 
+.alert-danger, 
+.alert-error, 
+.label-danger, 
+.modal-danger .modal-body {
     background-color: var(--light-green) !important;
 }
 
@@ -80,7 +81,7 @@
 }
 
 .box.box-primary {
-    border-top: #fff 0px;
+    border-top-color: var(--light-green);
 }
 
 audio, canvas, progress, video{
@@ -90,9 +91,8 @@ audio, canvas, progress, video{
 }
 
 .bg-yellow, .callout.callout-warning, .alert-warning, .label-warning, .modal-warning .modal-body {
-    background-color: var(--light-green) !important;
+    background-color: var(--moss) !important;
 }
-
 html{
     background: var(--cream);
 }

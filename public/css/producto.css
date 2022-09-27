@@ -23,6 +23,7 @@ body{
 
 .skin-blue-light .content-wrapper, .skin-blue-light .main-footer {
     border-left: 1px solid var(--dark-green);
+    background: var(--cream);
 }
 
 .skin-blue-light .sidebar-menu>li.header{
@@ -43,7 +44,11 @@ body{
 }
 
 .content{
-    background: var(--dark-green);
+    background: var(--cream);
+}
+
+html{
+    background: var(--cream);
 }
 
 /* Para el form*/
@@ -131,7 +136,7 @@ label {
 
 }
 .content {
-    background: var(--cream);
+    background: var(--crem);
 }
 /* colores de la tabla */
 .panel-body {
@@ -208,7 +213,7 @@ table.dataTable tbody th, table.dataTable tbody td {
 }
 
 /* Color boton de desactivado */
-.bg-red, .callout.callout-danger, 
+.bg-red, .bg-aqua,.callout.callout-danger, 
 .alert-danger, 
 .alert-error, 
 .label-danger, 
@@ -255,6 +260,6 @@ tfoot{
     background: var(--cream) !important; 
 }
 
-html{
-    background: var(--cream);
+.bg-yellow, .callout.callout-warning, .alert-warning, .label-warning, .modal-warning .modal-body {
+    background-color: var(--moss) !important;
 }
