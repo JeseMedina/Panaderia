@@ -31,12 +31,12 @@ switch ($_GET["op"]){
   */
     case 'desactivar':
         $rspta=$persona->desactivar($idpersona);
-        echo $rspta ? "Artículo Desactivado" : "Artículo no se puede desactivar";
+        echo $rspta ? "producto Desactivado" : "producto no se puede desactivar";
     break;  
 
     case 'activar':
         $rspta=$persona->activar($idpersona);
-        echo $rspta ? "Artículo activado" : "Artículo no se puede activar";
+        echo $rspta ? "producto activado" : "producto no se puede activar";
     break;
 
     case 'mostrar':

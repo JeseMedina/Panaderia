@@ -66,7 +66,7 @@ if ($_SESSION['ventas']==1)
  
 	while ($regd = $rsptad->fetch_object()) {
   		$line = array( "CODIGO"=> "$regd->codigo",
-                "DESCRIPCION"=> utf8_decode("$regd->articulo"),
+                "DESCRIPCION"=> utf8_decode("$regd->producto"),
                 "CANTIDAD"=> "$regd->cantidad",
                 "P.U."=> "$regd->precioVenta",
                 "DSCTO" => "$regd->descuento",

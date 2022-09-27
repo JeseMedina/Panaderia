@@ -131,7 +131,7 @@ label {
 
 }
 .content {
-    background: var(--crem);
+    background: var(--cream);
 }
 /* colores de la tabla */
 .panel-body {
@@ -253,4 +253,8 @@ tfoot{
     border: 2px solid var(--moss)!important ;
     color: var(--dark-green) !important;
     background: var(--cream) !important; 
+}
+
+html{
+    background: var(--cream);
 }

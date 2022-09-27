@@ -94,7 +94,7 @@ if ($_SESSION['escritorio']==1)
                                 <div class="icon">
                                     <i class="icn icn-bag"></i>
                                 </div>
-                                <a href="ingreso.php"
+                                <a href="compra.php"
                                     class="small-box-footer">Compras <i
                                         class="fa fa-arrow-circle-right"></i></a>
                             </div>

@@ -11,7 +11,7 @@ else
 {
 require 'header.php';
  
-if ($_SESSION['ventas']==1)
+if ($_SESSION['compras']==1)
 {
 ?>
 
@@ -28,7 +28,7 @@ if ($_SESSION['ventas']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Venta <button class="btn btn-success"
+                        <h1 class="box-title">Compra <button class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
                                 Agregar</button></h1>
@@ -44,11 +44,11 @@ if ($_SESSION['ventas']==1)
                             <thead>
                                 <th>Opciones</th>
                                 <th>Fecha</th>
-                                <th>Cliente</th>
+                                <th>Proveedor</th>
                                 <th>Usuario</th>
                                 <th>Documento</th>
                                 <th>Número</th>
-                                <th>Total Venta</th>
+                                <th>Total Compra</th>
                                 <th>Estado</th>
                             </thead>
                             <tbody>
@@ -60,7 +60,7 @@ if ($_SESSION['ventas']==1)
                                 <th>Usuario</th>
                                 <th>Documento</th>
                                 <th>Número</th>
-                                <th>Total Venta</th>
+                                <th>Total Compra</th>
                                 <th>Estado</th>
                             </tfoot>
                         </table>
@@ -72,12 +72,12 @@ if ($_SESSION['ventas']==1)
                             id="formulario"
                             method="POST">
                             <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                <label>Cliente(*):</label>
+                                <label>Proveedor(*):</label>
                                 <input type="hidden"
-                                    name="idventa"
-                                    id="idventa">
-                                <select id="idcliente"
-                                    name="idcliente"
+                                    name="idcompra"
+                                    id="idcompra">
+                                <select id="idproveedor"
+                                    name="idproveedor"
                                     class="form-control selectpicker"
                                     data-live-search="true"
                                     required>
@@ -136,7 +136,7 @@ if ($_SESSION['ventas']==1)
                                     <button id="btnAgregarArt"
                                         type="button"
                                         class="btn btn-primary"> <span class="fa fa-plus"></span>
-                                        Agregar Productos</button>
+                                        Agregar productos</button>
                                 </a>
                             </div>
 
@@ -145,10 +145,10 @@ if ($_SESSION['ventas']==1)
                                     class="table table-striped table-bordered table-condensed table-hover">
                                     <thead style="background-color:#A9D0F5">
                                         <th>Opciones</th>
-                                        <th>Producto</th>
+                                        <th>producto</th>
                                         <th>Cantidad</th>
+                                        <th>Precio Compra</th>
                                         <th>Precio Venta</th>
-                                        <th>Descuento</th>
                                         <th>Subtotal</th>
                                     </thead>
                                     <tfoot>
@@ -159,8 +159,8 @@ if ($_SESSION['ventas']==1)
                                         <th></th>
                                         <th>
                                             <h4 id="total">S/. 0.00</h4><input type="hidden"
-                                                name="total_venta"
-                                                id="total_venta">
+                                                name="total_compra"
+                                                id="total_compra">
                                         </th>
                                     </tfoot>
                                     <tbody>
@@ -248,7 +248,7 @@ else
 require 'footer.html';
 ?>
 <script type="text/javascript"
-    src="scripts/venta.js"></script>
+    src="scripts/compra.js"></script>
 <?php 
 }
 ob_end_flush();

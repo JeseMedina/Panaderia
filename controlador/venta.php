@@ -38,7 +38,7 @@ switch ($_GET["op"]){
     break;
  
     case 'listarDetalle':
-        //Recibimos el idingreso
+        //Recibimos el idcompra
         $id=$_GET['id'];
  
         $rspta = $venta->listarDetalle($id);
@@ -127,14 +127,11 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precioVenta.'\')"><span class="fa fa-plus"></span></button>',
+                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precio_Venta.'\')"><span class="fa fa-plus"></span></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->rubro,
-                "3"=>$reg->codigo,
-                "4"=>$reg->uMedida,
-                "5"=>$reg->stock,
-                "6"=>$reg->precioCosto,
-                "7"=>$reg->precioVenta
+                "3"=>$reg->stock,
+                "4"=>$reg->uMedida
                 );
         }
         $results = array(

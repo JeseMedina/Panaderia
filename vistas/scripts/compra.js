@@ -10,7 +10,7 @@ function init(){
         guardaryeditar(e);  
     });
     //Cargamos los items al select proveedor
-    $.post("../controlador/ingreso.php?op=selectProveedor", function(r){
+    $.post("../controlador/compra.php?op=selectProveedor", function(r){
                 $("#idproveedor").html(r);
                 $('#idproveedor').selectpicker('refresh');
     });
@@ -52,7 +52,7 @@ function mostrarform(flag)
         $("#formularioregistros").show();
         //$("#btnGuardar").prop("disabled",false);
         $("#btnagregar").hide();
-        listarArticulos();
+        listarproductos();
  
         $("#btnGuardar").hide();
         $("#btnCancelar").show();
@@ -91,7 +91,7 @@ function listar()
                 ],
         "ajax":
                 {
-                    url: '../controlador/ingreso.php?op=listar',
+                    url: '../controlador/compra.php?op=listar',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){
@@ -105,10 +105,10 @@ function listar()
 }
  
  
-//Función ListarArticulos
-function listarArticulos()
+//Función Listarproductos
+function listarproductos()
 {
-    tabla=$('#tblarticulos').dataTable(
+    tabla=$('#tblproductos').dataTable(
     {
         "aProcessing": true,//Activamos el procesamiento del datatables
         "aServerSide": true,//Paginación y filtrado realizados por el servidor
@@ -118,7 +118,7 @@ function listarArticulos()
                 ],
         "ajax":
                 {
-                    url: '../controlador/ingreso.php?op=listarArticulos',
+                    url: '../controlador/compra.php?op=listarproductos',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){
@@ -139,7 +139,7 @@ function guardaryeditar(e)
     var formData = new FormData($("#formulario")[0]);
  
     $.ajax({
-        url: "../controlador/ingreso.php?op=guardaryeditar",
+        url: "../controlador/compra.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -158,7 +158,7 @@ function guardaryeditar(e)
  
 function mostrar(idingreso)
 {
-    $.post("../controlador/ingreso.php?op=mostrar",{idingreso : idingreso}, function(data, status)
+    $.post("../controlador/compra.php?op=mostrar",{idingreso : idingreso}, function(data, status)
     {
         data = JSON.parse(data);        
         mostrarform(true);
@@ -179,7 +179,7 @@ function mostrar(idingreso)
         $("#btnAgregarArt").hide();
     });
  
-    $.post("../controlador/ingreso.php?op=listarDetalle&id="+idingreso,function(r){
+    $.post("../controlador/compra.php?op=listarDetalle&id="+idingreso,function(r){
             $("#detalles").html(r);
     });
 }
@@ -190,7 +190,7 @@ function anular(idingreso)
     bootbox.confirm("¿Está Seguro de anular el ingreso?", function(result){
         if(result)
         {
-            $.post("../controlador/ingreso.php?op=anular", {idingreso : idingreso}, function(e){
+            $.post("../controlador/compra.php?op=anular", {idingreso : idingreso}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 
@@ -220,18 +220,18 @@ function marcarImpuesto()
     }
   }
  
-function agregarDetalle(idarticulo,articulo)
+function agregarDetalle(idproducto,producto)
   {
     var cantidad=1;
     var precio_compra=1;
     var precio_venta=1;
  
-    if (idarticulo!="")
+    if (idproducto!="")
     {
         var subtotal=cantidad*precio_compra;
         var fila='<tr class="filas" id="fila'+cont+'">'+
         '<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle('+cont+')">X</button></td>'+
-        '<td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td>'+
+        '<td><input type="hidden" name="idproducto[]" value="'+idproducto+'">'+producto+'</td>'+
         '<td><input type="number" name="cantidad[]" id="cantidad[]" value="'+cantidad+'"></td>'+
         '<td><input type="number" name="precio_compra[]" id="precio_compra[]" value="'+precio_compra+'"></td>'+
         '<td><input type="number" name="precio_venta[]" value="'+precio_venta+'"></td>'+
@@ -245,7 +245,7 @@ function agregarDetalle(idarticulo,articulo)
     }
     else
     {
-        alert("Error al ingresar el detalle, revisar los datos del artículo");
+        alert("Error al ingresar el detalle, revisar los datos del producto");
     }
   }
  

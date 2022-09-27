@@ -27,7 +27,6 @@ function limpiar()
     $("#uMedida").val("");
     $("#stock").val("");
     $("#precioCosto").val("");
-    $("#precioVenta").val("");
     $("#print").hide();
 }
  
@@ -124,7 +123,6 @@ function mostrar(idproducto)
         $("#stock").val(data.stock);
         $("#uMedida").val(data.uMedida);
         $("#precioCosto").val(data.precioCosto);
-        $("#precioVenta").val(data.precioVenta);
         $("#idproducto").val(data.idproducto);
         generarbarcode();
  
@@ -134,7 +132,7 @@ function mostrar(idproducto)
 //Función para desactivar registros
 function desactivar(idproducto)
 {
-    bootbox.confirm("¿Está Seguro de desactivar el artículo?", function(result){
+    bootbox.confirm("¿Está Seguro de desactivar el producto?", function(result){
         if(result)
         {
             $.post("../controlador/producto.php?op=desactivar", {idproducto : idproducto}, function(e){
@@ -148,7 +146,7 @@ function desactivar(idproducto)
 //Función para activar registros
 function activar(idproducto)
 {
-    bootbox.confirm("¿Está Seguro de activar el Artículo?", function(result){
+    bootbox.confirm("¿Está Seguro de activar el producto?", function(result){
         if(result)
         {
             $.post("../controlador/producto.php?op=activar", {idproducto : idproducto}, function(e){

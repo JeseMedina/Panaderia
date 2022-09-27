@@ -134,7 +134,7 @@ if (strlen(session_id()) < 1)
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="ingreso.php"> Ingresos</a></li>
+                <li><a href="compra.php"> Compras</a></li>
                 <li><a href="proveedor.php"> Proveedores</a></li>
               </ul>
             </li>';

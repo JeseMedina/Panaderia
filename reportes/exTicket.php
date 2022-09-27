@@ -84,7 +84,7 @@ $email = "jcarlos.ad7@gmail.com";
     while ($regd = $rsptad->fetch_object()) {
         echo "<tr>";
         echo "<td>".$regd->cantidad."</td>";
-        echo "<td>".$regd->articulo;
+        echo "<td>".$regd->producto;
         echo "<td align='right'>S/ ".$regd->subtotal."</td>";
         echo "</tr>";
         $cantidad+=$regd->cantidad;
@@ -97,7 +97,7 @@ $email = "jcarlos.ad7@gmail.com";
     <td align="right"><b>S/  <?php echo $reg->total_venta;  ?></b></td>
     </tr>
     <tr>
-      <td colspan="3">Nº de artículos: <?php echo $cantidad; ?></td>
+      <td colspan="3">Nº de productos: <?php echo $cantidad; ?></td>
     </tr>
     <tr>
       <td colspan="3">&nbsp;</td>

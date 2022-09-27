@@ -29,7 +29,7 @@ $y_axis_initial = 25;
 $pdf->SetFont('Arial','B',12);
  
 $pdf->Cell(40,6,'',0,0,'C');
-$pdf->Cell(100,6,'LISTA DE ARTICULOS',1,0,'C'); 
+$pdf->Cell(100,6,'LISTA DE productoS',1,0,'C'); 
 $pdf->Ln(10);
  
 //Creamos las celdas para los títulos de cada columna y le asignamos un fondo gris y el tipo de letra
@@ -43,10 +43,10 @@ $pdf->Cell(35,6,utf8_decode('Descripción'),1,0,'C',1);
 $pdf->Ln(10);
  
 //Comenzamos a crear las filas de los registros según la consulta mysql
-require_once "../modelos/Articulo.php";
-$articulo = new Articulo();
+require_once "../modelos/producto.php";
+$producto = new producto();
  
-$rspta = $articulo->listar();
+$rspta = $producto->listar();
  
 //Implementamos las celdas de la tabla con los registros a mostrar
 $pdf->SetWidths(array(58,50,30,12,35));

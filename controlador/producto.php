@@ -10,28 +10,27 @@ $nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
 $stock=isset($_POST["stock"])? limpiarCadena($_POST["stock"]):"";
 $uMedida=isset($_POST["uMedida"])? limpiarCadena($_POST["uMedida"]):"";
 $precioCosto=isset($_POST["precioCosto"])? limpiarCadena($_POST["precioCosto"]):"";
-$precioVenta=isset($_POST["precioVenta"])? limpiarCadena($_POST["precioVenta"]):"";
 
 switch ($_GET["op"]){
     case 'guardaryeditar':
         if (empty($idproducto)){
-            $rspta=$producto->insertar($idrubro,$codigo,$nombre,$stock,$uMedida,$precioCosto,$precioVenta);
-            echo $rspta ? "Artículo registrado" : "Artículo no se pudo registrar";
+            $rspta=$producto->insertar($idrubro,$codigo,$nombre,$stock,$uMedida,$precioCosto);
+            echo $rspta ? "producto registrado" : "producto no se pudo registrar";
         }
         else {
-            $rspta=$producto->editar($idproducto,$idrubro,$codigo,$nombre,$stock,$uMedida,$precioCosto,$precioVenta);
-            echo $rspta ? "Artículo actualizado" : "Artículo no se pudo actualizar";
+            $rspta=$producto->editar($idproducto,$idrubro,$codigo,$nombre,$stock,$uMedida,$precioCosto);
+            echo $rspta ? "producto actualizado" : "producto no se pudo actualizar";
         }
     break;
  
     case 'desactivar':
         $rspta=$producto->desactivar($idproducto);
-        echo $rspta ? "Artículo Desactivado" : "Artículo no se puede desactivar";
+        echo $rspta ? "producto Desactivado" : "producto no se puede desactivar";
     break;
  
     case 'activar':
         $rspta=$producto->activar($idproducto);
-        echo $rspta ? "Artículo activado" : "Artículo no se puede activar";
+        echo $rspta ? "producto activado" : "producto no se puede activar";
     break;
  
     case 'mostrar':
@@ -57,8 +56,7 @@ switch ($_GET["op"]){
                 "4"=>$reg->stock,
                 "5"=>$reg->uMedida,
                 "6"=>$reg->precioCosto,
-                "7"=>$reg->precioVenta,
-                "8"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                "7"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'
                 );
         }

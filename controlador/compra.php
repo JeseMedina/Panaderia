@@ -2,11 +2,11 @@
 if (strlen(session_id()) < 1) 
   session_start();
  
-require_once "../modelos/Ingreso.php";
+require_once "../modelos/compra.php";
  
-$ingreso=new Ingreso();
+$compra=new compra();
  
-$idingreso=isset($_POST["idingreso"])? limpiarCadena($_POST["idingreso"]):"";
+$idcompra=isset($_POST["idcompra"])? limpiarCadena($_POST["idcompra"]):"";
 $idproveedor=isset($_POST["idproveedor"])? limpiarCadena($_POST["idproveedor"]):"";
 $idusuario=$_SESSION["idusuario"];
 $tipo_comprobante=isset($_POST["tipo_comprobante"])? limpiarCadena($_POST["tipo_comprobante"]):"";
@@ -18,34 +18,34 @@ $total_compra=isset($_POST["total_compra"])? limpiarCadena($_POST["total_compra"
  
 switch ($_GET["op"]){
     case 'guardaryeditar':
-        if (empty($idingreso)){
-            $rspta=$ingreso->insertar($idproveedor,$idusuario,$tipo_comprobante,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_compra,$_POST["idarticulo"],$_POST["cantidad"],$_POST["precio_compra"],$_POST["precioVenta"]);
-            echo $rspta ? "Ingreso registrado" : "No se pudieron registrar todos los datos del ingreso";
+        if (empty($idcompra)){
+            $rspta=$compra->insertar($idproveedor,$idusuario,$tipo_comprobante,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_compra,$_POST["idproducto"],$_POST["cantidad"],$_POST["precio_compra"],$_POST["precioVenta"]);
+            echo $rspta ? "compra registrado" : "No se pudieron registrar todos los datos del compra";
         }
         else {
         }
     break;
  
     case 'anular':
-        $rspta=$ingreso->anular($idingreso);
-        echo $rspta ? "Ingreso anulado" : "Ingreso no se puede anular";
+        $rspta=$compra->anular($idcompra);
+        echo $rspta ? "compra anulado" : "compra no se puede anular";
     break;
  
     case 'mostrar':
-        $rspta=$ingreso->mostrar($idingreso);
+        $rspta=$compra->mostrar($idcompra);
         //Codificar el resultado utilizando json
         echo json_encode($rspta);
     break;
  
     case 'listarDetalle':
-        //Recibimos el idingreso
+        //Recibimos el idcompra
         $id=$_GET['id'];
  
-        $rspta = $ingreso->listarDetalle($id);
+        $rspta = $compra->listarDetalle($id);
         $total=0;
         echo '<thead style="background-color:#A9D0F5">
                                     <th>Opciones</th>
-                                    <th>Artículo</th>
+                                    <th>producto</th>
                                     <th>Cantidad</th>
                                     <th>Precio Compra</th>
                                     <th>Precio Venta</th>
@@ -68,15 +68,15 @@ switch ($_GET["op"]){
     break;
  
     case 'listar':
-        $rspta=$ingreso->listar();
+        $rspta=$compra->listar();
         //Vamos a declarar un array
         $data= Array();
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>($reg->estado=='Aceptado')?'<button class="btn btn-warning" onclick="mostrar('.$reg->idingreso.')"><i class="fa fa-eye"></i></button>'.
-                    ' <button class="btn btn-danger" onclick="anular('.$reg->idingreso.')"><i class="fa fa-close"></i></button>':
-                    '<button class="btn btn-warning" onclick="mostrar('.$reg->idingreso.')"><i class="fa fa-eye"></i></button>',
+                "0"=>($reg->estado=='Aceptado')?'<button class="btn btn-warning" onclick="mostrar('.$reg->idcompra.')"><i class="fa fa-eye"></i></button>'.
+                    ' <button class="btn btn-danger" onclick="anular('.$reg->idcompra.')"><i class="fa fa-close"></i></button>':
+                    '<button class="btn btn-warning" onclick="mostrar('.$reg->idcompra.')"><i class="fa fa-eye"></i></button>',
                 "1"=>$reg->fecha,
                 "2"=>$reg->proveedor,
                 "3"=>$reg->usuario,
@@ -108,22 +108,21 @@ switch ($_GET["op"]){
                 }
     break;
  
-    case 'listarArticulos':
-        require_once "../modelos/Articulo.php";
-        $articulo=new Articulo();
+    case 'listarProductos':
+        require_once "../modelos/producto.php";
+        $producto=new producto();
  
-        $rspta=$articulo->listarActivos();
+        $rspta=$producto->listarActivos();
         //Vamos a declarar un array
         $data= Array();
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idarticulo.',\''.$reg->nombre.'\')"><span class="fa fa-plus"></span></button>',
+                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precioVenta.'\')"><span class="fa fa-plus"></span></button>',
                 "1"=>$reg->nombre,
-                "2"=>$reg->categoria,
-                "3"=>$reg->codigo,
-                "4"=>$reg->stock,
-                "5"=>"<img src='../files/articulos/".$reg->imagen."' height='50px' width='50px' >"
+                "2"=>$reg->rubro,
+                "3"=>$reg->stock,
+                "4"=>$reg->uMedida
                 );
         }
         $results = array(
