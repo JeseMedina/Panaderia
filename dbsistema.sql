@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-09-2022 a las 15:51:05
+-- Tiempo de generación: 27-09-2022 a las 15:10:34
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -154,11 +154,11 @@ CREATE TABLE `persona` (
   `idpersona` int(11) NOT NULL,
   `tipo_persona` varchar(20) NOT NULL,
   `nombre` varchar(100) NOT NULL,
-  `tipo_documento` varchar(20) DEFAULT NULL,
-  `num_documento` varchar(20) DEFAULT NULL,
-  `direccion` varchar(70) DEFAULT NULL,
-  `telefono` varchar(20) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
+  `num_documento` varchar(20) NOT NULL,
+  `provincia` varchar(20) NOT NULL,
+  `direccion` varchar(70) NOT NULL,
+  `telefono` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `condicion` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -166,9 +166,10 @@ CREATE TABLE `persona` (
 -- Volcado de datos para la tabla `persona`
 --
 
-INSERT INTO `persona` (`idpersona`, `tipo_persona`, `nombre`, `tipo_documento`, `num_documento`, `direccion`, `telefono`, `email`, `condicion`) VALUES
-(14, 'Cliente', 'Consumidor Final', 'DNI', '0', '0', '0', '0@gmail.com', 1),
-(16, 'Proveedor', 'Distribuidora del Norte', 'DNI', '3245231412', 'San Lorenzo 999', '53463425', 'omg@gmail.com', 1);
+INSERT INTO `persona` (`idpersona`, `tipo_persona`, `nombre`, `num_documento`, `provincia`, `direccion`, `telefono`, `email`, `condicion`) VALUES
+(14, 'Cliente', 'Consumidor Final', '0', 'Chaco', '0', '0', '0@gmail.com', 1),
+(16, 'Proveedor', 'Distribuidora del Norte', '3245231412', 'Santa Fe', 'San Lorenzo 999', '53463425', 'omg@gmail.com', 1),
+(17, 'Cliente', 'Doña Pocha', '43643135', 'Chaco', 'esrsedf', '3644000000', 'pocha@hotmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -338,7 +339,9 @@ CREATE TABLE `venta` (
 --
 
 INSERT INTO `venta` (`idventa`, `idcliente`, `idusuario`, `tipo_comprobante`, `serie_comprobante`, `num_comprobante`, `fecha_hora`, `impuesto`, `total_venta`, `estado`) VALUES
-(20, 14, 1, 'Boleta', '6546', '45654', '2022-09-15 00:00:00', '21.00', '47.00', 'Anulado');
+(20, 14, 1, 'Boleta', '6546', '45654', '2022-09-15 00:00:00', '21.00', '47.00', 'Anulado'),
+(22, 14, 1, 'Boleta', '34543', '2314', '2022-09-24 00:00:00', '1.00', '60.00', 'Aceptado'),
+(23, 17, 1, 'Boleta', '456457', '12', '2022-09-24 00:00:00', '21.00', '1.00', 'Aceptado');
 
 --
 -- Índices para tablas volcadas
@@ -496,7 +499,7 @@ ALTER TABLE `permiso`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `produccion`
@@ -538,7 +541,7 @@ ALTER TABLE `usuario_permiso`
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `idventa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idventa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Restricciones para tablas volcadas

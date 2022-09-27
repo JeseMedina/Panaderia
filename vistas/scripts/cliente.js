@@ -110,9 +110,9 @@ function mostrar(idpersona)
 
         $("#idpersona").val(data.idpersona);
         $("#nombre").val(data.nombre);
-        /* $("#tipo_documento").val(data.tipo_documento);
-        $("#tipo_documento").selectpicker('refresh'); */
         $("#num_documento").val(data.num_documento);
+        $("#provincia").val(data.provincia);
+        $("#provincia").selectpicker('refresh');
         $("#direccion").val(data.direccion);
         $("#telefono").val(data.telefono);
         $("#email").val(data.email);
