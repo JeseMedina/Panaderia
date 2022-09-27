@@ -10,7 +10,8 @@ $nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
 $stock=isset($_POST["stock"])? limpiarCadena($_POST["stock"]):"";
 $uMedida=isset($_POST["uMedida"])? limpiarCadena($_POST["uMedida"]):"";
 $precioCosto=isset($_POST["precioCosto"])? limpiarCadena($_POST["precioCosto"]):"";
- 
+$precioVenta=isset($_POST["precioVenta"])? limpiarCadena($_POST["precioVenta"]):"";
+
 switch ($_GET["op"]){
     case 'guardaryeditar':
         if (empty($idproducto)){

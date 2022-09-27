@@ -1,8 +1,8 @@
 :root{
-    --dark-gray: #063940;
-    --light-gray: #8ebdb6;
-    --salmon: #3e838c;
-    --peach: #195e63;
+    --dark-green: #063940;
+    --light-green: #8ebdb6;
+    --moss: #3e838c;
+    --dark-moss: #195e63;
     --cream: #f8f1e9;
 }
 
@@ -13,7 +13,7 @@ body{
 .skin-blue-light .wrapper, 
 .skin-blue-light .main-sidebar, 
 .skin-blue-light .left-side{
-    background-color: var(--dark-gray);
+    background-color: var(--dark-green);
 }
 
 .skin-blue-light .treeview-menu>li.active>a, 
@@ -22,12 +22,12 @@ body{
 }
 
 .skin-blue-light .content-wrapper, .skin-blue-light .main-footer {
-    border-left: 1px solid var(--dark-gray);
+    border-left: 1px solid var(--dark-green);
 }
 
 .skin-blue-light .sidebar-menu>li.header{
-    background-color: var(--dark-gray);
-    color: var(--salmon);
+    background-color: var(--dark-green);
+    color: var(--moss);
 }
 
 .skin-blue-light .sidebar a{
@@ -35,7 +35,7 @@ body{
 }
 
 .skin-blue-light .treeview-menu>li>a{
-    color: var(--dark-gray);
+    color: var(--dark-green);
 }
 
 .fa-circle-o{
@@ -43,26 +43,26 @@ body{
 }
 
 .content{
-    background: var(--dark-gray);
+    background: var(--dark-green);
 }
 
 /* Para el form*/
 
 .box-header.with-border {
-    background-color: var(--dark-gray);
+    background-color: var(--dark-green);
     color: var(--cream);
-    border-bottom: 1px solid var(--peach);
+    border-bottom: 1px solid var(--dark-moss);
 }
 
 .small-box>.small-box-footer{
-    color: var(--dark-gray);
+    color: var(--dark-green);
     font-weight: bold;
     background: var(--cream);
 }
 
 .box {
-    background: var(--dark-gray);
-    border-top: 3px solid var(--salmon);
+    background: var(--dark-green);
+    border-top: 3px solid var(--moss);
     border-color: var(--grey);
 }
 
@@ -74,60 +74,60 @@ body{
 .alert-info, 
 .label-info, 
 .modal-info .modal-body {
-    background-color: var(--light-gray) !important;
+    background-color: var(--light-green) !important;
 }
 
 .bg-green, .callout.callout-success, 
 .alert-success, 
 .label-success, 
 .modal-success .modal-body {
-    background-color: var(--salmon) !important;
+    background-color: var(--moss) !important;
 }
 
 .box.box-primary {
-    border-top-color: var(--light-gray);
+    border-top-color: var(--light-green);
 }
 
 /* Botones */
 .btn-success {
-    background-color: var(--salmon);
-    border-color: var(--salmon);
+    background-color: var(--moss);
+    border-color: var(--moss);
 }
 
 .btn-success:hover {
-    color: var(--salmon);
-    background-color: var(--dark-gray);
-    border-color: var(--salmon);
+    color: var(--moss);
+    background-color: var(--dark-green);
+    border-color: var(--moss);
 }
 
 .btn-info {
-    background-color: var(--peach);
-    border-color: var(--peach);
+    background-color: var(--dark-moss);
+    border-color: var(--dark-moss);
 }
 
 .btn-info:hover {
-    color: var(--peach);
-    background-color: var(--dark-gray);
-    border-color: var(--peach);
+    color: var(--dark-moss);
+    background-color: var(--dark-green);
+    border-color: var(--dark-moss);
 }
 
 button.dt-button, div.dt-button, a.dt-button{
     font-weight: 700;
     border: 1px solid var(--light);
     color: var(--cream);
-    background: var(--dark-gray);
+    background: var(--dark-green);
 }
 
 button.dt-button:hover:not(.disabled), 
 div.dt-button:hover:not(.disabled), 
 a.dt-button:hover:not(.disabled){
-    border: 1px solid var(--salmon);
-    color: var(--dark-gray);
+    border: 1px solid var(--moss);
+    color: var(--dark-green);
     background: var(--cream); 
 }
 
 label {
-    color: var(--dark-gray);
+    color: var(--dark-green);
 
 }
 .content {
@@ -146,54 +146,54 @@ label {
 .table>colgroup+thead>tr:first-child>th, 
 .table>thead:first-child>tr:first-child>td, 
 .table>thead:first-child>tr:first-child>th{
-    color: var(--dark-gray);
+    color: var(--dark-green);
     background-color: var(--cream);
 }
 
 /* Lineas de la tabla */
 .table-bordered {
-    border: 1px solid var(--dark-gray);
+    border: 1px solid var(--dark-green);
 }
 
 table.dataTable thead th, table.dataTable thead td {
-    border: 1px solid var(--dark-gray);
+    border: 1px solid var(--dark-green);
 }
 
 /* Boton editar*/
 .btn-warning {
-    background-color: var(--peach);
-    border-color: var(--peach);
+    background-color: var(--dark-moss);
+    border-color: var(--dark-moss);
 }
 
 /* Botones desactivados */
 .btn-primary {
-    background-color: var(--light-gray);
-    border-color: var(--light-gray);
+    background-color: var(--light-green);
+    border-color: var(--light-green);
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: var(--dark-gray);
-    border-color: var(--dark-gray);
+    background-color: var(--dark-green);
+    border-color: var(--dark-green);
 }
 
 /*Color de las filas */
 .table-striped>tbody>tr:nth-of-type(odd) {
-    background-color: var(--dark-gray);
+    background-color: var(--dark-green);
 }
 
 /* Color para las filas desactivadas */
 /* table.dataTable tbody tr {
-    background-color: var(--dark-gray);
+    background-color: var(--dark-green);
 } */
 
 /* .table-hover>tbody>tr:hover {
-    background-color: var(--salmon);
+    background-color: var(--moss);
 } */
 
 /* Letras de las filas */
 table.dataTable tbody th, table.dataTable tbody td {
-    color: var(--dark-gray);
+    color: var(--dark-green);
 }
 
 /* Color de las lineas  FOOTER y background*/
@@ -203,7 +203,7 @@ table.dataTable tbody th, table.dataTable tbody td {
 .table-bordered>thead>tr>td, 
 .table-bordered>tbody>tr>td, 
 .table-bordered>tfoot>tr>td {
-    border: 1px solid var(--dark-gray);
+    border: 1px solid var(--dark-green);
     background-color: var(--cream);
 }
 
@@ -213,12 +213,12 @@ table.dataTable tbody th, table.dataTable tbody td {
 .alert-error, 
 .label-danger, 
 .modal-danger .modal-body {
-    background-color: var(--light-gray) !important;
+    background-color: var(--light-green) !important;
 }
 
 /* Footer columna titulos*/
 tfoot{
-    color: var(--dark-gray);
+    color: var(--dark-green);
 }
 
 .dataTables_wrapper .dataTables_length, 
@@ -226,31 +226,31 @@ tfoot{
 .dataTables_wrapper .dataTables_info, 
 .dataTables_wrapper .dataTables_processing, 
 .dataTables_wrapper .dataTables_paginate {
-    color: var(--cream);
+    color: var(--dark-green);
 }
 
 /* Para el índice */
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, 
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, 
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
-    color: var(--cream) !important;
+    color: var(--dark-green) !important;
 }
 
 /* Para el número del índice */
 .dataTables_wrapper .dataTables_paginate .paginate_button.current{
     color: var(--cream) !important;
-    background: var(--dark-gray) !important;
+    background: var(--dark-green) !important;
 } 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-    border: 2px solid var(--salmon)!important ;
-    color: var(--dark-gray) !important;
+    border: 2px solid var(--moss)!important ;
+    color: var(--dark-green) !important;
     background: var(--cream) !important; 
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
 }
 /* btn editar */
 .btn-warning:hover {
-    border: 2px solid var(--salmon)!important ;
-    color: var(--dark-gray) !important;
+    border: 2px solid var(--moss)!important ;
+    color: var(--dark-green) !important;
     background: var(--cream) !important; 
 }

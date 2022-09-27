@@ -1,31 +1,31 @@
 :root{
-    --dark-gray: #1e1e24;
-    --light-gray: #444140;
-    --salmon: #e54b4b;
-    --peach: #ffa987;
+    --dark-green: #063940;
+    --light-green: #8ebdb6;
+    --moss: #3e838c;
+    --dark-moss: #195e63;
     --cream: #f7ebe8;
 }
 
 body{
-    background-color: var(--dark-gray);
+    background-color: var(--dark-green);
 }
 
 .skin-blue-light .main-header .logo{
-    background-color: var(--dark-gray);
-    color: var(--salmon);
+    background-color: var(--dark-green);
+    color: var(--moss);
 }
 
 .skin-blue-light .main-header .logo:hover{
-    background-color: var(--dark-gray);
-    color: var(--salmon);
+    background-color: var(--dark-green);
+    color: var(--moss);
 }
 
 .skin-blue-light .main-header .navbar{
-    background-color: var(--dark-gray);
+    background-color: var(--dark-green);
 }
 
 .skin-blue-light .main-header .navbar{
-    background-color: var(--dark-gray);
+    background-color: var(--dark-green);
 }
 
 .skin-blue-light .main-header .navbar .sidebar-toggle{
