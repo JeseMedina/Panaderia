@@ -37,8 +37,8 @@ require 'header.php';
                           <thead>
                             <th>Opciones</th>
                             <th>Nombre</th>
-                            <th>Documento</th>
-                            <th>Número</th>
+                            <!-- <th>Documento</th> -->
+                            <th>DNI</th>
                             <th>Teléfono</th>
                             <th>Email</th>
                             <th>Estado</th>
@@ -48,8 +48,8 @@ require 'header.php';
                           <tfoot>
                             <th>Opciones</th>
                             <th>Nombre</th>
-                            <th>Documento</th>
-                            <th>Número</th>
+                            <!-- <th>Documento</th> -->
+                            <th>DNI</th>
                             <th>Teléfono</th>
                             <th>Email</th>
                             <th>Estado</th>
@@ -64,14 +64,14 @@ require 'header.php';
                             <input type="hidden" name="tipo_persona" id="tipo_persona" value="Proveedor">
                             <input type="text" class="form-control" name="nombre" id="nombre" maxlength="100" placeholder="Nombre del proveedor" required>
                           </div>
-                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                          <!-- <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Tipo Documento:</label>
                             <select class="form-control select-picker" name="tipo_documento" id="tipo_documento" required>
                               <option value="DNI">DNI</option>
                               <option value="RUC">LE</option>
                               <option value="CEDULA">CEDULA</option>
                             </select>
-                          </div>
+                          </div> -->
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Número Documento:</label>
                             <input type="text" class="form-control" name="num_documento" id="num_documento" maxlength="20" placeholder="Documento">
