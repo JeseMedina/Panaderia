@@ -41,7 +41,7 @@ if ($_SESSION['almacen']==1)
                                 <th>Opciones</th>
                                 <th>Nombre</th>
                                 <th>Rubro</th>
-                                <th>Código</th>
+                                <!-- <th>Código</th> -->
                                 <th>Stock</th>
                                 <th>U. Medida</th>
                                 <th>Precio Costo</th>
@@ -54,7 +54,7 @@ if ($_SESSION['almacen']==1)
                                 <th>Opciones</th>
                                 <th>Nombre</th>
                                 <th>Rubro</th>
-                                <th>Código</th>
+                                <!-- <th>Código</th> -->
                                 <th>Stock</th>
                                 <th>U. Medida</th>
                                 <th>Precio Costo</th>
