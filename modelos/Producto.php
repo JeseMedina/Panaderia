@@ -14,14 +14,14 @@ Class Producto
     public function insertar($idrubro,$codigo,$nombre,$stock,$uMedida,$precioCosto)
     {
         $sql="INSERT INTO producto (idrubro,codigo,nombre,stock,uMedida,precioCosto,condicion)
-        VALUES ('$idrubro','$codigo','$nombre','$stock','$uMedida','$precioCosto','$precioVenta,'1')";
+        VALUES ('$idrubro','$codigo','$nombre','$stock','$uMedida','$precioCosto','1')";
         return ejecutarConsulta($sql);
     }
  
     //Implementamos un método para editar registros
     public function editar($idproducto,$idrubro,$codigo,$nombre,$stock,$uMedida,$precioCosto)
     {
-        $sql="UPDATE producto SET idrubro='$idrubro',codigo='$codigo',nombre='$nombre',stock='$stock',uMedida='$uMedida',precioCosto='$precioCosto', precioVenta='$precioVenta WHERE idproducto='$idproducto'";
+        $sql="UPDATE producto SET idrubro='$idrubro',codigo='$codigo',nombre='$nombre',stock='$stock',uMedida='$uMedida',precioCosto='$precioCosto' WHERE idproducto='$idproducto'";
         return ejecutarConsulta($sql);
     }
  

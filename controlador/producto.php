@@ -52,11 +52,10 @@ switch ($_GET["op"]){
                     ' <button class="btn btn-primary" onclick="activar('.$reg->idproducto.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->rubro,
-                "3"=>$reg->codigo,
-                "4"=>$reg->stock,
-                "5"=>$reg->uMedida,
-                "6"=>$reg->precioCosto,
-                "7"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                "3"=>$reg->stock,
+                "4"=>$reg->uMedida,
+                "5"=>$reg->precioCosto,
+                "6"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'
                 );
         }
