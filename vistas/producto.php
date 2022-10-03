@@ -43,7 +43,6 @@ if ($_SESSION['almacen']==1)
                                 <th>Rubro</th>
                                 <th>Stock</th>
                                 <th>U. Medida</th>
-                                <th>Precio Costo</th>
                                 <th>Estado</th>
                             </thead>
                             <tbody>
@@ -54,7 +53,6 @@ if ($_SESSION['almacen']==1)
                                 <th>Rubro</th>
                                 <th>Stock</th>
                                 <th>U. Medida</th>
-                                <th>Precio Costo</th>
                                 <th>Estado</th>
                             </tfoot>
                         </table>
@@ -105,13 +103,6 @@ if ($_SESSION['almacen']==1)
                                     <option value="Unidad">Unidad</option>
                                     <option value="Docena">Docena</option>
                                 </select>
-                            </div>
-                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Precio de Costo:</label>
-                                <input type="text"
-                                    class="form-control"
-                                    name="precioCosto"
-                                    id="precioCosto">
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Código:</label>

@@ -145,12 +145,14 @@ require 'header.php';
                                         <th>Opciones</th>
                                         <th>producto</th>
                                         <th>Cantidad</th>
+                                        <th>U. Medida</th>
                                         <th>Precio Compra</th>
                                         <th>Precio Venta</th>
                                         <th>Subtotal</th>
                                     </thead>
                                     <tfoot>
                                         <th>TOTAL</th>
+                                        <th></th>
                                         <th></th>
                                         <th></th>
                                         <th></th>

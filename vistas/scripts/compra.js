@@ -219,7 +219,8 @@ function marcarImpuesto()
     }
   }
  
-function agregarDetalle(idproducto,producto,precio_compra,precio_venta)
+// function agregarDetalle(idproducto,producto,precio_compra,precio_venta,)
+function agregarDetalle(idproducto,producto,uMedida)
   {
     var cantidad=1;
     var precio_compra=1;
@@ -232,6 +233,7 @@ function agregarDetalle(idproducto,producto,precio_compra,precio_venta)
         '<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle('+cont+')">X</button></td>'+
         '<td><input type="hidden" name="idproducto[]" value="'+idproducto+'">'+producto+'</td>'+
         '<td><input type="number" name="cantidad[]" id="cantidad[]" value="'+cantidad+'"></td>'+
+        '<td>'+uMedida+'</td>'+
         '<td><input type="number" name="precio_compra[]" id="precio_compra[]" value="'+precio_compra+'"></td>'+
         '<td><input type="number" name="precio_venta[]" value="'+precio_venta+'"></td>'+
         '<td><span name="subtotal" id="subtotal'+cont+'">'+subtotal+'</span></td>'+

@@ -45,8 +45,9 @@ switch ($_GET["op"]){
         $total=0;
         echo '<thead style="background-color:#A9D0F5">
                                     <th>Opciones</th>
-                                    <th>producto</th>
+                                    <th>Producto</th>
                                     <th>Cantidad</th>
+                                    <th>U. Medida</th>
                                     <th>Precio Compra</th>
                                     <th>Precio Venta</th>
                                     <th>Subtotal</th>
@@ -54,11 +55,12 @@ switch ($_GET["op"]){
  
         while ($reg = $rspta->fetch_object())
                 {
-                    echo '<tr class="filas"><td></td><td>'.$reg->nombre.'</td><td>'.$reg->cantidad.'</td><td>'.$reg->precio_compra.'</td><td>'.$reg->precio_venta.'</td><td>'.$reg->precio_compra*$reg->cantidad.'</td></tr>';
+                    echo '<tr class="filas"><td></td><td>'.$reg->nombre.'</td><td>'.$reg->cantidad.'</td><td>'.$reg->uMedida.'</td><td>'.$reg->precio_compra.'</td><td>'.$reg->precio_venta.'</td><td>'.$reg->precio_compra*$reg->cantidad.'</td></tr>';
                     $total=$total+($reg->precio_compra*$reg->cantidad);
                 }
         echo '<tfoot>
                                     <th>TOTAL</th>
+                                    <th></th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
@@ -118,7 +120,7 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precioCosto.'\')"><span class="fa fa-plus"></span></button>',
+                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->uMedida.'\')"><span class="fa fa-plus"></span></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->rubro,
                 "3"=>$reg->stock,

@@ -49,7 +49,7 @@ Class Compra
  
     public function listarDetalle($idcompra)
     {
-        $sql="SELECT di.idcompra,di.idproducto,a.nombre,di.cantidad,di.precio_compra,di.precio_venta FROM detalle_compra di inner join producto a on di.idproducto=a.idproducto where di.idcompra='$idcompra'";
+        $sql="SELECT di.idcompra,di.idproducto,a.nombre,di.cantidad,a.uMedida,di.precio_compra,di.precio_venta FROM detalle_compra di inner join producto a on di.idproducto=a.idproducto where di.idcompra='$idcompra'";
         return ejecutarConsulta($sql);
     }
  

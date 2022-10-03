@@ -9,16 +9,15 @@ $codigo=isset($_POST["codigo"])? limpiarCadena($_POST["codigo"]):"";
 $nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
 $stock=isset($_POST["stock"])? limpiarCadena($_POST["stock"]):"";
 $uMedida=isset($_POST["uMedida"])? limpiarCadena($_POST["uMedida"]):"";
-$precioCosto=isset($_POST["precioCosto"])? limpiarCadena($_POST["precioCosto"]):"";
 
 switch ($_GET["op"]){
     case 'guardaryeditar':
         if (empty($idproducto)){
-            $rspta=$producto->insertar($idrubro,$codigo,$nombre,$stock,$uMedida,$precioCosto);
+            $rspta=$producto->insertar($idrubro,$codigo,$nombre,$stock,$uMedida);
             echo $rspta ? "producto registrado" : "producto no se pudo registrar";
         }
         else {
-            $rspta=$producto->editar($idproducto,$idrubro,$codigo,$nombre,$stock,$uMedida,$precioCosto);
+            $rspta=$producto->editar($idproducto,$idrubro,$codigo,$nombre,$stock,$uMedida);
             echo $rspta ? "producto actualizado" : "producto no se pudo actualizar";
         }
     break;
@@ -54,8 +53,7 @@ switch ($_GET["op"]){
                 "2"=>$reg->rubro,
                 "3"=>$reg->stock,
                 "4"=>$reg->uMedida,
-                "5"=>$reg->precioCosto,
-                "6"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                "5"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'
                 );
         }
