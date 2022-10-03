@@ -32,7 +32,7 @@ Class Compra
     }
  
      
-    //Implementamos un método para anular categorías
+    //Implementamos un método para anular comprass
     public function anular($idcompra)
     {
         $sql="UPDATE compra SET estado='Anulado' WHERE idcompra='$idcompra'";

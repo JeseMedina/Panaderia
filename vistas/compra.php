@@ -1,6 +1,6 @@
 <?php
 //Activamos el almacenamiento en el buffer
-ob_start();
+/* ob_start();
 session_start();
  
 if (!isset($_SESSION["nombre"]))
@@ -8,11 +8,11 @@ if (!isset($_SESSION["nombre"]))
   header("Location: login.html");
 }
 else
-{
+{ */
 require 'header.php';
  
-if ($_SESSION['compras']==1)
-{
+/* if ($_SESSION['compras']==1)
+{ */
 ?>
 
 <head>
@@ -28,7 +28,7 @@ if ($_SESSION['compras']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Compra <button class="btn btn-success"
+                        <h1 class="box-title">Compras <button class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
                                 Agregar</button></h1>
@@ -46,8 +46,7 @@ if ($_SESSION['compras']==1)
                                 <th>Fecha</th>
                                 <th>Proveedor</th>
                                 <th>Usuario</th>
-                                <th>Documento</th>
-                                <th>Número</th>
+                                <th>DNI</th>
                                 <th>Total Compra</th>
                                 <th>Estado</th>
                             </thead>
@@ -58,8 +57,7 @@ if ($_SESSION['compras']==1)
                                 <th>Fecha</th>
                                 <th>Proveedor</th>
                                 <th>Usuario</th>
-                                <th>Documento</th>
-                                <th>Número</th>
+                                <th>DNI</th>
                                 <th>Total Compra</th>
                                 <th>Estado</th>
                             </tfoot>
@@ -239,17 +237,12 @@ if ($_SESSION['compras']==1)
 </div>
 <!-- Fin modal -->
 <?php
-}
+/* }
 else
 {
   require 'noacceso.html';
-}
+} */
  
 require 'footer.html';
 ?>
-<script type="text/javascript"
-    src="scripts/compra.js"></script>
-<?php 
-}
-ob_end_flush();
-?>
+<script type="text/javascript" src="scripts/compra.js"></script>

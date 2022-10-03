@@ -56,8 +56,8 @@ function mostrarform(flag)
  
         $("#btnGuardar").hide();
         $("#btnCancelar").show();
-        detalles=0;
         $("#btnAgregarArt").show();
+        detalles=0;
     }
     else
     {
@@ -84,7 +84,6 @@ function listar()
         "aServerSide": true,//Paginación y filtrado realizados por el servidor
         dom: 'Bfrtip',//Definimos los elementos del control de tabla
         buttons: [                
-                    'copyHtml5',
                     'excelHtml5',
                     'csvHtml5',
                     'pdf'
@@ -156,13 +155,14 @@ function guardaryeditar(e)
     limpiar();
 }
  
-function mostrar(idingreso)
+function mostrar(idcompra)
 {
-    $.post("../controlador/compra.php?op=mostrar",{idingreso : idingreso}, function(data, status)
+    $.post("../controlador/compra.php?op=mostrar",{idcompra : idcompra}, function(data, status)
     {
         data = JSON.parse(data);        
         mostrarform(true);
- 
+
+        $("#idcompra").val(data.idcompra);
         $("#idproveedor").val(data.idproveedor);
         $("#idproveedor").selectpicker('refresh');
         $("#tipo_comprobante").val(data.tipo_comprobante);
@@ -171,7 +171,6 @@ function mostrar(idingreso)
         $("#num_comprobante").val(data.num_comprobante);
         $("#fecha_hora").val(data.fecha);
         $("#impuesto").val(data.impuesto);
-        $("#idingreso").val(data.idingreso);
  
         //Ocultar y mostrar los botones
         $("#btnGuardar").hide();
@@ -179,18 +178,18 @@ function mostrar(idingreso)
         $("#btnAgregarArt").hide();
     });
  
-    $.post("../controlador/compra.php?op=listarDetalle&id="+idingreso,function(r){
+    $.post("../controlador/compra.php?op=listarDetalle&id="+idcompra,function(r){
             $("#detalles").html(r);
     });
 }
  
 //Función para anular registros
-function anular(idingreso)
+function anular(idcompra)
 {
-    bootbox.confirm("¿Está Seguro de anular el ingreso?", function(result){
+    bootbox.confirm("¿Está Seguro de anular la compra?", function(result){
         if(result)
         {
-            $.post("../controlador/compra.php?op=anular", {idingreso : idingreso}, function(e){
+            $.post("../controlador/compra.php?op=anular", {idcompra : idcompra}, function(e){
                 bootbox.alert(e);
                 tabla.ajax.reload();
             }); 
@@ -220,7 +219,7 @@ function marcarImpuesto()
     }
   }
  
-function agregarDetalle(idproducto,producto)
+function agregarDetalle(idproducto,producto,precio_compra,precio_venta)
   {
     var cantidad=1;
     var precio_compra=1;

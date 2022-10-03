@@ -2,9 +2,9 @@
 if (strlen(session_id()) < 1) 
   session_start();
  
-require_once "../modelos/compra.php";
+require_once "../modelos/Compra.php";
  
-$compra=new compra();
+$compra=new Compra();
  
 $idcompra=isset($_POST["idcompra"])? limpiarCadena($_POST["idcompra"]):"";
 $idproveedor=isset($_POST["idproveedor"])? limpiarCadena($_POST["idproveedor"]):"";
@@ -19,7 +19,7 @@ $total_compra=isset($_POST["total_compra"])? limpiarCadena($_POST["total_compra"
 switch ($_GET["op"]){
     case 'guardaryeditar':
         if (empty($idcompra)){
-            $rspta=$compra->insertar($idproveedor,$idusuario,$tipo_comprobante,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_compra,$_POST["idproducto"],$_POST["cantidad"],$_POST["precio_compra"],$_POST["precioVenta"]);
+            $rspta=$compra->insertar($idproveedor,$idusuario,$tipo_comprobante,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_compra,$_POST["idproducto"],$_POST["cantidad"],$_POST["precio_compra"],$_POST["precio_venta"]);
             echo $rspta ? "compra registrado" : "No se pudieron registrar todos los datos del compra";
         }
         else {
@@ -54,7 +54,7 @@ switch ($_GET["op"]){
  
         while ($reg = $rspta->fetch_object())
                 {
-                    echo '<tr class="filas"><td></td><td>'.$reg->nombre.'</td><td>'.$reg->cantidad.'</td><td>'.$reg->precio_compra.'</td><td>'.$reg->precioVenta.'</td><td>'.$reg->precio_compra*$reg->cantidad.'</td></tr>';
+                    echo '<tr class="filas"><td></td><td>'.$reg->nombre.'</td><td>'.$reg->cantidad.'</td><td>'.$reg->precio_compra.'</td><td>'.$reg->precio_venta.'</td><td>'.$reg->precio_compra*$reg->cantidad.'</td></tr>';
                     $total=$total+($reg->precio_compra*$reg->cantidad);
                 }
         echo '<tfoot>
@@ -108,9 +108,9 @@ switch ($_GET["op"]){
                 }
     break;
  
-    case 'listarProductos':
-        require_once "../modelos/producto.php";
-        $producto=new producto();
+    case 'listarproductos':
+        require_once "../modelos/Producto.php";
+        $producto=new Producto();
  
         $rspta=$producto->listarActivos();
         //Vamos a declarar un array
@@ -118,7 +118,7 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precioVenta.'\')"><span class="fa fa-plus"></span></button>',
+                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precioCosto.'\')"><span class="fa fa-plus"></span></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->rubro,
                 "3"=>$reg->stock,

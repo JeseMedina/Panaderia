@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-09-2022 a las 15:10:34
+-- Tiempo de generación: 02-10-2022 a las 16:28:34
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `dbsistema`
+-- Base de datos: `panaderia`
 --
 
 -- --------------------------------------------------------
@@ -200,7 +200,6 @@ CREATE TABLE `producto` (
   `stock` int(11) NOT NULL,
   `uMedida` varchar(20) NOT NULL,
   `precioCosto` decimal(10,0) NOT NULL,
-  `precioVenta` decimal(10,0) NOT NULL,
   `condicion` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -208,10 +207,11 @@ CREATE TABLE `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`idproducto`, `idrubro`, `codigo`, `nombre`, `stock`, `uMedida`, `precioCosto`, `precioVenta`, `condicion`) VALUES
-(11, 33, '', 'Pan Comu', 200, 'Kilogramo', '40', '0', 1),
-(12, 33, '', 'Pan de leche', 50, 'Docena', '40', '0', 1),
-(13, 34, '', 'Levadura', 70, 'Gramo', '80', '0', 1);
+INSERT INTO `producto` (`idproducto`, `idrubro`, `codigo`, `nombre`, `stock`, `uMedida`, `precioCosto`, `condicion`) VALUES
+(11, 33, '', 'Pan Comun', 200, 'Kilogramo', '40', 1),
+(12, 33, '', 'Pan de leche', 50, 'Docena', '40', 1),
+(13, 34, '', 'Levadura', 70, 'Gramo', '80', 1),
+(14, 33, 'a', 'Panaderia', 15, 'Kilogramo', '40', 1);
 
 -- --------------------------------------------------------
 
@@ -511,7 +511,7 @@ ALTER TABLE `produccion`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `reparto`
