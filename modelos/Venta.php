@@ -60,7 +60,7 @@ Class Venta
     }
     public function ventacabecera($idventa)
     {
-        $sql="SELECT v.idventa,v.idcliente,p.nombre as cliente, p.direccion,p.tipo_documento,p.num_documento,p.email,p.telefono,v.idusuario,u.nombre as usuario, v.tipo_comprobante,v.serie_comprobante,v.num_comprobante,date(v.fecha_hora) as fecha,v.impuesto,v.total_venta FROM venta v INNER JOIN persona p on v.idcliente=p.idpersona INNER JOIN usuario u on v.idusuario=u.idusuario WHERE v.idventa='$idventa'";
+        $sql="SELECT v.idventa,v.idcliente,p.nombre as cliente, p.direccion,p.num_documento,p.email,p.telefono,v.idusuario,u.nombre as usuario, v.tipo_comprobante,v.serie_comprobante,v.num_comprobante,date(v.fecha_hora) as fecha,v.impuesto,v.total_venta FROM venta v INNER JOIN persona p on v.idcliente=p.idpersona INNER JOIN usuario u on v.idusuario=u.idusuario WHERE v.idventa='$idventa'";
         
         return ejecutarConsulta($sql);
     }

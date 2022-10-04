@@ -6,7 +6,6 @@ $usuario=new Usuario();
  //almaceno los valores de cada uno de los objetos del form
 $idusuario=isset($_POST["idusuario"])? limpiarCadena($_POST["idusuario"]):"";
 $nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
-$tipo_documento=isset($_POST["tipo_documento"])? limpiarCadena($_POST["tipo_documento"]):"";
 $num_documento=isset($_POST["num_documento"])? limpiarCadena($_POST["num_documento"]):"";
 $direccion=isset($_POST["direccion"])? limpiarCadena($_POST["direccion"]):"";
 $telefono=isset($_POST["telefono"])? limpiarCadena($_POST["telefono"]):"";
@@ -36,12 +35,12 @@ switch ($_GET["op"]){
         //HASH sha256 en la contraseña
         $clavehash=hash("SHA256",$clave);
         if (empty($idusuario)){
-            $rspta=$usuario->insertar($nombre,$tipo_documento,$num_documento,$direccion,$telefono,$email,$cargo,$login,$clavehash,$imagen,$_POST['permiso']);
+            $rspta=$usuario->insertar($nombre,$num_documento,$direccion,$telefono,$email,$cargo,$login,$clavehash,$imagen,$_POST['permiso']);
 
             echo $rspta ? "Usuario registrado" : "No se pudieron registrar todos los datos del Usuario";
         }
         else {
-            $rspta=$usuario->editar($idusuario,$nombre,$tipo_documento,$num_documento,$direccion,$telefono,$email,$cargo,$login, $clavehash,$imagen,$_POST['permiso']);
+            $rspta=$usuario->editar($idusuario,$nombre,$num_documento,$direccion,$telefono,$email,$cargo,$login, $clavehash,$imagen,$_POST['permiso']);
             echo $rspta ? "Usuario actualizado" : "Usuario no se pudo actualizar";
         }
     break;
@@ -77,15 +76,14 @@ switch ($_GET["op"]){
                     '<button class="btn btn-primary" title="Editar usuario disabled"><i class="fa fa-pencil"></i></button>'.
                     ' <button class="btn btn-primary" onclick="activar('.$reg->idusuario.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
-                "2"=>$reg->tipo_documento,
-                "3"=>$reg->num_documento,
-                "4"=>$reg->direccion,
-                "5"=>$reg->telefono,
-                "6"=>$reg->email,
-                "7"=>$reg->cargo,
-                "8"=>$reg->login,
-                "9"=>"<img src='../files/usuarios/".$reg->imagen."' height='50px' width='50px' >",
-                "10"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                "2"=>$reg->num_documento,
+                "3"=>$reg->direccion,
+                "4"=>$reg->telefono,
+                "5"=>$reg->email,
+                "6"=>$reg->cargo,
+                "7"=>$reg->login,
+                "8"=>"<img src='../files/usuarios/".$reg->imagen."' height='50px' width='50px' >",
+                "9"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'
                 );
         }

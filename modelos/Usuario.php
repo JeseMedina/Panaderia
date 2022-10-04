@@ -11,10 +11,10 @@ Class Usuario
 	}
 
 	//Implementamos un método para insertar registros
-	public function insertar($nombre,$tipo_documento,$num_documento,$direccion,$telefono,$email,$cargo,$login,$clave,$imagen,$permisos)
+	public function insertar($nombre,$num_documento,$direccion,$telefono,$email,$cargo,$login,$clave,$imagen,$permisos)
 	{
-		$sql="INSERT INTO usuario(nombre,tipo_documento,num_documento,direccion,telefono,email,cargo,login,clave,imagen,condicion)
-		VALUES ('$nombre','$tipo_documento','$num_documento','$direccion','$telefono','$email','$cargo','$login','$clave','$imagen','1')";
+		$sql="INSERT INTO usuario(nombre,num_documento,direccion,telefono,email,cargo,login,clave,imagen,condicion)
+		VALUES ('$nombre','$num_documento','$direccion','$telefono','$email','$cargo','$login','$clave','$imagen','1')";
 		//return ejecutarConsulta($sql);
 		//necesito el id del usuario que se ha registrado
 		$idusuarionew=ejecutarConsulta_retornarID($sql);
@@ -32,9 +32,9 @@ Class Usuario
 		return $sw;
 	}
 	//Implementamos un método para editar registros
-	public function editar($idusuario,$nombre,$tipo_documento,$num_documento,$direccion,$telefono,$email,$cargo,$login, $clave,$imagen,$permisos)
+	public function editar($idusuario,$nombre,$num_documento,$direccion,$telefono,$email,$cargo,$login, $clave,$imagen,$permisos)
 	{
-		$sql="UPDATE usuario SET nombre='$nombre',tipo_documento='$tipo_documento',num_documento='$num_documento',direccion='$direccion',telefono='$telefono',email='$email',cargo='$cargo',login='$login',clave='$clave',imagen='$imagen' WHERE idusuario='$idusuario'";
+		$sql="UPDATE usuario SET nombre='$nombre',num_documento='$num_documento',direccion='$direccion',telefono='$telefono',email='$email',cargo='$cargo',login='$login',clave='$clave',imagen='$imagen' WHERE idusuario='$idusuario'";
 		ejecutarConsulta($sql);
 		
 		//eliminamos todos los permisos asignados para volverlos a registrar

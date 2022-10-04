@@ -5,7 +5,7 @@ session_start();
 
 if (!isset($_SESSION["escritorio"])) 
 {
-  header("Location: login.html");
+    header("Location: login.html");
 }
 else
 {
@@ -61,18 +61,19 @@ if ($_SESSION['escritorio']==1)
   $totalesv=substr($totalesv, 0, -1);
 ?>
 <!--Contenido-->
+
 <head>
-  <link rel="stylesheet"
-          type="text/css"
-          href="../public/css/escritorio.css">
+    <link rel="stylesheet"
+        type="text/css"
+        href="../public/css/escritorio.css">
 </head>
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">        
-        <!-- Main content -->
-        <section class="content">
-            <div class="row">
-              <div class="col-md-12">
-                  <div class="box">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
                     <div class="box-header with-border">
                         <h1 class="box-title">Escritorio</h1>
                         <div class="box-tools pull-right">

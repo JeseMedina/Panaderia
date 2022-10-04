@@ -37,7 +37,7 @@ function limpiar()
     var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
     $('#fecha_hora').val(today);
  
-    //Marcamos el primer tipo_documento
+  
     $("#tipo_comprobante").val("Boleta");
     $("#tipo_comprobante").selectpicker('refresh');
 }

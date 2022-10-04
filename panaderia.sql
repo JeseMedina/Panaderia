@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2022 a las 16:28:34
+-- Tiempo de generación: 04-10-2022 a las 01:43:28
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -40,6 +40,16 @@ CREATE TABLE `compra` (
   `estado` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `compra`
+--
+
+INSERT INTO `compra` (`idcompra`, `idproveedor`, `idusuario`, `tipo_comprobante`, `serie_comprobante`, `num_comprobante`, `fecha_hora`, `impuesto`, `total_compra`, `estado`) VALUES
+(11, 16, 1, 'Boleta', '456456', '1234534', '2022-10-03 00:00:00', '21.00', '3000.00', 'Aceptado'),
+(12, 16, 1, 'Factura', '3451', '765', '2022-10-03 00:00:00', '21.00', '7000.00', 'Aceptado'),
+(13, 16, 1, 'Factura', '456453', '12', '2022-10-03 00:00:00', '18.00', '100.00', 'Aceptado'),
+(14, 16, 1, 'Boleta', '', '435', '2022-10-03 00:00:00', '0.00', '1000.00', 'Aceptado');
+
 -- --------------------------------------------------------
 
 --
@@ -54,6 +64,16 @@ CREATE TABLE `detalle_compra` (
   `precio_compra` decimal(11,2) NOT NULL,
   `precio_venta` decimal(11,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `detalle_compra`
+--
+
+INSERT INTO `detalle_compra` (`iddetalle_compra`, `idcompra`, `idproducto`, `cantidad`, `precio_compra`, `precio_venta`) VALUES
+(7, 11, 13, 100, '30.00', '45.00'),
+(8, 12, 15, 100, '70.00', '110.00'),
+(9, 13, 13, 10, '10.00', '12.00'),
+(10, 14, 11, 100, '10.00', '12.00');
 
 --
 -- Disparadores `detalle_compra`
@@ -199,7 +219,6 @@ CREATE TABLE `producto` (
   `nombre` varchar(100) NOT NULL,
   `stock` int(11) NOT NULL,
   `uMedida` varchar(20) NOT NULL,
-  `precioCosto` decimal(10,0) NOT NULL,
   `condicion` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -207,11 +226,12 @@ CREATE TABLE `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`idproducto`, `idrubro`, `codigo`, `nombre`, `stock`, `uMedida`, `precioCosto`, `condicion`) VALUES
-(11, 33, '', 'Pan Comun', 200, 'Kilogramo', '40', 1),
-(12, 33, '', 'Pan de leche', 50, 'Docena', '40', 1),
-(13, 34, '', 'Levadura', 70, 'Gramo', '80', 1),
-(14, 33, 'a', 'Panaderia', 15, 'Kilogramo', '40', 1);
+INSERT INTO `producto` (`idproducto`, `idrubro`, `codigo`, `nombre`, `stock`, `uMedida`, `condicion`) VALUES
+(11, 33, '', 'Pan Comun', 300, 'Kilogramo', 1),
+(12, 33, '', 'Pan de leche', 50, 'Docena', 1),
+(13, 34, '', 'Levadura', 180, 'Gramo', 1),
+(14, 33, 'a', 'Panaderia', 15, 'Kilogramo', 1),
+(15, 33, 'prepizza', 'Prepizza', 110, 'Unidad', 1);
 
 -- --------------------------------------------------------
 
@@ -463,13 +483,13 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `compra`
 --
 ALTER TABLE `compra`
-  MODIFY `idcompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idcompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_compra`
 --
 ALTER TABLE `detalle_compra`
-  MODIFY `iddetalle_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `iddetalle_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_produccion`
@@ -511,7 +531,7 @@ ALTER TABLE `produccion`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `reparto`
