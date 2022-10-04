@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-10-2022 a las 01:43:28
+-- Tiempo de generación: 04-10-2022 a las 02:08:13
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -279,7 +279,7 @@ INSERT INTO `rubro` (`idrubro`, `nombre`, `descripcion`, `condicion`) VALUES
 CREATE TABLE `usuario` (
   `idusuario` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
-  `tipo_documento` varchar(20) NOT NULL,
+  `tipo_documento` varchar(20) DEFAULT NULL,
   `num_documento` varchar(20) NOT NULL,
   `direccion` varchar(70) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
@@ -296,8 +296,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idusuario`, `nombre`, `tipo_documento`, `num_documento`, `direccion`, `telefono`, `email`, `cargo`, `login`, `clave`, `imagen`, `condicion`) VALUES
-(1, 'La dueña', 'DNI', '00000000', 'San Martín 666', '3644000000', 'ladueña@yahoo.com.ar', 'Admin', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', '1547756796.jpg', 1),
-(14, 'Jese Medina', '', '', 'jrt', '3644222222', 'skajese@gmail.com', 'panadero', 'jese', '8b8b9fc58e7bd145267721e97fb869a259d6769bd093dfd15ca657ab7ee2a6e8', '', 1);
+(1, 'La dueña', NULL, '00000000', 'San Martín 666', '3644000000', 'ladueña@yahoo.com.ar', 'Admin', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', '1547756796.jpg', 1),
+(14, 'Jese Medina', NULL, '', 'jrt', '3644222222', 'skajese@gmail.com', 'panadero', 'jese', '8b8b9fc58e7bd145267721e97fb869a259d6769bd093dfd15ca657ab7ee2a6e8', '', 1),
+(15, 'Emanuel', NULL, '00000000', 'San Lorenzo 999', '3644000000', 'ema@gmail.com', 'Repartidor', 'ema', '8c15a763882d486210de3f51de73ac159cf8b451a220d206bdeb7f2578878369', '', 1);
 
 -- --------------------------------------------------------
 
@@ -333,7 +334,9 @@ INSERT INTO `usuario_permiso` (`idusuario_permiso`, `idusuario`, `idpermiso`) VA
 (119, 14, 6),
 (120, 14, 7),
 (121, 14, 8),
-(122, 14, 9);
+(122, 14, 9),
+(126, 15, 4),
+(127, 15, 9);
 
 -- --------------------------------------------------------
 
@@ -549,13 +552,13 @@ ALTER TABLE `rubro`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario_permiso`
 --
 ALTER TABLE `usuario_permiso`
-  MODIFY `idusuario_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `idusuario_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
