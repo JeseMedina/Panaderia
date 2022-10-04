@@ -103,7 +103,7 @@ if (strlen(session_id()) < 1)
             {
               echo '<li>
               <a href="escritorio.php">
-                <i class="fa fa-tasks"></i> <span>Escritorio</span>
+                <i class="fa fa-laptop"></i> <span>Escritorio</span>
               </a>
             </li>';
             }  
@@ -113,7 +113,7 @@ if (strlen(session_id()) < 1)
             {
               echo '<li class="treeview">
               <a href="#">
-                <i class="fa fa-laptop"></i>
+                <i class="fa fa-th"></i>
                 <span>Almacén</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -128,15 +128,10 @@ if (strlen(session_id()) < 1)
             if ($_SESSION['compras']==1) 
             {
               echo '<li class="treeview">
-              <a href="#">
-                <i class="fa fa-th"></i>
+              <a href="compra.php">
+                <i class="fa fa-cart-arrow-down"></i>
                 <span>Compras</span>
-                 <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <ul class="treeview-menu">
-                <li><a href="compra.php"> Compras</a></li>
-                <li><a href="proveedor.php"> Proveedores</a></li>
-              </ul>
             </li>';
             }  
             ?>
@@ -144,24 +139,20 @@ if (strlen(session_id()) < 1)
             if ($_SESSION['ventas']==1) 
             {
               echo '<li class="treeview">
-              <a href="#">
+              <a href="venta.php">
                 <i class="fa fa-shopping-cart"></i>
                 <span>Ventas</span>
-                 <i class="fa fa-angle-left pull-right"></i>
               </a>
-              <ul class="treeview-menu">
-                <li><a href="venta.php"> Ventas</a></li>
-                <li><a href="cliente.php"> Clientes</a></li>
-              </ul>
             </li> ';
             }  
             ?>
+
             <?php
             if ($_SESSION['produccion']==1) 
             {
               echo '<li class="treeview">
               <a href="#">
-                <i class="fa fa-folder"></i> <span>Produccion</span>
+                <i class="fa fa-industry"></i> <span>Produccion</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
@@ -172,63 +163,51 @@ if (strlen(session_id()) < 1)
             </li>';
             } 
             ?>
+
             <?php
             if ($_SESSION['reparto']==1) 
             {
               echo '<li class="treeview">
               <a href="#">
-                <i class="fa fa-folder"></i> <span>Reparto</span>
+                <i class="fa fa-truck"></i> <span>Reparto</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="iniciarproduccion.php"> Iniciar Reparto</a></li>
-                <li><a href="finalizarproduccion.php"> Finalizar Reparto</a></li>
+                <li><a href="iniciarreparto.php"> Iniciar Reparto</a></li>
+                <li><a href="finalizarreparto.php"> Finalizar Reparto</a></li>
                 
               </ul>
             </li>';
             } 
             ?>
             <?php
-            if ($_SESSION['acceso']==1) 
+            if ($_SESSION['personas']==1) 
             {
               echo '<li class="treeview">
               <a href="#">
-                <i class="fa fa-folder"></i> <span>Acceso</span>
+                <i class="fa fa-users"></i> <span>Personas</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
+                <li><a href="cliente.php"> Clientes</a></li>
+                <li><a href="proveedor.php"> Proveedores</a></li>
                 <li><a href="usuario.php"> Usuarios</a></li>
                 <li><a href="permiso.php"> Permisos</a></li>
-                
               </ul>
             </li>';
             }
             ?>
-            
                     <?php
-            if ($_SESSION['consultac']==1) 
-            {
-              echo '<li class="treeview">
-              <a href="#">
-                <i class="fa fa-bar-chart"></i> <span>Consulta Compras</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="comprasfecha.php"> Consulta Compras</a></li>                
-              </ul>
-            </li>';
-            }  
-            ?>
-                    <?php
-            if ($_SESSION['consultav']==1) 
+            if ($_SESSION['consulta']==1) 
             {
               echo ' <li class="treeview">
               <a href="#">
-                <i class="fa fa-bar-chart"></i> <span>Consulta Ventas</span>
+                <i class="fa fa-bar-chart"></i> <span>Consultas</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="ventasfechacliente.php"> Consulta Ventas</a></li>                
+                <li><a href="ventasfechacliente.php"> Consulta Ventas</a></li>
+                <li><a href="comprasfecha.php"> Consulta Compras</a></li>               
               </ul>
             </li>
             <li>';

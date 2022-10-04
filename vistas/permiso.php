@@ -3,14 +3,14 @@
 ob_start();
 session_start();
 
-if (!isset($_SESSION["nombre"])) 
+if (!isset($_SESSION["personas"])) 
 {
   header("Location: login.html");
 }
 else
 {
 require 'header.php';
-if ($_SESSION['acceso']==1) 
+if ($_SESSION['personas']==1) 
 {
 ?>
 <head>
@@ -58,7 +58,7 @@ else
 {
   require 'noacceso.html';
 }
-require 'footer.html';
+  require 'footer.html';
 ?>
 <script type="text/javascript" src="scripts/permiso.js"></script>
 <?php 

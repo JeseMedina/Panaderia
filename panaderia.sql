@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-10-2022 a las 02:08:13
+-- Tiempo de generación: 05-10-2022 a las 01:05:45
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -158,11 +158,10 @@ INSERT INTO `permiso` (`idpermiso`, `nombre`) VALUES
 (2, 'Almacen'),
 (3, 'Compras'),
 (4, 'Ventas'),
-(5, 'Acceso'),
-(6, 'Consulta Compras'),
-(7, 'Consulta Ventas'),
-(8, 'Produccion'),
-(9, 'Reparto');
+(5, 'Personas'),
+(6, 'Consulta'),
+(7, 'Produccion'),
+(8, 'Reparto');
 
 -- --------------------------------------------------------
 
@@ -267,8 +266,9 @@ CREATE TABLE `rubro` (
 
 INSERT INTO `rubro` (`idrubro`, `nombre`, `descripcion`, `condicion`) VALUES
 (33, 'Panadería', '', 1),
-(34, 'Mercadería', '', 0),
-(36, 'Confitería', '', 1);
+(34, 'Mercadería', '', 1),
+(36, 'Confitería', '', 1),
+(37, 'Materia Prima', '', 1);
 
 -- --------------------------------------------------------
 
@@ -317,26 +317,16 @@ CREATE TABLE `usuario_permiso` (
 --
 
 INSERT INTO `usuario_permiso` (`idusuario_permiso`, `idusuario`, `idpermiso`) VALUES
-(105, 1, 1),
-(106, 1, 2),
-(107, 1, 3),
-(108, 1, 4),
-(109, 1, 5),
-(110, 1, 6),
-(111, 1, 7),
-(112, 1, 8),
-(113, 1, 9),
-(114, 14, 1),
-(115, 14, 2),
-(116, 14, 3),
-(117, 14, 4),
-(118, 14, 5),
-(119, 14, 6),
-(120, 14, 7),
-(121, 14, 8),
-(122, 14, 9),
-(126, 15, 4),
-(127, 15, 9);
+(128, 1, 1),
+(129, 1, 2),
+(130, 1, 4),
+(131, 1, 3),
+(132, 1, 5),
+(133, 1, 6),
+(134, 1, 7),
+(135, 1, 8),
+(136, 1, 7),
+(137, 1, 8);
 
 -- --------------------------------------------------------
 
@@ -546,7 +536,7 @@ ALTER TABLE `reparto`
 -- AUTO_INCREMENT de la tabla `rubro`
 --
 ALTER TABLE `rubro`
-  MODIFY `idrubro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `idrubro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
@@ -558,7 +548,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `usuario_permiso`
 --
 ALTER TABLE `usuario_permiso`
-  MODIFY `idusuario_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `idusuario_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`

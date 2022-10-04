@@ -3,7 +3,7 @@
 ob_start();
 session_start();
  
-if (!isset($_SESSION["nombre"]))
+if (!isset($_SESSION["ventas"]))
 {
   header("Location: login.html");
 }

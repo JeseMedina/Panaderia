@@ -1,6 +1,17 @@
 <?php
 //Activamos el almacenamiento en el buffer
+ob_start();
+session_start();
+
+if (!isset($_SESSION["personas"])) 
+{
+  header("Location: login.html");
+}
+else
+{
 require 'header.php';
+if ($_SESSION['personas']==1) 
+{
 ?>
 
 <head>
@@ -161,7 +172,13 @@ require 'header.php';
 </div><!-- /.content-wrapper -->
 <!--Fin-Contenido-->
 <?php
+}
+else
+{
+  require 'noacceso.html';
+}
 require 'footer.html';
+}
 ?>
 <script type="text/javascript"
     src="scripts/cliente.js"></script>
