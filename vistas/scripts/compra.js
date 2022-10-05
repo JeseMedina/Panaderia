@@ -218,8 +218,7 @@ function marcarImpuesto()
         $("#impuesto").val("0"); 
     }
   }
- 
-// function agregarDetalle(idproducto,producto,precio_compra,precio_venta,)
+
 function agregarDetalle(idproducto,producto,uMedida)
   {
     var cantidad=1;

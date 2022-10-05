@@ -46,8 +46,6 @@ if ($_SESSION['ventas']==1)
                                 <th>Fecha</th>
                                 <th>Cliente</th>
                                 <th>Usuario</th>
-                                <th>Documento</th>
-                                <th>Número</th>
                                 <th>Total Venta</th>
                                 <th>Estado</th>
                             </thead>
@@ -58,8 +56,6 @@ if ($_SESSION['ventas']==1)
                                 <th>Fecha</th>
                                 <th>Proveedor</th>
                                 <th>Usuario</th>
-                                <th>Documento</th>
-                                <th>Número</th>
                                 <th>Total Venta</th>
                                 <th>Estado</th>
                             </tfoot>
@@ -147,12 +143,14 @@ if ($_SESSION['ventas']==1)
                                         <th>Opciones</th>
                                         <th>Producto</th>
                                         <th>Cantidad</th>
+                                        <th>U. Medida</th>
                                         <th>Precio Venta</th>
                                         <th>Descuento</th>
                                         <th>Subtotal</th>
                                     </thead>
                                     <tfoot>
                                         <th>TOTAL</th>
+                                        <th></th>
                                         <th></th>
                                         <th></th>
                                         <th></th>
@@ -216,6 +214,7 @@ if ($_SESSION['ventas']==1)
                         <th>Rubro</th>
                         <th>Stock</th>
                         <th>U. Medida</th>
+                        <th>Precio Venta</th>
                     </thead>
                     <tbody>
 
@@ -226,6 +225,7 @@ if ($_SESSION['ventas']==1)
                         <th>Rubro</th>
                         <th>Stock</th>
                         <th>U. Medida</th>
+                        <th>Precio Venta</th>
                     </tfoot>
                 </table>
             </div>
