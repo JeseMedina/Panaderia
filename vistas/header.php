@@ -191,6 +191,8 @@ if (strlen(session_id()) < 1)
               <ul class="treeview-menu">
                 <li><a href="cliente.php"> Clientes</a></li>
                 <li><a href="proveedor.php"> Proveedores</a></li>
+                <li><a href="repartidor.php"> Repartidores</a></li>
+                <li><a href="panadero.php"> Panaderos</a></li>
                 <li><a href="usuario.php"> Usuarios</a></li>
                 <li><a href="permiso.php"> Permisos</a></li>
               </ul>

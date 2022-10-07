@@ -2,16 +2,16 @@
 //Activamos el almacenamiento en el buffer
 ob_start();
 session_start();
- 
-if (!isset($_SESSION["personas"]))
+
+if (!isset($_SESSION["personas"])) 
 {
   header("Location: login.html");
 }
 else
-{ 
+{
 require 'header.php';
-if ($_SESSION['personas']==1)
-{ 
+if ($_SESSION['personas']==1) 
+{
 ?>
 
 <head>
@@ -27,7 +27,7 @@ if ($_SESSION['personas']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Proveedor <button class="btn btn-success"
+                        <h1 class="box-title">Repartidor <button class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
                                 Agregar</button></h1>
@@ -44,11 +44,10 @@ if ($_SESSION['personas']==1)
                                 <th>Opciones</th>
                                 <th>Nombre</th>
                                 <th>DNI</th>
-                                <th>Provincia</th>
                                 <th>Direccion</th>
                                 <th>Teléfono</th>
                                 <th>Email</th>
-                                <th>Estado</th>
+                                <th>Condicion</th>
                             </thead>
                             <tbody>
                             </tbody>
@@ -56,11 +55,10 @@ if ($_SESSION['personas']==1)
                                 <th>Opciones</th>
                                 <th>Nombre</th>
                                 <th>DNI</th>
-                                <th>Provincia</th>
                                 <th>Direccion</th>
                                 <th>Teléfono</th>
                                 <th>Email</th>
-                                <th>Estado</th>
+                                <th>Condicion</th>
                             </tfoot>
                         </table>
                     </div>
@@ -78,13 +76,13 @@ if ($_SESSION['personas']==1)
                                 <input type="hidden"
                                     name="tipo_persona"
                                     id="tipo_persona"
-                                    value="Proveedor">
+                                    value="Repartidor">
                                 <input type="text"
                                     class="form-control"
                                     name="nombre"
                                     id="nombre"
                                     maxlength="100"
-                                    placeholder="Nombre del proveedor"
+                                    placeholder="Nombre del Cliente"
                                     required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -180,4 +178,5 @@ else
 require 'footer.html';
 }
 ?>
-<script type="text/javascript" src="scripts/proveedor.js"></script>
+<script type="text/javascript"
+    src="scripts/repartidor.js"></script>
