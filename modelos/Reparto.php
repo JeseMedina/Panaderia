@@ -12,11 +12,12 @@ Class Reparto
     //Implementamos un método para insertar registros
     public function insertar($idcliente,$idusuario,$idrepartidor,$fecha_hora,$idproducto,$cantidad,$precio_venta,$descuento){
         $sql="INSERT INTO reparto (idcliente,idusuario,idrepartidor,fecha_hora,estado) VALUES ('$idcliente','$idusuario','$idrepartidor','$fecha_hora','Iniciado')";
-
+        //return ejecutarConsulta($sql);
         $idrepartonew=ejecutarConsulta_retornarID($sql);
 
         $num_elementos=0;
         $sw=True;
+        echo '<script>console.log('.count($idproducto).'); </script>';
 
         while ($num_elementos < count($idproducto)){
             $sql_detalle = "INSERT INTO detalle_reparto(idreparto, idproducto,cantidad,precio_venta,descuento) VALUES ('$idrepartonew', '$idproducto[$num_elementos]','$cantidad[$num_elementos]','$precio_venta[$num_elementos]','$descuento[$num_elementos]')";

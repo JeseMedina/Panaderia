@@ -11,11 +11,12 @@ $idcliente=isset($_POST["idcliente"])? limpiarCadena($_POST["idcliente"]):"";
 $idusuario=$_SESSION["idusuario"];
 $idrepartidor=isset($_POST["idrepartidor"])? limpiarCadena($_POST["idrepartidor"]):"";
 $fecha_hora=isset($_POST["fecha_hora"])? limpiarCadena($_POST["fecha_hora"]):"";
+$total_venta=isset($_POST["total_venta"])? limpiarCadena($_POST["total_venta"]):"";
 
 switch ($_GET["op"]){
     case 'guardaryeditar':
         if (empty($idreparto)){
-            $rspta=$reparto->insertar($idcliente,$idusuario,$idrepartidor,$fecha_hora,$impuesto,$total_venta,$_POST["idproducto"],$_POST["cantidad"],$_POST["precio_venta"],$_POST["descuento"]);
+            $rspta=$reparto->insertar($idcliente,$idusuario,$idrepartidor,$fecha_hora,$total_venta,$_POST["idproducto"],$_POST["cantidad"],$_POST["precio_venta"],$_POST["descuento"]);
             echo $rspta ? "Reparto registrada" : "No se pudieron registrar todos los datos de la Reparto";
         }
         else {
@@ -132,7 +133,7 @@ switch ($_GET["op"]){
         require_once "../modelos/Producto.php";
         $producto=new Producto();
  
-        $rspta=$producto->listarActivosVenta();
+        $rspta=$producto->listarActivosReparto();
         //Vamos a declarar un array
         $data= Array();
  
@@ -140,10 +141,9 @@ switch ($_GET["op"]){
             $data[]=array(
                 "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precio_venta.'\',\''.$reg->uMedida.'\')"><span class="fa fa-plus"></span></button>',
                 "1"=>$reg->nombre,
-                "2"=>$reg->rubro,
-                "3"=>$reg->stock,
-                "4"=>$reg->uMedida,
-                "5"=>$reg->precio_venta
+                "2"=>$reg->stock,
+                "3"=>$reg->uMedida,
+                "4"=>$reg->precio_venta
                 );
         }
         $results = array(

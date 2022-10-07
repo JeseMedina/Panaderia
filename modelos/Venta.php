@@ -19,7 +19,7 @@ Class Venta
         $idventanew=ejecutarConsulta_retornarID($sql);
  
         $num_elementos=0;
-        $sw=True; 
+        $sw=True;
 
         while ($num_elementos < count($idproducto))
         {

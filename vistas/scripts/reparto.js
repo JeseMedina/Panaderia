@@ -10,10 +10,10 @@ function init() {
     });
     //Cargamos los items al select cliente
     $.post("../controlador/reparto.php?op=selectRepartidor", function (r) {
-        $("#idcliente").html(r);
-        $('#idcliente').selectpicker('refresh');
+        $("#idrepartidor").html(r);
+        $('#idrepartidor').selectpicker('refresh');
     });
-    $.post("../controlador/venta.php?op=selectCliente", function(r){
+    $.post("../controlador/reparto.php?op=selectCliente", function(r){
         $("#idcliente").html(r);
         $('#idcliente').selectpicker('refresh');
     });;
@@ -162,14 +162,14 @@ function mostrar(idreparto) {
         $("#btnAgregarArt").hide();
     });
 
-    $.post("../controlador/reparto.php?op=listarDetalle&id=" + idventa, function (r) {
+    $.post("../controlador/reparto.php?op=listarDetalle&id="+idventa,function(r){
         $("#detalles").html(r);
     });
 }
 
 //Función para finalizar registros
 function finalizar(idreparto) {
-    bootbox.confirm("¿Está Seguro de finalizar la venta?", function (result) {
+    bootbox.confirm("¿Está Seguro de finalizar la venta?",function(result){
         if (result) {
             $.post("../controlador/reparto.php?op=finalizar", { idreparto: idreparto }, function (e) {
                 bootbox.alert(e);
@@ -180,7 +180,7 @@ function finalizar(idreparto) {
 }
 
 function iniciar(idreparto) {
-    bootbox.confirm("¿Está Seguro de inicar la venta?", function (result) {
+    bootbox.confirm("¿Está Seguro de inicar la venta?",function(result){
         if (result) {
             $.post("../controlador/reparto.php?op=inicar", { idreparto: idreparto }, function (e) {
                 bootbox.alert(e);
@@ -192,25 +192,9 @@ function iniciar(idreparto) {
 
 //Declaración de variables necesarias para trabajar con las compras y
 //sus detalles
-// var impuesto=18;
-// var cont=0;
-// var detalles=0;
-// //$("#guardar").hide();
-// $("#btnGuardar").hide();
-// $("#tipo_comprobante").change(marcarImpuesto);
-
-// function marcarImpuesto()
-//   {
-//     var tipo_comprobante=$("#tipo_comprobante option:selected").text();
-//     if (tipo_comprobante=='Factura')
-//     {
-//         $("#impuesto").val(impuesto); 
-//     }
-//     else
-//     {
-//         $("#impuesto").val("0"); 
-//     }
-// }
+var cont=0;
+var detalles=0;
+$("#btnGuardar").hide();
 
 function agregarDetalle(idproducto, producto, precio_venta, uMedida) {
     var cantidad = 1;
@@ -229,7 +213,7 @@ function agregarDetalle(idproducto, producto, precio_venta, uMedida) {
             '<td><button type="button" onclick="modificarSubototales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>' +
             '</tr>';
         cont++;
-        detalles = detalles + 1;
+        detalles=detalles+1;
         $('#detalles').append(fila);
         modificarSubototales();
     }

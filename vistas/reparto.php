@@ -139,7 +139,7 @@ if ($_SESSION['ventas']==1)
                                     id="impuesto"
                                     required="">
                             </div> -->
-                            <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12 pt-3">
                                 <a data-toggle="modal"
                                     href="#myModal">
                                     <button id="btnAgregarArt"
@@ -224,9 +224,9 @@ if ($_SESSION['ventas']==1)
                     <thead>
                         <th>Opciones</th>
                         <th>Nombre</th>
-                        <th>Rubro</th>
                         <th>Stock</th>
                         <th>U. Medida</th>
+                        <th>Precio Venta</th>
                     </thead>
                     <tbody>
 
@@ -234,9 +234,9 @@ if ($_SESSION['ventas']==1)
                     <tfoot>
                         <th>Opciones</th>
                         <th>Nombre</th>
-                        <th>Rubro</th>
                         <th>Stock</th>
                         <th>U. Medida</th>
+                        <th>Precio Venta</th>
                     </tfoot>
                 </table>
             </div>
