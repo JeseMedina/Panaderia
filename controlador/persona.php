@@ -59,9 +59,10 @@ switch ($_GET["op"]){
                 "1"=>$reg->nombre,
                 "2"=>$reg->num_documento,
                 "3"=>$reg->provincia,
-                "4"=>$reg->telefono,
-                "5"=>$reg->email,
-                "6"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                "4"=>$reg->direccion,
+                "5"=>$reg->telefono,
+                "6"=>$reg->email,
+                "7"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'
                 );
         }
@@ -87,11 +88,68 @@ switch ($_GET["op"]){
                     ' <button class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->num_documento,
-                "3"=>$reg->provincia,
-                "4"=>$reg->direccion,
-                "5"=>$reg->telefono,
-                "6"=>$reg->email,
-                "7"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                "3"=>$reg->direccion,
+                "4"=>$reg->telefono,
+                "5"=>$reg->email,
+                "6"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                '<span class="label bg-red">Desactivado</span>'
+                );
+        }
+        $results = array(
+            "sEcho"=>1, //Información para el datatables
+            "iTotalRecords"=>count($data), //enviamos el total registros al datatable
+            "iTotalDisplayRecords"=>count($data), //enviamos el total registros a visualizar
+            "aaData"=>$data);
+        echo json_encode($results);
+ 
+    break;
+
+    case 'listarr':
+        $rspta=$persona->listarr();
+        //Vamos a declarar un array
+        $data= Array();
+ 
+        while ($reg=$rspta->fetch_object()){
+            $data[]=array(
+                "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>'.
+                    ' <button class="btn btn-danger" onclick="desactivar('.$reg->idpersona.')"><i class="fa fa-close"></i></button>':
+                    '<button class="btn btn-primary" title="Editar persona disabled"><i class="fa fa-pencil"></i></button>'.
+                    ' <button class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
+                "1"=>$reg->nombre,
+                "2"=>$reg->num_documento,
+                "3"=>$reg->direccion,
+                "4"=>$reg->telefono,
+                "5"=>$reg->email,
+                "6"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                '<span class="label bg-red">Desactivado</span>'
+                );
+        }
+        $results = array(
+            "sEcho"=>1, //Información para el datatables
+            "iTotalRecords"=>count($data), //enviamos el total registros al datatable
+            "iTotalDisplayRecords"=>count($data), //enviamos el total registros a visualizar
+            "aaData"=>$data);
+        echo json_encode($results);
+ 
+    break;
+
+    case 'listarpa':
+        $rspta=$persona->listarpa();
+        //Vamos a declarar un array
+        $data= Array();
+ 
+        while ($reg=$rspta->fetch_object()){
+            $data[]=array(
+                "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>'.
+                    ' <button class="btn btn-danger" onclick="desactivar('.$reg->idpersona.')"><i class="fa fa-close"></i></button>':
+                    '<button class="btn btn-primary" title="Editar persona disabled"><i class="fa fa-pencil"></i></button>'.
+                    ' <button class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
+                "1"=>$reg->nombre,
+                "2"=>$reg->num_documento,
+                "3"=>$reg->direccion,
+                "4"=>$reg->telefono,
+                "5"=>$reg->email,
+                "6"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'
                 );
         }

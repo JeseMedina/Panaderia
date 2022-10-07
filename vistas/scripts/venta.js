@@ -160,6 +160,7 @@ function mostrar(idventa)
         data = JSON.parse(data);        
         mostrarform(true);
  
+        $("#idventa").val(data.idventa);
         $("#idcliente").val(data.idcliente);
         $("#idcliente").selectpicker('refresh');
         $("#tipo_comprobante").val(data.tipo_comprobante);
@@ -168,7 +169,6 @@ function mostrar(idventa)
         $("#num_comprobante").val(data.num_comprobante);
         $("#fecha_hora").val(data.fecha);
         $("#impuesto").val(data.impuesto);
-        $("#idventa").val(data.idventa);
  
         //Ocultar y mostrar los botones
         $("#btnGuardar").hide();
@@ -217,19 +217,21 @@ function marcarImpuesto()
     }
   }
  
-function agregarDetalle(idproducto,producto,precioVenta)
+function agregarDetalle(idproducto,producto,precio_venta,uMedida)
   {
     var cantidad=1;
     var descuento=0;
  
     if (idproducto!="")
     {
-        var subtotal=cantidad*precioVenta;
+        var subtotal=cantidad*precio_venta;
         var fila='<tr class="filas" id="fila'+cont+'">'+
         '<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle('+cont+')">X</button></td>'+
         '<td><input type="hidden" name="idproducto[]" value="'+idproducto+'">'+producto+'</td>'+
         '<td><input type="number" name="cantidad[]" id="cantidad[]" value="'+cantidad+'"></td>'+
-        '<td><input type="number" name="precioVenta[]" id="precioVenta[]" value="'+precioVenta+'"></td>'+
+        '<td>'+uMedida+'</td>'+
+        '<td><input type="number" name="precio_venta[]" id="precio_venta[]" value="'+precio_venta+'"></td>'+
+        // '<td>'+precio_venta+'</td>'+
         '<td><input type="number" name="descuento[]" value="'+descuento+'"></td>'+
         '<td><span name="subtotal" id="subtotal'+cont+'">'+subtotal+'</span></td>'+
         '<td><button type="button" onclick="modificarSubototales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>'+
@@ -248,7 +250,7 @@ function agregarDetalle(idproducto,producto,precioVenta)
   function modificarSubototales()
   {
     var cant = document.getElementsByName("cantidad[]");
-    var prec = document.getElementsByName("precioVenta[]");
+    var prec = document.getElementsByName("precio_venta[]");
     var desc = document.getElementsByName("descuento[]");
     var sub = document.getElementsByName("subtotal");
  

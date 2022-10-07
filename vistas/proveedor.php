@@ -45,6 +45,7 @@ if ($_SESSION['personas']==1)
                                 <th>Nombre</th>
                                 <th>DNI</th>
                                 <th>Provincia</th>
+                                <th>Direccion</th>
                                 <th>Teléfono</th>
                                 <th>Email</th>
                                 <th>Estado</th>
@@ -56,6 +57,7 @@ if ($_SESSION['personas']==1)
                                 <th>Nombre</th>
                                 <th>DNI</th>
                                 <th>Provincia</th>
+                                <th>Direccion</th>
                                 <th>Teléfono</th>
                                 <th>Email</th>
                                 <th>Estado</th>

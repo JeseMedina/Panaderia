@@ -74,7 +74,7 @@ while ($regd = $rsptad->fetch_object()) {
   $line = array( "CODIGO"=> "$regd->codigo",
                 "DESCRIPCION"=> utf8_decode("$regd->producto"),
                 "CANTIDAD"=> "$regd->cantidad",
-                "P.U."=> "$regd->precioVenta",
+                "P.U."=> "$regd->precio_venta",
                 "DSCTO" => "$regd->descuento",
                 "SUBTOTAL"=> "$regd->subtotal");
             $size = $pdf->addLine( $y, $line );

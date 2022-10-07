@@ -146,6 +146,23 @@ if (strlen(session_id()) < 1)
             </li> ';
             }  
             ?>
+            
+            <?php
+            if ($_SESSION['reparto']==1) 
+            {
+              echo '<li class="treeview">
+              <a href="#">
+                <i class="fa fa-truck"></i> <span>Reparto</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="reparto.php"> Iniciar Reparto</a></li>
+                <li><a href="finalizarreparto.php"> Finalizar Reparto</a></li>
+                
+              </ul>
+            </li>';
+            } 
+            ?>
 
             <?php
             if ($_SESSION['produccion']==1) 
@@ -156,25 +173,8 @@ if (strlen(session_id()) < 1)
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="iniciarproduccion.php"> Iniciar Produccion</a></li>
+                <li><a href="produccion.php"> Iniciar Produccion</a></li>
                 <li><a href="finalizarproduccion.php"> Finalizar Produccion</a></li>
-                
-              </ul>
-            </li>';
-            } 
-            ?>
-
-            <?php
-            if ($_SESSION['reparto']==1) 
-            {
-              echo '<li class="treeview">
-              <a href="#">
-                <i class="fa fa-truck"></i> <span>Reparto</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="iniciarreparto.php"> Iniciar Reparto</a></li>
-                <li><a href="finalizarreparto.php"> Finalizar Reparto</a></li>
                 
               </ul>
             </li>';
@@ -191,6 +191,8 @@ if (strlen(session_id()) < 1)
               <ul class="treeview-menu">
                 <li><a href="cliente.php"> Clientes</a></li>
                 <li><a href="proveedor.php"> Proveedores</a></li>
+                <li><a href="repartidor.php"> Repartidores</a></li>
+                <li><a href="panadero.php"> Panaderos</a></li>
                 <li><a href="usuario.php"> Usuarios</a></li>
                 <li><a href="permiso.php"> Permisos</a></li>
               </ul>
