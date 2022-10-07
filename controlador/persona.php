@@ -88,11 +88,10 @@ switch ($_GET["op"]){
                     ' <button class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->num_documento,
-                "3"=>$reg->provincia,
-                "4"=>$reg->direccion,
-                "5"=>$reg->telefono,
-                "6"=>$reg->email,
-                "7"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                "3"=>$reg->direccion,
+                "4"=>$reg->telefono,
+                "5"=>$reg->email,
+                "6"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'
                 );
         }
@@ -147,11 +146,10 @@ switch ($_GET["op"]){
                     ' <button class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->num_documento,
-                "3"=>$reg->provincia,
-                "4"=>$reg->direccion,
-                "5"=>$reg->telefono,
-                "6"=>$reg->email,
-                "7"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                "3"=>$reg->direccion,
+                "4"=>$reg->telefono,
+                "5"=>$reg->email,
+                "6"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'
                 );
         }

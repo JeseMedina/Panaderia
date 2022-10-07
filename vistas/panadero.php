@@ -27,7 +27,7 @@ if ($_SESSION['personas']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Cliente <button class="btn btn-success"
+                        <h1 class="box-title">Panadero <button class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
                                 Agregar</button></h1>
@@ -76,7 +76,7 @@ if ($_SESSION['personas']==1)
                                 <input type="hidden"
                                     name="tipo_persona"
                                     id="tipo_persona"
-                                    value="Cliente">
+                                    value="Panadero">
                                 <input type="text"
                                     class="form-control"
                                     name="nombre"
@@ -179,4 +179,4 @@ require 'footer.html';
 }
 ?>
 <script type="text/javascript"
-    src="scripts/cliente.js"></script>
+    src="scripts/panadero.js"></script>

@@ -63,7 +63,7 @@ function listar()
                 ],
         "ajax":
                 {
-                    url: '../controlador/persona.php?op=listarr',
+                    url: '../controlador/persona.php?op=listarpa',
                     type : "get",
                     dataType : "json",                      
                     error: function(e){
@@ -122,7 +122,7 @@ function mostrar(idpersona)
 //Función para activar registros
 function activar(idpersona)
 {
-    bootbox.confirm("¿Está Seguro de activar al Repartidor?", function(result){
+    bootbox.confirm("¿Está Seguro de activar al Panadero?", function(result){
         if(result)
         {
             $.post("../controlador/persona.php?op=activar", {idpersona : idpersona}, function(e){
@@ -136,7 +136,7 @@ function activar(idpersona)
 //Función para desactivar registros
 function desactivar(idpersona)
 {
-    bootbox.confirm("¿Está seguro de desactivar al Repartidor?", function(result){
+    bootbox.confirm("¿Está seguro de desactivar al Panadero?", function(result){
         if(result)
         {
             $.post("../controlador/persona.php?op=desactivar", {idpersona : idpersona}, function(e){
