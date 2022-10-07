@@ -3,7 +3,7 @@
 ob_start();
 session_start();
  
-if (!isset($_SESSION["ventas"]))
+if (!isset($_SESSION["reparto"]))
 {
   header("Location: login.html");
 }
@@ -28,7 +28,7 @@ if ($_SESSION['ventas']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Venta <button class="btn btn-success"
+                        <h1 class="box-title">Reparto <button class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
                                 Agregar</button></h1>
@@ -45,7 +45,7 @@ if ($_SESSION['ventas']==1)
                                 <th>Opciones</th>
                                 <th>Fecha</th>
                                 <th>Cliente</th>
-                                <th>Usuario</th>
+                                <th>Repartidor</th>
                                 <th>Total Venta</th>
                                 <th>Estado</th>
                             </thead>
@@ -55,7 +55,7 @@ if ($_SESSION['ventas']==1)
                                 <th>Opciones</th>
                                 <th>Fecha</th>
                                 <th>Cliente</th>
-                                <th>Usuario</th>
+                                <th>Repartidor</th>
                                 <th>Total Venta</th>
                                 <th>Estado</th>
                             </tfoot>
@@ -67,13 +67,26 @@ if ($_SESSION['ventas']==1)
                         <form name="formulario"
                             id="formulario"
                             method="POST">
-                            <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Cliente(*):</label>
                                 <input type="hidden"
                                     name="idventa"
                                     id="idventa">
                                 <select id="idcliente"
                                     name="idcliente"
+                                    class="form-control selectpicker"
+                                    data-live-search="true"
+                                    required>
+
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label>Repartidor(*):</label>
+                                <input type="hidden"
+                                    name="idventa"
+                                    id="idventa">
+                                <select id="idrepartidor"
+                                    name="idrepartidor"
                                     class="form-control selectpicker"
                                     data-live-search="true"
                                     required>
@@ -88,7 +101,7 @@ if ($_SESSION['ventas']==1)
                                     id="fecha_hora"
                                     required="">
                             </div>
-                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <!-- <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Tipo Comprobante(*):</label>
                                 <select name="tipo_comprobante"
                                     id="tipo_comprobante"
@@ -125,7 +138,7 @@ if ($_SESSION['ventas']==1)
                                     name="impuesto"
                                     id="impuesto"
                                     required="">
-                            </div>
+                            </div> -->
                             <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a data-toggle="modal"
                                     href="#myModal">
@@ -140,7 +153,7 @@ if ($_SESSION['ventas']==1)
                                 <table id="detalles"
                                     class="table table-striped table-bordered table-condensed table-hover">
                                     <thead style="background-color:#A9D0F5">
-                                        <th>Opciones</th>
+                                    <th>Opciones</th>
                                         <th>Producto</th>
                                         <th>Cantidad</th>
                                         <th>U. Medida</th>
@@ -214,7 +227,6 @@ if ($_SESSION['ventas']==1)
                         <th>Rubro</th>
                         <th>Stock</th>
                         <th>U. Medida</th>
-                        <th>Precio Venta</th>
                     </thead>
                     <tbody>
 
@@ -225,7 +237,6 @@ if ($_SESSION['ventas']==1)
                         <th>Rubro</th>
                         <th>Stock</th>
                         <th>U. Medida</th>
-                        <th>Precio Venta</th>
                     </tfoot>
                 </table>
             </div>
@@ -248,7 +259,7 @@ else
 require 'footer.html';
 ?>
 <script type="text/javascript"
-    src="scripts/venta.js"></script>
+    src="scripts/reparto.js"></script>
 <?php 
 }
 ob_end_flush();

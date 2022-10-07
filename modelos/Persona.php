@@ -67,6 +67,12 @@ Class Persona
         return ejecutarConsulta($sql);      
     }
 
+    public function listarr()
+    {
+        $sql="SELECT * FROM persona WHERE tipo_persona='Repartidor'";
+        return ejecutarConsulta($sql);      
+    }
+
 }
  
 ?>

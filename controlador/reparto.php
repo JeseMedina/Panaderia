@@ -2,37 +2,38 @@
 if (strlen(session_id()) < 1) 
   session_start();
  
-require_once "../modelos/Venta.php";
+require_once "../modelos/Reparto.php";
  
-$venta=new Venta();
- 
-$idventa=isset($_POST["idventa"])? limpiarCadena($_POST["idventa"]):"";
+$reparto=new Reparto();
+
+$idreparto=isset($_POST["idreparto"])? limpiarCadena($_POST["idreparto"]):"";
 $idcliente=isset($_POST["idcliente"])? limpiarCadena($_POST["idcliente"]):"";
 $idusuario=$_SESSION["idusuario"];
-$tipo_comprobante=isset($_POST["tipo_comprobante"])? limpiarCadena($_POST["tipo_comprobante"]):"";
-$serie_comprobante=isset($_POST["serie_comprobante"])? limpiarCadena($_POST["serie_comprobante"]):"";
-$num_comprobante=isset($_POST["num_comprobante"])? limpiarCadena($_POST["num_comprobante"]):"";
+$idrepartidor=isset($_POST["idrepartidor"])? limpiarCadena($_POST["idrepartidor"]):"";
 $fecha_hora=isset($_POST["fecha_hora"])? limpiarCadena($_POST["fecha_hora"]):"";
-$impuesto=isset($_POST["impuesto"])? limpiarCadena($_POST["impuesto"]):"";
-$total_venta=isset($_POST["total_venta"])? limpiarCadena($_POST["total_venta"]):"";
- 
+
 switch ($_GET["op"]){
     case 'guardaryeditar':
-        if (empty($idventa)){
-            $rspta=$venta->insertar($idcliente,$idusuario,$tipo_comprobante,$serie_comprobante,$num_comprobante,$fecha_hora,$impuesto,$total_venta,$_POST["idproducto"],$_POST["cantidad"],$_POST["precio_venta"],$_POST["descuento"]);
-            echo $rspta ? "Venta registrada" : "No se pudieron registrar todos los datos de la venta";
+        if (empty($idreparto)){
+            $rspta=$reparto->insertar($idcliente,$idusuario,$idrepartidor,$fecha_hora,$impuesto,$total_venta,$_POST["idproducto"],$_POST["cantidad"],$_POST["precio_venta"],$_POST["descuento"]);
+            echo $rspta ? "Reparto registrada" : "No se pudieron registrar todos los datos de la Reparto";
         }
         else {
         }
     break;
  
-    case 'anular':
-        $rspta=$venta->anular($idventa);
-        echo $rspta ? "Venta anulada" : "Venta no se puede anular";
+    case 'finalizar':
+        $rspta=$reparto->finalizar($idreparto);
+        echo $rspta ? "Reparto anulada" : "Reparto no se puede finalizar";
+    break;
+
+    case 'iniciar':
+        $rspta=$reparto->iniciar($idreparto);
+        echo $rspta ? "Reparto iniciado" : "Reparto no se puede iniciar";
     break;
  
     case 'mostrar':
-        $rspta=$venta->mostrar($idventa);
+        $rspta=$reparto->mostrar($idreparto);
         //Codificar el resultado utilizando json
         echo json_encode($rspta);
     break;
@@ -41,7 +42,7 @@ switch ($_GET["op"]){
         //Recibimos el idcompra
         $id=$_GET['id'];
  
-        $rspta = $venta->listarDetalle($id);
+        $rspta = $reparto->listarDetalle($id);
         $total=0;
         echo '<thead style="background-color:#A9D0F5">
                                     <th>Opciones</th>
@@ -77,30 +78,21 @@ switch ($_GET["op"]){
     break;
  
     case 'listar':
-        $rspta=$venta->listar();
+        $rspta=$reparto->listar();
         //Vamos a declarar un array
         $data= Array();
  
         while ($reg=$rspta->fetch_object()){
-            if ($reg->tipo_comprobante=='Ticket'){
-                $url='../reportes/exTicket.php?id=';
-            } 
-            else 
-            {
-                $url='../reportes/exFactura.php?id=';
-            }
-            
             $data[]=array(
-                "0"=>(($reg->estado=='Aceptado')?'<button class="btn btn-warning" onclick="mostrar('.$reg->idventa.')"><i class="fa fa-eye"></i></button>'.
-                    ' <button class="btn btn-danger" onclick="anular('.$reg->idventa.')"><i class="fa fa-close"></i></button>':
-                    '<button class="btn btn-warning" onclick="mostrar('.$reg->idventa.')"><i class="fa fa-eye"></i></button>'),
-                    // .'<a target="_blank" href="'.$url.$reg->idventa.'"> <button class="btn btn-info"><i class="fa fa-file"></i></button></a>',
+                "0"=>(($reg->estado=='Iniciado')?'<button class="btn btn-warning" onclick="mostrar('.$reg->idreparto.')"><i class="fa fa-eye"></i></button>'.
+                    ' <button class="btn btn-danger" onclick="finalizar('.$reg->idreparto.')"><i class="fa fa-close"></i></button>':
+                    '<button class="btn btn-warning" onclick="mostrar('.$reg->idreparto.')"><i class="fa fa-eye"></i></button>'.'<button class="btn btn-primary" onclick="iniciar('),
                 "1"=>$reg->fecha,
                 "2"=>$reg->cliente,
-                "3"=>$reg->usuario,
+                "3"=>$reg->repartidor,
                 "4"=>$reg->total_venta,
-                "5"=>($reg->estado=='Aceptado')?'<span class="label bg-green">Aceptado</span>':
-                '<span class="label bg-red">Anulado</span>'
+                "5"=>($reg->estado=='Iniciado')?'<span class="label bg-green">Iniciado</span>':
+                '<span class="label bg-red">Finalizado</span>'
                 );
         }
         $results = array(
@@ -117,6 +109,18 @@ switch ($_GET["op"]){
         $persona = new Persona();
  
         $rspta = $persona->listarC();
+ 
+        while ($reg = $rspta->fetch_object())
+                {
+                echo '<option value=' . $reg->idpersona . '>' . $reg->nombre . '</option>';
+                }
+    break;
+
+    case 'selectRepartidor':
+        require_once "../modelos/Persona.php";
+        $persona = new Persona();
+ 
+        $rspta = $persona->listarR();
  
         while ($reg = $rspta->fetch_object())
                 {

@@ -156,7 +156,7 @@ if (strlen(session_id()) < 1)
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="iniciarproduccion.php"> Iniciar Produccion</a></li>
+                <li><a href="produccion.php"> Iniciar Produccion</a></li>
                 <li><a href="finalizarproduccion.php"> Finalizar Produccion</a></li>
                 
               </ul>
@@ -173,7 +173,7 @@ if (strlen(session_id()) < 1)
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="iniciarreparto.php"> Iniciar Reparto</a></li>
+                <li><a href="reparto.php"> Iniciar Reparto</a></li>
                 <li><a href="finalizarreparto.php"> Finalizar Reparto</a></li>
                 
               </ul>
