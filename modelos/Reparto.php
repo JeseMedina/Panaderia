@@ -41,7 +41,7 @@ Class Reparto
 
     //Implementar un método para mostrar los datos de un registro a modificar
     public function mostrar($idreparto){
-        $sql="SELECT r.idreparto,DATE(r.fecha_hora) as fecha,r.idcliente,p.nombre as cliente,u.idusuario,u.nombre as usuario,r.idrepartidor,p.nombre as repartidor,r.estado FROM reparto r INNER JOIN persona p ON r.idcliente=p.idpersona ON r.idrepartidor=p.idrepartidor INNER JOIN usuario u ON r.idusuario=u.idusuario WHERE r.idreparto='$idreparto'";//no se si "ON r.idrepartidor=p.idrepartidor" esta bien 
+        $sql="SELECT r.idreparto,DATE(r.fecha_hora) as fecha,r.idcliente,p.nombre as cliente,u.idusuario,u.nombre as usuario,r.idrepartidor,pa.nombre as repartidor,r.estado FROM reparto r INNER JOIN persona p ON r.idcliente=p.idpersona INNER JOIN persona pa ON r.idrepartidor=pa.idpersona INNER JOIN usuario u ON r.idusuario=u.idusuario WHERE r.idreparto='$idreparto'";
         return ejecutarConsultaSimpleFila($sql);
     }
 
