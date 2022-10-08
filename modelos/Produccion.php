@@ -8,7 +8,7 @@ Class Produccion{
  
     }
 
-    public function insertar($idpanadero,$idproducto,$cantidadProducida,$fecha_hora,$idmateria,$cantidad,$precio_venta){
+    public function insertar($idpanadero,$idproducto,$cantidadProducida,$fecha_hora,$precio_venta,$idmateria,$cantidad){
         $sql="INSERT INTO produccion (idpanadero,idproducto,cantidadProducida,fecha_hora,precio_venta,estado) VALUES ('$idpanadero','$idproducto','$cantidadProducida','$fecha_hora','$precio_venta','Iniciado')";
         //return ejecutarConsulta($sql);
         $idproduccionnew=ejecutarConsulta_retornarID($sql);
@@ -16,7 +16,7 @@ Class Produccion{
         $num_elementos=0;
         $sw=True;
 
-        while ($num_elementos < count($idproducto)){
+        while ($num_elementos < count($idmateria)){
             $sql_detalle = "INSERT INTO detalle_produccion(idproduccion, idmateria,cantidad)VALUES ('$idproduccionnew', '$idmateria[$num_elementos]','$cantidad[$num_elementos]')";
             ejecutarConsulta($sql_detalle) or $sw = false;
             $num_elementos=$num_elementos + 1;
@@ -25,16 +25,37 @@ Class Produccion{
         return $sw;
     }
 
-    //Implementamos un método para anular comprass
-    public function anular($idproduccion)
-    {
-        $sql="UPDATE produccion SET estado='Anulado' WHERE idproduccion='$idproduccion'";
+    //Implementamos un método para anular el produccion
+    public function finalizar($idproduccion){
+        $sql="UPDATE produccion SET estado='Finalizado' WHERE idproduccion='$idproduccion'";
         return ejecutarConsulta($sql);
     }
 
-    public function mostrar($idcompra)
-    {
-        $sql="SELECT i.idcompra,DATE(i.fecha_hora) as fecha,i.idproveedor,p.nombre as proveedor,u.idusuario,u.nombre as usuario,i.tipo_comprobante,i.serie_comprobante,i.num_comprobante,i.total_compra,i.impuesto,i.estado FROM compra i INNER JOIN persona p ON i.idproveedor=p.idpersona INNER JOIN usuario u ON i.idusuario=u.idusuario WHERE i.idcompra='$idcompra'";
+    public function iniciar($idproduccion){
+        $sql="UPDATE produccion SET estado='Iniciado' WHERE idproduccion='$idproduccion'";
+        return ejecutarConsulta($sql);
+    }
+
+    //Implementar un método para mostrar los datos de un registro a modificar
+    public function mostrar($idproduccion){
+        $sql="SELECT r.idproduccion,DATE(r.fecha_hora) as fecha,r.idpanadero,p.nombre as panadero,r.estado,r.idproducto,a.nombre,r.cantidadProducida,a.uMedida,r.precio_venta FROM produccion r INNER JOIN persona p ON r.idpanadero=p.idpersona INNER JOIN producto a ON r.idproducto=a.idproducto WHERE r.idproduccion='$idproduccion'";
         return ejecutarConsultaSimpleFila($sql);
     }
+
+    public function listarDetalle($idproduccion){
+        $sql="SELECT dp.idproduccion,dp.idproducto,p.nombre,dp.cantidad,p.uMedida FROM detalle_produccion dp inner join producto p on dp.idproducto=p.idproducto where dp.idproduccion='$idproduccion'";
+        return ejecutarConsulta($sql);
+    }
+
+    public function listar()
+    {
+        $sql="SELECT r.idproduccion,DATE(r.fecha_hora) as fecha,r.idpanadero,p.nombre as panadero,r.estado,r.idproducto,a.nombre,r.cantidadProducida,a.uMedida,r.precio_venta FROM produccion r INNER JOIN persona p ON r.idpanadero=p.idpersona INNER JOIN producto a ON r.idproducto=a.idproducto ORDER BY r.idproduccion desc";
+        return ejecutarConsulta($sql);      
+    }
+
+    // public function ventadetalle($idreparto)
+    // {
+    //     $sql="SELECT p.nombre as producto,p.codigo,d.cantidad,d.precio_venta,d.descuento,(d.cantidad*d.precio_venta-d.descuento) as subtotal FROM detalle_reparto d INNER JOIN producto a on d.idproducto=p.idproducto WHERE d.idreparto='$idreparto'";
+    //     return ejecutarConsulta($sql);
+    // }
 }

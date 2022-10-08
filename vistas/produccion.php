@@ -3,7 +3,7 @@
 ob_start();
 session_start();
  
-if (!isset($_SESSION["reparto"]))
+if (!isset($_SESSION["produccion"]))
 {
   header("Location: login.html");
 }
@@ -11,7 +11,7 @@ else
 {
 require 'header.php';
  
-if ($_SESSION['reparto']==1)
+if ($_SESSION['produccion']==1)
 {
 ?>
 
@@ -28,7 +28,7 @@ if ($_SESSION['reparto']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Reparto <button class="btn btn-success"
+                        <h1 class="box-title">Produccion <button class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
                                 Agregar</button></h1>
@@ -44,9 +44,11 @@ if ($_SESSION['reparto']==1)
                             <thead>
                                 <th>Opciones</th>
                                 <th>Fecha</th>
-                                <th>Cliente</th>
-                                <th>Repartidor</th>
-                                <th>Total Venta</th>
+                                <th>Panadero</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>U. Medida</th>
+                                <th>Precio Venta</th>
                                 <th>Estado</th>
                             </thead>
                             <tbody>
@@ -54,9 +56,11 @@ if ($_SESSION['reparto']==1)
                             <tfoot>
                                 <th>Opciones</th>
                                 <th>Fecha</th>
-                                <th>Cliente</th>
-                                <th>Repartidor</th>
-                                <th>Total Venta</th>
+                                <th>Panadero</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>U. Medida</th>
+                                <th>Precio Venta</th>
                                 <th>Estado</th>
                             </tfoot>
                         </table>
@@ -68,12 +72,12 @@ if ($_SESSION['reparto']==1)
                             id="formulario"
                             method="POST">
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Cliente(*):</label>
+                                <label>Panadero(*):</label>
                                 <input type="hidden"
-                                    name="idreparto"
-                                    id="idreparto">
-                                <select id="idcliente"
-                                    name="idcliente"
+                                    name="idproduccion"
+                                    id="idproduccion">
+                                <select id="idpanadero"
+                                    name="idpanadero"
                                     class="form-control selectpicker"
                                     data-live-search="true"
                                     required>
@@ -81,9 +85,9 @@ if ($_SESSION['reparto']==1)
                                 </select>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Repartidor(*):</label>
-                                <select id="idrepartidor"
-                                    name="idrepartidor"
+                                <label>Producto(*):</label>
+                                <select id="idproducto"
+                                    name="idproducto"
                                     class="form-control selectpicker"
                                     data-live-search="true"
                                     required>
@@ -104,7 +108,7 @@ if ($_SESSION['reparto']==1)
                                     <button id="btnAgregarArt"
                                         type="button"
                                         class="btn btn-primary"> <span class="fa fa-plus"></span>
-                                        Agregar Productos</button>
+                                        Agregar Materia Prima</button>
                                 </a>
                             </div>
 
@@ -113,26 +117,10 @@ if ($_SESSION['reparto']==1)
                                     class="table table-striped table-bordered table-condensed table-hover">
                                     <thead style="background-color:#A9D0F5">
                                     <th>Opciones</th>
-                                        <th>Producto</th>
+                                        <th>Materia Prima</th>
                                         <th>Cantidad</th>
                                         <th>U. Medida</th>
-                                        <th>Precio Venta</th>
-                                        <th>Descuento</th>
-                                        <th>Subtotal</th>
                                     </thead>
-                                    <tfoot>
-                                        <th>TOTAL</th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th>
-                                            <h4 id="total">S/. 0.00</h4><input type="hidden"
-                                                name="total_venta"
-                                                id="total_venta">
-                                        </th>
-                                    </tfoot>
                                     <tbody>
 
                                     </tbody>
@@ -185,7 +173,6 @@ if ($_SESSION['reparto']==1)
                         <th>Nombre</th>
                         <th>Stock</th>
                         <th>U. Medida</th>
-                        <th>Precio Venta</th>
                     </thead>
                     <tbody>
 
@@ -195,7 +182,6 @@ if ($_SESSION['reparto']==1)
                         <th>Nombre</th>
                         <th>Stock</th>
                         <th>U. Medida</th>
-                        <th>Precio Venta</th>
                     </tfoot>
                 </table>
             </div>
@@ -218,7 +204,7 @@ else
 require 'footer.html';
 ?>
 <script type="text/javascript"
-    src="scripts/reparto.js"></script>
+    src="scripts/produccion.js"></script>
 <?php 
 }
 ob_end_flush();
