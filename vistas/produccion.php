@@ -71,7 +71,7 @@ if ($_SESSION['produccion']==1)
                         <form name="formulario"
                             id="formulario"
                             method="POST">
-                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <label>Panadero(*):</label>
                                 <input type="hidden"
                                     name="idproduccion"
@@ -84,7 +84,7 @@ if ($_SESSION['produccion']==1)
 
                                 </select>
                             </div>
-                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <label>Producto(*):</label>
                                 <select id="idproducto"
                                     name="idproducto"
@@ -102,7 +102,38 @@ if ($_SESSION['produccion']==1)
                                     id="fecha_hora"
                                     required="">
                             </div>
-                            <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12 pt-3">
+                            <div id="divCantidad"
+                                class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-8">
+                                <label>Cantidad Producida:</label>
+                                <input type="text"
+                                    class="form-control"
+                                    name="cantidadProducida"
+                                    id="cantidadProducida"
+                                    maxlength="70"
+                                    placeholder="Cantidad Producida">
+                            </div>
+                            <div id="divUMedida"
+                                class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <label>Unidad De Medida:</label>
+                                <input type="text"
+                                    class="form-control"
+                                    name="uMedida"
+                                    id="uMedida"
+                                    maxlength="70"
+                                    placeholder="uMedida"
+                                    readonly>
+                            </div>
+                            <div id="divPrecioVenta"
+                                class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <label>Precio Venta:</label>
+                                <input type="number"
+                                    class="form-control"
+                                    name="precioVenta"
+                                    id="precioVenta"
+                                    maxlength="70"
+                                    placeholder="Previo Venta">
+                            </div>
+                            <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a data-toggle="modal"
                                     href="#myModal">
                                     <button id="btnAgregarArt"
@@ -112,11 +143,12 @@ if ($_SESSION['produccion']==1)
                                 </a>
                             </div>
 
+
                             <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                                 <table id="detalles"
                                     class="table table-striped table-bordered table-condensed table-hover">
                                     <thead style="background-color:#A9D0F5">
-                                    <th>Opciones</th>
+                                        <th>Opciones</th>
                                         <th>Materia Prima</th>
                                         <th>Cantidad</th>
                                         <th>U. Medida</th>
@@ -137,6 +169,10 @@ if ($_SESSION['produccion']==1)
                                     onclick="cancelarform()"
                                     type="button"><i class="fa fa-arrow-circle-left"></i>
                                     Cancelar</button>
+
+                                <button id="btnFinalizar"
+                                    class="btn btn-primary"
+                                    type="submit"><i class="fa fa-save"></i> Finalizar</button>
                             </div>
                         </form>
                     </div>

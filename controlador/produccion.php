@@ -14,18 +14,16 @@ $fecha_hora=isset($_POST["fecha_hora"])? limpiarCadena($_POST["fecha_hora"]):"";
 $precio_venta=isset($_POST["precio_venta"])? limpiarCadena($_POST["precio_venta"]):"";
 
 switch ($_GET["op"]){
-    case 'guardaryeditar':
+    case 'guardar':
         if (empty($idproduccion)){
             $rspta=$produccion->insertar($idpanadero,$idproducto,$cantidadProducida,$fecha_hora,$precio_venta,$_POST["idmateria"],$_POST["cantidad"]);
             echo $rspta ? "produccion registrada" : "No se pudieron registrar todos los datos de la produccion";
         }
-        else {
-        }
     break;
     
     case 'finalizar':
-        $rspta=$produccion->finalizar($idproduccion);
-        echo $rspta ? "produccion anulada" : "produccion no se puede finalizar";
+        $rspta=$produccion->finalizar($idproduccion,$cantidadProducida,$precio_venta);
+        echo $rspta ? "produccion finalizado" : "produccion no se puede finalizado";
     break;
 
     case 'iniciar':
@@ -50,7 +48,6 @@ switch ($_GET["op"]){
                                     <th>Materia Prima</th>
                                     <th>Cantidad</th>
                                     <th>U. Medida</th>
-                                    <th>Precio Venta</th>
                                 </thead>';
  
         while ($reg = $rspta->fetch_object())
@@ -59,8 +56,7 @@ switch ($_GET["op"]){
                     <td></td>
                     <td>'.$reg->nombre.'</td>
                     <td>'.$reg->cantidad.'</td>
-                    <td>'.$reg->uMedida.'</td>
-                    <td>'.$reg->precio_venta.'</td>';
+                    <td>'.$reg->uMedida.'</td>';
                 }
     break;
 
@@ -72,8 +68,8 @@ switch ($_GET["op"]){
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
                 "0"=>(($reg->estado=='Iniciado')?'<button class="btn btn-warning" onclick="mostrar('.$reg->idproduccion.')"><i class="fa fa-eye"></i></button>'.
-                    ' <button class="btn btn-danger" onclick="finalizar('.$reg->idproduccion.')"><i class="fa fa-close"></i></button>':
-                    '<button class="btn btn-warning" onclick="mostrar('.$reg->idproduccion.')"><i class="fa fa-eye"></i></button>'.'<button class="btn btn-primary" onclick="iniciar('),
+                    ' <button class="btn btn-danger" onclick="finalizarform('.$reg->idproduccion.')"><i class="fa fa-close"></i></button>':
+                    '<button class="btn btn-warning" onclick="mostrar('.$reg->idproduccion.')"><i class="fa fa-eye"></i></button>'),
                 "1"=>$reg->fecha,
                 "2"=>$reg->panadero,
                 "3"=>$reg->nombre,

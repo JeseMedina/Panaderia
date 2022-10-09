@@ -1,19 +1,18 @@
 var tabla;
-
 //Función que se ejecuta al inicio
 function init() {
     mostrarform(false);
     listar();
 
     $("#formulario").on("submit", function (e) {
-        guardaryeditar(e);
+        guardar(e);
     });
-    
+
     $.post("../controlador/produccion.php?op=selectPanadero", function (r) {
         $("#idpanadero").html(r);
         $('#idpanadero').selectpicker('refresh');
     });
-    $.post("../controlador/produccion.php?op=selectPanaderia", function(r){
+    $.post("../controlador/produccion.php?op=selectPanaderia", function (r) {
         $("#idproducto").html(r);
         $('#idproducto').selectpicker('refresh');
     });;
@@ -47,6 +46,12 @@ function mostrarform(flag) {
         //$("#btnGuardar").prop("disabled",false);
         $("#btnagregar").hide();
         listarProductos();
+        $("#divCantidad").hide();
+        $("#divUMedida").hide();
+        $("#divPrecioVenta").hide();
+        $("#btnFinalizar").hide();
+        $("#divpanaderolectura").hide();
+        $("#divproductolectura").hide();
 
         $("#btnGuardar").hide();
         $("#btnCancelar").show();
@@ -119,13 +124,13 @@ function listarProductos() {
 }
 
 //Función para guardar o editar
-function guardaryeditar(e) {
+function guardar(e) {
     e.preventDefault(); //No se activará la acción predeterminada del evento
     //$("#btnGuardar").prop("disabled",true);
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../controlador/produccion.php?op=guardaryeditar",
+        url: "../controlador/produccion.php?op=guardar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -148,49 +153,80 @@ function mostrar(idproduccion) {
 
         $("#idproduccion").val(data.idproduccion);
         $("#idpanadero").val(data.idpanadero);
-        $("#idpanadero").selectpicker('refresh');
-        $("#idproducto").val(data.idpproducto);
-        $("#idproducto").selectpicker('refresh');
+        $("#idproducto").val(data.idproducto);
         $("#fecha_hora").val(data.fecha);
+        $("#cantidad").val(data.cantidadProducida);
+        $("#uMedida").val(data.uMedida);
+        $("#precioVenta").val(data.precioVenta);
 
-        //Ocultar y mostrar los botones
+        $("#divCantidad").show();
+        $("#divUMedida").show();
+        $("#divPrecioVenta").show();
+
+
         $("#btnGuardar").hide();
         $("#btnCancelar").show();
         $("#btnAgregarArt").hide();
+        $("#btnFinalizar").hide();
     });
 
-    $.post("../controlador/produccion.php?op=listarDetalle&id="+idproduccion,function(r){
-        $("#detalles").html(r);
-    });
+    // $.post("../controlador/produccion.php?op=listarDetalle&id=" + idproduccion, function (r) {
+    //     $("#detalles").html(r);
+    // });
 }
 
 //Función para finalizar registros
-function finalizar(idproduccion) {
-    bootbox.confirm("¿Está Seguro de finalizar la venta?",function(result){
-        if (result) {
-            $.post("../controlador/produccion.php?op=finalizar", { idproduccion: idproduccion }, function (e) {
-                bootbox.alert(e);
-                tabla.ajax.reload();
-            });
-        }
-    })
+function finalizarform(idproduccion) {
+    // $.post("../controlador/produccion.php?op=mostrar", { idproduccion: idproduccion }, function (data, status) {
+    //     data = JSON.parse(data);
+    //     mostrarform(true);
+
+    //     $("#idproduccion").val(data.idproduccion);
+    //     $("#idpanadero").val(data.idpanadero);
+    //     $("#idproducto").val(data.idproducto);
+    //     $("#fecha_hora").val(data.fecha);
+    //     $("#cantidad").val(data.cantidadProducida);
+    //     $("#uMedida").val(data.uMedida);
+    //     $("#precioVenta").val(data.precioVenta);
+
+    //     $("#divCantidad").show();
+    //     $("#divUMedida").show();
+    //     $("#divPrecioVenta").show();
+
+
+    //     $("#btnGuardar").hide();
+    //     $("#btnCancelar").show();
+    //     $("#btnAgregarArt").hide();
+    //     $("#btnFinalizar").hide();
+    // });
+
 }
 
-function iniciar(idproduccion) {
-    bootbox.confirm("¿Está Seguro de inicar la venta?",function(result){
-        if (result) {
-            $.post("../controlador/produccion.php?op=inicar", { idproduccion: idproduccion }, function (e) {
-                bootbox.alert(e);
-                tabla.ajax.reload();
-            });
+function finalizar(e){
+    e.preventDefault();
+    var formData = new FormData($("#formulario")[0]);
+
+    $.ajax({
+        url: "../controlador/produccion.php?op=finalizar",
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+
+        success: function (datos) {
+            bootbox.alert(datos);
+            mostrarform(false);
+            listar();
         }
-    })
+    });
+    limpiar();
 }
+
 
 //Declaración de variables necesarias para trabajar con las compras y
 //sus detalles
-var cont=0;
-var detalles=0;
+var cont = 0;
+var detalles = 0;
 $("#btnGuardar").hide();
 
 function agregarDetalle(idproducto, producto, uMedida) {
@@ -204,7 +240,7 @@ function agregarDetalle(idproducto, producto, uMedida) {
             '<td>' + uMedida + '</td>' +
             '</tr>';
         cont++;
-        detalles=detalles+1;
+        detalles = detalles + 1;
         $('#detalles').append(fila);
         evaluar();
     }

@@ -8,9 +8,8 @@ Class Produccion{
  
     }
 
-    public function insertar($idpanadero,$idproducto,$cantidadProducida,$fecha_hora,$precio_venta,$idmateria,$cantidad){
-        $sql="INSERT INTO produccion (idpanadero,idproducto,cantidadProducida,fecha_hora,precio_venta,estado) VALUES ('$idpanadero','$idproducto','$cantidadProducida','$fecha_hora','$precio_venta','Iniciado')";
-        //return ejecutarConsulta($sql);
+    public function insertar($idpanadero,$idproducto,$fecha_hora,$idmateria,$cantidad){
+        $sql="INSERT INTO produccion (idpanadero,idproducto,cantidadProducida,fecha_hora,precio_venta,estado) VALUES ('$idpanadero','$idproducto','0','$fecha_hora','0','Iniciado')";
         $idproduccionnew=ejecutarConsulta_retornarID($sql);
 
         $num_elementos=0;
@@ -26,8 +25,8 @@ Class Produccion{
     }
 
     //Implementamos un método para anular el produccion
-    public function finalizar($idproduccion){
-        $sql="UPDATE produccion SET estado='Finalizado' WHERE idproduccion='$idproduccion'";
+    public function finalizar($idproduccion,$cantidadProducida,$precio_venta){
+        $sql="UPDATE produccion SET estado='Finalizado',cantidadProducida='$cantidadProducida',precio_venta='$precio_venta' WHERE idproduccion='$idproduccion'";
         return ejecutarConsulta($sql);
     }
 
@@ -38,7 +37,7 @@ Class Produccion{
 
     //Implementar un método para mostrar los datos de un registro a modificar
     public function mostrar($idproduccion){
-        $sql="SELECT r.idproduccion,DATE(r.fecha_hora) as fecha,r.idpanadero,p.nombre as panadero,r.estado,r.idproducto,a.nombre,r.cantidadProducida,a.uMedida,r.precio_venta FROM produccion r INNER JOIN persona p ON r.idpanadero=p.idpersona INNER JOIN producto a ON r.idproducto=a.idproducto WHERE r.idproduccion='$idproduccion'";
+        $sql="SELECT r.idproduccion,DATE(r.fecha_hora) as fecha,r.idpanadero,p.nombre as panadero,r.estado,r.idproducto,a.nombre as producto,r.cantidadProducida,a.uMedida,r.precio_venta FROM produccion r INNER JOIN persona p ON r.idpanadero=p.idpersona INNER JOIN producto a ON r.idproducto=a.idproducto WHERE r.idproduccion='$idproduccion'";
         return ejecutarConsultaSimpleFila($sql);
     }
 
