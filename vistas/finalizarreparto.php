@@ -3,7 +3,7 @@
 ob_start();
 session_start();
  
-if (!isset($_SESSION["produccion"]))
+if (!isset($_SESSION["reparto"]))
 {
   header("Location: login.html");
 }
@@ -11,7 +11,7 @@ else
 {
 require 'header.php';
  
-if ($_SESSION['produccion']==1)
+if ($_SESSION['reparto']==1)
 {
 ?>
 
@@ -28,39 +28,31 @@ if ($_SESSION['produccion']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Produccion <button class="btn btn-success"
-                                id="btnagregar"
-                                onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
-                                Agregar</button></h1>
-                        <div class="box-tools pull-right">
-                        </div>
+                        <h1 class="box-title"> Finalizar Reparto
+                            <div class="box-tools pull-right"></div>
                     </div>
-                    <!-- /.box-header -->
-                    <!-- centro -->
                     <div class="panel-body table-responsive"
                         id="listadoregistros">
-                        <table id="tbllistado"
+                        <table id="tbllistadofinalizar"
                             class="table table-striped table-bordered table-condensed table-hover">
                             <thead>
                                 <th>Opciones</th>
+                                <th>Reparto</th>
                                 <th>Fecha</th>
-                                <th>Panadero</th>
-                                <th>Producto</th>
-                                <th>Cantidad</th>
-                                <th>U. Medida</th>
-                                <th>Precio Venta</th>
+                                <th>Cliente</th>
+                                <th>Repartidor</th>
+                                <th>Total Venta</th>
                                 <th>Estado</th>
                             </thead>
                             <tbody>
                             </tbody>
                             <tfoot>
                                 <th>Opciones</th>
+                                <th>Reparto</th>
                                 <th>Fecha</th>
-                                <th>Panadero</th>
-                                <th>Producto</th>
-                                <th>Cantidad</th>
-                                <th>U. Medida</th>
-                                <th>Precio Venta</th>
+                                <th>Cliente</th>
+                                <th>Repartidor</th>
+                                <th>Total Venta</th>
                                 <th>Estado</th>
                             </tfoot>
                         </table>
@@ -71,23 +63,23 @@ if ($_SESSION['produccion']==1)
                         <form name="formulario"
                             id="formulario"
                             method="POST">
-                            <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <label>Panadero(*):</label>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label>Cliente(*):</label>
                                 <input type="hidden"
-                                    name="idproduccion"
-                                    id="idproduccion">
-                                <select id="idpanadero"
-                                    name="idpanadero"
+                                    name="idreparto"
+                                    id="idreparto">
+                                <select id="idcliente"
+                                    name="idcliente"
                                     class="form-control selectpicker"
                                     data-live-search="true"
                                     required>
 
                                 </select>
                             </div>
-                            <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <label>Producto(*):</label>
-                                <select id="idproducto"
-                                    name="idproducto"
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label>Repartidor(*):</label>
+                                <select id="idrepartidor"
+                                    name="idrepartidor"
                                     class="form-control selectpicker"
                                     data-live-search="true"
                                     required>
@@ -102,57 +94,41 @@ if ($_SESSION['produccion']==1)
                                     id="fecha_hora"
                                     required="">
                             </div>
-                            <div id="divCantidad"
-                                class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-8">
-                                <label>Cantidad Producida:</label>
-                                <input type="text"
-                                    class="form-control"
-                                    name="cantidadProducida"
-                                    id="cantidadProducida"
-                                    maxlength="70"
-                                    placeholder="Cantidad Producida">
-                            </div>
-                            <div id="divUMedida"
-                                class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                <label>Unidad De Medida:</label>
-                                <input type="text"
-                                    class="form-control"
-                                    name="uMedida"
-                                    id="uMedida"
-                                    maxlength="70"
-                                    placeholder="uMedida"
-                                    readonly>
-                            </div>
-                            <div id="divPrecioVenta"
-                                class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <label>Precio Venta:</label>
-                                <input type="number"
-                                    class="form-control"
-                                    name="precioVenta"
-                                    id="precioVenta"
-                                    maxlength="70"
-                                    placeholder="Previo Venta">
-                            </div>
-                            <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12 pt-3">
                                 <a data-toggle="modal"
                                     href="#myModal">
                                     <button id="btnAgregarArt"
                                         type="button"
                                         class="btn btn-primary"> <span class="fa fa-plus"></span>
-                                        Agregar Materia Prima</button>
+                                        Agregar Productos</button>
                                 </a>
                             </div>
-
 
                             <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                                 <table id="detalles"
                                     class="table table-striped table-bordered table-condensed table-hover">
                                     <thead style="background-color:#A9D0F5">
                                         <th>Opciones</th>
-                                        <th>Materia Prima</th>
+                                        <th>Producto</th>
                                         <th>Cantidad</th>
                                         <th>U. Medida</th>
+                                        <th>Precio Venta</th>
+                                        <th>Descuento</th>
+                                        <th>Subtotal</th>
                                     </thead>
+                                    <tfoot>
+                                        <th>TOTAL</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>
+                                            <h4 id="total">S/. 0.00</h4><input type="hidden"
+                                                name="total_venta"
+                                                id="total_venta">
+                                        </th>
+                                    </tfoot>
                                     <tbody>
 
                                     </tbody>
@@ -169,10 +145,6 @@ if ($_SESSION['produccion']==1)
                                     onclick="cancelarform()"
                                     type="button"><i class="fa fa-arrow-circle-left"></i>
                                     Cancelar</button>
-
-                                <button id="btnFinalizar"
-                                    class="btn btn-primary"
-                                    type="submit"><i class="fa fa-save"></i> Finalizar</button>
                             </div>
                         </form>
                     </div>
@@ -209,6 +181,7 @@ if ($_SESSION['produccion']==1)
                         <th>Nombre</th>
                         <th>Stock</th>
                         <th>U. Medida</th>
+                        <th>Precio Venta</th>
                     </thead>
                     <tbody>
 
@@ -218,6 +191,7 @@ if ($_SESSION['produccion']==1)
                         <th>Nombre</th>
                         <th>Stock</th>
                         <th>U. Medida</th>
+                        <th>Precio Venta</th>
                     </tfoot>
                 </table>
             </div>
@@ -240,7 +214,7 @@ else
 require 'footer.html';
 ?>
 <script type="text/javascript"
-    src="scripts/produccion.js"></script>
+    src="scripts/reparto.js"></script>
 <?php 
 }
 ob_end_flush();

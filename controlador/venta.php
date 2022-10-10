@@ -72,7 +72,7 @@ switch ($_GET["op"]){
                                     <th></th>
                                     <th></th>
                                     <th></th>
-                                    <th><h4 id="total">S/.'.$total.'</h4><input type="hidden" name="total_venta" id="total_venta"></th> 
+                                    <th><h4 id="total">$'.$total.'</h4><input type="hidden" name="total_venta" id="total_venta"></th> 
                                 </tfoot>';
     break;
  

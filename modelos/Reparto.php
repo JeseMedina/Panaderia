@@ -54,6 +54,12 @@ Class Reparto
         $sql="SELECT r.idreparto,DATE(r.fecha_hora) as fecha,r.idcliente,r.total_venta,p.nombre as cliente,u.idusuario,u.nombre as usuario,r.idrepartidor,pa.nombre as repartidor,r.estado FROM reparto r INNER JOIN persona p ON r.idcliente=p.idpersona INNER JOIN persona pa ON r.idrepartidor=pa.idpersona INNER JOIN usuario u ON r.idusuario=u.idusuario ORDER BY r.idreparto desc";
         return ejecutarConsulta($sql);      
     }
+
+    public function listarfinalizar()
+    {
+        $sql="SELECT r.idreparto,DATE(r.fecha_hora) as fecha,r.idcliente,r.total_venta,p.nombre as cliente,u.idusuario,u.nombre as usuario,r.idrepartidor,pa.nombre as repartidor,r.estado FROM reparto r INNER JOIN persona p ON r.idcliente=p.idpersona INNER JOIN persona pa ON r.idrepartidor=pa.idpersona INNER JOIN usuario u ON r.idusuario=u.idusuario WHERE r.estado='Iniciado' ORDER BY r.idreparto desc";
+        return ejecutarConsulta($sql);      
+    }
     
     // public function repartocabecera($idreparto)
     // {

@@ -64,7 +64,7 @@ switch ($_GET["op"]){
                                     <th></th>
                                     <th></th>
                                     <th></th>
-                                    <th><h4 id="total">S/.'.$total.'</h4><input type="hidden" name="total_venta" id="total_venta"></th> 
+                                    <th><h4 id="total">$'.$total.'</h4><input type="hidden" name="total_venta" id="total_venta"></th> 
                                 </tfoot>';
     break;
  
@@ -76,11 +76,12 @@ switch ($_GET["op"]){
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
                 "0"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->idreparto.')"><i class="fa fa-eye"></i></button>',
-                "1"=>$reg->fecha,
-                "2"=>$reg->cliente,
-                "3"=>$reg->repartidor,
-                "4"=>$reg->total_venta,
-                "5"=>($reg->estado=='Iniciado')?'<span class="label bg-green">Iniciado</span>':
+                "1"=>$reg->idreparto,
+                "2"=>$reg->fecha,
+                "3"=>$reg->cliente,
+                "4"=>$reg->repartidor,
+                "5"=>$reg->total_venta,
+                "6"=>($reg->estado=='Iniciado')?'<span class="label bg-green">Iniciado</span>':
                 '<span class="label bg-red">Finalizado</span>'
                 );
         }
@@ -91,6 +92,36 @@ switch ($_GET["op"]){
             "aaData"=>$data);
         echo json_encode($results);
  
+    break;
+
+    case 'listarfinalizar':
+        $rspta=$reparto->listarfinalizar();
+        //Vamos a declarar un array
+        $data= Array();
+ 
+        while ($reg=$rspta->fetch_object()){
+            $data[]=array(
+                "0"=>'<button class="btn btn-danger" onclick="finalizar('.$reg->idreparto.')"><i class="fa fa-check"></i></button>',
+                "1"=>$reg->idreparto,
+                "2"=>$reg->fecha,
+                "3"=>$reg->cliente,
+                "4"=>$reg->repartidor,
+                "5"=>$reg->total_venta,
+                "6"=>($reg->estado=='Iniciado')?'<span class="label bg-green">Iniciado</span>':
+                '<span class="label bg-red">Finalizado</span>'
+                );
+        }
+        $results = array(
+            "sEcho"=>1, //Información para el datatables
+            "iTotalRecords"=>count($data), //enviamos el total registros al datatable
+            "iTotalDisplayRecords"=>count($data), //enviamos el total registros a visualizar
+            "aaData"=>$data);
+        echo json_encode($results);
+    break;
+
+    case 'finalizar':
+        $rspta=$reparto->finalizar($idreparto);
+        echo $rspta ? "Reparto Finalizado" : "Reparto no se pudo finalizar";
     break;
  
     case 'selectCliente':

@@ -4,11 +4,12 @@ var tabla;
 function init() {
     mostrarform(false);
     listar();
+    listarfinalizar();
 
     $("#formulario").on("submit", function (e) {
         guardaryeditar(e);
     });
-    //Cargamos los items al select cliente
+
     $.post("../controlador/reparto.php?op=selectRepartidor", function (r) {
         $("#idrepartidor").html(r);
         $('#idrepartidor').selectpicker('refresh');
@@ -96,6 +97,32 @@ function listar() {
         }).DataTable();
 }
 
+function listarfinalizar() {
+    tabla = $('#tbllistadofinalizar').dataTable(
+        {
+            "aProcessing": true,//Activamos el procesamiento del datatables
+            "aServerSide": true,//Paginación y filtrado realizados por el servidor
+            dom: 'Bfrtip',//Definimos los elementos del control de tabla
+            buttons: [
+                'excelHtml5',
+                'csvHtml5',
+                'pdf'
+            ],
+            "ajax":
+            {
+                url: '../controlador/reparto.php?op=listarfinalizar',
+                type: "get",
+                dataType: "json",
+                error: function (e) {
+                    console.log(e.responseText);
+                }
+            },
+            "bDestroy": true,
+            "iDisplayLength": 5,//Paginación
+            "order": [[0, "desc"]]//Ordenar (columna,orden)
+        }).DataTable();
+}
+
 //Función ListarProductos
 function listarProductos() {
     tabla = $('#tblproductos').dataTable(
@@ -169,20 +196,9 @@ function mostrar(idreparto) {
 
 //Función para finalizar registros
 function finalizar(idreparto) {
-    bootbox.confirm("¿Está Seguro de finalizar la venta?",function(result){
+    bootbox.confirm("¿Está Seguro de finalizar el Reparto?",function(result){
         if (result) {
             $.post("../controlador/reparto.php?op=finalizar", { idreparto: idreparto }, function (e) {
-                bootbox.alert(e);
-                tabla.ajax.reload();
-            });
-        }
-    })
-}
-
-function iniciar(idreparto) {
-    bootbox.confirm("¿Está Seguro de inicar la venta?",function(result){
-        if (result) {
-            $.post("../controlador/reparto.php?op=inicar", { idreparto: idreparto }, function (e) {
                 bootbox.alert(e);
                 tabla.ajax.reload();
             });
