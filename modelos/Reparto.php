@@ -1,25 +1,23 @@
-<?php 
-//Incluímos inicialmente la conexión a la base de datos
+<?php
 require "../config/Conexion.php";
 
 Class Reparto
 {
-    //Implementamos nuestro constructor
     public function __construct(){
  
     }
 
-    //Implementamos un método para insertar registros
-    public function insertar($idcliente,$idusuario,$idrepartidor,$fecha_hora,$idproducto,$cantidad,$precio_venta,$descuento){
-        $sql="INSERT INTO reparto (idcliente,idusuario,idrepartidor,fecha_hora,estado) VALUES ('$idcliente','$idusuario','$idrepartidor','$fecha_hora','Iniciado')";
-        //return ejecutarConsulta($sql);
+    public function insertar($idcliente,$idusuario,$idrepartidor,$fecha_hora,$total_venta,$idproducto,$cantidad,$precio_venta,$descuento)
+    {
+        $sql="INSERT INTO reparto (idcliente,idusuario,idrepartidor,fecha_hora,total_venta,estado) VALUES ('$idcliente','$idusuario','$idrepartidor','$fecha_hora','$total_venta','Iniciado')";
+        
         $idrepartonew=ejecutarConsulta_retornarID($sql);
 
         $num_elementos=0;
         $sw=True;
-        echo '<script>console.log('.count($idproducto).'); </script>';
 
-        while ($num_elementos < count($idproducto)){
+        while ($num_elementos < count($idproducto))
+        {
             $sql_detalle = "INSERT INTO detalle_reparto(idreparto, idproducto,cantidad,precio_venta,descuento) VALUES ('$idrepartonew', '$idproducto[$num_elementos]','$cantidad[$num_elementos]','$precio_venta[$num_elementos]','$descuento[$num_elementos]')";
             ejecutarConsulta($sql_detalle) or $sw = false;
             $num_elementos=$num_elementos + 1;

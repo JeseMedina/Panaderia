@@ -8,7 +8,8 @@ $produccion=new Produccion();
 
 $idproduccion=isset($_POST["idproduccion"])? limpiarCadena($_POST["idproduccion"]):"";
 $idpanadero=isset($_POST["idpanadero"])? limpiarCadena($_POST["idpanadero"]):"";
-$idproducto=isset($_POST["idproducto"])? limpiarCadena($_POST["idproducto"]):"";
+$idproducto=isset($_POST["idproducto"]);
+// ? limpiarCadena($_POST["idproducto"]):"";
 $cantidadproducida=isset($_POST["cantidadproducida"])? limpiarCadena($_POST["cantidadproducida"]):"";
 $fecha_hora=isset($_POST["fecha_hora"])? limpiarCadena($_POST["fecha_hora"]):"";
 $precio_venta=isset($_POST["precio_venta"])? limpiarCadena($_POST["precio_venta"]):"";
@@ -16,7 +17,7 @@ $precio_venta=isset($_POST["precio_venta"])? limpiarCadena($_POST["precio_venta"
 switch ($_GET["op"]){
     case 'guardar':
         if (empty($idproduccion)){
-            $rspta=$produccion->insertar($idpanadero,$idproducto,$cantidadProducida,$fecha_hora,$precio_venta,$_POST["idmateria"],$_POST["cantidad"]);
+            $rspta=$produccion->insertar($idpanadero,$idproducto,$fecha_hora,$_POST["idmateria"],$_POST["cantidad"]);
             echo $rspta ? "produccion registrada" : "No se pudieron registrar todos los datos de la produccion";
         }
     break;

@@ -235,7 +235,7 @@ function agregarDetalle(idproducto, producto, uMedida) {
     if (idproducto != "") {
         var fila = '<tr class="filas" id="fila' + cont + '">' +
             '<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle(' + cont + ')">X</button></td>' +
-            '<td><input type="hidden" name="idproducto[]" value="' + idproducto + '">' + producto + '</td>' +
+            '<td><input type="hidden" name="idmateria[]" value="' + idproducto + '">' + producto + '</td>' +
             '<td><input type="number" name="cantidad[]" id="cantidad[]" value="' + cantidad + '"></td>' +
             '<td>' + uMedida + '</td>' +
             '</tr>';

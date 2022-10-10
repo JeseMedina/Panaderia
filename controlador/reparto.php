@@ -23,16 +23,6 @@ switch ($_GET["op"]){
         }
     break;
  
-    case 'finalizar':
-        $rspta=$reparto->finalizar($idreparto);
-        echo $rspta ? "Reparto anulada" : "Reparto no se puede finalizar";
-    break;
-
-    case 'iniciar':
-        $rspta=$reparto->iniciar($idreparto);
-        echo $rspta ? "Reparto iniciado" : "Reparto no se puede iniciar";
-    break;
- 
     case 'mostrar':
         $rspta=$reparto->mostrar($idreparto);
         //Codificar el resultado utilizando json
@@ -85,9 +75,7 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>(($reg->estado=='Iniciado')?'<button class="btn btn-warning" onclick="mostrar('.$reg->idreparto.')"><i class="fa fa-eye"></i></button>'.
-                    ' <button class="btn btn-danger" onclick="finalizar('.$reg->idreparto.')"><i class="fa fa-close"></i></button>':
-                    '<button class="btn btn-warning" onclick="mostrar('.$reg->idreparto.')"><i class="fa fa-eye"></i></button>'.'<button class="btn btn-primary" onclick="iniciar('),
+                "0"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->idreparto.')"><i class="fa fa-eye"></i></button>',
                 "1"=>$reg->fecha,
                 "2"=>$reg->cliente,
                 "3"=>$reg->repartidor,

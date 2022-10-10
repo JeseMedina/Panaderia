@@ -82,10 +82,9 @@ switch ($_GET["op"]){
                 "1"=>$reg->fecha,
                 "2"=>$reg->proveedor,
                 "3"=>$reg->usuario,
-                "4"=>$reg->tipo_comprobante,
-                "5"=>$reg->serie_comprobante.'-'.$reg->num_comprobante,
-                "6"=>$reg->total_compra,
-                "7"=>($reg->estado=='Aceptado')?'<span class="label bg-green">Aceptado</span>':
+                "4"=>$reg->num_comprobante,
+                "5"=>$reg->total_compra,
+                "6"=>($reg->estado=='Aceptado')?'<span class="label bg-green">Aceptado</span>':
                 '<span class="label bg-red">Anulado</span>'
                 );
         }
