@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-10-2022 a las 23:13:22
+-- Tiempo de generación: 10-10-2022 a las 21:16:30
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -49,7 +49,8 @@ INSERT INTO `compra` (`idcompra`, `idproveedor`, `idusuario`, `tipo_comprobante`
 (12, 16, 1, 'Factura', '3451', '765', '2022-10-03 00:00:00', '21.00', '7000.00', 'Aceptado'),
 (13, 16, 1, 'Factura', '456453', '12', '2022-10-03 00:00:00', '18.00', '100.00', 'Aceptado'),
 (14, 16, 1, 'Boleta', '', '435', '2022-10-03 00:00:00', '0.00', '1000.00', 'Aceptado'),
-(15, 16, 1, 'Boleta', '', '56765', '2022-10-05 00:00:00', '0.00', '9000.00', 'Aceptado');
+(15, 16, 1, 'Boleta', '', '56765', '2022-10-05 00:00:00', '0.00', '9000.00', 'Aceptado'),
+(16, 16, 1, 'Boleta', '', '678', '2022-10-10 00:00:00', '0.00', '40.00', 'Aceptado');
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,8 @@ INSERT INTO `detalle_compra` (`iddetalle_compra`, `idcompra`, `idproducto`, `can
 (8, 12, 15, 100, '70.00', '110.00'),
 (9, 13, 13, 10, '10.00', '12.00'),
 (10, 14, 11, 100, '10.00', '12.00'),
-(11, 15, 13, 100, '90.00', '100.00');
+(11, 15, 13, 100, '90.00', '100.00'),
+(12, 16, 12, 1, '40.00', '50.00');
 
 --
 -- Disparadores `detalle_compra`
@@ -101,6 +103,13 @@ CREATE TABLE `detalle_produccion` (
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `detalle_produccion`
+--
+
+INSERT INTO `detalle_produccion` (`iddetalle_produccion`, `idproduccion`, `idproducto`, `cantidad`) VALUES
+(1, 2, 16, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -115,6 +124,13 @@ CREATE TABLE `detalle_reparto` (
   `precio_venta` decimal(11,2) NOT NULL,
   `descuento` decimal(11,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `detalle_reparto`
+--
+
+INSERT INTO `detalle_reparto` (`iddetalle_reparto`, `idreparto`, `idproducto`, `cantidad`, `precio_venta`, `descuento`) VALUES
+(1, 22, 12, 100, '50.00', '0.00');
 
 -- --------------------------------------------------------
 
@@ -226,11 +242,19 @@ INSERT INTO `persona` (`idpersona`, `nombre`, `tipo_persona`, `num_documento`, `
 CREATE TABLE `produccion` (
   `idproduccion` int(11) NOT NULL,
   `idpanadero` int(11) NOT NULL,
-  `idusuario` int(11) NOT NULL,
-  `idproducto` int(11) NOT NULL,
+  `idproductoelaborado` int(11) NOT NULL,
+  `cantidadProducida` int(11) NOT NULL,
   `fecha_hora` date NOT NULL,
-  `condicion` tinyint(1) NOT NULL
+  `precio_venta` decimal(10,2) NOT NULL,
+  `estado` varchar(25) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `produccion`
+--
+
+INSERT INTO `produccion` (`idproduccion`, `idpanadero`, `idproductoelaborado`, `cantidadProducida`, `fecha_hora`, `precio_venta`, `estado`) VALUES
+(2, 23, 15, 0, '2022-10-08', '0.00', 'Iniciado');
 
 -- --------------------------------------------------------
 
@@ -254,10 +278,11 @@ CREATE TABLE `producto` (
 
 INSERT INTO `producto` (`idproducto`, `idrubro`, `codigo`, `nombre`, `stock`, `uMedida`, `condicion`) VALUES
 (11, 33, '', 'Pan Comun', 186, 'Kilogramo', 1),
-(12, 33, '', 'Pan de leche', 43, 'Docena', 1),
-(13, 34, '', 'Levadura', 278, 'Gramo', 1),
-(14, 33, 'a', 'Panaderia', 4, 'Kilogramo', 1),
-(15, 33, 'prepizza', 'Prepizza', 100, 'Unidad', 1);
+(12, 33, '', 'Pan de leche', 44, 'Docena', 1),
+(13, 37, '', 'Levadura', 278, 'Gramo', 1),
+(14, 33, 'a', 'Panaderia', 4, 'Kilogramo', 0),
+(15, 33, 'prepizza', 'Prepizza', 100, 'Unidad', 1),
+(16, 37, '', 'Harina', 10, 'Kilogramo', 1);
 
 -- --------------------------------------------------------
 
@@ -280,10 +305,7 @@ CREATE TABLE `reparto` (
 --
 
 INSERT INTO `reparto` (`idreparto`, `idcliente`, `idusuario`, `idrepartidor`, `fecha_hora`, `total_venta`, `estado`) VALUES
-(14, 17, 1, 22, '2022-10-07 00:00:00', '0.00', 'Iniciado'),
-(15, 14, 1, 22, '2022-10-07 00:00:00', '0.00', 'Iniciado'),
-(16, 17, 1, 22, '2022-10-07 00:00:00', '0.00', 'Iniciado'),
-(17, 17, 1, 22, '2022-10-07 00:00:00', '0.00', 'Iniciado');
+(22, 17, 1, 22, '2022-10-10 00:00:00', '5000.00', 'Finalizado');
 
 -- --------------------------------------------------------
 
@@ -457,8 +479,7 @@ ALTER TABLE `persona`
 ALTER TABLE `produccion`
   ADD PRIMARY KEY (`idproduccion`),
   ADD KEY `idpanadero` (`idpanadero`),
-  ADD KEY `idusuario` (`idusuario`),
-  ADD KEY `idproducto` (`idproducto`);
+  ADD KEY `idproducto` (`idproductoelaborado`);
 
 --
 -- Indices de la tabla `producto`
@@ -515,25 +536,25 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `compra`
 --
 ALTER TABLE `compra`
-  MODIFY `idcompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idcompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_compra`
 --
 ALTER TABLE `detalle_compra`
-  MODIFY `iddetalle_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `iddetalle_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_produccion`
 --
 ALTER TABLE `detalle_produccion`
-  MODIFY `iddetalle_produccion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `iddetalle_produccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_reparto`
 --
 ALTER TABLE `detalle_reparto`
-  MODIFY `iddetalle_reparto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `iddetalle_reparto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_venta`
@@ -557,19 +578,19 @@ ALTER TABLE `persona`
 -- AUTO_INCREMENT de la tabla `produccion`
 --
 ALTER TABLE `produccion`
-  MODIFY `idproduccion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idproduccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `reparto`
 --
 ALTER TABLE `reparto`
-  MODIFY `idreparto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idreparto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `rubro`
@@ -639,8 +660,7 @@ ALTER TABLE `detalle_venta`
 --
 ALTER TABLE `produccion`
   ADD CONSTRAINT `produccion_ibfk_1` FOREIGN KEY (`idpanadero`) REFERENCES `persona` (`idpersona`),
-  ADD CONSTRAINT `produccion_ibfk_2` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`),
-  ADD CONSTRAINT `produccion_ibfk_3` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`idproducto`);
+  ADD CONSTRAINT `produccion_ibfk_3` FOREIGN KEY (`idproductoelaborado`) REFERENCES `producto` (`idproducto`);
 
 --
 -- Filtros para la tabla `producto`
