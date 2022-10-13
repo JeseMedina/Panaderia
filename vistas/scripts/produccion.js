@@ -4,33 +4,32 @@ var tabla;
 function init() {
     mostrarform(false);
     listar();
-    listarfinalizar();
 
     $("#formulario").on("submit", function (e) {
         guardaryeditar(e);
     });
 
-    $.post("../controlador/reparto.php?op=selectRepartidor", function (r) {
-        $("#idrepartidor").html(r);
-        $('#idrepartidor').selectpicker('refresh');
+    $.post("../controlador/produccion.php?op=selectPanadero", function (r) {
+        $("#idpanadero").html(r);
+        $('#idpanadero').selectpicker('refresh');
     });
-    $.post("../controlador/reparto.php?op=selectCliente", function(r){
-        $("#idcliente").html(r);
-        $('#idcliente').selectpicker('refresh');
+    $.post("../controlador/produccion.php?op=selectProducto", function(r){
+        $("#idproductoproducido").html(r);
+        $('#idproductoproducido').selectpicker('refresh');
     });;
-
-    
-
 }
 
 //Función limpiar
 function limpiar() {
-    $("#idcliente").val("");
-    $("#idrepartidor").val("");
+    $("#idpanadero").val("");
+    $("#idproductoproducido").val("");
+    $("#cantidadproducida").val("");
+    $("#umedida").val("");
+    $("#preciomayorista").val("");
+    $("#preciominorista").val("");
 
-    $("#total_venta").val("");
+
     $(".filas").remove();
-    $("#total").html("0");
 
     //Obtenemos la fecha actual
     var now = new Date();
@@ -46,8 +45,9 @@ function mostrarform(flag) {
     if (flag) {
         $("#listadoregistros").hide();
         $("#formularioregistros").show();
-        //$("#btnGuardar").prop("disabled",false);
+        $("#formulariover").hide();
         $("#btnagregar").hide();
+        $("#divmostrar").hide();
         listarProductos();
 
         $("#btnGuardar").hide();
@@ -58,6 +58,7 @@ function mostrarform(flag) {
     else {
         $("#listadoregistros").show();
         $("#formularioregistros").hide();
+        $("#formulariover").hide();
         $("#btnagregar").show();
     }
 }
@@ -82,7 +83,7 @@ function listar() {
             ],
             "ajax":
             {
-                url: '../controlador/reparto.php?op=listar',
+                url: '../controlador/produccion.php?op=listar',
                 type: "get",
                 dataType: "json",
                 error: function (e) {
@@ -108,7 +109,7 @@ function listarfinalizar() {
             ],
             "ajax":
             {
-                url: '../controlador/reparto.php?op=listarfinalizar',
+                url: '../controlador/produccion.php?op=listarfinalizar',
                 type: "get",
                 dataType: "json",
                 error: function (e) {
@@ -133,7 +134,7 @@ function listarProductos() {
             ],
             "ajax":
             {
-                url: '../controlador/reparto.php?op=listarProductosVenta',
+                url: '../controlador/produccion.php?op=listarMateriaPrima',
                 type: "get",
                 dataType: "json",
                 error: function (e) {
@@ -153,7 +154,7 @@ function guardaryeditar(e) {
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../controlador/reparto.php?op=guardaryeditar",
+        url: "../controlador/produccion.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -169,16 +170,21 @@ function guardaryeditar(e) {
     limpiar();
 }
 
-function mostrar(idreparto) {
-    $.post("../controlador/reparto.php?op=mostrar", { idreparto: idreparto }, function (data, status) {
+function mostrar(idproduccion) {
+    $.post("../controlador/produccion.php?op=mostrar", { idproduccion: idproduccion }, function (data, status) {
         data = JSON.parse(data);
         mostrarform(true);
+        $("#divmostrar").show();
 
-        $("#idreparto").val(data.idreparto);
-        $("#idcliente").val(data.idcliente);
-        $("#idcliente").selectpicker('refresh');
-        $("#idrepartidor").val(data.idrepartidor);
-        $("#idrepartidor").selectpicker('refresh');
+        $("#idproduccion").val(data.idproduccion);
+        $("#idpanadero").val(data.idpanadero);
+        $("#idpanadero").selectpicker('refresh');
+        $("#idproductoproducido").val(data.idproductoproducido);
+        $("#idproductoproducido").selectpicker('refresh');
+        $("#cantidadproducida").val(data.cantidadproducida);
+        $("#umedida").val(data.uMedida);
+        $("#preciomayorista").val(data.preciomayorista);
+        $("#preciominorista").val(data.preciominorista);
         $("#fecha_hora").val(data.fecha);
 
         //Ocultar y mostrar los botones
@@ -187,83 +193,31 @@ function mostrar(idreparto) {
         $("#btnAgregarArt").hide();
     });
 
-    $.post("../controlador/reparto.php?op=listarDetalle&id="+idreparto,function(r){
+    $.post("../controlador/produccion.php?op=listarDetalle&id="+idproduccion,function(r){
         $("#detalles").html(r);
     });
 }
 
-//Función para finalizar registros
-function finalizar(idreparto) {
-    bootbox.confirm("¿Está Seguro de finalizar el Reparto?",function(result){
-        if (result) {
-            $.post("../controlador/reparto.php?op=finalizar", { idreparto: idreparto }, function (e) {
-                bootbox.alert(e);
-                tabla.ajax.reload();
-            });
-        }
-    })
-}
-
-//Declaración de variables necesarias para trabajar con las compras y
-//sus detalles
 var cont=0;
-var detalles=0;
 $("#btnGuardar").hide();
 
-function agregarDetalle(idproducto, producto, precio_venta, uMedida) {
+function agregarDetalle(idproducto, producto, uMedida) {
     var cantidad = 1;
-    var descuento = 0;
 
     if (idproducto != "") {
-        var subtotal = cantidad * precio_venta;
         var fila = '<tr class="filas" id="fila' + cont + '">' +
             '<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle(' + cont + ')">X</button></td>' +
             '<td><input type="hidden" name="idproducto[]" value="' + idproducto + '">' + producto + '</td>' +
             '<td><input type="number" name="cantidad[]" id="cantidad[]" value="' + cantidad + '"></td>' +
-            '<td>' + uMedida + '</td>' +
-            '<td><input type="number" name="precio_venta[]" id="precio_venta[]" value="' + precio_venta + '"></td>' +
-            '<td><input type="number" name="descuento[]" value="' + descuento + '"></td>' +
-            '<td><span name="subtotal" id="subtotal' + cont + '">' + subtotal + '</span></td>' +
-            '<td><button type="button" onclick="modificarSubototales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>' +
-            '</tr>';
+            '<td>' + uMedida + '</td>';
         cont++;
         detalles=detalles+1;
         $('#detalles').append(fila);
-        modificarSubototales();
+        evaluar();
     }
     else {
         alert("Error al ingresar el detalle, revisar los datos del producto");
     }
-}
-
-function modificarSubototales() {
-    var cant = document.getElementsByName("cantidad[]");
-    var prec = document.getElementsByName("precio_venta[]");
-    var desc = document.getElementsByName("descuento[]");
-    var sub = document.getElementsByName("subtotal");
-
-    for (var i = 0; i < cant.length; i++) {
-        var inpC = cant[i];
-        var inpP = prec[i];
-        var inpD = desc[i];
-        var inpS = sub[i];
-
-        inpS.value = (inpC.value * inpP.value) - inpD.value;
-        document.getElementsByName("subtotal")[i].innerHTML = inpS.value;
-    }
-    calcularTotales();
-}
-
-function calcularTotales() {
-    var sub = document.getElementsByName("subtotal");
-    var total = 0.0;
-
-    for (var i = 0; i < sub.length; i++) {
-        total += document.getElementsByName("subtotal")[i].value;
-    }
-    $("#total").html("$ " + total);
-    $("#total_venta").val(total);
-    evaluar();
 }
 
 function evaluar() {

@@ -156,7 +156,7 @@ if ($_SESSION['ventas']==1)
                                         <th></th>
                                         <th></th>
                                         <th>
-                                            <h4 id="total">S/. 0.00</h4><input type="hidden"
+                                            <h4 id="total">$ 0.00</h4><input type="hidden"
                                                 name="total_venta"
                                                 id="total_venta">
                                         </th>

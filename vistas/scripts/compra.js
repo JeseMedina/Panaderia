@@ -273,7 +273,7 @@ function agregarDetalle(idproducto,producto,uMedida)
     for (var i = 0; i <sub.length; i++) {
         total += document.getElementsByName("subtotal")[i].value;
     }
-    $("#total").html("S/. " + total);
+    $("#total").html("$" + total);
     $("#total_compra").val(total);
     evaluar();
   }

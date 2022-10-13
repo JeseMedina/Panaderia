@@ -3,15 +3,15 @@
 ob_start();
 session_start();
  
-if (!isset($_SESSION["compras"]))
+if (!isset($_SESSION["produccion"]))
 {
-  header("Location: noacceso.html");
+  header("Location: login.html");
 }
 else
-{ 
+{
 require 'header.php';
  
-if ($_SESSION['compras']==1)
+if ($_SESSION['produccion']==1)
 {
 ?>
 
@@ -28,7 +28,7 @@ if ($_SESSION['compras']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Compras <button class="btn btn-success"
+                        <h1 class="box-title">Produccion <button class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
                                 Agregar</button></h1>
@@ -43,22 +43,28 @@ if ($_SESSION['compras']==1)
                             class="table table-striped table-bordered table-condensed table-hover">
                             <thead>
                                 <th>Opciones</th>
+                                <th>Nº</th>
                                 <th>Fecha</th>
-                                <th>Proveedor</th>
-                                <th>Usuario</th>
-                                <th>Comprobante</th>
-                                <th>Total Compra</th>
+                                <th>Producto</th>
+                                <th>U. Medida</th>
+                                <th>Cantidad</th>
+                                <th>Precio Mayorista</th>
+                                <th>Precio Minorista</th>
+                                <th>Panadero</th>
                                 <th>Estado</th>
                             </thead>
                             <tbody>
                             </tbody>
                             <tfoot>
                                 <th>Opciones</th>
+                                <th>Nº</th>
                                 <th>Fecha</th>
-                                <th>Proveedor</th>
-                                <th>Usuario</th>
-                                <th>Comprobante</th>
-                                <th>Total Compra</th>
+                                <th>Producto</th>
+                                <th>U. Medida</th>
+                                <th>Cantidad</th>
+                                <th>Precio Mayorista</th>
+                                <th>Precio Minorista</th>
+                                <th>Panadero</th>
                                 <th>Estado</th>
                             </tfoot>
                         </table>
@@ -69,20 +75,28 @@ if ($_SESSION['compras']==1)
                         <form name="formulario"
                             id="formulario"
                             method="POST">
-                            <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                <label>Proveedor(*):</label>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label>Panadero(*):</label>
                                 <input type="hidden"
-                                    name="idcompra"
-                                    id="idcompra">
-                                <select id="idproveedor"
-                                    name="idproveedor"
+                                    name="idproduccion"
+                                    id="idproduccion">
+                                <select id="idpanadero"
+                                    name="idpanadero"
                                     class="form-control selectpicker"
                                     data-live-search="true"
                                     required>
-
                                 </select>
                             </div>
-                            <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label>Producto(*):</label>
+                                <select id="idproductoproducido"
+                                    name="idproductoproducido"
+                                    class="form-control selectpicker"
+                                    data-live-search="true"
+                                    required>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Fecha(*):</label>
                                 <input type="date"
                                     class="form-control"
@@ -90,51 +104,43 @@ if ($_SESSION['compras']==1)
                                     id="fecha_hora"
                                     required="">
                             </div>
-                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Tipo Comprobante(*):</label>
-                                <select name="tipo_comprobante"
-                                    id="tipo_comprobante"
-                                    class="form-control selectpicker"
-                                    required="">
-                                    <option value="Boleta">Boleta</option>
-                                    <option value="Factura">Factura</option>
-                                    <option value="Ticket">Ticket</option>
-                                </select>
+                            <div id="divmostrar" class="divmostrar">
+                                <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-8">
+                                    <label>Cantidad Producida:</label>
+                                    <input type="text"
+                                        class="form-control"
+                                        name="cantidadproducida"
+                                        id="cantidadproducida">
+                                </div>
+                                <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                    <label>U Medida:</label>
+                                    <input type=""
+                                        class="form-control"
+                                        name="umedida"
+                                        id="umedida">
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label>Precio Mayorista:</label>
+                                    <input type="number"
+                                        class="form-control"
+                                        name="preciomayorista"
+                                        id="preciomayorista">
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label>Precio MInorista:</label>
+                                    <input type="number"
+                                        class="form-control"
+                                        name="preciominorista"
+                                        id="preciominorista">
+                                </div>
                             </div>
-                            <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                <label>Serie:</label>
-                                <input type="text"
-                                    class="form-control"
-                                    name="serie_comprobante"
-                                    id="serie_comprobante"
-                                    maxlength="7"
-                                    placeholder="Serie">
-                            </div>
-                            <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                <label>Número:</label>
-                                <input type="text"
-                                    class="form-control"
-                                    name="num_comprobante"
-                                    id="num_comprobante"
-                                    maxlength="10"
-                                    placeholder="Número"
-                                    required="">
-                            </div>
-                            <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                <label>Impuesto:</label>
-                                <input type="text"
-                                    class="form-control"
-                                    name="impuesto"
-                                    id="impuesto"
-                                    required="">
-                            </div>
-                            <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12 pt-3">
                                 <a data-toggle="modal"
                                     href="#myModal">
                                     <button id="btnAgregarArt"
                                         type="button"
                                         class="btn btn-primary"> <span class="fa fa-plus"></span>
-                                        Agregar productos</button>
+                                        Agregar Productos</button>
                                 </a>
                             </div>
 
@@ -143,26 +149,10 @@ if ($_SESSION['compras']==1)
                                     class="table table-striped table-bordered table-condensed table-hover">
                                     <thead style="background-color:#A9D0F5">
                                         <th>Opciones</th>
-                                        <th>producto</th>
+                                        <th>Producto</th>
                                         <th>Cantidad</th>
                                         <th>U. Medida</th>
-                                        <th>Precio Compra</th>
-                                        <th>Precio Venta</th>
-                                        <th>Subtotal</th>
                                     </thead>
-                                    <tfoot>
-                                        <th>TOTAL</th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th>
-                                            <h4 id="total">$ 0.00</h4><input type="hidden"
-                                                name="total_compra"
-                                                id="total_compra">
-                                        </th>
-                                    </tfoot>
                                     <tbody>
 
                                     </tbody>
@@ -213,7 +203,6 @@ if ($_SESSION['compras']==1)
                     <thead>
                         <th>Opciones</th>
                         <th>Nombre</th>
-                        <th>Rubro</th>
                         <th>Stock</th>
                         <th>U. Medida</th>
                     </thead>
@@ -223,7 +212,6 @@ if ($_SESSION['compras']==1)
                     <tfoot>
                         <th>Opciones</th>
                         <th>Nombre</th>
-                        <th>Rubro</th>
                         <th>Stock</th>
                         <th>U. Medida</th>
                     </tfoot>
@@ -237,13 +225,19 @@ if ($_SESSION['compras']==1)
         </div>
     </div>
 </div>
+<!-- Fin modal -->
 <?php
 }
 else
 {
   require 'noacceso.html';
 }
-  require 'footer.html';
-}
+ 
+require 'footer.html';
 ?>
-<script type="text/javascript" src="scripts/compra.js"></script>
+<script type="text/javascript"
+    src="scripts/produccion.js"></script>
+<?php 
+}
+ob_end_flush();
+?>
