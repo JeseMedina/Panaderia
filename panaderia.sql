@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2022 a las 21:16:30
+-- Tiempo de generación: 14-10-2022 a las 14:54:16
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -108,7 +108,14 @@ CREATE TABLE `detalle_produccion` (
 --
 
 INSERT INTO `detalle_produccion` (`iddetalle_produccion`, `idproduccion`, `idproducto`, `cantidad`) VALUES
-(1, 2, 16, 3);
+(2, 21, 13, 100),
+(3, 21, 16, 2),
+(4, 22, 13, 1),
+(5, 22, 16, 1),
+(6, 23, 13, 100),
+(7, 23, 16, 2),
+(8, 24, 13, 100),
+(9, 24, 16, 2);
 
 -- --------------------------------------------------------
 
@@ -130,7 +137,10 @@ CREATE TABLE `detalle_reparto` (
 --
 
 INSERT INTO `detalle_reparto` (`iddetalle_reparto`, `idreparto`, `idproducto`, `cantidad`, `precio_venta`, `descuento`) VALUES
-(1, 22, 12, 100, '50.00', '0.00');
+(1, 22, 12, 100, '50.00', '0.00'),
+(2, 23, 15, 12, '110.00', '0.00'),
+(3, 23, 12, 1, '50.00', '0.00'),
+(4, 23, 11, 2, '12.00', '0.00');
 
 -- --------------------------------------------------------
 
@@ -231,7 +241,8 @@ INSERT INTO `persona` (`idpersona`, `nombre`, `tipo_persona`, `num_documento`, `
 (17, 'Doña Pocha', 'Cliente', '43643135', 'Chaco', 'esrsedf', '3644000000', 'pocha@hotmail.com', 1),
 (21, 'jese', 'Cliente', '45643', 'Chaco', 'San Lorenzo 534', '233', '', 1),
 (22, 'Emanuel', 'Repartidor', '89898989', 'Chaco', 'San Martín 666', '3644222222', 'emarepartos@gmail.com', 1),
-(23, 'Paquita', 'Panadero', '32532645', 'Chaco', 'San Lorenzo 999', '3644000000', 'paca@yahoo.com', 1);
+(23, 'Paquita', 'Panadero', '32532645', 'Chaco', 'San Lorenzo 999', '3644000000', 'paca@yahoo.com', 1),
+(24, 'asdasdasd', 'Panadero', '00000000', 'Chaco', 'San Lorenzo 534', '12312312', 'omg@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -242,10 +253,11 @@ INSERT INTO `persona` (`idpersona`, `nombre`, `tipo_persona`, `num_documento`, `
 CREATE TABLE `produccion` (
   `idproduccion` int(11) NOT NULL,
   `idpanadero` int(11) NOT NULL,
-  `idproductoelaborado` int(11) NOT NULL,
-  `cantidadProducida` int(11) NOT NULL,
+  `idproductoproducido` int(11) NOT NULL,
+  `cantidadproducida` int(11) NOT NULL,
   `fecha_hora` date NOT NULL,
-  `precio_venta` decimal(10,2) NOT NULL,
+  `preciomayorista` decimal(11,2) NOT NULL,
+  `preciominorista` decimal(11,2) NOT NULL,
   `estado` varchar(25) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -253,8 +265,11 @@ CREATE TABLE `produccion` (
 -- Volcado de datos para la tabla `produccion`
 --
 
-INSERT INTO `produccion` (`idproduccion`, `idpanadero`, `idproductoelaborado`, `cantidadProducida`, `fecha_hora`, `precio_venta`, `estado`) VALUES
-(2, 23, 15, 0, '2022-10-08', '0.00', 'Iniciado');
+INSERT INTO `produccion` (`idproduccion`, `idpanadero`, `idproductoproducido`, `cantidadproducida`, `fecha_hora`, `preciomayorista`, `preciominorista`, `estado`) VALUES
+(21, 23, 15, 0, '2022-10-12', '0.00', '0.00', 'Iniciado'),
+(22, 24, 12, 0, '2022-10-12', '0.00', '0.00', 'Iniciado'),
+(23, 23, 11, 0, '2022-10-13', '0.00', '0.00', 'Iniciado'),
+(24, 23, 15, 50, '2022-10-13', '100.00', '120.00', 'Finalizado');
 
 -- --------------------------------------------------------
 
@@ -305,7 +320,8 @@ CREATE TABLE `reparto` (
 --
 
 INSERT INTO `reparto` (`idreparto`, `idcliente`, `idusuario`, `idrepartidor`, `fecha_hora`, `total_venta`, `estado`) VALUES
-(22, 17, 1, 22, '2022-10-10 00:00:00', '5000.00', 'Finalizado');
+(22, 17, 1, 22, '2022-10-10 00:00:00', '5000.00', 'Finalizado'),
+(23, 17, 1, 22, '2022-10-12 00:00:00', '1394.00', 'Finalizado');
 
 -- --------------------------------------------------------
 
@@ -479,7 +495,7 @@ ALTER TABLE `persona`
 ALTER TABLE `produccion`
   ADD PRIMARY KEY (`idproduccion`),
   ADD KEY `idpanadero` (`idpanadero`),
-  ADD KEY `idproducto` (`idproductoelaborado`);
+  ADD KEY `idproducto` (`idproductoproducido`);
 
 --
 -- Indices de la tabla `producto`
@@ -548,13 +564,13 @@ ALTER TABLE `detalle_compra`
 -- AUTO_INCREMENT de la tabla `detalle_produccion`
 --
 ALTER TABLE `detalle_produccion`
-  MODIFY `iddetalle_produccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `iddetalle_produccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_reparto`
 --
 ALTER TABLE `detalle_reparto`
-  MODIFY `iddetalle_reparto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `iddetalle_reparto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_venta`
@@ -572,13 +588,13 @@ ALTER TABLE `permiso`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `produccion`
 --
 ALTER TABLE `produccion`
-  MODIFY `idproduccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idproduccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -590,7 +606,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `reparto`
 --
 ALTER TABLE `reparto`
-  MODIFY `idreparto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `idreparto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `rubro`
@@ -660,7 +676,7 @@ ALTER TABLE `detalle_venta`
 --
 ALTER TABLE `produccion`
   ADD CONSTRAINT `produccion_ibfk_1` FOREIGN KEY (`idpanadero`) REFERENCES `persona` (`idpersona`),
-  ADD CONSTRAINT `produccion_ibfk_3` FOREIGN KEY (`idproductoelaborado`) REFERENCES `producto` (`idproducto`);
+  ADD CONSTRAINT `produccion_ibfk_3` FOREIGN KEY (`idproductoproducido`) REFERENCES `producto` (`idproducto`);
 
 --
 -- Filtros para la tabla `producto`

@@ -43,7 +43,7 @@ if ($_SESSION['reparto']==1)
                             class="table table-striped table-bordered table-condensed table-hover">
                             <thead>
                                 <th>Opciones</th>
-                                <th>Reparto</th>
+                                <th>Nº</th>
                                 <th>Fecha</th>
                                 <th>Cliente</th>
                                 <th>Repartidor</th>
@@ -54,7 +54,7 @@ if ($_SESSION['reparto']==1)
                             </tbody>
                             <tfoot>
                                 <th>Opciones</th>
-                                <th>Reparto</th>
+                                <th>Nº</th>
                                 <th>Fecha</th>
                                 <th>Cliente</th>
                                 <th>Repartidor</th>
@@ -130,7 +130,7 @@ if ($_SESSION['reparto']==1)
                                         <th></th>
                                         <th></th>
                                         <th>
-                                            <h4 id="total">S/. 0.00</h4><input type="hidden"
+                                            <h4 id="total">$ 0.00</h4><input type="hidden"
                                                 name="total_venta"
                                                 id="total_venta">
                                         </th>
