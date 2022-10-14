@@ -10,6 +10,41 @@ body{
     background-color: var(--dark-green);
 }
 
+.main-header .logo {
+    padding: 7px 15px;
+}
+
+/* ARMECA */
+b, strong{
+    font-size: 1.5em;
+}
+
+/* Usuario */
+.hidden-xs{
+    font-size: 1.3em;
+}
+
+.skin-blue-light .main-header li.user-header {
+    background-color: var(--dark-moss);
+}
+
+/* Btn cerrar sesión */
+.navbar-nav>.user-menu>.dropdown-menu>.user-footer {
+    background-color: var(--dark-green);
+}
+
+.navbar-nav>.user-menu>.dropdown-menu>.user-footer .btn-default {
+    color: var(--cream);
+    background-color: var(--moss);
+    border-color: var(--moss);
+}
+
+.navbar-nav>.user-menu>.dropdown-menu>.user-footer .btn-default:hover{
+    color: var(--moss);
+    background-color: var(--dark-green);
+    border-color: var(--moss);
+    font-weight: bold;
+}
 .skin-blue-light .main-header .logo{
     background-color: var(--dark-green);
     color: var(--cream);
@@ -30,6 +65,11 @@ body{
 
 .skin-blue-light .main-header .navbar .sidebar-toggle{
     color: var(--cream);
+    font-size: 1.7em;
+}
+
+.skin-blue-light .main-header .navbar .sidebar-toggle:hover {
+    background-color: var(--dark-moss);
 }
 
 .skin-blue-light .main-header .navbar .nav>li>a {

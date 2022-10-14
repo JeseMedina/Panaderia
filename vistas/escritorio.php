@@ -95,9 +95,10 @@ if ($_SESSION['escritorio']==1)
                                 <div class="icon">
                                     <i class="icn icn-bag"></i>
                                 </div>
-                                <a href="compra.php"
+                                <a href="compra.php" data-toggle="tooltip" data-placement="bottom" title="Ir a compras"
                                     class="small-box-footer">Compras <i
-                                        class="fa fa-arrow-circle-right"></i></a>
+                                        class="fa fa-arrow-circle-right"></i>
+                                </a>
                             </div>
                         </div>
 
@@ -114,7 +115,7 @@ if ($_SESSION['escritorio']==1)
                                 <div class="icon">
                                     <i class="icn icn-bag"></i>
                                 </div>
-                                <a href="venta.php"
+                                <a href="venta.php" data-toggle="tooltip" data-placement="bottom" title="Ir a ventas"
                                     class="small-box-footer">Ventas <i
                                         class="fa fa-arrow-circle-right"></i>
                                 </a>

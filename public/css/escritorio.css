@@ -41,18 +41,31 @@
 .content{
     background: var(--cream);
 }
-
+ /* Titulo */
+.box-header>.fa, 
+.box-header>.glyphicon, 
+.box-header>.ion, 
+.box-header .box-title {
+    font-size: 1.5em;
+}
 /* Para el form*/
 
 .box-header.with-border {
     background-color: var(--dark-green);
     color: var(--cream);
     border-bottom: 1px solid var(--dark-moss);
+    font-size: 1.2em;
+}
+
+/* Letra compra y venta */
+.small-box p {
+    font-size: 1.3em;
 }
 
 .small-box>.small-box-footer{
     color: var(--cream);
     background: var(--dark-moss);
+    font-size: 1.3em;
 }
 
 .box {
@@ -90,7 +103,11 @@ audio, canvas, progress, video{
     background: var(--cream);
 }
 
-.bg-yellow, .callout.callout-warning, .alert-warning, .label-warning, .modal-warning .modal-body {
+.bg-yellow, 
+.callout.callout-warning, 
+.alert-warning, 
+.label-warning, 
+.modal-warning .modal-body {
     background-color: var(--moss) !important;
 }
 html{
