@@ -216,13 +216,13 @@ if (strlen(session_id()) < 1)
             ?>
                     <a href="#">
                         <i class="fa fa-plus-square"></i> <span>Ayuda</span>
-                        <small class="label pull-right bg-red">PDF</small>
+                        <small id="pdf" class="label pull-right">PDF</small>
                     </a>
                     </li>
                     <li>
                         <a href="#">
                             <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
-                            <small class="label pull-right bg-yellow">IT - Mantovani</small>
+                            <small id="mantovani" class="label pull-right">IT - Mantovani</small>
                         </a>
                     </li>
 

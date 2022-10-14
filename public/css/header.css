@@ -75,3 +75,15 @@ b, strong{
 .skin-blue-light .main-header .navbar .nav>li>a {
     color: var(--cream);
 }
+
+.skin-blue-light .sidebar-menu>li>a {
+    font-size: 1.1em;
+}
+
+#pdf{
+    background-color: #ff0000;
+}
+
+#mantovani{
+    background-color: #f39c12;
+}
