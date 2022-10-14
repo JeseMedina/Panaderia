@@ -46,7 +46,6 @@ if ($_SESSION['consulta']==1)
                           <label>Cliente</label>
                           <select name="idcliente" id="idcliente" class="form-control selectpicker" data-live-search="true" required>
                           </select>
-                          <button class="btn btn-success" onclick="listar()">Mostrar</button>
                         </div>
                         <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
                           <thead>

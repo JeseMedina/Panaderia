@@ -8,6 +8,9 @@ function init(){
                 $("#idcliente").html(r);
                 $('#idcliente').selectpicker('refresh');
     }); 
+    $("#fecha_inicio").change(listar);
+    $("#fecha_fin").change(listar);
+    $("#idcliente").change(listar);
  }
 
 //Función Listar
