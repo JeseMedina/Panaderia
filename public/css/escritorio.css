@@ -17,6 +17,10 @@
     font-weight: bold;
 }
 
+.skin-blue-light .sidebar-menu>li>.treeview-menu {
+    background: var(--light-green);
+}
+
 .skin-blue-light .content-wrapper, .skin-blue-light .main-footer {
     border-left: 1px solid var(--dark-green);
 }
@@ -30,8 +34,12 @@
     color: var(--cream);
 }
 
+/* Dentro de menu */
 .skin-blue-light .treeview-menu>li>a{
     color: var(--dark-green);
+    font-size: 1.1em;
+    text-shadow: -1px 1px 1px white;
+    font-weight: 600;
 }
 
 .fa-circle-o{
