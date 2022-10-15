@@ -25,9 +25,15 @@ if ($_SESSION['almacen']==1)
                 <div class="box">
                     <div class="box-header with-border">
                         <h1 class="box-title">Productos <button class="btn btn-success"
+                                data-toggle="tooltip" 
+                                data-placement="bottom" 
+                                title="Agregar productos"
                                 id="btnagregar"
-                                onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
-                                Agregar</button> <a target="_blank"
+                                onclick="mostrarform(true)">
+                                Agregar</button> <a target="_blank" 
+                                data-toggle="tooltip" 
+                                data-placement="bottom" 
+                                title="Ver reportes"
                                 href="../reportes/rptproductos.php"><button
                                     class="btn btn-info">Reporte</button></a> </h1>
                         <div class="box-tools pull-right">

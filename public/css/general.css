@@ -31,12 +31,20 @@ body{
     color: var(--moss);
 }
 
+/* Lo que va a dentro del menu */
 .skin-blue-light .sidebar a{
     color: var(--cream);
 }
 
+.skin-blue-light .sidebar-menu>li>.treeview-menu {
+    background: var(--light-green);
+}
+
 .skin-blue-light .treeview-menu>li>a{
     color: var(--dark-green);
+    font-size: 1.1em;
+    text-shadow: -1px 1px 1px white;
+    font-weight: 600;
 }
 
 .fa-circle-o{
@@ -57,6 +65,13 @@ html{
     background-color: var(--dark-green);
     color: var(--cream);
     border-bottom: 1px solid var(--dark-moss);
+}
+
+.box-header>.fa, 
+.box-header>.glyphicon, 
+.box-header>.ion, 
+.box-header .box-title {
+    font-size: 1.5em;
 }
 
 .small-box>.small-box-footer{
@@ -94,26 +109,50 @@ html{
 }
 
 /* Botones */
+
+/* Excel */
+.buttons-excel{
+    background-color: #0E773F !important;
+}
+
+/* PDF */
+.buttons-pdf{
+    background-color: #ff0000 !important;
+}
 .btn-success {
     background-color: var(--moss);
     border-color: var(--moss);
+    font-size: .7em;
 }
 
 .btn-success:hover {
-    color: var(--moss);
+    color: var(--light-green);
     background-color: var(--dark-green);
-    border-color: var(--moss);
+    border-color: var(--light-green);
+    font-weight: bold;
+}
+
+.btn-success.focus, .btn-success:focus {
+    background-color: var(--dark-moss);
+    border-color: var(--dark-moss);
 }
 
 .btn-info {
     background-color: var(--dark-moss);
     border-color: var(--dark-moss);
+    font-size: .7em;
 }
 
 .btn-info:hover {
-    color: var(--dark-moss);
+    color: var(--light-green);
     background-color: var(--dark-green);
-    border-color: var(--dark-moss);
+    border-color: var(--light-green);
+    font-weight: bold;
+}
+
+.btn-info.focus, .btn-info:focus {
+    background-color: var(--moss);
+    border-color: var(--moss);
 }
 
 button.dt-button, div.dt-button, a.dt-button{
@@ -121,6 +160,19 @@ button.dt-button, div.dt-button, a.dt-button{
     border: 1px solid var(--light);
     color: var(--cream);
     background: var(--dark-green);
+}
+
+.btn-warning.focus, .btn-warning:focus {
+    color: var(--dark-green);
+    background-color: var(--cream);
+    border-color: var(--moss);
+}
+
+/* Btn activado */
+.btn-primary.focus, .btn-primary:focus {
+    color: var(--cream);
+    background-color: var(--light-green);
+    border-color: var(--light-green);
 }
 
 button.dt-button:hover:not(.disabled), 
