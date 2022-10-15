@@ -13,7 +13,7 @@ function init(){
     $.post("../controlador/venta.php?op=selectCliente", function(r){
                 $("#idcliente").html(r);
                 $('#idcliente').selectpicker('refresh');
-    }); 
+    });
 }
  
 //Función limpiar
@@ -227,14 +227,13 @@ function agregarDetalle(idproducto,producto,precio_venta,uMedida)
         var subtotal=cantidad*precio_venta;
         var fila='<tr class="filas" id="fila'+cont+'">'+
         '<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle('+cont+')">X</button></td>'+
-        '<td><input type="hidden" name="idproducto[]" value="'+idproducto+'">'+producto+'</td>'+
-        '<td><input type="number" name="cantidad[]" id="cantidad[]" value="'+cantidad+'"></td>'+
+        '<td><input type="hidden" name="idproducto[]"value="'+idproducto+'">'+producto+'</td>'+
+        '<td><input type="number" name="cantidad[]" onchange="modificarSubototales()" onkeyup="modificarSubototales()" id="cantidad[]" value="'+cantidad+'"></td>'+
         '<td>'+uMedida+'</td>'+
-        '<td><input type="number" name="precio_venta[]" id="precio_venta[]" value="'+precio_venta+'"></td>'+
+        '<td><input type="number" name="precio_venta[]" onchange="modificarSubototales()" onkeyup="modificarSubototales()" id="precio_venta[]" value="'+precio_venta+'"></td>'+
         // '<td>'+precio_venta+'</td>'+
-        '<td><input type="number" name="descuento[]" value="'+descuento+'"></td>'+
+        '<td><input type="number" name="descuento[]" onchange="modificarSubototales()" onkeyup="modificarSubototales()" value="'+descuento+'"></td>'+
         '<td><span name="subtotal" id="subtotal'+cont+'">'+subtotal+'</span></td>'+
-        '<td><button type="button" onclick="modificarSubototales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>'+
         '</tr>';
         cont++;
         detalles=detalles+1;
