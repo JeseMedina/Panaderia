@@ -17,6 +17,18 @@ Class Consultas
 		return ejecutarConsulta($sql);		
 	}
 
+	public function repartosfecha($fecha_inicio,$fecha_fin)
+	{
+		$sql="SELECT r.idreparto,DATE(r.fecha_hora) as fecha,r.idcliente,r.total_venta,p.nombre as cliente,u.idusuario,u.nombre as usuario,r.idrepartidor,pa.nombre as repartidor,r.estado FROM reparto r INNER JOIN persona p ON r.idcliente=p.idpersona INNER JOIN persona pa ON r.idrepartidor=pa.idpersona INNER JOIN usuario u ON r.idusuario=u.idusuario WHERE DATE(r.fecha_hora)>='$fecha_inicio' AND date(r.fecha_hora)<='$fecha_fin' AND r.estado='Finalizado'";
+		return ejecutarConsulta($sql);		
+	}
+
+	public function produccionesfecha($fecha_inicio,$fecha_fin)
+	{
+		$sql="SELECT r.idproduccion,DATE(r.fecha_hora) as fecha,r.idpanadero,p.nombre AS panadero,r.idproductoproducido,a.nombre as producto,a.uMedida,r.cantidadproducida,r.preciomayorista,r.preciominorista,r.estado FROM produccion r INNER JOIN persona p ON r.idpanadero=p.idpersona INNER JOIN producto a ON r.idproductoproducido=a.idproducto WHERE DATE(r.fecha_hora)>='$fecha_inicio' AND date(r.fecha_hora)<='$fecha_fin' AND r.estado='Finalizado'";
+		return ejecutarConsulta($sql);	
+	}
+
 	//Implementar un método para listar los registros
 	public function ventasfechacliente($fecha_inicio,$fecha_fin,$idcliente)
 	{

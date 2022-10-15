@@ -208,7 +208,9 @@ if (strlen(session_id()) < 1)
               </a>
               <ul class="treeview-menu">
                 <li><a href="ventasfechacliente.php"> Consulta Ventas</a></li>
-                <li><a href="comprasfecha.php"> Consulta Compras</a></li>               
+                <li><a href="comprasfecha.php"> Consulta Compras</a></li>
+                <li><a href="repartosfecha.php"> Consulta Repartos</a></li>  
+                <li><a href="produccionesfecha.php"> Consulta Producciones</a></li>      
               </ul>
             </li>
             <li>';
