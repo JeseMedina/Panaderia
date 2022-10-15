@@ -111,8 +111,8 @@ function mostrar(idproduccion) {
         $("#divmostrar").show();
 
         $("#idproduccion").val(data.idproduccion);
-        $("#panadero").val(data.idpanadero);
-        $("#productoproducido").val(data.idproductoproducido);
+        $("#panadero").val(data.panadero);
+        $("#productoproducido").val(data.producto);
         $("#cantidadproducida").val(data.cantidadproducida);
         $("#umedida").val(data.uMedida);
         $("#preciomayorista").val(data.preciomayorista);
