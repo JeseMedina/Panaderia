@@ -231,12 +231,11 @@ function agregarDetalle(idproducto,producto,uMedida)
         var fila='<tr class="filas" id="fila'+cont+'">'+
         '<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle('+cont+')">X</button></td>'+
         '<td><input type="hidden" name="idproducto[]" value="'+idproducto+'">'+producto+'</td>'+
-        '<td><input type="number" name="cantidad[]" id="cantidad[]" value="'+cantidad+'"></td>'+
+        '<td><input type="number" name="cantidad[]" id="cantidad[]" onchange="modificarSubototales()" onkeyup="modificarSubototales()" value="'+cantidad+'"></td>'+
         '<td>'+uMedida+'</td>'+
-        '<td><input type="number" name="precio_compra[]" id="precio_compra[]" value="'+precio_compra+'"></td>'+
+        '<td><input type="number" name="precio_compra[]" id="precio_compra[]" onchange="modificarSubototales()" onkeyup="modificarSubototales()" value="'+precio_compra+'"></td>'+
         '<td><input type="number" name="precio_venta[]" value="'+precio_venta+'"></td>'+
         '<td><span name="subtotal" id="subtotal'+cont+'">'+subtotal+'</span></td>'+
-        '<td><button type="button" onclick="modificarSubototales()" class="btn btn-info"><i class="fa fa-refresh"></i></button></td>'+
         '</tr>';
         cont++;
         detalles=detalles+1;

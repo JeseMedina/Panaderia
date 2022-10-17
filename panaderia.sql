@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2022 a las 14:54:16
+-- Tiempo de generación: 15-10-2022 a las 21:35:26
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -117,6 +117,17 @@ INSERT INTO `detalle_produccion` (`iddetalle_produccion`, `idproduccion`, `idpro
 (8, 24, 13, 100),
 (9, 24, 16, 2);
 
+--
+-- Disparadores `detalle_produccion`
+--
+DELIMITER $$
+CREATE TRIGGER `tr_updStockProduccion` AFTER INSERT ON `detalle_produccion` FOR EACH ROW BEGIN
+UPDATE producto SET stock = stock - NEW.cantidad
+WHERE producto.idproducto = NEW.idproducto;
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -140,7 +151,19 @@ INSERT INTO `detalle_reparto` (`iddetalle_reparto`, `idreparto`, `idproducto`, `
 (1, 22, 12, 100, '50.00', '0.00'),
 (2, 23, 15, 12, '110.00', '0.00'),
 (3, 23, 12, 1, '50.00', '0.00'),
-(4, 23, 11, 2, '12.00', '0.00');
+(4, 23, 11, 2, '12.00', '0.00'),
+(5, 24, 11, 86, '12.00', '0.00');
+
+--
+-- Disparadores `detalle_reparto`
+--
+DELIMITER $$
+CREATE TRIGGER `tr_updStockReparto` AFTER INSERT ON `detalle_reparto` FOR EACH ROW BEGIN
+UPDATE producto SET stock = stock - NEW.cantidad
+WHERE producto.idproducto = NEW.idproducto;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -175,7 +198,8 @@ INSERT INTO `detalle_venta` (`iddetalle_venta`, `idventa`, `idproducto`, `cantid
 (33, 31, 14, 1, '0.00', '0.00'),
 (34, 31, 11, 1, '12.00', '0.00'),
 (35, 31, 13, 1, '100.00', '0.00'),
-(36, 31, 12, 1, '0.00', '0.00');
+(36, 31, 12, 1, '0.00', '0.00'),
+(37, 32, 11, 100, '12.00', '0.00');
 
 --
 -- Disparadores `detalle_venta`
@@ -271,6 +295,17 @@ INSERT INTO `produccion` (`idproduccion`, `idpanadero`, `idproductoproducido`, `
 (23, 23, 11, 0, '2022-10-13', '0.00', '0.00', 'Iniciado'),
 (24, 23, 15, 50, '2022-10-13', '100.00', '120.00', 'Finalizado');
 
+--
+-- Disparadores `produccion`
+--
+DELIMITER $$
+CREATE TRIGGER `tr_updStockProducto` AFTER INSERT ON `produccion` FOR EACH ROW BEGIN
+UPDATE producto SET stock = stock - NEW.cantidadproducida
+WHERE producto.idproducto = NEW.idproductoproducido;
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -292,7 +327,7 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`idproducto`, `idrubro`, `codigo`, `nombre`, `stock`, `uMedida`, `condicion`) VALUES
-(11, 33, '', 'Pan Comun', 186, 'Kilogramo', 1),
+(11, 33, '', 'Pan Comun', 86, 'Kilogramo', 1),
 (12, 33, '', 'Pan de leche', 44, 'Docena', 1),
 (13, 37, '', 'Levadura', 278, 'Gramo', 1),
 (14, 33, 'a', 'Panaderia', 4, 'Kilogramo', 0),
@@ -321,7 +356,8 @@ CREATE TABLE `reparto` (
 
 INSERT INTO `reparto` (`idreparto`, `idcliente`, `idusuario`, `idrepartidor`, `fecha_hora`, `total_venta`, `estado`) VALUES
 (22, 17, 1, 22, '2022-10-10 00:00:00', '5000.00', 'Finalizado'),
-(23, 17, 1, 22, '2022-10-12 00:00:00', '1394.00', 'Finalizado');
+(23, 17, 1, 22, '2022-10-12 00:00:00', '1394.00', 'Finalizado'),
+(24, 17, 1, 22, '2022-10-15 00:00:00', '1032.00', 'Iniciado');
 
 -- --------------------------------------------------------
 
@@ -431,7 +467,8 @@ INSERT INTO `venta` (`idventa`, `idcliente`, `idusuario`, `tipo_comprobante`, `s
 (28, 17, 1, 'Boleta', '', '90', '2022-10-05 00:00:00', '0.00', '334.00', 'Aceptado'),
 (29, 14, 1, 'Factura', '567', '567', '2022-10-07 00:00:00', '18.00', '112.00', 'Aceptado'),
 (30, 14, 1, 'Boleta', '', '78978', '2022-10-07 00:00:00', '0.00', '110.00', 'Aceptado'),
-(31, 17, 1, 'Boleta', '', '9999', '2022-10-07 00:00:00', '0.00', '222.00', 'Aceptado');
+(31, 17, 1, 'Boleta', '', '9999', '2022-10-07 00:00:00', '0.00', '222.00', 'Aceptado'),
+(32, 14, 1, 'Boleta', '', '5675', '2022-10-15 00:00:00', '0.00', '1200.00', 'Aceptado');
 
 --
 -- Índices para tablas volcadas
@@ -570,13 +607,13 @@ ALTER TABLE `detalle_produccion`
 -- AUTO_INCREMENT de la tabla `detalle_reparto`
 --
 ALTER TABLE `detalle_reparto`
-  MODIFY `iddetalle_reparto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `iddetalle_reparto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_venta`
 --
 ALTER TABLE `detalle_venta`
-  MODIFY `iddetalle_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `iddetalle_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `permiso`
@@ -606,7 +643,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `reparto`
 --
 ALTER TABLE `reparto`
-  MODIFY `idreparto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `idreparto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `rubro`
@@ -630,7 +667,7 @@ ALTER TABLE `usuario_permiso`
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `idventa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `idventa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Restricciones para tablas volcadas
