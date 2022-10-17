@@ -28,10 +28,16 @@ if ($_SESSION['ventas']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Venta <button class="btn btn-success"
+                        <h1 class="box-title">Venta
+                            <button class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
-                                Agregar</button></h1>
+                                Agregar</button>
+                                <button class="btn btn-success"
+                                id="btnver"
+                                onclick="mostrarform(false)"><i class="fa fa-list"></i>
+                                Ver Ventas</button>
+                        </h1>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
@@ -171,12 +177,6 @@ if ($_SESSION['ventas']==1)
                                 <button class="btn btn-primary"
                                     type="submit"
                                     id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
-
-                                <button id="btnCancelar"
-                                    class="btn btn-danger"
-                                    onclick="cancelarform()"
-                                    type="button"><i class="fa fa-arrow-circle-left"></i>
-                                    Cancelar</button>
                             </div>
                         </form>
                     </div>

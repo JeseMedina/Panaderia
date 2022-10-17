@@ -2,8 +2,8 @@ var tabla;
  
 //Función que se ejecuta al inicio
 function init(){
-    mostrarform(false);
-    listar();
+    mostrarform(true);
+    
  
     $("#formulario").on("submit",function(e)
     {
@@ -54,8 +54,8 @@ function mostrarform(flag)
         listarProductos();
  
         $("#btnGuardar").hide();
-        $("#btnCancelar").show();
         $("#btnAgregarArt").show();
+        $("#btnver").show();
         detalles=0;
     }
     else
@@ -63,6 +63,8 @@ function mostrarform(flag)
         $("#listadoregistros").show();
         $("#formularioregistros").hide();
         $("#btnagregar").show();
+        $("#btnver").hide();
+        listar();
     }
 }
  
@@ -145,8 +147,7 @@ function guardaryeditar(e)
         success: function(datos)
         {                    
               bootbox.alert(datos);           
-              mostrarform(false);
-              listar();
+              mostrarform(true);
         }
  
     });
@@ -172,7 +173,6 @@ function mostrar(idventa)
  
         //Ocultar y mostrar los botones
         $("#btnGuardar").hide();
-        $("#btnCancelar").show();
         $("#btnAgregarArt").hide();
     });
  
