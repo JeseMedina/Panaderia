@@ -160,7 +160,7 @@ if ($_SESSION['escritorio']==1)
 }
 else
 {
-  require 'noacceso.php';
+  require 'noacceso.html';
 }
 require 'footer.html';
 ?>

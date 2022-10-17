@@ -79,7 +79,6 @@ if (strlen(session_id()) < 1)
                                         alt="User Image">
                                     <p>
                                         <?php echo $_SESSION['nombre']; ?>
-                                        <!-- <?php echo $_SESSION['cargo']; ?> -->
                                     </p>
                                 </li>
                                 <li class="user-footer">
@@ -163,7 +162,7 @@ if (strlen(session_id()) < 1)
             } 
             ?>
 
-            <?php
+                    <?php
             if ($_SESSION['produccion']==1) 
             {
               echo '<li class="treeview">
@@ -179,7 +178,7 @@ if (strlen(session_id()) < 1)
             </li>';
             } 
             ?>
-            <?php
+                    <?php
             if ($_SESSION['personas']==1) 
             {
               echo '<li class="treeview">
@@ -212,22 +211,23 @@ if (strlen(session_id()) < 1)
                 <li><a href="repartosfecha.php"> Consulta Repartos</a></li>  
                 <li><a href="produccionesfecha.php"> Consulta Producciones</a></li>      
               </ul>
-            </li>
-            <li>';
+            </li>';
             }  
             ?>
-                    <a href="#">
-                        <i class="fa fa-plus-square"></i> <span>Ayuda</span>
-                        <small id="pdf" class="label pull-right">PDF</small>
-                    </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
-                            <small id="mantovani" class="label pull-right">IT - Mantovani</small>
-                        </a>
-                    </li>
-
-                </ul>
-            </section>
+            <li>
+              <a href="#">
+                <i class="fa fa-plus-square"></i> <span>Ayuda</span>
+                <small id="pdf"
+                class="label pull-right">PDF</small>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+              <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
+              <small id="mantovani"
+              class="label pull-right">IT - Mantovani</small>
+              </a>
+            </li>
+          </ul>
+        </section>
         </aside>
