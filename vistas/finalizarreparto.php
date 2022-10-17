@@ -208,7 +208,7 @@ if ($_SESSION['reparto']==1)
 }
 else
 {
-  require 'noacceso.html';
+    header("Location: produccion.php");
 }
  
 require 'footer.html';

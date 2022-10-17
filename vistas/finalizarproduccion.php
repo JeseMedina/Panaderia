@@ -167,7 +167,7 @@ if ($_SESSION['produccion']==1)
 }
 else
 {
-  require 'noacceso.html';
+    header("Location: cliente.php");
 }
  
 require 'footer.html';

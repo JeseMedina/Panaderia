@@ -241,7 +241,7 @@ if ($_SESSION['compras']==1)
 }
 else
 {
-  require 'noacceso.html';
+    header("Location: venta.php");
 }
   require 'footer.html';
 }

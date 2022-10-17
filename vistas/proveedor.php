@@ -175,7 +175,7 @@ if ($_SESSION['personas']==1)
 }
 else
 {
-  require 'noacceso.html';
+    header("Location: ventasfechacliente.php");
 }
 require 'footer.html';
 }

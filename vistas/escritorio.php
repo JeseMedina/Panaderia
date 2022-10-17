@@ -160,7 +160,7 @@ if ($_SESSION['escritorio']==1)
 }
 else
 {
-  require 'noacceso.html';
+  header("Location: producto.php");
 }
 require 'footer.html';
 ?>

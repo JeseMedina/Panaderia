@@ -100,7 +100,7 @@ if ($_SESSION['almacen']==1)
 }
 else
 {
-  require 'noacceso.html';
+    header("Location: compra.php");
 }
 require 'footer.html';
 ?>

@@ -242,7 +242,7 @@ if ($_SESSION['ventas']==1)
 }
 else
 {
-  require 'noacceso.html';
+    header("Location: reparto.php");
 }
  
 require 'footer.html';
