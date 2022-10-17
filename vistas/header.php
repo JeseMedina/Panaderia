@@ -67,16 +67,30 @@ if (strlen(session_id()) < 1)
                             <a href="#"
                                 class="dropdown-toggle"
                                 data-toggle="dropdown">
+                                <?php
+                                if($_SESSION['imagen'] != ''){
+                                ?>
                                 <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>"
                                     class="user-image"
                                     alt="User Image">
+                                <?php
+                                }
+                                ?>
+
+
                                 <span class="hidden-xs"><?php echo $_SESSION['nombre']; ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-header">
+                                    <?php
+                                    if($_SESSION['imagen'] != ''){
+                                    ?>
                                     <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>"
                                         class="img-circle"
                                         alt="User Image">
+                                    <?php
+                                }
+                                ?>
                                     <p>
                                         <?php echo $_SESSION['nombre']; ?>
                                     </p>
@@ -214,20 +228,20 @@ if (strlen(session_id()) < 1)
             </li>';
             }  
             ?>
-            <li>
-              <a href="#">
-                <i class="fa fa-plus-square"></i> <span>Ayuda</span>
-                <small id="pdf"
-                class="label pull-right">PDF</small>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-              <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
-              <small id="mantovani"
-              class="label pull-right">IT - Mantovani</small>
-              </a>
-            </li>
-          </ul>
-        </section>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-plus-square"></i> <span>Ayuda</span>
+                            <small id="pdf"
+                                class="label pull-right">PDF</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
+                            <small id="mantovani"
+                                class="label pull-right">IT - Mantovani</small>
+                        </a>
+                    </li>
+                </ul>
+            </section>
         </aside>

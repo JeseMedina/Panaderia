@@ -70,6 +70,12 @@ switch ($_GET["op"]){
         $data= Array();
  
         while ($reg=$rspta->fetch_object()){
+            if ($reg->imagen == ''){
+                $imagen = 'Ninguna';
+            }else{
+                $imagen = "<img src='../files/usuarios/".$reg->imagen."' height='50px' width='50px' >";
+            }
+
             $data[]=array(
                 "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"></i></button>'.
                     ' <button class="btn btn-danger" onclick="desactivar('.$reg->idusuario.')"><i class="fa fa-close"></i></button>':
@@ -82,7 +88,7 @@ switch ($_GET["op"]){
                 "5"=>$reg->email,
                 "6"=>$reg->cargo,
                 "7"=>$reg->login,
-                "8"=>"<img src='../files/usuarios/".$reg->imagen."' height='50px' width='50px' >",
+                "8"=>$imagen,
                 "9"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'
                 );
