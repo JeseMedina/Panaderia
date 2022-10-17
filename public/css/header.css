@@ -14,6 +14,12 @@ body{
     padding: 7px 15px;
 }
 
+.main-header .logo .logo-lg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* ARMECA */
 b, strong{
     font-size: 1.5em;
@@ -26,6 +32,21 @@ b, strong{
 
 .skin-blue-light .main-header li.user-header {
     background-color: var(--dark-moss);
+}
+
+/* Usuario */
+.navbar-custom-menu{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.skin-blue-light .main-header .navbar .nav>li>a:hover{
+    background: var(--moss);
+    color: var(--dark-green);
+    padding: 21px 20px 21px;
+    text-shadow: -1px 1px 2px white;
+    font-weight: bold;
 }
 
 /* Btn cerrar sesión */
@@ -52,10 +73,12 @@ b, strong{
 
 .skin-blue-light .main-header .logo:hover{
     background-color: var(--dark-green);
-    color: var(--moss);
+    color: var(--light-green);
 }
 
 .skin-blue-light .main-header .navbar{
+    display: flex;
+    align-items: center;
     background-color: var(--dark-green);
 }
 
