@@ -82,7 +82,7 @@ if ($_SESSION['escritorio']==1)
                     <!-- /.box-header -->
                     <!-- centro -->
                     <div class="panel-body">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="card1 col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="small-box bg-aqua">
                                 <div class="inner">
                                     <h4 stille="font-size:17px;">
@@ -102,7 +102,7 @@ if ($_SESSION['escritorio']==1)
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="card2 col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="small-box bg-green">
                                 <div class="inner">
                                     <h4 stille="font-size:17px;">
@@ -123,7 +123,7 @@ if ($_SESSION['escritorio']==1)
                         </div>
                     </div>
                     <div class="panel-body">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="canva1 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="box box-primary">
                                 <div class="box-header with-border">
                                     Compras de los últimos 10 días
@@ -135,7 +135,7 @@ if ($_SESSION['escritorio']==1)
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="canva2 col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="box box-primary">
                                 <div class="box-header with-border">
                                     Ventas de los últimos 12 meses
