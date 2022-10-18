@@ -13,10 +13,11 @@ if ($_SESSION['almacen']==1)
 {
 ?>
 <!--Contenido-->
+
 <head>
-  <link rel="stylesheet"
-          type="text/css"
-          href="../public/css/general.css">
+    <link rel="stylesheet"
+        type="text/css"
+        href="../public/css/general.css">
 </head>
 <div class="content-wrapper">
     <section class="content">
@@ -24,18 +25,15 @@ if ($_SESSION['almacen']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Productos <button class="btn btn-success"
-                                data-toggle="tooltip" 
-                                data-placement="bottom" 
+                        <h1 class="box-title">Productos <button title="Nuevo Producto"
+                                class="btn btn-success"
+                                data-toggle="tooltip"
+                                data-placement="bottom"
                                 title="Agregar productos"
                                 id="btnagregar"
                                 onclick="mostrarform(true)">
-                                Agregar</button> <a target="_blank" 
-                                data-toggle="tooltip" 
-                                data-placement="bottom" 
-                                title="Ver reportes"
-                                href="../reportes/rptproductos.php"><button
-                                    class="btn btn-info">Reporte</button></a> </h1>
+                                Agregar</button>
+                        </h1>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
@@ -117,10 +115,12 @@ if ($_SESSION['almacen']==1)
                                     name="codigo"
                                     id="codigo"
                                     placeholder="Código Barras">
-                                <button class="btn btn-success"
+                                <button title="Generar Codigo De Barra"
+                                    class="btn btn-success"
                                     type="button"
                                     onclick="generarbarcode()">Generar</button>
-                                <button class="btn btn-info"
+                                <button title="Imprimir Codigo De Barra"
+                                    class="btn btn-info"
                                     type="button"
                                     onclick="imprimir()">Imprimir</button>
                                 <div id="print">
@@ -128,10 +128,12 @@ if ($_SESSION['almacen']==1)
                                 </div>
                             </div>
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button class="btn btn-primary"
+                                <button title="Guardar Producto"
+                                    class="btn btn-primary"
                                     type="submit"
                                     id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
-                                <button class="btn btn-danger"
+                                <button title="Cancelar y Volver Atras"
+                                    class="btn btn-danger"
                                     onclick="cancelarform()"
                                     type="button"><i class="fa fa-arrow-circle-left"></i>
                                     Cancelar</button>

@@ -59,7 +59,7 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->idproduccion.')"><i class="fa fa-eye"></i></button>',
+                "0"=>'<button title="Mostrar Produccion" class="btn btn-warning" onclick="mostrar('.$reg->idproduccion.')"><i class="fa fa-eye"></i></button>',
                 "1"=>$reg->idproduccion,
                 "2"=>$reg->fecha,
                 "3"=>$reg->producto,
@@ -87,7 +87,7 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-danger" onclick="mostrar('.$reg->idproduccion.')"><i class="fa fa-check"></i></button>',
+                "0"=>'<button title="Mostrar Produccion" class="btn btn-danger" onclick="mostrar('.$reg->idproduccion.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->idproduccion,
                 "2"=>$reg->fecha,
                 "3"=>$reg->producto,
@@ -147,7 +147,7 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->uMedida.'\')"><span class="fa fa-plus"></span></button>',
+                "0"=>'<button title="Agregar Materia Prima" class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->uMedida.'\')"><span class="fa fa-plus"></span></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->stock,
                 "3"=>$reg->uMedida

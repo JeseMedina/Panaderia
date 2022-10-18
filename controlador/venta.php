@@ -91,10 +91,9 @@ switch ($_GET["op"]){
             }
             
             $data[]=array(
-                "0"=>(($reg->estado=='Aceptado')?'<button class="btn btn-warning" onclick="mostrar('.$reg->idventa.')"><i class="fa fa-eye"></i></button>'.
-                    ' <button class="btn btn-danger" onclick="anular('.$reg->idventa.')"><i class="fa fa-close"></i></button>':
-                    '<button class="btn btn-warning" onclick="mostrar('.$reg->idventa.')"><i class="fa fa-eye"></i></button>'),
-                    // .'<a target="_blank" href="'.$url.$reg->idventa.'"> <button class="btn btn-info"><i class="fa fa-file"></i></button></a>',
+                "0"=>(($reg->estado=='Aceptado')?'<button title="Mostrar Venta" class="btn btn-warning" onclick="mostrar('.$reg->idventa.')"><i class="fa fa-eye"></i></button>'.
+                    ' <button title="Anuelar Venta" class="btn btn-danger" onclick="anular('.$reg->idventa.')"><i class="fa fa-close"></i></button>':
+                    '<button title="Mostrar Venta" class="btn btn-warning" onclick="mostrar('.$reg->idventa.')"><i class="fa fa-eye"></i></button>'),
                 "1"=>$reg->fecha,
                 "2"=>$reg->cliente,
                 "3"=>$reg->usuario,
@@ -134,7 +133,7 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precio_venta.'\',\''.$reg->uMedida.'\')"><span class="fa fa-plus"></span></button>',
+                "0"=>'<button title="Agregar Producto" class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precio_venta.'\',\''.$reg->uMedida.'\')"><span class="fa fa-plus"></span></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->rubro,
                 "3"=>$reg->stock,

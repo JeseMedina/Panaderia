@@ -142,11 +142,13 @@ if ($_SESSION['produccion']==1)
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button class="btn btn-primary"
+                                <button title="Guardar Produccion"
+                                    class="btn btn-primary"
                                     type="submit"
                                     id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
 
-                                <button id="btnCancelar"
+                                <button title="Cancelar y Volver Atras"
+                                    id="btnCancelar"
                                     class="btn btn-danger"
                                     onclick="cancelarform()"
                                     type="button"><i class="fa fa-arrow-circle-left"></i>

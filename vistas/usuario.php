@@ -27,7 +27,7 @@ if ($_SESSION['personas']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Usuario <button class="btn btn-success"
+                        <h1 class="box-title">Usuario <button title="Nuevo Usuario" class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
                                 Agregar</button></h1>
@@ -173,10 +173,10 @@ if ($_SESSION['personas']==1)
                                     id="imagenmuestra">
                             </div>
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button class="btn btn-primary"
+                                <button title="Guardar Usuario" class="btn btn-primary"
                                     type="submit"
                                     id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
-                                <button class="btn btn-danger"
+                                <button title="Cancelar y Volver Atras" class="btn btn-danger"
                                     onclick="cancelarform()"
                                     type="button"><i class="fa fa-arrow-circle-left"></i>
                                     Cancelar</button>

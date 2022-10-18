@@ -17,7 +17,7 @@ if (strlen(session_id()) < 1)
         name="viewport">
     <link rel="stylesheet"
         href="../public/css/bootstrap.min.css">
-<!--     <link rel="stylesheet"
+    <!--     <link rel="stylesheet"
         href="../public/css/font-awesome.css"> -->
     <link rel="stylesheet"
         href="../public/fontawesome/css/all.min.css">
