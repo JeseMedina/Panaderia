@@ -28,6 +28,11 @@
     background-color: rgb(239 217 192 / 40%);
 }
 
+/* Estilos para la medialuna */
+.medialuna{
+    height: 75px;
+    margin-top: 22px;
+}
 /* Estilos para el ARMECA */
 h1{
     color: var(--gray);
@@ -37,6 +42,8 @@ h1{
     padding: 0;
     text-shadow: 1px 2px 2px var(--dark-brown);
     font-family: 'Noto Sans Symbols', sans-serif;
+    margin-top: 14px;
+    margin-bottom: 33px;
 }
 
 /* Login*/
@@ -75,8 +82,9 @@ h1{
     padding-top: 0;
 }
 .login-box-msg, .register-box-msg {
-    color: #F7EBE8;
-    padding: 0 20px 39px 20px;
+    color: var(--light-green);
+    padding: 0 20px 0px 20px;
+    text-shadow: 1px 2px 3px var(--black);
 }
 .has-feedback {
     background-color: var(--dark-green);
@@ -124,7 +132,7 @@ input:-webkit-autofill {
     font-weight: bold;
 }
 .btn-primary:active{
-    background-color: var(--light-brown) !important;
+    background-color: var(--gray) !important;
     border-color: 0px !important;
     border-radius: 0px !important;
     color: var(--black) !important;
@@ -143,7 +151,7 @@ input:-webkit-autofill {
 }
 .btn-primary:focus {
     color: var(--black);
-    background-color: var(--light-brown);
+    background-color: var(--gray);
     border-color: var(--dark-green);
 }
 a {
