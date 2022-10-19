@@ -120,6 +120,7 @@ html{
     background-color: #ff0000 !important;
 }
 .btn-success {
+    margin-left: 30px;
     background-color: var(--moss);
     border-color: var(--moss);
     font-size: .7em;
@@ -132,6 +133,19 @@ html{
     font-weight: bold;
 }
 
+.btn-success:active{
+    color: var(--light-green);
+    background-color: var(--dark-green);
+    border-color: var(--light-green);
+    font-weight: bold;
+}
+
+.btn-success:active:focus{
+        color: var(--light-green);
+    background-color: var(--dark-green);
+    border-color: var(--light-green);
+    font-weight: bold;
+}
 .btn-success.focus, .btn-success:focus {
     background-color: var(--dark-moss);
     border-color: var(--dark-moss);
@@ -193,6 +207,11 @@ label {
 /* colores de la tabla */
 .panel-body {
     background: var(--cream);
+    padding: 15px 0px;
+}
+
+div.dt-buttons {
+    margin-bottom: 15px;
 }
 
 /* Columna de titulos head */
@@ -209,13 +228,22 @@ label {
 
 /* Lineas de la tabla */
 .table-bordered {
-    border: 1px solid var(--dark-green);
+    border: 3px solid var(--dark-green);
 }
 
 table.dataTable thead th, table.dataTable thead td {
     border: 1px solid var(--dark-green);
 }
 
+#tbllistado{
+    width: 1256px !important;
+}
+table.dataTable, table.dataTable th, table.dataTable td {
+    border-top: 2px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+}
 /* Boton editar*/
 .btn-warning {
     background-color: var(--dark-moss);
@@ -284,6 +312,7 @@ tfoot{
 .dataTables_wrapper .dataTables_processing, 
 .dataTables_wrapper .dataTables_paginate {
     color: var(--dark-green);
+    margin-top: 15px;
 }
 
 /* Para el índice */
