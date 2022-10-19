@@ -48,6 +48,7 @@
 
 .content{
     background: var(--cream);
+    padding-bottom: 0;
 }
  /* Titulo */
 .box-header>.fa, 
@@ -56,8 +57,8 @@
 .box-header .box-title {
     font-size: 1.5em;
 }
-/* Para el form*/
 
+/* Para el form*/
 .box-header.with-border {
     background-color: var(--dark-green);
     color: var(--cream);
@@ -68,12 +69,22 @@
 /* Cards */
 .panel-body {
     display: flex;
-    padding: 18px 0px;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+.card0{
+    padding: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .card1{
     padding: 0px;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .bg-aqua{
@@ -92,12 +103,27 @@
 }
 
 /* Canvas */
+.canva0{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0;
+}
+
 .canva1{
+    width: 100%;
     padding-left: 0px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 .canva2{
+    width: 100%;
     padding-right: 0px;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; 
 }
 
 /* Letra compra y venta */
@@ -118,16 +144,30 @@
 }
 
 .box {
+    margin-bottom: 0px;
     background: var(--cream);
     box-shadow: 0 0px 0px;
 }
 
+.box-body {
+    border: 1px solid var(--dark-green);
+}
+
 .box.box-primary {
+    width: 97%;
     border-left: 1px solid var(--light-green);
     border-right: 1px solid var(--light-green);
     border-bottom: 1px solid var(--light-green);
     border-radius: 1px;
     border-top-color: var(--light-green);
+}
+
+.caja1{
+    padding-top: 0;
+}
+
+.caja2{
+    padding-top: 0;
 }
 
 .bg-red, .bg-aqua, 
