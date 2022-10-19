@@ -70,11 +70,17 @@ switch ($_GET["op"]){
         $data= Array();
  
         while ($reg=$rspta->fetch_object()){
+            if ($reg->imagen == ''){
+                $imagen = 'Ninguna';
+            }else{
+                $imagen = "<img src='../files/usuarios/".$reg->imagen."' height='50px' width='50px' >";
+            }
+
             $data[]=array(
-                "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-danger" onclick="desactivar('.$reg->idusuario.')"><i class="fa fa-close"></i></button>':
-                    '<button class="btn btn-primary" title="Editar usuario disabled"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-primary" onclick="activar('.$reg->idusuario.')"><i class="fa fa-check"></i></button>',
+                "0"=>($reg->condicion)?'<button title="Mostrar Usuario" class="btn btn-warning" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"></i></button>'.
+                    ' <button title="Desactivar Usuario" class="btn btn-danger" onclick="desactivar('.$reg->idusuario.')"><i class="fa fa-close"></i></button>':
+                    '<button title="Mostrar Usuario" class="btn btn-primary" title="Editar usuario disabled"><i class="fa fa-pencil"></i></button>'.
+                    ' <button title="Activar Usuario" class="btn btn-primary" onclick="activar('.$reg->idusuario.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->num_documento,
                 "3"=>$reg->direccion,
@@ -82,7 +88,7 @@ switch ($_GET["op"]){
                 "5"=>$reg->email,
                 "6"=>$reg->cargo,
                 "7"=>$reg->login,
-                "8"=>"<img src='../files/usuarios/".$reg->imagen."' height='50px' width='50px' >",
+                "8"=>$imagen,
                 "9"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
                 '<span class="label bg-red">Desactivado</span>'
                 );

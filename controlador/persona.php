@@ -52,10 +52,10 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-danger" onclick="desactivar('.$reg->idpersona.')"><i class="fa fa-close"></i></button>':
-                    '<button class="btn btn-primary" title="Editar persona disabled"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
+                "0"=>($reg->condicion)?'<button title="Mostrar Persona" class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>'.
+                    ' <button title="Desactivar Persona" class="btn btn-danger" onclick="desactivar('.$reg->idpersona.')"><i class="fa fa-close"></i></button>':
+                    '<button title="Editar Persona" class="btn btn-primary" title="Editar persona disabled"><i class="fa fa-pencil"></i></button>'.
+                    ' <button title="Activar Persona" class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->num_documento,
                 "3"=>$reg->provincia,
@@ -82,10 +82,10 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-danger" onclick="desactivar('.$reg->idpersona.')"><i class="fa fa-close"></i></button>':
-                    '<button class="btn btn-primary" title="Editar persona disabled"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
+                "0"=>($reg->condicion)?'<button title="Mostrar Cliente" class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>'.
+                    ' <button title="Desactivar Cliente" class="btn btn-danger" onclick="desactivar('.$reg->idpersona.')"><i class="fa fa-close"></i></button>':
+                    '<button title="Editar Cliente" class="btn btn-primary" title="Editar persona disabled"><i class="fa fa-pencil"></i></button>'.
+                    ' <button title="Activar Cliente" class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->num_documento,
                 "3"=>$reg->direccion,
@@ -111,10 +111,10 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-danger" onclick="desactivar('.$reg->idpersona.')"><i class="fa fa-close"></i></button>':
-                    '<button class="btn btn-primary" title="Editar persona disabled"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
+                "0"=>($reg->condicion)?'<button title="Mostrar Repartidor" class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>'.
+                    ' <button title="Desactivar Repartidor" class="btn btn-danger" onclick="desactivar('.$reg->idpersona.')"><i class="fa fa-close"></i></button>':
+                    '<button title="Mostrar Repartidor" class="btn btn-primary" title="Editar persona disabled"><i class="fa fa-pencil"></i></button>'.
+                    ' <button title="Activar Repartidor" class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->num_documento,
                 "3"=>$reg->direccion,
@@ -140,10 +140,10 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-danger" onclick="desactivar('.$reg->idpersona.')"><i class="fa fa-close"></i></button>':
-                    '<button class="btn btn-primary" title="Editar persona disabled"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
+                "0"=>($reg->condicion)?'<button title="Mostrar Panadero" class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>'.
+                    ' <button title="Desactivar Panadero" class="btn btn-danger" onclick="desactivar('.$reg->idpersona.')"><i class="fa fa-close"></i></button>':
+                    '<button title="Mostrar Panadero"class="btn btn-primary" title="Editar persona disabled"><i class="fa fa-pencil"></i></button>'.
+                    ' <button title="Activar Panadero" class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->num_documento,
                 "3"=>$reg->direccion,

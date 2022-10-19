@@ -2,8 +2,8 @@ var tabla;
  
 //Función que se ejecuta al inicio
 function init(){
-    mostrarform(false);
-    listar();
+    mostrarform(true);
+    
  
     $("#formulario").on("submit",function(e)
     {
@@ -54,8 +54,8 @@ function mostrarform(flag)
         listarProductos();
  
         $("#btnGuardar").hide();
-        $("#btnCancelar").show();
         $("#btnAgregarArt").show();
+        $("#btnver").show();
         detalles=0;
     }
     else
@@ -63,6 +63,8 @@ function mostrarform(flag)
         $("#listadoregistros").show();
         $("#formularioregistros").hide();
         $("#btnagregar").show();
+        $("#btnver").hide();
+        listar();
     }
 }
  
@@ -145,8 +147,7 @@ function guardaryeditar(e)
         success: function(datos)
         {                    
               bootbox.alert(datos);           
-              mostrarform(false);
-              listar();
+              mostrarform(true);
         }
  
     });
@@ -172,7 +173,6 @@ function mostrar(idventa)
  
         //Ocultar y mostrar los botones
         $("#btnGuardar").hide();
-        $("#btnCancelar").show();
         $("#btnAgregarArt").hide();
     });
  
@@ -226,7 +226,7 @@ function agregarDetalle(idproducto,producto,precio_venta,uMedida)
     {
         var subtotal=cantidad*precio_venta;
         var fila='<tr class="filas" id="fila'+cont+'">'+
-        '<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle('+cont+')">X</button></td>'+
+        '<td><button title="Eliminar Detalle" type="button" class="btn btn-danger" onclick="eliminarDetalle('+cont+')">X</button></td>'+
         '<td><input type="hidden" name="idproducto[]"value="'+idproducto+'">'+producto+'</td>'+
         '<td><input type="number" name="cantidad[]" onchange="modificarSubototales()" onkeyup="modificarSubototales()" id="cantidad[]" value="'+cantidad+'"></td>'+
         '<td>'+uMedida+'</td>'+

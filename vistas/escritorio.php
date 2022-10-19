@@ -180,7 +180,7 @@ if ($_SESSION['escritorio']==1)
 }
 else
 {
-  require 'noacceso.php';
+  header("Location: producto.php");
 }
 require 'footer.html';
 ?>

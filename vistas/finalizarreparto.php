@@ -97,7 +97,8 @@ if ($_SESSION['reparto']==1)
                             <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12 pt-3">
                                 <a data-toggle="modal"
                                     href="#myModal">
-                                    <button id="btnAgregarArt"
+                                    <button title="Agregar Productos"
+                                        id="btnAgregarArt"
                                         type="button"
                                         class="btn btn-primary"> <span class="fa fa-plus"></span>
                                         Agregar Productos</button>
@@ -136,11 +137,13 @@ if ($_SESSION['reparto']==1)
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button class="btn btn-primary"
+                                <button title="Guardar Reparto"
+                                    class="btn btn-primary"
                                     type="submit"
                                     id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
 
-                                <button id="btnCancelar"
+                                <button title="Cancelar y Volver Atras"
+                                    id="btnCancelar"
                                     class="btn btn-danger"
                                     onclick="cancelarform()"
                                     type="button"><i class="fa fa-arrow-circle-left"></i>
@@ -167,7 +170,8 @@ if ($_SESSION['reparto']==1)
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button"
+                <button title="Seleccionar Productos"
+                    type="button"
                     class="close"
                     data-dismiss="modal"
                     aria-hidden="true">&times;</button>
@@ -196,7 +200,8 @@ if ($_SESSION['reparto']==1)
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button"
+                <button title="Cerrar Ventana"
+                    type="button"
                     class="btn btn-default"
                     data-dismiss="modal">Cerrar</button>
             </div>
@@ -208,7 +213,7 @@ if ($_SESSION['reparto']==1)
 }
 else
 {
-  require 'noacceso.html';
+    header("Location: produccion.php");
 }
  
 require 'footer.html';

@@ -69,7 +69,7 @@ Class Producto
 
     public function listarActivosPanaderia()
     {
-        $sql="SELECT a.idproducto,a.idrubro,c.nombre as rubro,a.codigo,a.nombre,a.stock,(SELECT precio_venta FROM detalle_compra WHERE idproducto=a.idproducto order by iddetalle_compra desc limit 0,1) as precio_venta,a.uMedida,a.condicion FROM producto a INNER JOIN rubro c ON a.idrubro=c.idrubro WHERE a.condicion='1' AND c.nombre='Panadería'";
+        $sql="SELECT a.idproducto,a.idrubro,c.nombre as rubro,a.codigo,a.nombre,a.stock,(SELECT preciomayorista FROM produccion WHERE idproductoproducido =a.idproducto order by idproduccion asc limit 0,1) as precio_venta,a.uMedida,a.condicion FROM producto a INNER JOIN rubro c ON a.idrubro=c.idrubro WHERE a.condicion='1' AND c.nombre='Panadería'";
         return ejecutarConsulta($sql);      
     }
 

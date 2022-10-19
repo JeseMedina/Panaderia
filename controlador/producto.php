@@ -45,10 +45,10 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idproducto.')"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-danger" onclick="desactivar('.$reg->idproducto.')"><i class="fa fa-close"></i></button>':
-                    '<button class="btn btn-primary" title="Editar producto disabled"><i class="fa fa-pencil"></i></button>'.
-                    ' <button class="btn btn-primary" onclick="activar('.$reg->idproducto.')"><i class="fa fa-check"></i></button>',
+                "0"=>($reg->condicion)?'<button title="Mostrar Producto" class="btn btn-warning" onclick="mostrar('.$reg->idproducto.')"><i class="fa fa-pencil"></i></button>'.
+                    ' <button title="Desactivar Producto" class="btn btn-danger" onclick="desactivar('.$reg->idproducto.')"><i class="fa fa-close"></i></button>':
+                    '<button title="Mostrar Producto" class="btn btn-primary" title="Editar producto disabled"><i class="fa fa-pencil"></i></button>'.
+                    ' <button title="Activar Producto" class="btn btn-primary" onclick="activar('.$reg->idproducto.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->rubro,
                 "3"=>$reg->stock,

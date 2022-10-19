@@ -27,7 +27,8 @@ if ($_SESSION['personas']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Cliente <button class="btn btn-success"
+                        <h1 class="box-title">Cliente <button title="Nuevo Cliente"
+                                class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
                                 Agregar</button></h1>
@@ -96,10 +97,13 @@ if ($_SESSION['personas']==1)
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Provincia:</label>
-                                <select class="form-control select-picker" id="provincia" name="provincia">
+                                <select class="form-control select-picker"
+                                    id="provincia"
+                                    name="provincia">
                                     <option value="Buenos Aires">Buenos Aires</option>
                                     <option value="Catamarca">Catamarca</option>
-                                    <option value="Chaco" selected="true">Chaco</option>
+                                    <option value="Chaco"
+                                        selected="true">Chaco</option>
                                     <option value="Chubut">Chubut</option>
                                     <option value="CABA">CABA</option>
                                     <option value="Cordoba">Cordoba</option>
@@ -150,11 +154,13 @@ if ($_SESSION['personas']==1)
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button class="btn btn-primary"
+                                <button title="Guardar Cliente"
+                                    class="btn btn-primary"
                                     type="submit"
                                     id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
 
-                                <button class="btn btn-danger"
+                                <button title="Cancelar y Volver Atras"
+                                    class="btn btn-danger"
                                     onclick="cancelarform()"
                                     type="button"><i class="fa fa-arrow-circle-left"></i>
                                     Cancelar</button>
@@ -173,7 +179,7 @@ if ($_SESSION['personas']==1)
 }
 else
 {
-  require 'noacceso.html';
+    header("Location: ventasfechacliente.php");
 }
 require 'footer.html';
 }

@@ -1,30 +1,8 @@
 var tabla;
 
 //Función que se ejecuta al inicio
-function init(){
-    mostrarform(false);
-    listar();
 
-}
-
-
-//Función mostrar formulario
-function mostrarform(flag)
-{
-    if (flag)
-    {
-        $("#listadoregistros").hide();
-        $("#formularioregistros").show();
-        $("#btnGuardar").prop("disabled",false);
-        $("#btnagregar").hide();
-    }
-    else
-    {
-        $("#listadoregistros").show();
-        $("#formularioregistros").hide();
-        $("#btnagregar").hide();
-    }
-}
+listar();
 
 //Función Listar
 function listar()
@@ -50,5 +28,3 @@ function listar()
         "order": [[ 0, "desc" ]]//Ordenar (columna,orden)
     }).DataTable();
 }
-
-init();

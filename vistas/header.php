@@ -17,7 +17,7 @@ if (strlen(session_id()) < 1)
         name="viewport">
     <link rel="stylesheet"
         href="../public/css/bootstrap.min.css">
-<!--     <link rel="stylesheet"
+    <!--     <link rel="stylesheet"
         href="../public/css/font-awesome.css"> -->
     <link rel="stylesheet"
         href="../public/fontawesome/css/all.min.css">
@@ -68,19 +68,32 @@ if (strlen(session_id()) < 1)
                             <a href="#"
                                 class="dropdown-toggle"
                                 data-toggle="dropdown">
+                                <?php
+                                if($_SESSION['imagen'] != ''){
+                                ?>
                                 <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>"
                                     class="user-image"
                                     alt="User Image">
+                                <?php
+                                }
+                                ?>
+
+
                                 <span class="hidden-xs"><?php echo $_SESSION['nombre']; ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-header">
+                                    <?php
+                                    if($_SESSION['imagen'] != ''){
+                                    ?>
                                     <img src="../files/usuarios/<?php echo $_SESSION['imagen']; ?>"
                                         class="img-circle"
                                         alt="User Image">
+                                    <?php
+                                }
+                                ?>
                                     <p>
                                         <?php echo $_SESSION['nombre']; ?>
-                                        <!-- <?php echo $_SESSION['cargo']; ?> -->
                                     </p>
                                 </li>
                                 <li class="user-footer">
@@ -164,7 +177,7 @@ if (strlen(session_id()) < 1)
             } 
             ?>
 
-            <?php
+                    <?php
             if ($_SESSION['produccion']==1) 
             {
               echo '<li class="treeview">
@@ -180,7 +193,7 @@ if (strlen(session_id()) < 1)
             </li>';
             } 
             ?>
-            <?php
+                    <?php
             if ($_SESSION['personas']==1) 
             {
               echo '<li class="treeview">
@@ -214,10 +227,10 @@ if (strlen(session_id()) < 1)
                 <li><a href="produccionesfecha.php">Producciones</a></li>
                 <li><a href="produccionesfecha.php">Caja</a></li>       
               </ul>
-            </li>
-            <li>';
+            </li>';
             }  
             ?>
+                  <li>
                     <a href="ayuda.html">
                         <i class="fa fa-info-circle"></i> <span>Ayuda</span> 
                     </a>
@@ -228,7 +241,6 @@ if (strlen(session_id()) < 1)
                             <!-- <small id="mantovani" class="label pull-right">IT - Mantovani</small> -->
                         </a>
                     </li>
-
                 </ul>
             </section>
         </aside>
