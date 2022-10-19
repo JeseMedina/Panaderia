@@ -82,72 +82,92 @@ if ($_SESSION['escritorio']==1)
                     <!-- /.box-header -->
                     <!-- centro -->
                     <div class="panel-body">
-                        <div class="card1 col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <div class="small-box bg-aqua">
-                                <div class="inner">
-                                    <h4 stille="font-size:17px;">
-                                        <strong>
-                                            $ <?php echo $totalc; ?>
-                                        </strong>
-                                    </h4>
-                                    <p>Compras</p>
+                        <div class="card0 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="small-box bg-aqua">
+                                    <div class="inner">
+                                        <h4 stille="font-size:17px;">
+                                            <strong>
+                                                $ <?php echo $totalc; ?>
+                                            </strong>
+                                        </h4>
+                                        <p>Caja</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="icn icn-bag"></i>
+                                    </div>
+                                    <a href="caja.php" data-toggle="tooltip" data-placement="bottom" title="Ir a Caja"
+                                        class="small-box-footer">Caja <i
+                                            class="fa fa-arrow-circle-right"></i>
+                                    </a>
                                 </div>
-                                <div class="icon">
-                                    <i class="icn icn-bag"></i>
-                                </div>
-                                <a href="compra.php" data-toggle="tooltip" data-placement="bottom" title="Ir a compras"
-                                    class="small-box-footer">Compras <i
-                                        class="fa fa-arrow-circle-right"></i>
-                                </a>
                             </div>
-                        </div>
+                            <div class="card1 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="small-box bg-aqua">
+                                    <div class="inner">
+                                        <h4 stille="font-size:17px;">
+                                            <strong>
+                                                $ <?php echo $totalc; ?>
+                                            </strong>
+                                        </h4>
+                                        <p>Compras</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="icn icn-bag"></i>
+                                    </div>
+                                    <a href="compra.php" data-toggle="tooltip" data-placement="bottom" title="Ir a compras"
+                                        class="small-box-footer">Compras <i
+                                            class="fa fa-arrow-circle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
 
-                        <div class="card2 col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <div class="small-box bg-green">
-                                <div class="inner">
-                                    <h4 stille="font-size:17px;">
-                                        <strong>
-                                            $ <?php echo $totalv; ?>
-                                        </strong>
-                                    </h4>
-                                    <p>Ventas</p>
+                            <div class="card2 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="small-box bg-green">
+                                    <div class="inner">
+                                        <h4 stille="font-size:17px;">
+                                            <strong>
+                                                $ <?php echo $totalv; ?>
+                                            </strong>
+                                        </h4>
+                                        <p>Ventas</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="icn icn-bag"></i>
+                                    </div>
+                                    <a href="venta.php" data-toggle="tooltip" data-placement="bottom" title="Ir a ventas"
+                                        class="small-box-footer">Ventas <i
+                                            class="fa fa-arrow-circle-right"></i>
+                                    </a>
                                 </div>
-                                <div class="icon">
-                                    <i class="icn icn-bag"></i>
-                                </div>
-                                <a href="venta.php" data-toggle="tooltip" data-placement="bottom" title="Ir a ventas"
-                                    class="small-box-footer">Ventas <i
-                                        class="fa fa-arrow-circle-right"></i>
-                                </a>
                             </div>
-                        </div>
                     </div>
-                    <div class="panel-body">
-                        <div class="canva1 col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="box box-primary">
+                    <!-- <div class="panel-body caja1"> -->
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12">
+                                <div class="box-header with-border">
+                                    Caja
+                                </div>
+                                <div class="box-body">
+                                    <canvas id="caja"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
                                 <div class="box-header with-border">
                                     Compras de los últimos 10 días
                                 </div>
                                 <div class="box-body">
-                                    <canvas id="compras"
-                                        width="400"
-                                        height="300"></canvas>
+                                    <canvas id="compras"></canvas>
                                 </div>
                             </div>
-                        </div>
-                        <div class="canva2 col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="box box-primary">
+                            <div class="col-md-4 col-xs-12">
                                 <div class="box-header with-border">
                                     Ventas de los últimos 12 meses
                                 </div>
                                 <div class="box-body">
-                                    <canvas id="ventas"
-                                        width="400"
-                                        height="300"></canvas>
+                                    <canvas id="ventas"></canvas>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <!--Fin centro -->
                 </div><!-- /.box -->
             </div><!-- /.col -->
@@ -168,6 +188,52 @@ require 'footer.html';
 <script src="../public/js/chart.min.js"></script>
 <script src="../public/js/Chart.bundle.min"></script>
 <script type="text/javascript">
+var ctx = document.getElementById("caja").getContext('2d');
+var caja = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [<?php echo $fechasc; ?>],
+        datasets: [{
+            label: '# Caja en S/ de los últimos 10 días',
+            data: [<?php echo $totalesc; ?>],
+            backgroundColor: [
+                'rgba(6, 57, 64, 0.2)',
+                'rgba(142, 189, 182, 0.2)',
+                'rgba(62, 131, 140, 0.2)',
+                'rgba(25, 94, 99, 0.2)',
+                'rgba(6, 57, 64, 0.2)',
+                'rgba(142, 189, 182, 0.2)',
+                'rgba(62, 131, 140, 0.2)',
+                'rgba(25, 94, 99, 0.2)',
+                'rgba(6, 57, 64, 0.2)',
+                'rgba(142, 189, 182, 0.2)'
+            ],
+            borderColor: [
+                'rgba(6, 57, 64, 0.2))',
+                'rgba(142, 189, 182, 1)',
+                'rgba(62, 131, 140, 1)',
+                'rgba(25, 94, 99, 1)',
+                'rgba(6, 57, 64, 0.2))',
+                'rgba(142, 189, 182, 1)',
+                'rgba(62, 131, 140, 1)',
+                'rgba(25, 94, 99, 1)',
+                'rgba(6, 57, 64, 0.2))',
+                'rgba(142, 189, 182, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
 var ctx = document.getElementById("compras").getContext('2d');
 var compras = new Chart(ctx, {
     type: 'bar',
