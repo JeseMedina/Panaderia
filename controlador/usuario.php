@@ -165,6 +165,29 @@ switch ($_GET["op"]){
         echo json_encode($fetch);
 
     break;
+
+    case 'verificarOlvido':
+        $login=$_POST['login'];
+        $dni=$_POST['dni'];
+
+        $rspta=$usuario->verificarOlvido($login,$dni);
+        $fetch=$rspta->fetch_object();
+
+        echo json_encode($fetch);
+    break;
+
+    case 'cambiarContrasena':
+        $login=$_POST['login'];
+        $clave=$_POST['clave'];
+
+        //SHA256
+        $clavehash=hash("SHA256",$clave);
+        $rspta=$usuario->cambiarContrasena($login,$clavehash);
+        $fetch=$rspta->fetch_object();
+
+        echo json_encode($fetch);
+    break;
+
     case 'salir':
         //limpiamos las variables de session
         session_unset();
@@ -173,6 +196,8 @@ switch ($_GET["op"]){
         //redireccionamos al login
         header("location:../index.php");
     break;
+
+    
  
 }
 ?>

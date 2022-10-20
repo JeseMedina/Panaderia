@@ -91,7 +91,18 @@ Class Usuario
 	{
 		$sql="SELECT idusuario,nombre,tipo_documento,num_documento,telefono,email,cargo,imagen,login FROM usuario WHERE login='$login' AND clave='$clave' AND condicion='1'";
 			return ejecutarConsulta($sql);
+	}
 
+	public function verificarOlvido($login,$dni)
+	{
+		$sql="SELECT idusuario,login FROM usuario WHERE login='$login' AND num_documento='$dni' AND condicion='1'";
+			return ejecutarConsulta($sql);
+	}
+
+	public function cambiarContrasena($login,$clave)
+	{
+		$sql="UPDATE usuario SET clave='$clave' WHERE login='$login' AND condicion='1'";
+			return ejecutarConsulta($sql);
 	}
 	
 }

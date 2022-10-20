@@ -3,6 +3,7 @@ $("#frmAcceso").on('submit',function(e)
 	e.preventDefault();
 	logina=$("#logina").val();
 	clavea=$("#clavea").val();
+	
 
 	$.post("../controlador/usuario.php?op=verificar",
 		{"logina":logina,"clavea":clavea},
@@ -18,4 +19,4 @@ $("#frmAcceso").on('submit',function(e)
 			}
 		});
 
-})	
+});
