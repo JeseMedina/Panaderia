@@ -12,7 +12,7 @@ if (strlen(session_id()) < 1)
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible"
         content="IE=edge">
-    <title>Panaderia Eben Ezer</title>
+    <title>ARMECA</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         name="viewport">
     <link rel="stylesheet"
@@ -25,10 +25,10 @@ if (strlen(session_id()) < 1)
         href="../public/css/AdminLTE.min.css">
     <link rel="stylesheet"
         href="../public/css/_all-skins.min.css">
-    <link rel="apple-touch-icon"
-        href="../public/img/apple-touch-icon.png">
+    <link rel="medialuna"
+        href="../public/img/medialuna.png">
     <link rel="shortcut icon"
-        href="../public/img/favicon.ico">
+        href="../public/img/medialuna.ico">
     <link rel="stylesheet"
         type="text/css"
         href="../public/datatables/jquery.dataTables.min.css">
@@ -51,14 +51,13 @@ if (strlen(session_id()) < 1)
         <header class="main-header">
             <a href="escritorio.php"
                 class="logo">
-                <span class="logo-mini"><b>ARMECA</b></span>
-                <span class="logo-lg"><b>ARMECA</b></span>
+                <img class="logo-img" src="../public/img/medialuna.png" alt="medialuna"> ARMECA
             </a>
 
             <nav class="navbar navbar-static-top"
                 role="navigation">
                 <a href="#"
-                    class="sidebar-toggle"
+                    class="sidebar-toggle hidden-lg hidden-md hidden-sm"
                     data-toggle="offcanvas"
                     role="button">
                     <span class="sr-only">Navegación</span>
@@ -183,12 +182,12 @@ if (strlen(session_id()) < 1)
             {
               echo '<li class="treeview">
               <a href="#">
-                <i class="fa fa-industry"></i> <span>Produccion</span>
+                <i class="fa fa-industry"></i> <span>Producción</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="produccion.php"> Iniciar Produccion</a></li>
-                <li><a href="finalizarproduccion.php"> Finalizar Produccion</a></li>
+                <li><a href="produccion.php"> Iniciar Producción</a></li>
+                <li><a href="finalizarproduccion.php"> Finalizar Producción</a></li>
                 
               </ul>
             </li>';
@@ -222,26 +221,24 @@ if (strlen(session_id()) < 1)
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="ventasfechacliente.php"> Consulta Ventas</a></li>
-                <li><a href="comprasfecha.php"> Consulta Compras</a></li>
-                <li><a href="repartosfecha.php"> Consulta Repartos</a></li>  
-                <li><a href="produccionesfecha.php"> Consulta Producciones</a></li>      
+                <li><a href="ventasfechacliente.php">Ventas</a></li>
+                <li><a href="comprasfecha.php">Compras</a></li>
+                <li><a href="repartosfecha.php">Repartos</a></li>  
+                <li><a href="produccionesfecha.php">Producciones</a></li>
+                <li><a href="produccionesfecha.php">Caja</a></li>       
               </ul>
             </li>';
             }  
             ?>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-plus-square"></i> <span>Ayuda</span>
-                            <small id="pdf"
-                                class="label pull-right">PDF</small>
-                        </a>
+                  <li>
+                    <a href="ayuda.html">
+                        <i class="fa fa-info-circle"></i> <span>Ayuda</span> 
+                    </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
-                            <small id="mantovani"
-                                class="label pull-right">IT - Mantovani</small>
+                        <a href="developer.html">
+                          <i class="fa-solid fa-laptop-code"></i></i> <span>Desarrolladores</span>
+                            <!-- <small id="mantovani" class="label pull-right">IT - Mantovani</small> -->
                         </a>
                     </li>
                 </ul>

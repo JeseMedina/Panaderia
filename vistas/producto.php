@@ -28,7 +28,7 @@ if ($_SESSION['almacen']==1)
                         <h1 class="box-title">Productos <button title="Nuevo Producto"
                                 class="btn btn-success"
                                 data-toggle="tooltip"
-                                data-placement="bottom"
+                                data-placement="right"
                                 title="Agregar productos"
                                 id="btnagregar"
                                 onclick="mostrarform(true)">

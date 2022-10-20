@@ -49,6 +49,30 @@ b, strong{
     font-weight: bold;
 }
 
+.skin-blue-light .main-header .navbar .nav>li>a:active, 
+.skin-blue-light .main-header .navbar .nav>li>a:focus,  
+.skin-blue-light .main-header .navbar .nav>.active>a {
+    background: none;
+    color: var(--cream);
+    padding: 21px 20px 21px;
+    text-shadow: none;
+    font-weight: none;
+}
+
+.skin-blue-light .main-header .navbar .nav .open>a,  
+.skin-blue-light .main-header .navbar .nav .open>a:focus{
+    background: var(--moss);
+    color: var(--cream); 
+}
+
+.skin-blue-light .main-header .navbar .nav .open>a:hover{
+    background: var(--moss);
+    color: var(--dark-green);
+    padding: 21px 20px 21px;
+    text-shadow: -1px 1px 2px white;
+    font-weight: bold;
+}
+
 /* Btn cerrar sesión */
 .navbar-nav>.user-menu>.dropdown-menu>.user-footer {
     background-color: var(--dark-green);
@@ -69,6 +93,18 @@ b, strong{
 .skin-blue-light .main-header .logo{
     background-color: var(--dark-green);
     color: var(--cream);
+    font-size: 1.8em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.logo-img{
+    transform: rotate(19deg);
+    width: 23px;
+    margin-right: 6px;
 }
 
 .skin-blue-light .main-header .logo:hover{
