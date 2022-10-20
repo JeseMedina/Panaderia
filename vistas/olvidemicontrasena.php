@@ -39,9 +39,10 @@
         <!-- <img src="../public/img/pan.jpg" alt=""> -->
 
         <div class="login-box">
-            <div class="login-logo">
-                <h1>ARMECA</h1>
-            </div>
+        <div class="login-logo">
+            <img class="medialuna" src="../public/img/medialuna.ico" alt="medialuna">
+            <h1>ARMECA</h1>
+          </div>
             <!-- /.login-logo -->
             <div class="login-box-body"
                 id="divOlvido">
