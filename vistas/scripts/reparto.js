@@ -287,9 +287,8 @@ function eliminarDetalle(indice) {
 function cajaAbierta(){
     $.post("../controlador/caja.php?op=cajaAbierta", function(r){
         if(r == 0){
-            $("#txtAbrirCaja").show();
-        }else{
-            $("#txtAbrirCaja").hide();
+            alert("Debe Abrir la Caja antes de Comenzar a Repartir");
+            window.location.href = "caja.php";
         }
     });
 }

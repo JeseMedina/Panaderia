@@ -14,7 +14,7 @@ switch ($_GET["op"]){
     case 'guardaryeditar':
         if (empty($idcaja)){
             $rspta=$caja->insertar($fecha_hora,$inicio);
-            echo $rspta ? "caja registrada" : "No se pudieron registrar todos los datos de la caja";
+            echo $rspta ? "Caja registrada" : "No se pudieron registrar todos los datos de la caja";
         }
     break;
 
@@ -45,7 +45,7 @@ switch ($_GET["op"]){
 
     case 'cerrarCaja':
         $rspta=$caja->cerrarCaja($idcaja);
-        echo $rspta ? "caja Cerrada" : "caja no se pudo Cerrar";
+        echo $rspta ? "Caja Cerrada" : "caja no se pudo Cerrar";
     break;
 
     case 'cajaAbierta':

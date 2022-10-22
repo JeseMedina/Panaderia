@@ -300,9 +300,8 @@ function agregarDetalle(idproducto,producto,precio_venta,uMedida)
   function cajaAbierta(){
     $.post("../controlador/caja.php?op=cajaAbierta", function(r){
         if(r == 0){
-            $("#txtAbrirCaja").show();
-        }else{
-            $("#txtAbrirCaja").hide();
+            alert("Debe Abrir la Caja antes de Comenzar a Vender");
+            window.location.href = "caja.php";
         }
     });
 }

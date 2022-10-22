@@ -34,8 +34,6 @@ if ($_SESSION['compras']==1)
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
                                 Agregar</button>
-                            <span id="txtAbrirCaja" class="label bg-red">Debe Abrir la Caja antes de Comenzar a
-                                Operar</span>
                         </h1>
                         <div class="box-tools pull-right">
                         </div>

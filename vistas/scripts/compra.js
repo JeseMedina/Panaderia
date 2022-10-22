@@ -302,9 +302,8 @@ function agregarDetalle(idproducto,producto,uMedida)
   function cajaAbierta(){
     $.post("../controlador/caja.php?op=cajaAbierta", function(r){
         if(r == 0){
-            $("#txtAbrirCaja").show();
-        }else{
-            $("#txtAbrirCaja").hide();
+            alert("Debe Abrir la Caja antes de Comenzar a Comprar");
+            window.location.href = "caja.php";
         }
     });
 }
