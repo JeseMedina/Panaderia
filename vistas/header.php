@@ -225,7 +225,7 @@ if (strlen(session_id()) < 1)
                 <li><a href="comprasfecha.php">Compras</a></li>
                 <li><a href="repartosfecha.php">Repartos</a></li>  
                 <li><a href="produccionesfecha.php">Producciones</a></li>
-                <li><a href="produccionesfecha.php">Caja</a></li>       
+                <li><a href="caja.php">Caja</a></li>       
               </ul>
             </li>';
             }  
