@@ -4,6 +4,7 @@ var tabla;
 function init() {
     mostrarform(false);
     listar();
+    cajaAbierta();
 
     $("#formulario").on("submit", function (e) {
         guardaryeditar(e);
@@ -94,6 +95,7 @@ function guardaryeditar(e) {
         }
 
     });
+    cajaAbierta();
     limpiar();
 }
 
@@ -105,7 +107,18 @@ function cerrarCaja(idcaja){
                 tabla.ajax.reload();
             });
         }
-    })
+        cajaAbierta();
+    });
+}
+
+function cajaAbierta(){
+    $.post("../controlador/caja.php?op=cajaAbierta", function(r){
+        if(r == 0){
+            $("#btnagregar").show();
+        }else{
+            $("#btnagregar").hide();
+        }
+    });
 }
 
 init();

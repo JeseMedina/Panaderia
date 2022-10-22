@@ -39,6 +39,8 @@ if ($_SESSION['ventas']==1)
                                 id="btnver"
                                 onclick="mostrarform(false)"><i class="fa fa-list"></i>
                                 Ver Ventas</button>
+                            <span id="txtAbrirCaja" class="label bg-red">Debe Abrir la Caja antes de Comenzar a
+                                Operar</span>
                         </h1>
                         <div class="box-tools pull-right">
                         </div>

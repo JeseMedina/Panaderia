@@ -28,8 +28,9 @@ if ($_SESSION['reparto']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title"> Finalizar Reparto
-                            <div class="box-tools pull-right"></div>
+                        <h1 class="box-title"> Finalizar Reparto<span id="txtAbrirCaja" class="label bg-red">Debe Abrir la Caja antes de Comenzar a
+                                Operar</span></h1>
+                        <div class="box-tools pull-right"></div>
                     </div>
                     <div class="panel-body table-responsive"
                         id="listadoregistros">

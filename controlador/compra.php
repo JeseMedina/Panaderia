@@ -77,7 +77,7 @@ switch ($_GET["op"]){
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
                 "0"=>($reg->estado=='Aceptado')?'<button title="Mostrar Compra" class="btn btn-warning" onclick="mostrar('.$reg->idcompra.')"><i class="fa fa-eye"></i></button>'.
-                    ' <button title="Anular Compra" class="btn btn-danger" onclick="anular('.$reg->idcompra.')"><i class="fa fa-close"></i></button>':
+                    ' <button title="Anular Compra" class="btn btn-danger" id="btnanular" onclick="anular('.$reg->idcompra.')"><i class="fa fa-close"></i></button>':
                     '<button title="Mostrar Compra" class="btn btn-warning" onclick="mostrar('.$reg->idcompra.')"><i class="fa fa-eye"></i></button>',
                 "1"=>$reg->fecha,
                 "2"=>$reg->proveedor,

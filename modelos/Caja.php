@@ -21,5 +21,10 @@ Class Caja{
         $sql="SELECT idcaja,DATE(fecha_hora) as fecha,inicio,ingreso,egreso,total,estado FROM caja ORDER BY idcaja DESC";
         return ejecutarConsulta($sql);
     }
+
+    public function cajaAbierta(){
+        $sql="SELECT idcaja FROM caja WHERE estado='Abierta'";
+        return ejecutarConsulta($sql);
+    }
 }
 ?>

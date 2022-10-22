@@ -47,5 +47,16 @@ switch ($_GET["op"]){
         $rspta=$caja->cerrarCaja($idcaja);
         echo $rspta ? "caja Cerrada" : "caja no se pudo Cerrar";
     break;
+
+    case 'cajaAbierta':
+        $rspta=$caja->cajaAbierta($idcaja);
+        $data= Array();
+        while ($reg=$rspta->fetch_object()){
+            $data[]=array(
+                "0"=>$reg->idcaja
+                );
+        }
+        echo sizeof($data);
+    break;
 }
 ?>

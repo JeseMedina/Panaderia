@@ -3,7 +3,9 @@ var tabla;
 //Función que se ejecuta al inicio
 function init(){
     mostrarform(false);
+    cajaAbierta();
     listar();
+    
  
     $("#formulario").on("submit",function(e)
     {
@@ -296,4 +298,14 @@ function agregarDetalle(idproducto,producto,uMedida)
     evaluar();
   }
  
+
+  function cajaAbierta(){
+    $.post("../controlador/caja.php?op=cajaAbierta", function(r){
+        if(r == 0){
+            $("#txtAbrirCaja").show();
+        }else{
+            $("#txtAbrirCaja").hide();
+        }
+    });
+}
 init();
