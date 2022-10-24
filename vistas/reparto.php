@@ -32,7 +32,8 @@ if ($_SESSION['reparto']==1)
                                 class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
-                                Agregar</button></h1>
+                                Agregar</button>
+                        </h1>
                         <div class="box-tools pull-right">
                         </div>
                     </div>

@@ -3,8 +3,10 @@ var tabla;
 //Función que se ejecuta al inicio
 function init() {
     mostrarform(false);
+    cajaAbierta();
     listar();
     listarfinalizar();
+    
 
     $("#formulario").on("submit", function (e) {
         guardaryeditar(e);
@@ -280,6 +282,15 @@ function eliminarDetalle(indice) {
     calcularTotales();
     detalles = detalles - 1;
     evaluar()
+}
+
+function cajaAbierta(){
+    $.post("../controlador/caja.php?op=cajaAbierta", function(r){
+        if(r == 0){
+            alert("Debe Abrir la Caja antes de Comenzar a Repartir");
+            window.location.href = "caja.php";
+        }
+    });
 }
 
 init();

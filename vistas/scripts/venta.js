@@ -3,6 +3,7 @@ var tabla;
 //Función que se ejecuta al inicio
 function init(){
     mostrarform(true);
+    cajaAbierta();
     
  
     $("#formulario").on("submit",function(e)
@@ -295,5 +296,14 @@ function agregarDetalle(idproducto,producto,precio_venta,uMedida)
     detalles=detalles-1;
     evaluar()
   }
+
+  function cajaAbierta(){
+    $.post("../controlador/caja.php?op=cajaAbierta", function(r){
+        if(r == 0){
+            alert("Debe Abrir la Caja antes de Comenzar a Vender");
+            window.location.href = "caja.php";
+        }
+    });
+}
  
 init();

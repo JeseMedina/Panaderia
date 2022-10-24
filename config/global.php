@@ -10,5 +10,5 @@ define("DB_PASSWORD","");
 //definimos la codificación de los caracteres
 define("DB_ENCODE","utf8");
 //definimos el nombre del sistema
-define("PRO_NOMBRE","ITVentas");
+define("PRO_NOMBRE","ARMECA");
 ?>
