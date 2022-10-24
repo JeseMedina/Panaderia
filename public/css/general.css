@@ -21,7 +21,8 @@ body{
     font-weight: bold;
 }
 
-.skin-blue-light .content-wrapper, .skin-blue-light .main-footer {
+.skin-blue-light .content-wrapper, 
+.skin-blue-light .main-footer {
     border-left: 1px solid var(--dark-green);
     background: var(--cream);
 }
@@ -62,6 +63,9 @@ html{
 /* Para el form*/
 
 .box-header.with-border {
+    display: flex;
+    align-items: center;
+    width: 100%;
     background-color: var(--dark-green);
     color: var(--cream);
     border-bottom: 1px solid var(--dark-moss);
@@ -88,6 +92,17 @@ html{
 
 .box-body{
     padding: 0px;
+}
+
+.box-title{
+    font-size: 1.8em;
+    width: 20%;
+}
+
+.boton-agregar{
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .bg-aqua, .callout.callout-info, 
@@ -120,10 +135,12 @@ html{
     background-color: #ff0000 !important;
 }
 .btn-success {
-    margin-left: 30px;
+    width: 143px;
+    height: 35px;
+    padding: 0;
     background-color: var(--moss);
     border-color: var(--moss);
-    font-size: .7em;
+    font-size: 1.3em;
 }
 
 .btn-success:hover {
