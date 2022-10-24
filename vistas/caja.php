@@ -116,7 +116,7 @@ if ($_SESSION['caja']==1)
 }
 else
 {
-    require 'noacceso.html';
+    header("Location: producto.php");
 }
 
 require 'footer.html';

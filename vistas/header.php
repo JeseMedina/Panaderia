@@ -124,22 +124,6 @@ if (strlen(session_id()) < 1)
             </li>';
             }  
             ?>
-                    <?php
-            if ($_SESSION['almacen']==1) 
-            {
-              echo '<li class="treeview">
-              <a href="#">
-                <i class="fa fa-th"></i>
-                <span>Almacén</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="producto.php"> Productos</a></li>
-                <li><a href="rubro.php"> Rubros</a></li>
-              </ul>
-            </li>';
-            }  
-            ?>
 
                     <?php
             if ($_SESSION['caja']==1) 
@@ -153,6 +137,23 @@ if (strlen(session_id()) < 1)
               <ul class="treeview-menu">
                 <li><a href="caja.php"> Caja</a></li>
                 <li><a href="cajaretiro.php"> Retirar Efectivo</a></li>
+              </ul>
+            </li>';
+            }  
+            ?>
+
+                    <?php
+            if ($_SESSION['almacen']==1) 
+            {
+              echo '<li class="treeview">
+              <a href="#">
+                <i class="fa fa-th"></i>
+                <span>Almacén</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="producto.php"> Productos</a></li>
+                <li><a href="rubro.php"> Rubros</a></li>
               </ul>
             </li>';
             }  
