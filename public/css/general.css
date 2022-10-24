@@ -4,6 +4,10 @@
     --moss: #3e838c;
     --dark-moss: #195e63;
     --cream: #f8f1e9;
+    --withe: #ffffff;
+    --excel: #0E773F;
+    --red: #ff0000;
+    --dark-red: #a70202;
 }
 
 body{
@@ -125,15 +129,84 @@ html{
 
 /* Botones */
 
+.btn-danger {
+    margin-left: 5px;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary.hover {
+    background-color: var(--light-green);
+}
+
+.btn-primary.active.focus, 
+.btn-primary.active:focus, 
+.btn-primary.active:hover, 
+.btn-primary:active.focus, 
+.btn-primary:active:focus, 
+.btn-primary:active:hover, 
+.open>.dropdown-toggle.btn-primary.focus, 
+.open>.dropdown-toggle.btn-primary:focus, 
+.open>.dropdown-toggle.btn-primary:hover {
+    color: #fff;
+    background-color: var(--light-green);
+    border-color: var(--light-green);
+}
+
+.btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary {
+    border-color: var(--light-green);
+}
+
+.btn.active.focus, 
+.btn.active:focus, 
+.btn.focus, 
+.btn:active.focus, 
+.btn:active:focus, 
+.btn:focus {
+    /* outline: thin dotted; */
+    outline: 0px auto -webkit-focus-ring-color; 
+    outline-offset: 0px;
+}
+
 /* Excel */
 .buttons-excel{
-    background-color: #0E773F !important;
+    background: var(--excel) !important;
+    font-weight: 700;
+    border: 1px solid var(--light);
+    color: var(--withe) !important;
+}
+
+.buttons-excel:hover{
+    box-shadow: 2px 2px var(--moss);
+    font-size: .9em;
+}
+
+/* CSV */
+.buttons-csv{
+    background: var(--dark-green) !important;
+    font-weight: 700;
+    border: 1px solid var(--light);
+    color: var(--withe) !important;
+}
+
+.buttons-csv:hover{
+    box-shadow: 2px 2px var(--dark-moss);
+    font-size: .9em;
 }
 
 /* PDF */
 .buttons-pdf{
-    background-color: #ff0000 !important;
+    background: var(--red) !important;
+    color: var(--withe) !important;
+    border: 1px solid red !important;
+    font-weight: 700;
 }
+
+.buttons-pdf:hover{
+    box-shadow: 2px 2px var(--dark-red);
+    color: var(--withe) !important;
+    font-size: .9em;
+    font-weight: 700;
+}
+
 .btn-success {
     width: 143px;
     height: 35px;
@@ -186,12 +259,19 @@ html{
     border-color: var(--moss);
 }
 
-button.dt-button, div.dt-button, a.dt-button{
+/* button.dt-button, div.dt-button, a.dt-button{
     font-weight: 700;
     border: 1px solid var(--light);
-    color: var(--cream);
+    color: var(--withe);
     background: var(--dark-green);
-}
+} */
+
+/* .dt-button buttons-excel buttons-html5{
+    font-weight: 700;
+    border: 1px solid var(--light);
+    background: var(--dark-green);
+    color: var(--withe);
+} */
 
 .btn-warning.focus, .btn-warning:focus {
     color: var(--dark-green);
@@ -329,9 +409,9 @@ tfoot{
 .dataTables_wrapper .dataTables_processing, 
 .dataTables_wrapper .dataTables_paginate {
     color: var(--dark-green);
-    margin-top: 15px;
 }
 
+.dataTables_filter{}
 /* Para el índice */
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, 
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, 
