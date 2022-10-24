@@ -21,7 +21,8 @@ body{
     font-weight: bold;
 }
 
-.skin-blue-light .content-wrapper, .skin-blue-light .main-footer {
+.skin-blue-light .content-wrapper, 
+.skin-blue-light .main-footer {
     border-left: 1px solid var(--dark-green);
     background: var(--cream);
 }
