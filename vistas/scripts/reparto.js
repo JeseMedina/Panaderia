@@ -92,7 +92,7 @@ function listar() {
                 }
             },
             "bDestroy": true,
-            "iDisplayLength": 5,//Paginación
+            "iDisplayLength": 10,//Paginación
             "order": [[0, "desc"]]//Ordenar (columna,orden)
         }).DataTable();
 }
@@ -118,7 +118,7 @@ function listarfinalizar() {
                 }
             },
             "bDestroy": true,
-            "iDisplayLength": 5,//Paginación
+            "iDisplayLength": 10,//Paginación
             "order": [[0, "desc"]]//Ordenar (columna,orden)
         }).DataTable();
 }
@@ -143,7 +143,7 @@ function listarProductos() {
                 }
             },
             "bDestroy": true,
-            "iDisplayLength": 15,//Paginación
+            "iDisplayLength": 10,//Paginación
             "order": [[0, "desc"]]//Ordenar (columna,orden)
         }).DataTable();
 }

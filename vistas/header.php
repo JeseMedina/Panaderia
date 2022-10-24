@@ -146,7 +146,7 @@ if (strlen(session_id()) < 1)
             {
               echo '<li class="treeview">
               <a href="#">
-                <i class="fa fa-th"></i>
+              <i class="fa fa-sack-dollar"></i>
                 <span>Caja</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
