@@ -25,15 +25,18 @@ if ($_SESSION['almacen']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Productos <button title="Nuevo Producto"
-                                class="btn btn-success"
-                                data-toggle="tooltip"
-                                data-placement="right"
-                                title="Agregar productos"
-                                id="btnagregar"
-                                onclick="mostrarform(true)">
-                                Agregar</button>
-                        </h1>
+                        <h1 class="box-title">Productos</h1>
+                            <div class="boton-agregar">
+                                <button title="Nuevo Producto"
+                                    class="btn btn-success"
+                                    data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    title="Agregar productos"
+                                    id="btnagregar"
+                                    onclick="mostrarform(true)">
+                                    Agregar
+                                </button>
+                            </div>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
