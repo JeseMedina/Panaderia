@@ -9,6 +9,8 @@ $caja = new Caja();
 $idcaja=isset($_POST["idcaja"])? limpiarCadena($_POST["idcaja"]):"";
 $inicio=isset($_POST["inicio"])? limpiarCadena($_POST["inicio"]):"";
 $fecha_hora=isset($_POST["fecha_hora"])? limpiarCadena($_POST["fecha_hora"]):"";
+$total=isset($_POST["total"])? limpiarCadena($_POST["total"]):"";
+$retiro=isset($_POST["retiro"])? limpiarCadena($_POST["retiro"]):"";
 
 switch ($_GET["op"]){
     case 'guardaryeditar':
@@ -18,6 +20,12 @@ switch ($_GET["op"]){
         }
     break;
 
+    case 'mostrar':
+        $rspta=$caja->mostrar($idcaja);
+        //Codificar el resultado utilizando json
+        echo json_encode($rspta);
+    break;
+
     case 'listar':
         $rspta=$caja->listar();
         //Vamos a declarar un array
@@ -25,7 +33,7 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>(($reg->estado=='Abierta')?'<button title="Mostrar caja" class="btn btn-danger" onclick="cerrarCaja('.$reg->idcaja.')"><i class="fa fa-check"></i></button>':'<span></span>'),
+                "0"=>(($reg->estado=='Abierta')?'<button title="Cerrar Caja" class="btn btn-danger" onclick="cerrarCaja('.$reg->idcaja.')"><i class="fa fa-check"></i></button>':'<span></span>'),
                 "1"=>$reg->fecha,
                 "2"=>$reg->inicio,
                 "3"=>$reg->ingreso,
@@ -58,5 +66,16 @@ switch ($_GET["op"]){
         }
         echo sizeof($data);
     break;
+
+    case 'listarCajaId':
+        $rspta=$caja->listarCajaId();
+        echo json_encode($rspta);
+    break;
+    
+    case 'retirarEfectivo':
+        $rspta=$caja->retirarEfectivo($idcaja,$retiro);
+        echo $rspta ? "Efectivo Retirado" : "No se pudo retirar Efectvo";
+    break;
+    
 }
 ?>

@@ -51,7 +51,9 @@ if (strlen(session_id()) < 1)
         <header class="main-header">
             <a href="escritorio.php"
                 class="logo">
-                <img class="logo-img" src="../public/img/medialuna.png" alt="medialuna"> ARMECA
+                <img class="logo-img"
+                    src="../public/img/medialuna.png"
+                    alt="medialuna"> ARMECA
             </a>
 
             <nav class="navbar navbar-static-top"
@@ -122,6 +124,24 @@ if (strlen(session_id()) < 1)
             </li>';
             }  
             ?>
+
+                    <?php
+            if ($_SESSION['caja']==1) 
+            {
+              echo '<li class="treeview">
+              <a href="#">
+              <i class="fa fa-sack-dollar"></i>
+                <span>Caja</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="caja.php"> Caja</a></li>
+                <li><a href="cajaretiro.php"> Retirar Efectivo</a></li>
+              </ul>
+            </li>';
+            }  
+            ?>
+
                     <?php
             if ($_SESSION['almacen']==1) 
             {
@@ -138,6 +158,7 @@ if (strlen(session_id()) < 1)
             </li>';
             }  
             ?>
+
                     <?php
             if ($_SESSION['compras']==1) 
             {
@@ -225,19 +246,18 @@ if (strlen(session_id()) < 1)
                 <li><a href="comprasfecha.php">Compras</a></li>
                 <li><a href="repartosfecha.php">Repartos</a></li>  
                 <li><a href="produccionesfecha.php">Producciones</a></li>
-                <li><a href="caja.php">Caja</a></li>       
               </ul>
             </li>';
             }  
             ?>
-                  <li>
-                    <a href="ayuda.html">
-                        <i class="fa fa-info-circle"></i> <span>Ayuda</span> 
-                    </a>
+                    <li>
+                        <a href="ayuda.html">
+                            <i class="fa fa-info-circle"></i> <span>Ayuda</span>
+                        </a>
                     </li>
                     <li>
                         <a href="developer.html">
-                          <i class="fa-solid fa-laptop-code"></i></i> <span>Desarrolladores</span>
+                            <i class="fa-solid fa-laptop-code"></i></i> <span>Desarrolladores</span>
                             <!-- <small id="mantovani" class="label pull-right">IT - Mantovani</small> -->
                         </a>
                     </li>

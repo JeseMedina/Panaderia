@@ -3,7 +3,7 @@
 ob_start();
 session_start();
  
-if (!isset($_SESSION["consulta"]))
+if (!isset($_SESSION["caja"]))
 {
   header("Location: login.html");
 }
@@ -11,7 +11,7 @@ else
 {
 require 'header.php';
  
-if ($_SESSION['consulta']==1)
+if ($_SESSION['caja']==1)
 {
 ?>
 
@@ -116,7 +116,7 @@ if ($_SESSION['consulta']==1)
 }
 else
 {
-    require 'noacceso.html';
+    header("Location: producto.php");
 }
 
 require 'footer.html';

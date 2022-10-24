@@ -75,7 +75,7 @@ function listarfinalizar() {
                 }
             },
             "bDestroy": true,
-            "iDisplayLength": 5,//Paginación
+            "iDisplayLength": 10,//Paginación
             "order": [[0, "desc"]]//Ordenar (columna,orden)
         }).DataTable();
 }

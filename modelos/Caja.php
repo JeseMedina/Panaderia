@@ -12,6 +12,11 @@ Class Caja{
         return ejecutarConsulta($sql);
     }
 
+    public function mostrar($idcaja){
+        $sql="SELECT idcaja,ingreso FROM caja WHERE idcaja='$idcaja'";
+        return ejecutarConsultaSimpleFila($sql);
+    }
+
     public function cerrarCaja($idcaja){
         $sql="UPDATE caja SET estado='Cerrada' WHERE idcaja='$idcaja'";
         return ejecutarConsulta($sql);
@@ -24,6 +29,16 @@ Class Caja{
 
     public function cajaAbierta(){
         $sql="SELECT idcaja FROM caja WHERE estado='Abierta'";
+        return ejecutarConsulta($sql);
+    }
+
+    public function listarCajaId(){
+        $sql = "SELECT * FROM caja WHERE estado='Abierta'";
+        return ejecutarConsultaSimpleFila($sql);
+    }
+
+    public function retirarEfectivo($idcaja,$retiro){
+        $sql="INSERT INTO caja_retiro (idcaja,retiro) VALUES ('$idcaja','$retiro')";
         return ejecutarConsulta($sql);
     }
 }
