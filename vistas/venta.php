@@ -30,12 +30,17 @@ if ($_SESSION['ventas']==1)
                     <div class="box-header with-border">
                         <h1 class="box-title">Venta</h1>
                         <div class="boton-agregar">
-                            <button title="Nueva Venta"
+                            <button data-toggle="tooltip" 
+                                title="Nueva Venta"
+                                data-placement="bottom"
                                 class="btn btn-success"
                                 id="btnagregar"
                                 onclick="mostrarform(true)">
-                                Agregar</button>
-                            <button title="Mostrar Listado de Ventas"
+                                Agregar
+                            </button>
+                            <button data-toggle="tooltip" 
+                                title="Ver Listado de Ventas"
+                                data-placement="bottom"
                                 class="btn btn-success"
                                 id="btnver"
                                 onclick="mostrarform(false)">
@@ -180,10 +185,13 @@ if ($_SESSION['ventas']==1)
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button title="Guardar Venta"
+                                <button data-toggle="tooltip" 
+                                    title="Guardar Venta"
+                                    data-placement="bottom"
                                     class="btn btn-primary"
                                     type="submit"
-                                    id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
+                                    id="btnGuardar">Guardar
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -206,11 +214,14 @@ if ($_SESSION['ventas']==1)
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button title="Seleccionar productos"
+                <button data-toggle="tooltip" 
+                    title="Cerrar Ventana"
+                    data-placement="bottom"
                     type="button"
                     class="close"
                     data-dismiss="modal"
-                    aria-hidden="true">&times;</button>
+                    aria-hidden="true">&times;
+                </button>
                 <h4 class="modal-title">Seleccione un Producto</h4>
             </div>
             <div class="modal-body">
@@ -238,10 +249,13 @@ if ($_SESSION['ventas']==1)
                 </table>
             </div>
             <div class="modal-footer">
-                <button title="Cerrar Ventana"
+                <button data-toggle="tooltip" 
+                    title="Cerrar Ventana"
+                    data-placement="bottom"
                     type="button"
                     class="btn btn-default"
-                    data-dismiss="modal">Cerrar</button>
+                    data-dismiss="modal">Cerrar
+                </button>
             </div>
         </div>
     </div>
