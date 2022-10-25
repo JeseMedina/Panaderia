@@ -91,9 +91,9 @@ switch ($_GET["op"]){
             }
             
             $data[]=array(
-                "0"=>(($reg->estado=='Aceptado')?'<button title="Mostrar Venta" class="btn btn-warning" onclick="mostrar('.$reg->idventa.')"><i class="fa fa-eye"></i></button>'.
-                    ' <button title="Anular Venta" class="btn btn-danger" onclick="anular('.$reg->idventa.')"><i class="fa fa-close"></i></button>':
-                    '<button title="Mostrar Venta" class="btn btn-warning" onclick="mostrar('.$reg->idventa.')"><i class="fa fa-eye"></i></button>'),
+                "0"=>(($reg->estado=='Aceptado')?'<button data-toggle="tooltip" data-placement="right" title="Mostrar Venta" class="btn btn-warning" onclick="mostrar('.$reg->idventa.')"><i class="fa fa-eye"></i></button>'.
+                    ' <button data-toggle="tooltip" data-placement="right" title="Anular Venta" class="btn btn-danger" onclick="anular('.$reg->idventa.')"><i class="fa fa-close"></i></button>':
+                    '<button data-toggle="tooltip" data-placement="right" title="Mostrar Venta" class="btn btn-warning" onclick="mostrar('.$reg->idventa.')"><i class="fa fa-eye"></i></button>'),
                 "1"=>$reg->fecha,
                 "2"=>$reg->cliente,
                 "3"=>$reg->usuario,

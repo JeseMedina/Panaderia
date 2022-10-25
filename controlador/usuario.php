@@ -77,10 +77,10 @@ switch ($_GET["op"]){
             }
 
             $data[]=array(
-                "0"=>($reg->condicion)?'<button title="Mostrar Usuario" class="btn btn-warning" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"></i></button>'.
-                    ' <button title="Desactivar Usuario" class="btn btn-danger" onclick="desactivar('.$reg->idusuario.')"><i class="fa fa-close"></i></button>':
-                    '<button title="Mostrar Usuario" class="btn btn-primary" title="Editar usuario disabled"><i class="fa fa-pencil"></i></button>'.
-                    ' <button title="Activar Usuario" class="btn btn-primary" onclick="activar('.$reg->idusuario.')"><i class="fa fa-check"></i></button>',
+                "0"=>($reg->condicion)?'<button data-toggle="tooltip" data-placement="right" title="Mostrar Usuario" class="btn btn-warning" onclick="mostrar('.$reg->idusuario.')"><i class="fa fa-pencil"></i></button>'.
+                    ' <button data-toggle="tooltip" data-placement="right" title="Desactivar Usuario" class="btn btn-danger" onclick="desactivar('.$reg->idusuario.')"><i class="fa fa-close"></i></button>':
+                    '<button data-toggle="tooltip" data-placement="right" title="No se puede editar Usuario" class="btn btn-primary" title="Editar usuario disabled"><i class="fa fa-pencil"></i></button>'.
+                    ' <button data-toggle="tooltip" data-placement="right" title="Activar Usuario" class="btn btn-primary" onclick="activar('.$reg->idusuario.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->num_documento,
                 "3"=>$reg->direccion,
