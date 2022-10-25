@@ -98,7 +98,7 @@ if ($_SESSION['caja']==1)
                                     id="btnCancelar"
                                     class="btn btn-danger"
                                     onclick="cancelarform()"
-                                    type="button"><i class="fa fa-arrow-circle-left"></i>
+                                    type="button">
                                     Cancelar</button>
                             </div>
                         </form>

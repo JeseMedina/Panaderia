@@ -75,7 +75,7 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button title="Mostrar Reparto" class="btn btn-warning" onclick="mostrar('.$reg->idreparto.')"><i class="fa fa-eye"></i></button>',
+                "0"=>'<button data-toggle="tooltip" data-placement="right" title="Mostrar Reparto" class="btn btn-warning" onclick="mostrar('.$reg->idreparto.')"><i class="fa fa-eye"></i></button>',
                 "1"=>$reg->idreparto,
                 "2"=>$reg->fecha,
                 "3"=>$reg->cliente,
@@ -101,7 +101,7 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button title="Finalizar Reparto" class="btn btn-danger" onclick="finalizar('.$reg->idreparto.')"><i class="fa fa-check"></i></button>',
+                "0"=>'<button data-toggle="tooltip" data-placement="right" title="Finalizar Reparto" class="btn btn-danger" onclick="finalizar('.$reg->idreparto.')"><i class="fa fa-check"></i></button>',
                 "1"=>$reg->idreparto,
                 "2"=>$reg->fecha,
                 "3"=>$reg->cliente,
@@ -158,7 +158,7 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>'<button title="Agregar Prodcuto" class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precio_venta.'\',\''.$reg->uMedida.'\')"><span class="fa fa-plus"></span></button>',
+                "0"=>'<button data-toggle="tooltip" data-placement="right" title="Agregar Producto" class="btn btn-warning" onclick="agregarDetalle('.$reg->idproducto.',\''.$reg->nombre.'\',\''.$reg->precio_venta.'\',\''.$reg->uMedida.'\')"><span class="fa fa-plus"></span></button>',
                 "1"=>$reg->nombre,
                 "2"=>$reg->stock,
                 "3"=>$reg->uMedida,

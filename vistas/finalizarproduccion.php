@@ -28,7 +28,7 @@ if ($_SESSION['produccion']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Finalizar Produccion</h1>
+                        <h1 class="box-title">Finalizar Producción</h1>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
@@ -100,28 +100,28 @@ if ($_SESSION['produccion']==1)
                                     required="">
                             </div>
                             <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-8">
-                                <label>Cantidad Producida:</label>
+                                <label>Cantidad Producida(*):</label>
                                 <input type="text"
                                     class="form-control"
                                     name="cantidadproducida"
                                     id="cantidadproducida">
                             </div>
                             <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                <label>U Medida:</label>
+                                <label>U. Medida(*):</label>
                                 <input type=""
                                     class="form-control"
                                     name="umedida"
                                     id="umedida">
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Precio Mayorista:</label>
+                                <label>Precio Mayorista(*):</label>
                                 <input type="number"
                                     class="form-control"
                                     name="preciomayorista"
                                     id="preciomayorista">
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Precio MInorista:</label>
+                                <label>Precio Minorista(*):</label>
                                 <input type="number"
                                     class="form-control"
                                     name="preciominorista"
@@ -142,17 +142,23 @@ if ($_SESSION['produccion']==1)
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button title="Guardar Produccion"
+                                <button data-toggle="tooltip" 
+                                    title="Guardar Producción"
+                                    data-placement="bottom"
                                     class="btn btn-primary"
                                     type="submit"
-                                    id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
+                                    id="btnGuardar">Guardar
+                                </button>
 
-                                <button title="Cancelar y Volver Atras"
+                                <button data-toggle="tooltip" 
+                                    title="Cancelar y Volver Atrás"
+                                    data-placement="bottom"
                                     id="btnCancelar"
                                     class="btn btn-danger"
                                     onclick="cancelarform()"
-                                    type="button"><i class="fa fa-arrow-circle-left"></i>
-                                    Cancelar</button>
+                                    type="button">
+                                    Cancelar
+                                </button>
                             </div>
                         </form>
                     </div>

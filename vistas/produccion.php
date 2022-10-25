@@ -28,11 +28,17 @@ if ($_SESSION['produccion']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Producciones <button title="Nueva Produccion"
+                        <h1 class="box-title">Producciones</h1> 
+                        <div class="boton-agregar">
+                            <button data-toggle="tooltip"
+                                data-placement="bottom"
+                                title="Nueva Producción"
                                 class="btn btn-success"
                                 id="btnagregar"
-                                onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
-                                Agregar</button></h1>
+                                onclick="mostrarform(true)">
+                                Agregar
+                            </button>
+                        </div>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
@@ -108,28 +114,28 @@ if ($_SESSION['produccion']==1)
                             <div id="divmostrar"
                                 class="divmostrar">
                                 <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-8">
-                                    <label>Cantidad Producida:</label>
+                                    <label>Cantidad Producida(*):</label>
                                     <input type="text"
                                         class="form-control"
                                         name="cantidadproducida"
                                         id="cantidadproducida">
                                 </div>
                                 <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                    <label>U Medida:</label>
+                                    <label>U. Medida(*):</label>
                                     <input type=""
                                         class="form-control"
                                         name="umedida"
                                         id="umedida">
                                 </div>
                                 <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <label>Precio Mayorista:</label>
+                                    <label>Precio Mayorista(*):</label>
                                     <input type="number"
                                         class="form-control"
                                         name="preciomayorista"
                                         id="preciomayorista">
                                 </div>
                                 <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <label>Precio MInorista:</label>
+                                    <label>Precio Minorista(*):</label>
                                     <input type="number"
                                         class="form-control"
                                         name="preciominorista"
@@ -139,11 +145,14 @@ if ($_SESSION['produccion']==1)
                             <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12 pt-3">
                                 <a data-toggle="modal"
                                     href="#myModal">
-                                    <button title="Agregar Materia Prima"
+                                    <button data-toggle="tooltip"
+                                        data-placement="bottom"
+                                        title="Agregar Materia Prima"
                                         id="btnAgregarArt"
                                         type="button"
-                                        class="btn btn-primary"> <span class="fa fa-plus"></span>
-                                        Agregar Productos</button>
+                                        class="btn btn-primary">
+                                        Agregar Productos
+                                    </button>
                                 </a>
                             </div>
 
@@ -163,17 +172,23 @@ if ($_SESSION['produccion']==1)
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button title="Guardar Produccion"
+                                <button data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    title="Guardar Producción"
                                     class="btn btn-primary"
                                     type="submit"
-                                    id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
+                                    id="btnGuardar">Guardar
+                                </button>
 
-                                <button title="Cancelar y Volver Atras"
+                                <button data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    title="Cancelar y volver atrás"
                                     id="btnCancelar"
                                     class="btn btn-danger"
                                     onclick="cancelarform()"
-                                    type="button"><i class="fa fa-arrow-circle-left"></i>
-                                    Cancelar</button>
+                                    type="button">
+                                    Cancelar
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -196,11 +211,14 @@ if ($_SESSION['produccion']==1)
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button title="Seleccionar Productos"
+                <button data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Cerrar Ventana"
                     type="button"
                     class="close"
                     data-dismiss="modal"
-                    aria-hidden="true">&times;</button>
+                    aria-hidden="true">&times;
+                </button>
                 <h4 class="modal-title">Seleccione un Producto</h4>
             </div>
             <div class="modal-body">
@@ -224,10 +242,13 @@ if ($_SESSION['produccion']==1)
                 </table>
             </div>
             <div class="modal-footer">
-                <button title="Cerrrar Ventana"
+                <button data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Cerrar Ventana"
                     type="button"
                     class="btn btn-default"
-                    data-dismiss="modal">Cerrar</button>
+                    data-dismiss="modal">Cerrar
+                </button>
             </div>
         </div>
     </div>

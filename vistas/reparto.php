@@ -28,12 +28,17 @@ if ($_SESSION['reparto']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Reparto <button title="Nuevo Reparto"
+                        <h1 class="box-title">Reparto</h1>
+                        <div class="boton-agregar">
+                            <button data-toggle="tooltip"
+                                data-placement="bottom"
+                                title="Agregar Repartos"
                                 class="btn btn-success"
                                 id="btnagregar"
-                                onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
-                                Agregar</button>
-                        </h1>
+                                onclick="mostrarform(true)">
+                                Agregar
+                            </button>
+                        </div>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
@@ -105,11 +110,14 @@ if ($_SESSION['reparto']==1)
                             <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12 pt-3">
                                 <a data-toggle="modal"
                                     href="#myModal">
-                                    <button title="Agregar Productos"
+                                    <button data-toggle="tooltip"
+                                        data-placement="bottom"
+                                        title="Agregar Productos"
                                         id="btnAgregarArt"
                                         type="button"
-                                        class="btn btn-primary"> <span class="fa fa-plus"></span>
-                                        Agregar Productos</button>
+                                        class="btn btn-primary"> 
+                                        Agregar Productos
+                                    </button>
                                 </a>
                             </div>
 
@@ -145,17 +153,23 @@ if ($_SESSION['reparto']==1)
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button title="Guardar Reparto"
+                                <button data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    title="Guardar Reparto"
                                     class="btn btn-primary"
                                     type="submit"
-                                    id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
+                                    id="btnGuardar"> Guardar
+                                </button>
 
-                                <button title="Cancelar y Volver Atras"
+                                <button data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    title="Cancelar y volver atrás"
                                     id="btnCancelar"
                                     class="btn btn-danger"
                                     onclick="cancelarform()"
-                                    type="button"><i class="fa fa-arrow-circle-left"></i>
-                                    Cancelar</button>
+                                    type="button">
+                                    Cancelar
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -178,7 +192,9 @@ if ($_SESSION['reparto']==1)
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button title="Seleccionar productos"
+                <button data-toggle="tooltip"
+                        data-placement="bottom"
+                        title="Cerrar Ventana"
                     type="button"
                     class="close"
                     data-dismiss="modal"
@@ -208,10 +224,13 @@ if ($_SESSION['reparto']==1)
                 </table>
             </div>
             <div class="modal-footer">
-                <button title="Cerrar Ventana"
+                <button data-toggle="tooltip"
+                        data-placement="bottom"
+                        title="Cerrar Ventana"
                     type="button"
                     class="btn btn-default"
-                    data-dismiss="modal">Cerrar</button>
+                    data-dismiss="modal">Cerrar
+                </button>
             </div>
         </div>
     </div>
