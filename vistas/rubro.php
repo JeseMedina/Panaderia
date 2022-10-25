@@ -25,11 +25,15 @@ if ($_SESSION['almacen']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Rubros <button title="Nuevo Rubro"
-                                class="btn btn-success"
-                                id="btnagregar"
-                                onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
-                                Agregar</button></h1>
+                        <h1 class="box-title">Rubros</h1> 
+                        <div class="boton-agregar">
+                            <button title="Nuevo Rubro"
+                                    class="btn btn-success"
+                                    id="btnagregar"
+                                    onclick="mostrarform(true)">
+                                    Agregar
+                            </button>
+                        </div>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
@@ -82,16 +86,22 @@ if ($_SESSION['almacen']==1)
                                     placeholder="Descripción">
                             </div>
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button title="Guardar Rubro"
-                                    class="btn btn-primary"
+                                <button data-toggle="tooltip" 
+                                    title="Guardar Rubro"
+                                    data-placement="bottom"
+                                    class="btn btn-primary guardar"
                                     type="submit"
-                                    id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
+                                    id="btnGuardar"> Guardar
+                                </button>
 
-                                <button title="Cancelar y Volver Atras"
-                                    class="btn btn-danger"
+                                <button data-toggle="tooltip" 
+                                    title="Cancelar y volver atrás"
+                                    data-placement="bottom"
+                                    class="btn btn-danger cancelar"
                                     onclick="cancelarform()"
-                                    type="button"><i class="fa fa-arrow-circle-left"></i>
-                                    Cancelar</button>
+                                    type="button">
+                                    Cancelar
+                                </button>
                             </div>
                         </form>
                     </div>

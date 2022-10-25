@@ -79,7 +79,7 @@ if ($_SESSION['almacen']==1)
                                     name="nombre"
                                     id="nombre"
                                     maxlength="100"
-                                    placeholder="Nombre"
+                                    placeholder="Nombre del producto"
                                     required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -96,6 +96,7 @@ if ($_SESSION['almacen']==1)
                                     class="form-control"
                                     name="stock"
                                     id="stock"
+                                    placeholder="Stock del producto"
                                     required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -118,28 +119,43 @@ if ($_SESSION['almacen']==1)
                                     name="codigo"
                                     id="codigo"
                                     placeholder="Código Barras">
-                                <button title="Generar Codigo De Barra"
-                                    class="btn btn-success"
-                                    type="button"
-                                    onclick="generarbarcode()">Generar</button>
-                                <button title="Imprimir Codigo De Barra"
-                                    class="btn btn-info"
-                                    type="button"
-                                    onclick="imprimir()">Imprimir</button>
+                                <div class="btn-generar-imprimir">
+                                    <button
+                                        class="btn btn-success"
+                                        type="button"
+                                        onclick="generarbarcode()" 
+                                        data-toggle="tooltip" 
+                                        title="Generar código de barra"
+                                        data-placement="bottom">Generar
+                                    </button>
+                                    <button
+                                        class="btn btn-info"
+                                        type="button"
+                                        onclick="imprimir()"
+                                        data-toggle="tooltip" 
+                                        title="Imprimir código de barra"
+                                        data-placement="bottom">Imprimir
+                                    </button>
+                                </div>
                                 <div id="print">
                                     <svg id="barcode"></svg>
                                 </div>
                             </div>
-                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button title="Guardar Producto"
-                                    class="btn btn-primary"
+                            <div class="form-group botones col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <button data-toggle="tooltip" 
+                                    title="Guardar Producto"
+                                    data-placement="bottom"
+                                    class="btn btn-primary guardar"
                                     type="submit"
-                                    id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
-                                <button title="Cancelar y Volver Atras"
-                                    class="btn btn-danger"
+                                    id="btnGuardar">Guardar
+                                </button>
+                                <button data-toggle="tooltip" 
+                                    title="Cancelar y volver atrás"
+                                    data-placement="bottom"
+                                    class="btn btn-danger cancelar"
                                     onclick="cancelarform()"
-                                    type="button"><i class="fa fa-arrow-circle-left"></i>
-                                    Cancelar</button>
+                                    type="button">Cancelar
+                                </button>
                             </div>
                         </form>
                     </div>

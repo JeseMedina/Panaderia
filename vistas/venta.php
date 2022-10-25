@@ -28,18 +28,20 @@ if ($_SESSION['ventas']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Venta
+                        <h1 class="box-title">Venta</h1>
+                        <div class="boton-agregar">
                             <button title="Nueva Venta"
                                 class="btn btn-success"
                                 id="btnagregar"
-                                onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
+                                onclick="mostrarform(true)">
                                 Agregar</button>
                             <button title="Mostrar Listado de Ventas"
                                 class="btn btn-success"
                                 id="btnver"
-                                onclick="mostrarform(false)"><i class="fa fa-list"></i>
-                                Ver Ventas</button>
-                        </h1>
+                                onclick="mostrarform(false)">
+                                Ver Ventas
+                            </button>
+                        </div>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
@@ -137,11 +139,12 @@ if ($_SESSION['ventas']==1)
                             <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a data-toggle="modal"
                                     href="#myModal">
-                                    <button title="Agregar Productos"
+                                    <button
                                         id="btnAgregarArt"
                                         type="button"
-                                        class="btn btn-primary"> <span class="fa fa-plus"></span>
-                                        Agregar Productos</button>
+                                        class="btn btn-primary"> 
+                                        Agregar Productos
+                                    </button>
                                 </a>
                             </div>
 
