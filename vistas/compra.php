@@ -28,13 +28,18 @@ if ($_SESSION['compras']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Compras
-                            <button title="Nueva Compra"
+                        <h1 class="box-title">Compras</h1>
+                        <div class="boton-agregar">
+                            <button
+                                data-toggle="tooltip"
+                                data-placement="bottom"
+                                title="Agregar Compras"
                                 class="btn btn-success"
                                 id="btnagregar"
-                                onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
-                                Agregar</button>
-                        </h1>
+                                onclick="mostrarform(true)">
+                                Agregar
+                            </button>
+                        </div>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
@@ -134,11 +139,12 @@ if ($_SESSION['compras']==1)
                             <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a data-toggle="modal"
                                     href="#myModal">
-                                    <button title="Agregar Productos"
+                                    <button
                                         id="btnAgregarArt"
                                         type="button"
-                                        class="btn btn-primary"> <span class="fa fa-plus"></span>
-                                        Agregar productos</button>
+                                        class="btn btn-primary">
+                                        Agregar productos
+                                    </button>
                                 </a>
                             </div>
 
@@ -174,17 +180,25 @@ if ($_SESSION['compras']==1)
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button title="Guardar Compra"
+                                <button
+                                    data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    title="Guardar Compra"
                                     class="btn btn-primary"
                                     type="submit"
-                                    id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
+                                    id="btnGuardar">Guardar
+                                </button>
 
-                                <button title="Cancelar y Volver Atras"
+                                <button
+                                    data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    title="Cancelar y volver atrás"
                                     id="btnCancelar"
                                     class="btn btn-danger"
                                     onclick="cancelarform()"
-                                    type="button"><i class="fa fa-arrow-circle-left"></i>
-                                    Cancelar</button>
+                                    type="button">
+                                    Cancelar
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -211,7 +225,8 @@ if ($_SESSION['compras']==1)
                     type="button"
                     class="close"
                     data-dismiss="modal"
-                    aria-hidden="true">&times;</button>
+                    aria-hidden="true">&times;
+                </button>
                 <h4 class="modal-title">Seleccione un Producto</h4>
             </div>
             <div class="modal-body">
