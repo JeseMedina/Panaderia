@@ -99,7 +99,7 @@ html{
 }
 
 .box-title{
-    font-size: 1.8em;
+    font-size: 1.8em !important;
     width: 20%;
 }
 
@@ -131,6 +131,47 @@ html{
 
 .btn-danger {
     margin-left: 5px;
+}
+
+.guardar{
+    margin-right: 12px;
+    margin-top: 16px;
+    width: 143px;
+    height: 35px;
+    padding: 0;
+    color: var(--cream);
+    background-color: var(--dark-green) !important;
+    border-color: var(--dark-green) !important;
+    font-size: 1.3em;
+}
+
+.guardar:hover, .guardar:active, .guardar.hover{
+    color: var(--cream) !important;
+    background-color: var(--dark-moss) !important;
+    border-color: var(--dark-moss) !important;
+    font-weight: bold;
+}
+
+.cancelar{
+    margin-top: 16px;
+    width: 143px;
+    height: 35px;
+    padding: 0;
+    color: var(--cream);
+    font-size: 1.3em;
+}
+
+/* Caja para botones guardar y cancelar */
+.botones{
+    display: flex;
+    justify-content: end;
+}
+
+.cancelar:hover, .cancelar:active, .cancelar.hover{
+    color: var(--cream) !important;
+    background-color: var(--red) !important;
+    border-color: var(--red) !important;
+    font-weight: bold;
 }
 
 .btn-primary:hover, .btn-primary:active, .btn-primary.hover {
@@ -208,6 +249,8 @@ html{
 }
 
 .btn-success {
+    margin-right: 12px;
+    margin-top: 16px;
     width: 143px;
     height: 35px;
     padding: 0;
@@ -242,9 +285,13 @@ html{
 }
 
 .btn-info {
+    margin-top: 16px;
+    font-size: 1.3em;
+    width: 143px;
+    height: 35px;
+    padding: 0;
     background-color: var(--dark-moss);
     border-color: var(--dark-moss);
-    font-size: .7em;
 }
 
 .btn-info:hover {
@@ -295,13 +342,54 @@ a.dt-button:hover:not(.disabled){
 }
 
 label {
+    font-size: 1.45em;
     color: var(--dark-green);
 
 }
 .content {
     background: var(--crem);
 }
-/* colores de la tabla */
+
+.btn-info:hover, .btn-info:active, .btn-info.hover {
+    color: var(--light-green);
+    background-color: var(--dark-green);
+    border-color: var(--light-green);
+    font-weight: bold;
+}
+
+.btn-info.active.focus, 
+.btn-info.active:focus, 
+.btn-info.active:hover, 
+.btn-info:active.focus, 
+.btn-info:active:focus, 
+.btn-info:active:hover, 
+.open>.dropdown-toggle.btn-info.focus, 
+.open>.dropdown-toggle.btn-info:focus, 
+.open>.dropdown-toggle.btn-info:hover {
+    color: var(--light-green);
+    background-color: var(--dark-green);
+    border-color: var(--light-green);
+    font-weight: bold;
+}
+
+/* Boton agregar producto */
+#btnAgregarArt{
+    margin-top: 16px;
+    font-size: 1.3em;
+    width: 169px;
+    height: 35px;
+    padding: 0;
+    background-color: var(--dark-moss);
+    border-color: var(--dark-moss);
+}
+
+#btnAgregarArt{
+    color: var(--light-green);
+    background-color: var(--dark-green);
+    border-color: var(--light-green);
+    font-weight: bold;
+}
+/* Colores de la tabla */
 .panel-body {
     background: var(--cream);
     padding: 15px 0px;
@@ -442,7 +530,12 @@ tfoot{
     background-color: var(--moss) !important;
 }
 
-
 h1 .bg-red{
     background-color: #ff0000 !important;
+}
+
+/* Botonoes del formulario */
+.btn-generar-imprimir{
+    display: flex;
+    justify-content: end;
 }
