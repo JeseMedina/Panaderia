@@ -45,10 +45,10 @@ switch ($_GET["op"]){
 
  		while ($reg=$rspta->fetch_object()){
  			$data[]=array(
- 				"0"=>($reg->condicion)?'<button title="Mostrar Rubro" class="btn btn-warning" onclick="mostrar('.$reg->idrubro.')"><i class="fa fa-pencil"></i></button>'.
- 					' <button title="Desactivar Rubro" class="btn btn-danger" onclick="desactivar('.$reg->idrubro.')"><i class="fa fa-close"></i></button>':
- 					'<button title="Mostrar Rubro" class="btn btn-primary" onclick="mostrar('.$reg->idrubro.')"><i class="fa fa-pencil"></i></button>'.
- 					' <button title="Activar Rubro" class="btn btn-primary" onclick="activar('.$reg->idrubro.')"><i class="fa fa-check"></i></button>',
+ 				"0"=>($reg->condicion)?'<button data-toggle="tooltip" data-placement="right" title="Mostrar Rubro" class="btn btn-warning" onclick="mostrar('.$reg->idrubro.')"><i class="fa fa-pencil"></i></button>'.
+ 					' <button data-toggle="tooltip" data-placement="right" title="Desactivar Rubro" class="btn btn-danger" onclick="desactivar('.$reg->idrubro.')"><i class="fa fa-close"></i></button>':
+ 					'<button data-toggle="tooltip" data-placement="right" title="No se puede editar Rubro" class="btn btn-primary" onclick="mostrar('.$reg->idrubro.')"><i class="fa fa-pencil"></i></button>'.
+ 					' <button data-toggle="tooltip" data-placement="right" title="Activar Rubro" class="btn btn-primary" onclick="activar('.$reg->idrubro.')"><i class="fa fa-check"></i></button>',
  				"1"=>$reg->nombre,
  				"2"=>$reg->descripcion,
  				"3"=>($reg->condicion)?'<span class="label bg-green">Activado</span>':
