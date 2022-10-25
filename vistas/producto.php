@@ -27,11 +27,11 @@ if ($_SESSION['almacen']==1)
                     <div class="box-header with-border">
                         <h1 class="box-title">Productos</h1>
                             <div class="boton-agregar">
-                                <button title="Nuevo Producto"
+                                <button 
                                     class="btn btn-success"
                                     data-toggle="tooltip"
                                     data-placement="bottom"
-                                    title="Agregar productos"
+                                    title="Agregar Productos"
                                     id="btnagregar"
                                     onclick="mostrarform(true)">
                                     Agregar
