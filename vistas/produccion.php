@@ -171,11 +171,11 @@ if ($_SESSION['produccion']==1)
                                 </table>
                             </div>
 
-                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group botones col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <button data-toggle="tooltip"
                                     data-placement="bottom"
                                     title="Guardar Producción"
-                                    class="btn btn-primary"
+                                    class="btn btn-primary guardar"
                                     type="submit"
                                     id="btnGuardar">Guardar
                                 </button>
@@ -184,7 +184,7 @@ if ($_SESSION['produccion']==1)
                                     data-placement="bottom"
                                     title="Cancelar y volver atrás"
                                     id="btnCancelar"
-                                    class="btn btn-danger"
+                                    class="btn btn-danger cancelar"
                                     onclick="cancelarform()"
                                     type="button">
                                     Cancelar

@@ -176,7 +176,7 @@ if ($_SESSION['personas']==1)
                                     height="120px"
                                     id="imagenmuestra">
                             </div>
-                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group botones col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <button data-toggle="tooltip" 
                                     title="Guardar Usuario"
                                     data-placement="bottom" 
