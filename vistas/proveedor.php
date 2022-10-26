@@ -27,11 +27,17 @@ if ($_SESSION['personas']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Proveedor <button title="Nuevo Proveedor"
+                        <h1 class="box-title">Proveedor</h1>
+                        <div class="boton-agregar"> 
+                            <button data-toggle="tooltip"
+                                data-placement="bottom"
+                                title="Agregar Proveedor"
                                 class="btn btn-success"
                                 id="btnagregar"
-                                onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
-                                Agregar</button></h1>
+                                onclick="mostrarform(true)">
+                                Agregar
+                            </button>
+                        </div>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
@@ -89,7 +95,7 @@ if ($_SESSION['personas']==1)
                                     required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Número Documento:</label>
+                                <label>DNI:</label>
                                 <input type="text"
                                     class="form-control"
                                     name="num_documento"
@@ -156,16 +162,22 @@ if ($_SESSION['personas']==1)
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button title="Guardar Proveedor"
+                                <button data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    title="Guardar Proveedor"
                                     class="btn btn-primary"
                                     type="submit"
-                                    id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
+                                    id="btnGuardar">Guardar
+                                </button>
 
-                                <button title="Cancelar y Volver Atras"
+                                <button data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    title="Cancelar y volver atrás"
                                     class="btn btn-danger"
                                     onclick="cancelarform()"
-                                    type="button"><i class="fa fa-arrow-circle-left"></i>
-                                    Cancelar</button>
+                                    type="button">
+                                    Cancelar
+                                </button>
                             </div>
                         </form>
                     </div>

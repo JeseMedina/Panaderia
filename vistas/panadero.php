@@ -27,11 +27,17 @@ if ($_SESSION['personas']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Panadero <button title="Nuevo Panadero"
+                        <h1 class="box-title">Panadero</h1>
+                        <div class="boton-agregar"> 
+                            <button data-toggle="tooltip"
+                                data-placement="bottom"
+                                title="Agregar Panadero"
                                 class="btn btn-success"
                                 id="btnagregar"
-                                onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
-                                Agregar</button></h1>
+                                onclick="mostrarform(true)">
+                                Agregar
+                            </button>
+                        </div>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
@@ -70,7 +76,7 @@ if ($_SESSION['personas']==1)
                             id="formulario"
                             method="POST">
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Nombre:</label>
+                                <label>Nombre (*):</label>
                                 <input type="hidden"
                                     name="idpersona"
                                     id="idpersona">
@@ -87,7 +93,7 @@ if ($_SESSION['personas']==1)
                                     required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Número Documento:</label>
+                                <label>DNI (*):</label>
                                 <input type="text"
                                     class="form-control"
                                     name="num_documento"
@@ -96,7 +102,7 @@ if ($_SESSION['personas']==1)
                                     placeholder="Documento">
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Provincia:</label>
+                                <label>Provincia (*):</label>
                                 <select class="form-control select-picker"
                                     id="provincia"
                                     name="provincia">
@@ -126,7 +132,7 @@ if ($_SESSION['personas']==1)
                                 </select>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Dirección:</label>
+                                <label>Dirección (*):</label>
                                 <input type="text"
                                     class="form-control"
                                     name="direccion"
@@ -135,7 +141,7 @@ if ($_SESSION['personas']==1)
                                     placeholder="Dirección">
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Teléfono:</label>
+                                <label>Teléfono (*):</label>
                                 <input type="text"
                                     class="form-control"
                                     name="telefono"
@@ -154,16 +160,22 @@ if ($_SESSION['personas']==1)
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button title="Guardar Panadero"
+                                <button data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    title="Guardar Panadero"
                                     class="btn btn-primary"
                                     type="submit"
-                                    id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
+                                    id="btnGuardar">Guardar
+                                </button>
 
-                                <button title="Cancelar y Volver Atras"
+                                <button data-toggle="tooltip"
+                                    data-placement="bottom"
+                                    title="Cancelar y volver atrás"
                                     class="btn btn-danger"
                                     onclick="cancelarform()"
-                                    type="button"><i class="fa fa-arrow-circle-left"></i>
-                                    Cancelar</button>
+                                    type="button">
+                                    Cancelar
+                                </button>
                             </div>
                         </form>
                     </div>
