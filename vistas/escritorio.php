@@ -25,13 +25,22 @@ if ($_SESSION['escritorio']==1)
   }
 
   $rsptav = $consulta->totalventahoy();
-  
-  if ($rsptac){
+  if ($rsptav){
     $regv = $rsptav->fetch_object();
     $totalv = $regv->total_venta;
   } else{
     $totalv = 0;
   }
+
+  $rsptaca = $consulta->totalcajahoy();
+  if ($rsptaca){
+    $regca = $rsptaca->fetch_object();
+    $totalca = $regca->total_caja;
+  } else{
+    $totalca = 0;
+  }
+  
+
   //Datos para mostrar el gráfico de barras de las compras
   $compras10 = $consulta->comprasultimos_10dias();
   $fechasc='';
@@ -59,6 +68,19 @@ if ($_SESSION['escritorio']==1)
   //Quitamos la última coma
   $fechasv=substr($fechasv, 0, -1);
   $totalesv=substr($totalesv, 0, -1);
+
+  $caja10 = $consulta->cajaultimos_10dias();
+  $fechasca='';
+  $totalesca='';
+  if ($caja10){
+    while ($regfechaca= $caja10->fetch_object()) {
+      $fechasca=$fechasca.'"'.$regfechaca->fecha .'",';
+      $totalesca=$totalesca.$regfechaca->total .','; 
+    } 
+  }
+  //Quitamos la última coma
+  $fechasca=substr($fechasca, 0, -1);
+  $totalesca=substr($totalesca, 0, -1);
 ?>
 <!--Contenido-->
 
@@ -68,6 +90,7 @@ if ($_SESSION['escritorio']==1)
         href="../public/css/escritorio.css">
 </head>
 <!-- Content Wrapper. Contains page content -->
+
 <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
@@ -87,7 +110,7 @@ if ($_SESSION['escritorio']==1)
                                     <div class="inner">
                                         <h4 stille="font-size:17px;">
                                             <strong>
-                                                $ <?php echo $totalc; ?>
+                                                $ <?php echo $totalca; ?>
                                             </strong>
                                         </h4>
                                         <p>Caja</p>
@@ -145,7 +168,7 @@ if ($_SESSION['escritorio']==1)
                         <div class="row">
                             <div class="col-md-4 col-xs-12">
                                 <div class="box-header with-border">
-                                    Caja
+                                    Caja de los ultimos 10 días
                                 </div>
                                 <div class="box-body">
                                     <canvas id="caja"></canvas>
@@ -192,10 +215,10 @@ var ctx = document.getElementById("caja").getContext('2d');
 var caja = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: [<?php echo $fechasc; ?>],
+        labels: [<?php echo $fechasca; ?>],
         datasets: [{
-            label: '# Caja en S/ de los últimos 10 días',
-            data: [<?php echo $totalesc; ?>],
+            label: '# Caja en $ de los últimos 10 días',
+            data: [<?php echo $totalesca; ?>],
             backgroundColor: [
                 'rgba(6, 57, 64, 0.2)',
                 'rgba(142, 189, 182, 0.2)',
@@ -240,7 +263,7 @@ var compras = new Chart(ctx, {
     data: {
         labels: [<?php echo $fechasc; ?>],
         datasets: [{
-            label: '# Compras en S/ de los últimos 10 días',
+            label: '# Compras en $ de los últimos 10 días',
             data: [<?php echo $totalesc; ?>],
             backgroundColor: [
                 'rgba(6, 57, 64, 0.2)',
@@ -288,7 +311,7 @@ var ventas = new Chart(ctx, {
     data: {
         labels: [<?php echo $fechasv; ?>],
         datasets: [{
-            label: '# Ventas en S/ de los últimos 12 meses',
+            label: '# Ventas en $ de los últimos 12 meses',
             data: [<?php echo $totalesv; ?>],
             backgroundColor: [
                 'rgba(6, 57, 64, 0.2)',

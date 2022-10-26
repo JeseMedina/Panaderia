@@ -221,7 +221,7 @@ function agregarDetalle(idproducto, producto, precio_venta, uMedida) {
         var fila = '<tr class="filas" id="fila' + cont + '">' +
             '<td><button title="Eliminar Detalle" type="button" class="btn btn-danger" onclick="eliminarDetalle(' + cont + ')">X</button></td>' +
             '<td><input type="hidden" name="idproducto[]" value="' + idproducto + '">' + producto + '</td>' +
-            '<td><input type="number" name="cantidad[]" id="cantidad[]" onchange="modificarSubototales()" onkeyup="modificarSubototales()" value="' + cantidad + '"></td>' +
+            '<td><input type="number" name="cantidad[]" step=".01" id="cantidad[]" onchange="modificarSubototales()" onkeyup="modificarSubototales()" value="' + cantidad + '"></td>' +
             '<td>' + uMedida + '</td>' +
             '<td><input type="number" name="precio_venta[]" id="precio_venta[]" onchange="modificarSubototales()" onkeyup="modificarSubototales()" value="' + precio_venta + '"></td>' +
             '<td><input type="number" name="descuento[]" onchange="modificarSubototales()" onkeyup="modificarSubototales()" value="' + descuento + '"></td>' +

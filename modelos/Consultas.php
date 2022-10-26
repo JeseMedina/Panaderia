@@ -45,6 +45,11 @@ Class Consultas
 		$sql="SELECT IFNULL(SUM(total_venta),0) AS total_venta FROM venta WHERE DATE(fecha_hora)=curdate()";
 		return ejecutarConsulta($sql);
 	}
+	public function totalcajahoy()
+	{
+		$sql="SELECT IFNULL(SUM(total),0) AS total_caja FROM caja WHERE DATE(fecha_hora)=curdate()";
+		return ejecutarConsulta($sql);
+	}
 	public function comprasultimos_10dias()
     {
         $sql="SELECT CONCAT(DAY(fecha_hora),'-',MONTH(fecha_hora)) as fecha,SUM(total_compra) as total FROM compra GROUP by fecha_hora ORDER BY fecha_hora DESC limit 0,10";
@@ -56,6 +61,11 @@ Class Consultas
         $sql="SELECT DATE_FORMAT(fecha_hora,'%M') as fecha,SUM(total_venta) as total FROM venta GROUP by MONTH(fecha_hora) ORDER BY fecha_hora DESC limit 0,10";
         return ejecutarConsulta($sql);
     }
+	public function cajaultimos_10dias()
+	{
+		$sql="SELECT CONCAT(DAY(fecha_hora),'-',MONTH(fecha_hora)) as fecha,SUM(total) as total FROM caja GROUP by fecha_hora ORDER BY fecha_hora DESC limit 0,10";
+        return ejecutarConsulta($sql);
+	}
 }
 
 ?>
