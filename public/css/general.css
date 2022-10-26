@@ -13,6 +13,29 @@
 body{
     background-color: #ecf0f5;
 }
+
+/* Caja de formulario */
+.box{
+    box-shadow: none !important;
+}
+
+#print{
+    margin-top: 15px;
+    background-color: var(--light-green);
+    height: 110px;
+    width: 222px;
+}
+
+/* Contenedor Código Barra */
+.contenedor_codigo_barra{
+    display: flex;
+    justify-content: space-between;
+}
+
+#barcode{
+    height: 110px !important;
+}
+
 /* Menu y body */
 .skin-blue-light .wrapper, 
 .skin-blue-light .main-sidebar, 
@@ -250,7 +273,7 @@ html{
 
 .btn-success {
     margin-right: 12px;
-    margin-top: 16px;
+    /* margin-top: 16px; */
     width: 143px;
     height: 35px;
     padding: 0;
@@ -342,7 +365,7 @@ a.dt-button:hover:not(.disabled){
 }
 
 label {
-    font-size: 1.45em;
+    font-size: 1.1em;
     color: var(--dark-green);
 
 }
@@ -388,6 +411,13 @@ label {
     background-color: var(--dark-green);
     border-color: var(--light-green);
     font-weight: bold;
+}
+
+/* Estilos para código de barra */
+.btn-generar-imprimir{
+    display: flex;
+    justify-content: end;
+    align-items: baseline;
 }
 /* Colores de la tabla */
 .panel-body {

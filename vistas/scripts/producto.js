@@ -26,7 +26,7 @@ function limpiar()
     $("#nombre").val("");
     $("#uMedida").val("");
     $("#stock").val("");
-    $("#print").hide();
+    //$("#print").hide();
 }
  
 //Función mostrar formulario
@@ -160,7 +160,7 @@ function generarbarcode()
 {
     codigo=$("#codigo").val();
     JsBarcode("#barcode", codigo);
-    $("#print").show();
+    //$("#print").show();
 }
  
 //Función para imprimir el Código de barras

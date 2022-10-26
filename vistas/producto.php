@@ -118,27 +118,30 @@ if ($_SESSION['almacen']==1)
                                     class="form-control"
                                     name="codigo"
                                     id="codigo"
-                                    placeholder="Código Barras">
-                                <div class="btn-generar-imprimir">
-                                    <button
-                                        class="btn btn-success"
-                                        type="button"
-                                        onclick="generarbarcode()" 
-                                        data-toggle="tooltip" 
-                                        title="Generar código de barra"
-                                        data-placement="bottom">Generar
-                                    </button>
-                                    <button
-                                        class="btn btn-info"
-                                        type="button"
-                                        onclick="imprimir()"
-                                        data-toggle="tooltip" 
-                                        title="Imprimir código de barra"
-                                        data-placement="bottom">Imprimir
-                                    </button>
-                                </div>
-                                <div id="print">
-                                    <svg id="barcode"></svg>
+                                    onkeydown="generarbarcode()"
+                                    placeholder="Ingrese aquí el Código de Barras">
+                                <div class="contenedor_codigo_barra">
+                                    <div id="print">
+                                        <svg id="barcode"></svg>
+                                    </div>
+                                    <div class="btn-generar-imprimir">
+                                        <!-- <button
+                                            class="btn btn-success"
+                                            type="button"
+                                            onclick="generarbarcode()" 
+                                            data-toggle="tooltip" 
+                                            title="Generar código de barra"
+                                            data-placement="bottom">Generar
+                                        </button> -->
+                                        <button
+                                            class="btn btn-info"
+                                            type="button"
+                                            onclick="imprimir()"
+                                            data-toggle="tooltip" 
+                                            title="Imprimir código de barra"
+                                            data-placement="bottom">Imprimir
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group botones col-lg-12 col-md-12 col-sm-12 col-xs-12">
