@@ -122,7 +122,7 @@ switch ($_GET["op"]){
         while ($reg = $rspta->fetch_object()) 
         {
             $sw=in_array($reg->idpermiso, $valores)?'checked':'';
-            echo '<li> <input type="checkbox" '.$sw.' name="permiso[]" value="'.$reg->idpermiso.'">'.$reg->nombre.'</li>';   
+            echo '<li class="permis"> <input class="perm" type="checkbox" '.$sw.' name="permiso[]" value="'.$reg->idpermiso.'">'.$reg->nombre.'</li>';   
         }
     break;
     

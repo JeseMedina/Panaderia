@@ -78,7 +78,7 @@ if ($_SESSION['personas']==1)
                             id="formulario"
                             method="POST">
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Nombre(*):</label>
+                                <label>Nombre (*):</label>
                                 <input type="hidden"
                                     name="idusuario"
                                     id="idusuario">
@@ -91,7 +91,7 @@ if ($_SESSION['personas']==1)
                                     required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Número(*):</label>
+                                <label>Número (*):</label>
                                 <input type="text"
                                     class="form-control"
                                     name="num_documento"
@@ -101,7 +101,7 @@ if ($_SESSION['personas']==1)
                                     required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Dirección:</label>
+                                <label>Dirección (*):</label>
                                 <input type="text"
                                     class="form-control"
                                     name="direccion"
@@ -110,7 +110,7 @@ if ($_SESSION['personas']==1)
                                     placeholder="Dirección">
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Teléfono:</label>
+                                <label>Teléfono (*):</label>
                                 <input type="text"
                                     class="form-control"
                                     name="telefono"
@@ -128,7 +128,7 @@ if ($_SESSION['personas']==1)
                                     placeholder="Email">
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Cargo:</label>
+                                <label>Cargo (*):</label>
                                 <input type="text"
                                     class="form-control"
                                     name="cargo"
@@ -137,7 +137,7 @@ if ($_SESSION['personas']==1)
                                     placeholder="Cargo">
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Login:</label>
+                                <label>Login (*):</label>
                                 <input type="text"
                                     class="form-control"
                                     name="login"
@@ -147,7 +147,7 @@ if ($_SESSION['personas']==1)
                                     required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Clave:</label>
+                                <label>Clave (*):</label>
                                 <input type="password"
                                     class="form-control"
                                     name="clave"
@@ -157,7 +157,7 @@ if ($_SESSION['personas']==1)
                                     required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Permisos: </label>
+                                <label class="label_permiso">Permisos (*): </label>
                                 <ul style="list-style: none;"
                                     id="permisos">
                                 </ul>

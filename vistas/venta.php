@@ -216,7 +216,7 @@ if ($_SESSION['ventas']==1)
             <div class="modal-header">
                 <button data-toggle="tooltip" 
                     title="Cerrar Ventana"
-                    data-placement="bottom"
+                    data-placement="left"
                     type="button"
                     class="close"
                     data-dismiss="modal"
@@ -251,9 +251,9 @@ if ($_SESSION['ventas']==1)
             <div class="modal-footer">
                 <button data-toggle="tooltip" 
                     title="Cerrar Ventana"
-                    data-placement="bottom"
+                    data-placement="left"
                     type="button"
-                    class="btn btn-default"
+                    class="btn btn-default cerrar_modal"
                     data-dismiss="modal">Cerrar
                 </button>
             </div>

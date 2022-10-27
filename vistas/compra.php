@@ -221,7 +221,9 @@ if ($_SESSION['compras']==1)
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button title="Seleccionar Productos"
+                <button data-toggle="tooltip" 
+                    title="Cerrar Ventana"
+                    data-placement="left"
                     type="button"
                     class="close"
                     data-dismiss="modal"
@@ -252,9 +254,11 @@ if ($_SESSION['compras']==1)
                 </table>
             </div>
             <div class="modal-footer">
-                <button title="Cerrar Ventana"
+                <button data-toggle="tooltip" 
+                    title="Cerrar Ventana"
+                    data-placement="left"
                     type="button"
-                    class="btn btn-default"
+                    class="btn btn-default cerrar_modal"
                     data-dismiss="modal">Cerrar</button>
             </div>
         </div>

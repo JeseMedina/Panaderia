@@ -212,7 +212,7 @@ if ($_SESSION['produccion']==1)
         <div class="modal-content">
             <div class="modal-header">
                 <button data-toggle="tooltip"
-                    data-placement="bottom"
+                    data-placement="left"
                     title="Cerrar Ventana"
                     type="button"
                     class="close"
@@ -243,10 +243,10 @@ if ($_SESSION['produccion']==1)
             </div>
             <div class="modal-footer">
                 <button data-toggle="tooltip"
-                    data-placement="bottom"
+                    data-placement="left"
                     title="Cerrar Ventana"
                     type="button"
-                    class="btn btn-default"
+                    class="btn btn-default cerrar_modal"
                     data-dismiss="modal">Cerrar
                 </button>
             </div>
