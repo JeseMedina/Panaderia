@@ -113,7 +113,7 @@ switch ($_GET["op"]){
         require_once "../modelos/Producto.php";
         $producto=new Producto();
  
-        $rspta=$producto->listarActivos();
+        $rspta=$producto->listarActivosCompra();
         //Vamos a declarar un array
         $data= Array();
  
