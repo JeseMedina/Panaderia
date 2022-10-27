@@ -577,6 +577,9 @@ h1 .bg-red{
     justify-content: end;
 }
 
+.agregar_producto{
+    width: 100%;
+}
 /* Inputs */
 
 .btn-default {

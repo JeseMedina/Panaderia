@@ -107,7 +107,7 @@ if ($_SESSION['reparto']==1)
                                     id="fecha_hora"
                                     required="">
                             </div>
-                            <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12 pt-3">
+                            <div class="form-group agregar_producto col-lg-3 col-md-3 col-sm-6 col-xs-12 pt-3">
                                 <a data-toggle="modal"
                                     href="#myModal">
                                     <button data-toggle="tooltip"
