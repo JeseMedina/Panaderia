@@ -101,16 +101,19 @@ if ($_SESSION['almacen']==1)
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Unidad de Medida:</label>
-                                <select class="form-control"
-                                    name="uMedida"
-                                    id="uMedida">
-                                    <option value="Gramo">Gramo</option>
-                                    <option value="Kilogramo">Kilogramo</option>
-                                    <option value="Miligramo">Miligramo</option>
-                                    <option value="Litro">Litro</option>
-                                    <option value="Unidad">Unidad</option>
-                                    <option value="Docena">Docena</option>
-                                </select>
+                                <div class="content-select">
+                                    <select class="form-control"
+                                        name="uMedida"
+                                        id="uMedida">
+                                        <option value="Gramo">Gramo</option>
+                                        <option value="Kilogramo">Kilogramo</option>
+                                        <option value="Miligramo">Miligramo</option>
+                                        <option value="Litro">Litro</option>
+                                        <option value="Unidad">Unidad</option>
+                                        <option value="Docena">Docena</option>
+                                    </select>
+                                    <i></i>
+                                </div>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Código:</label>
@@ -118,7 +121,7 @@ if ($_SESSION['almacen']==1)
                                     class="form-control"
                                     name="codigo"
                                     id="codigo"
-                                    onkeydown="generarbarcode()"
+                                    onkeyup="generarbarcode()"
                                     placeholder="Ingrese aquí el Código de Barras">
                                 <div class="contenedor_codigo_barra">
                                     <div id="print">

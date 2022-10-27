@@ -21,7 +21,6 @@ body{
 
 #print{
     margin-top: 15px;
-    background-color: var(--light-green);
     height: 110px;
     width: 222px;
 }
@@ -260,7 +259,7 @@ html{
 .buttons-pdf{
     background: var(--red) !important;
     color: var(--withe) !important;
-    border: 1px solid red !important;
+    border: 1px solid var(--red) !important;
     font-weight: 700;
 }
 
@@ -442,6 +441,14 @@ div.dt-buttons {
 }
 
 /* Lineas de la tabla */
+.dataTables_wrapper {
+    width: 100%;
+}
+
+table.dataTable, table.dataTable th, table.dataTable td {
+    box-sizing: border-box;
+}
+
 .table-bordered {
     border: 3px solid var(--dark-green);
 }
@@ -451,7 +458,7 @@ table.dataTable thead th, table.dataTable thead td {
 }
 
 #tbllistado{
-    width: 1256px !important;
+    width: 100% !important;
 }
 table.dataTable, table.dataTable th, table.dataTable td {
     border-top: 2px solid;
@@ -569,3 +576,80 @@ h1 .bg-red{
     display: flex;
     justify-content: end;
 }
+
+/* Inputs */
+
+.btn-default {
+    background-color: var(--withe);
+    color: #444;
+    border-color: #ddd;
+    border-radius: 0;
+}
+
+.btn-default:hover, .btn-default:active, .btn-default.hover {
+    background-color: var(--withe);
+}
+
+.btn-group.open .dropdown-toggle {
+    -webkit-box-shadow: inset 0 0px 0px rgb(0 0 0 / 13%);
+    box-shadow: inset 0 0px 0px rgb(0 0 0 / 13%);
+}
+
+.btn-default.active, 
+.btn-default:active, 
+.open>.dropdown-toggle.btn-default {
+    background-color: var(--withe);
+    border-color: #ddd;
+}
+
+.btn-default:hover {
+    border-color: #d2d6de;
+}
+
+.btn-default.active.focus, 
+.btn-default.active:focus, 
+.btn-default.active:hover, 
+.btn-default:active.focus, 
+.btn-default:active:focus, 
+.btn-default:active:hover, 
+.open>.dropdown-toggle.btn-default.focus, 
+.open>.dropdown-toggle.btn-default:focus, 
+.open>.dropdown-toggle.btn-default:hover {
+    background-color: var(--withe);
+    border-color: #d2d6de;
+}
+
+.btn:active {
+    -webkit-box-shadow: inset 0 0px 0px !important;
+    box-shadow: inset 0 0px 0px !important;
+}
+
+.btn.active, .btn:active {
+    box-shadow: inset 0 0px 0px !important;
+}
+
+.form-control:focus {
+    border-color: var(--moss);
+}
+
+.bootstrap-select .dropdown-toggle:focus {
+    outline: 0px auto -webkit-focus-ring-color!important;
+}
+
+.dropdown-menu>.active>a, 
+.dropdown-menu>.active>a:focus, 
+.dropdown-menu>.active>a:hover {
+    background-color: var(--moss);
+}
+
+.dropdown-menu>li>a:hover {
+    background-color: var(--dark-green);
+    color: var(--withe);
+}
+
+/* El puto hover del select */
+.btn-default.focus, .btn-default:focus {
+    background-color: var(--withe);
+    border-color: #ddd;
+}
+
