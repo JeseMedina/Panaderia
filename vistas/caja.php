@@ -28,11 +28,17 @@ if ($_SESSION['caja']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Caja <button title="Abrir Caja"
+                        <h1 class="box-title">Caja</h1>
+                        <div class="boton-agregar">
+                            <button data-toggle="tooltip"
+                                data-placement="bottom"
+                                title="Abrir Caja"
                                 class="btn btn-success"
                                 id="btnagregar"
-                                onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>
-                                Abrir Caja</button></h1>
+                                onclick="mostrarform(true)">
+                                Abrir Caja
+                            </button>
+                        </div>
                         <div class="box-tools pull-right"></div>
                     </div>
                     <!-- /.box-header -->
@@ -89,17 +95,23 @@ if ($_SESSION['caja']==1)
                                     required="">
                             </div>
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button title="Guardar Produccion"
+                                <button data-toggle="tooltip" 
+                                    title="Guardar Producción"
+                                    data-placement="bottom"
                                     class="btn btn-primary"
                                     type="submit"
-                                    id="btnGuardar"><i class="fa fa-save"></i> Abrir Caja</button>
+                                    id="btnGuardar">Abrir Caja
+                                </button>
 
-                                <button title="Cancelar y Volver Atras"
+                                <button data-toggle="tooltip" 
+                                    title="Cancelar y volver atrás"
+                                    data-placement="bottom"
                                     id="btnCancelar"
                                     class="btn btn-danger"
                                     onclick="cancelarform()"
                                     type="button">
-                                    Cancelar</button>
+                                    Cancelar
+                                </button>
                             </div>
                         </form>
                     </div>

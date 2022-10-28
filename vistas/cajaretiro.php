@@ -59,11 +59,14 @@ if ($_SESSION['caja']==1)
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button title="Guardar Venta"
-                                    class="btn btn-danger"
+                                <button data-toggle="tooltip" 
+                                    title="Retirar Dinero"
+                                    data-placement="bottom"
+                                    class="btn btn-danger cancelar"
                                     type="submit"
-                                    id="btnRetirar"><i class="fa fa-arrow-down"></i>
-                                    Retirar</button>
+                                    id="btnRetirar">
+                                    Retirar
+                                </button>
                             </div>
                         </form>
                     </div>
