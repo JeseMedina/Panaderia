@@ -54,9 +54,9 @@ Class Producto
     }
  
     //Implementar un método para listar los registros activos
-    public function listarActivos()
+    public function listarActivosCompra()
     {
-        $sql="SELECT a.idproducto,a.idrubro,c.nombre as rubro,a.codigo,a.nombre,a.stock,a.uMedida,a.condicion FROM producto a INNER JOIN rubro c ON a.idrubro=c.idrubro WHERE a.condicion='1' AND c.nombre!='Panadería'";
+        $sql="SELECT a.idproducto,a.idrubro,c.nombre as rubro,a.codigo,a.nombre,a.stock,a.uMedida,a.condicion FROM producto a INNER JOIN rubro c ON a.idrubro=c.idrubro WHERE a.condicion='1' AND c.nombre!='Panadería' AND c.nombre!='Confitería'";
         return ejecutarConsulta($sql);      
     }
  
