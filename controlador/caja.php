@@ -33,7 +33,7 @@ switch ($_GET["op"]){
  
         while ($reg=$rspta->fetch_object()){
             $data[]=array(
-                "0"=>(($reg->estado=='Abierta')?'<button title="Cerrar Caja" class="btn btn-danger" onclick="cerrarCaja('.$reg->idcaja.')"><i class="fa fa-check"></i></button>':'<span></span>'),
+                "0"=>(($reg->estado=='Abierta')?'<button data-toggle="tooltip" data-placement="right" title="Cerrar Caja" class="btn btn-danger" onclick="cerrarCaja('.$reg->idcaja.')"><i class="fa fa-check"></i></button>':'<span></span>'),
                 "1"=>$reg->fecha,
                 "2"=>$reg->inicio,
                 "3"=>$reg->ingreso,

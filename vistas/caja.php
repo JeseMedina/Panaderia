@@ -94,11 +94,11 @@ if ($_SESSION['caja']==1)
                                     id="fecha_hora"
                                     required="">
                             </div>
-                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group botones col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <button data-toggle="tooltip" 
-                                    title="Guardar Producción"
+                                    title="Iniciar Caja"
                                     data-placement="bottom"
-                                    class="btn btn-primary"
+                                    class="btn btn-primary guardar"
                                     type="submit"
                                     id="btnGuardar">Abrir Caja
                                 </button>
@@ -107,7 +107,7 @@ if ($_SESSION['caja']==1)
                                     title="Cancelar y volver atrás"
                                     data-placement="bottom"
                                     id="btnCancelar"
-                                    class="btn btn-danger"
+                                    class="btn btn-danger cancelar"
                                     onclick="cancelarform()"
                                     type="button">
                                     Cancelar
