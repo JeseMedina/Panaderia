@@ -182,6 +182,7 @@ require 'footer.html';
 ?>
 <script type="text/javascript"
     src="scripts/finalizarproduccion.js"></script>
+<script type="text/javascript" src="scripts/table_tooltips.js"></script>
 <?php 
 }
 ob_end_flush();

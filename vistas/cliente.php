@@ -198,3 +198,4 @@ require 'footer.html';
 ?>
 <script type="text/javascript"
     src="scripts/cliente.js"></script>
+<script type="text/javascript" src="scripts/table_tooltips.js"></script>

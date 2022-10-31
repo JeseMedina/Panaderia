@@ -215,3 +215,4 @@ require 'footer.html';
 ?>
 <script type="text/javascript"
     src="scripts/usuario.js"></script>
+<script type="text/javascript" src="scripts/table_tooltips.js"></script>

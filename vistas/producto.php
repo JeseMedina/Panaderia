@@ -184,6 +184,7 @@ require 'footer.html';
     src="../public/js/jquery.PrintArea.js"></script>
 <script type="text/javascript"
     src="scripts/producto.js"></script>
+<script type="text/javascript" src="scripts/table_tooltips.js"></script>
 <?php 
 }
 ob_end_flush();

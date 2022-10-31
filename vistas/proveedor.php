@@ -200,3 +200,4 @@ require 'footer.html';
 ?>
 <script type="text/javascript"
     src="scripts/proveedor.js"></script>
+<script type="text/javascript" src="scripts/table_tooltips.js"></script>

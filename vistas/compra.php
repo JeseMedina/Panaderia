@@ -275,3 +275,4 @@ else
 ?>
 <script type="text/javascript"
     src="scripts/compra.js"></script>
+<script type="text/javascript" src="scripts/table_tooltips.js"></script>
