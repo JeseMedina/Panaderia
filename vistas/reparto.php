@@ -28,7 +28,7 @@ if ($_SESSION['reparto']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Reparto</h1>
+                        <h1 class="box-title">Iniciar Reparto</h1>
                         <div class="boton-agregar">
                             <button data-toggle="tooltip"
                                 data-placement="bottom"

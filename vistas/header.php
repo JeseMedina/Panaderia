@@ -251,8 +251,9 @@ if (strlen(session_id()) < 1)
             }  
             ?>
                     <li>
-                        <a href="ayuda.html">
+                        <a href="">
                             <i class="fa fa-info-circle"></i> <span>Ayuda</span>
+                            <small id="pdf" class="label pull-right">PDF</small>
                         </a>
                     </li>
                     <li>

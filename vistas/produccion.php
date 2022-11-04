@@ -28,7 +28,7 @@ if ($_SESSION['produccion']==1)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h1 class="box-title">Producciones</h1> 
+                        <h1 class="box-title">Iniciar Producción</h1> 
                         <div class="boton-agregar">
                             <button data-toggle="tooltip"
                                 data-placement="bottom"
