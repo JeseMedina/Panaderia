@@ -107,7 +107,8 @@ if ($_SESSION['personas']==1)
                                     name="direccion"
                                     id="direccion"
                                     maxlength="70"
-                                    placeholder="Dirección">
+                                    placeholder="Dirección"
+                                    required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Teléfono (*):</label>
@@ -116,7 +117,8 @@ if ($_SESSION['personas']==1)
                                     name="telefono"
                                     id="telefono"
                                     maxlength="20"
-                                    placeholder="Teléfono">
+                                    placeholder="Teléfono"
+                                    required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Email:</label>
@@ -134,7 +136,8 @@ if ($_SESSION['personas']==1)
                                     name="cargo"
                                     id="cargo"
                                     maxlength="20"
-                                    placeholder="Cargo">
+                                    placeholder="Cargo"
+                                    required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Login (*):</label>

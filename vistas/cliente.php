@@ -76,7 +76,7 @@ if ($_SESSION['personas']==1)
                             id="formulario"
                             method="POST">
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Nombre(*):</label>
+                                <label>Nombre (*):</label>
                                 <input type="hidden"
                                     name="idpersona"
                                     id="idpersona">
@@ -93,16 +93,17 @@ if ($_SESSION['personas']==1)
                                     required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Número Documento(*):</label>
+                                <label>Número Documento (*):</label>
                                 <input type="text"
                                     class="form-control"
                                     name="num_documento"
                                     id="num_documento"
                                     maxlength="20"
-                                    placeholder="Documento">
+                                    placeholder="Documento"
+                                    required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Provincia(*):</label>
+                                <label>Provincia (*):</label>
                                 <select class="form-control select-picker"
                                     id="provincia"
                                     name="provincia">
@@ -132,22 +133,24 @@ if ($_SESSION['personas']==1)
                                 </select>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Dirección(*):</label>
+                                <label>Dirección (*):</label>
                                 <input type="text"
                                     class="form-control"
                                     name="direccion"
                                     id="direccion"
                                     maxlength="70"
-                                    placeholder="Dirección">
+                                    placeholder="Dirección"
+                                    required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Teléfono(*):</label>
+                                <label>Teléfono (*):</label>
                                 <input type="text"
                                     class="form-control"
                                     name="telefono"
                                     id="telefono"
                                     maxlength="20"
-                                    placeholder="Teléfono">
+                                    placeholder="Teléfono"
+                                    required>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Email:</label>
