@@ -125,7 +125,7 @@ if ($_SESSION['ventas']==1)
                             </div>
                             <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
                                 <label>Número:</label>
-                                <input type="text"
+                                <input type="number"
                                     class="form-control"
                                     name="num_comprobante"
                                     id="num_comprobante"
@@ -135,8 +135,9 @@ if ($_SESSION['ventas']==1)
                             </div>
                             <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
                                 <label>Impuesto:</label>
-                                <input type="text"
+                                <input type="number"
                                     class="form-control"
+                                    step=".10"
                                     name="impuesto"
                                     id="impuesto"
                                     required="">
