@@ -226,6 +226,7 @@ function agregarDetalle(idproducto,producto,uMedida)
     var cantidad=1;
     var precio_compra=1;
     var precio_venta=1;
+    window.scrollTo(0, document.body.scrollHeight);
  
     if (idproducto!="")
     {

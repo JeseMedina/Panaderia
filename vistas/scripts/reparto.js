@@ -215,6 +215,7 @@ $("#btnGuardar").hide();
 function agregarDetalle(idproducto, producto, precio_venta, uMedida) {
     var cantidad = 1;
     var descuento = 0;
+    window.scrollTo(0, document.body.scrollHeight);
 
     if (idproducto != "") {
         var subtotal = cantidad * precio_venta;

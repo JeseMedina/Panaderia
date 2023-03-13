@@ -92,7 +92,8 @@ if ($_SESSION['caja']==1)
                                     class="form-control"
                                     name="fecha_hora"
                                     id="fecha_hora"
-                                    required="">
+                                    required=""
+                                    value="<?php date('Y-m-d')?>">
                             </div>
                             <div class="form-group botones col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <button data-toggle="tooltip" 

@@ -30,10 +30,19 @@ switch ($_GET["op"]){
         $rspta=$caja->listar();
         //Vamos a declarar un array
         $data= Array();
+        date_default_timezone_set('America/Argentina/Buenos_Aires');
  
         while ($reg=$rspta->fetch_object()){
+            $botones;
+            if($reg->estado=='Abierta'){
+                $botones = '<button data-toggle="tooltip" data-placement="right" title="Cerrar Caja" class="btn btn-danger" onclick="cerrarCaja('.$reg->idcaja.')"><i class="fa fa-x"></i></button>';
+            }else if($reg->fecha == date('Y-m-d')){
+                $botones = '<button data-toggle="tooltip" data-placement="right" title="Reabrir Caja" class="btn btn-warning" onclick="reabrirCaja('.$reg->idcaja.')"><i class="fa fa-check"></i></button>';
+            }else{
+                $botones = '<span></span>';
+            }
             $data[]=array(
-                "0"=>(($reg->estado=='Abierta')?'<button data-toggle="tooltip" data-placement="right" title="Cerrar Caja" class="btn btn-danger" onclick="cerrarCaja('.$reg->idcaja.')"><i class="fa fa-check"></i></button>':'<span></span>'),
+                "0"=>$botones,
                 "1"=>$reg->fecha,
                 "2"=>$reg->inicio,
                 "3"=>$reg->ingreso,
@@ -77,5 +86,9 @@ switch ($_GET["op"]){
         echo $rspta ? "Efectivo Retirado" : "No se pudo retirar Efectvo";
     break;
     
+    case 'reabrirCaja':
+        $rspta=$caja->reabrirCaja($idcaja);
+        echo $rspta ? "Caja Reabierta" : "caja no se pudo reabrir";
+    break;
 }
 ?>

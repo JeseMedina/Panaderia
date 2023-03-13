@@ -154,6 +154,7 @@ if (strlen(session_id()) < 1)
               <ul class="treeview-menu">
                 <li><a href="producto.php"> Productos</a></li>
                 <li><a href="rubro.php"> Rubros</a></li>
+                <li><a href="actualizarprecio.php">Actualizar Precio</a></li>
               </ul>
             </li>';
             }  

@@ -104,19 +104,10 @@ if ($_SESSION['compras']==1)
                                     id="tipo_comprobante"
                                     class="form-control selectpicker"
                                     required="">
-                                    <option value="Boleta">Boleta</option>
-                                    <option value="Factura">Factura</option>
-                                    <option value="Ticket">Ticket</option>
+                                    <option value="A">Comprobante A</option>
+                                    <option value="B">Comprobante B</option>
+                                    <option value="N">Comprobante N</option>
                                 </select>
-                            </div>
-                            <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                <label>Serie:</label>
-                                <input type="text"
-                                    class="form-control"
-                                    name="serie_comprobante"
-                                    id="serie_comprobante"
-                                    maxlength="7"
-                                    placeholder="Serie">
                             </div>
                             <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
                                 <label>Número:</label>
@@ -124,18 +115,8 @@ if ($_SESSION['compras']==1)
                                     class="form-control"
                                     name="num_comprobante"
                                     id="num_comprobante"
-                                    maxlength="10"
-                                    placeholder="Número"
-                                    required="">
-                            </div>
-                            <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                <label>Impuesto:</label>
-                                <input type="number"
-                                    class="form-control"
-                                    name="impuesto"
                                     step=".10"
-                                    id="impuesto"
-                                    required="">
+                                    placeholder="Número">
                             </div>
                             <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a data-toggle="modal"

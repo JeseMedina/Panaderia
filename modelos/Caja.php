@@ -41,5 +41,10 @@ Class Caja{
         $sql="INSERT INTO caja_retiro (idcaja,retiro) VALUES ('$idcaja','$retiro')";
         return ejecutarConsulta($sql);
     }
+
+    public function reabrirCaja($idcaja){
+        $sql="UPDATE caja SET estado='Abierta' Where idcaja='$idcaja'";
+        return ejecutarConsulta($sql);
+    }
 }
 ?>

@@ -203,6 +203,7 @@ $("#btnGuardar").hide();
 
 function agregarDetalle(idproducto, producto, uMedida) {
     var cantidad = 1;
+    window.scrollTo(0, document.body.scrollHeight);
 
     if (idproducto != "") {
         var fila = '<tr class="filas" id="fila' + cont + '">' +

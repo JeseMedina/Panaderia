@@ -30,7 +30,7 @@ if ($_SESSION['ventas']==1)
                     <div class="box-header with-border">
                         <h1 class="box-title">Venta</h1>
                         <div class="boton-agregar">
-                            <button data-toggle="tooltip" 
+                            <button data-toggle="tooltip"
                                 title="Nueva Venta"
                                 data-placement="bottom"
                                 class="btn btn-success"
@@ -38,7 +38,7 @@ if ($_SESSION['ventas']==1)
                                 onclick="mostrarform(true)">
                                 Agregar
                             </button>
-                            <button data-toggle="tooltip" 
+                            <button data-toggle="tooltip"
                                 title="Ver Listado de Ventas"
                                 data-placement="bottom"
                                 class="btn btn-success"
@@ -82,7 +82,7 @@ if ($_SESSION['ventas']==1)
                         <form name="formulario"
                             id="formulario"
                             method="POST">
-                            <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                            <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <label>Cliente(*):</label>
                                 <input type="hidden"
                                     name="idventa"
@@ -92,7 +92,6 @@ if ($_SESSION['ventas']==1)
                                     class="form-control selectpicker"
                                     data-live-search="true"
                                     required>
-
                                 </select>
                             </div>
                             <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -103,52 +102,22 @@ if ($_SESSION['ventas']==1)
                                     id="fecha_hora"
                                     required="">
                             </div>
-                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Tipo Comprobante(*):</label>
-                                <select name="tipo_comprobante"
-                                    id="tipo_comprobante"
+                            <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <label>Tipo de Pago(*):</label>
+                                <select name="tipo_pago"
+                                    id="tipo_pago"
                                     class="form-control selectpicker"
                                     required="">
-                                    <option value="Boleta">Boleta</option>
-                                    <option value="Factura">Factura</option>
-                                    <option value="Ticket">Ticket</option>
+                                    <option value="Contado">Contado</option>
+                                    <option value="Tarjeta">Tarjeta</option>
                                 </select>
-                            </div>
-                            <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                <label>Serie:</label>
-                                <input type="text"
-                                    class="form-control"
-                                    name="serie_comprobante"
-                                    id="serie_comprobante"
-                                    maxlength="7"
-                                    placeholder="Serie">
-                            </div>
-                            <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                <label>Número:</label>
-                                <input type="number"
-                                    class="form-control"
-                                    name="num_comprobante"
-                                    id="num_comprobante"
-                                    maxlength="10"
-                                    placeholder="Número"
-                                    required="">
-                            </div>
-                            <div class="form-group col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                                <label>Impuesto:</label>
-                                <input type="number"
-                                    class="form-control"
-                                    step=".10"
-                                    name="impuesto"
-                                    id="impuesto"
-                                    required="">
                             </div>
                             <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a data-toggle="modal"
                                     href="#myModal">
-                                    <button
-                                        id="btnAgregarArt"
+                                    <button id="btnAgregarArt"
                                         type="button"
-                                        class="btn btn-primary"> 
+                                        class="btn btn-primary">
                                         Agregar Productos
                                     </button>
                                 </a>
@@ -185,8 +154,8 @@ if ($_SESSION['ventas']==1)
                                 </table>
                             </div>
 
-                            <div class="form-group botones col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button data-toggle="tooltip" 
+                            <div class="form-group botones col-lg-12 col-md-12 col-sm-12 col-xs-12" id="btnG">
+                                <button data-toggle="tooltip"
                                     title="Guardar Venta"
                                     data-placement="bottom"
                                     class="btn btn-primary guardar"
@@ -215,7 +184,7 @@ if ($_SESSION['ventas']==1)
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button data-toggle="tooltip" 
+                <button data-toggle="tooltip"
                     title="Cerrar Ventana"
                     data-placement="left"
                     type="button"
@@ -250,7 +219,7 @@ if ($_SESSION['ventas']==1)
                 </table>
             </div>
             <div class="modal-footer">
-                <button data-toggle="tooltip" 
+                <button data-toggle="tooltip"
                     title="Cerrar Ventana"
                     data-placement="left"
                     type="button"
@@ -273,7 +242,8 @@ require 'footer.html';
 ?>
 <script type="text/javascript"
     src="scripts/venta.js"></script>
-<script type="text/javascript" src="scripts/table_tooltips.js"></script>
+<script type="text/javascript"
+    src="scripts/table_tooltips.js"></script>
 <?php 
 }
 ob_end_flush();

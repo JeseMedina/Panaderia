@@ -26,17 +26,16 @@ if ($_SESSION['almacen']==1)
                 <div class="box">
                     <div class="box-header with-border">
                         <h1 class="box-title">Productos</h1>
-                            <div class="boton-agregar">
-                                <button 
-                                    class="btn btn-success"
-                                    data-toggle="tooltip"
-                                    data-placement="bottom"
-                                    title="Agregar Productos"
-                                    id="btnagregar"
-                                    onclick="mostrarform(true)">
-                                    Agregar
-                                </button>
-                            </div>
+                        <div class="boton-agregar">
+                            <button class="btn btn-success"
+                                data-toggle="tooltip"
+                                data-placement="bottom"
+                                title="Agregar Productos"
+                                id="btnagregar"
+                                onclick="mostrarform(true)">
+                                Agregar
+                            </button>
+                        </div>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
@@ -90,14 +89,16 @@ if ($_SESSION['almacen']==1)
                                     data-live-search="true"
                                     required></select>
                             </div>
-                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label>Stock(*):</label>
-                                <input type="number"
-                                    class="form-control"
-                                    name="stock"
-                                    id="stock"
-                                    placeholder="Stock del producto"
-                                    required>
+                            <div class="divmostrar" id="divmostrar">
+                                <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <label>Stock(*):</label>
+                                    <input type="number"
+                                        class="form-control"
+                                        name="stock"
+                                        id="stock"
+                                        placeholder="Stock del producto"
+                                        required>
+                                </div>
                             </div>
                             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Unidad de Medida:</label>
@@ -136,11 +137,10 @@ if ($_SESSION['almacen']==1)
                                             title="Generar código de barra"
                                             data-placement="bottom">Generar
                                         </button> -->
-                                        <button
-                                            class="btn btn-info"
+                                        <button class="btn btn-info"
                                             type="button"
                                             onclick="imprimir()"
-                                            data-toggle="tooltip" 
+                                            data-toggle="tooltip"
                                             title="Imprimir código de barra"
                                             data-placement="bottom">Imprimir
                                         </button>
@@ -148,14 +148,14 @@ if ($_SESSION['almacen']==1)
                                 </div>
                             </div>
                             <div class="form-group botones col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button data-toggle="tooltip" 
+                                <button data-toggle="tooltip"
                                     title="Guardar Producto"
                                     data-placement="bottom"
                                     class="btn btn-primary guardar"
                                     type="submit"
                                     id="btnGuardar">Guardar
                                 </button>
-                                <button data-toggle="tooltip" 
+                                <button data-toggle="tooltip"
                                     title="Cancelar y volver atrás"
                                     data-placement="bottom"
                                     class="btn btn-danger cancelar"
@@ -184,7 +184,8 @@ require 'footer.html';
     src="../public/js/jquery.PrintArea.js"></script>
 <script type="text/javascript"
     src="scripts/producto.js"></script>
-<script type="text/javascript" src="scripts/table_tooltips.js"></script>
+<script type="text/javascript"
+    src="scripts/table_tooltips.js"></script>
 <?php 
 }
 ob_end_flush();

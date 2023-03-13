@@ -121,4 +121,16 @@ function cajaAbierta(){
     });
 }
 
+function reabrirCaja(idcaja){
+    bootbox.confirm("¿Está Seguro de Reabrir la caja?",function(result){
+        if (result) {
+            $.post("../controlador/caja.php?op=reabrirCaja", { idcaja: idcaja }, function (e) {
+                bootbox.alert(e);
+                tabla.ajax.reload();
+            });
+        }
+        cajaAbierta();
+    });
+}
+
 init();

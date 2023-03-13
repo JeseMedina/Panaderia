@@ -77,5 +77,17 @@ switch ($_GET["op"]){
                     echo '<option value=' . $reg->idrubro . '>' . $reg->nombre . '</option>';
                 }
     break;
+
+    case 'selectProducto':
+        require_once "../modelos/Producto.php";
+        $producto = new Producto();
+ 
+        $rspta = $producto->listarActivosVenta();
+ 
+        while ($reg = $rspta->fetch_object())
+                {
+                echo '<option value=' . $reg->idproducto . '>' . $reg->nombre . '</option>';
+                }
+    break;
 }
 ?>
